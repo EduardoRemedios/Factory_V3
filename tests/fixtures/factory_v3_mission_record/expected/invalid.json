@@ -1,6 +1,10 @@
 {
   "blocking_effect": "none",
   "checked_records": [
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json",
     "tests/fixtures/factory_v3_mission_record/invalid/fallback_used_no_reason_code.json",
     "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json",
     "tests/fixtures/factory_v3_mission_record/invalid/halted_without_halt_flag.json",
@@ -69,6 +73,30 @@
       "id": "V3-MR076",
       "message": "halted records must not report passing verification",
       "path": "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR077",
+      "message": "blocked records must not report changed files",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR078",
+      "message": "blocked records must not report passing verification",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR079",
+      "message": "blocked records must mark fallback.used true",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR080",
+      "message": "blocked records must not mark halt.halted true",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
       "severity": "advisory_critical"
     }
   ],

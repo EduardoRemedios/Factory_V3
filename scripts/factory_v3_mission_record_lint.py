@@ -284,6 +284,16 @@ def _check_state_consistency(
             findings.append(_finding("V3-MR075", "advisory_critical", path, "halted records must mark halt.halted true"))
         if verification.get("result") == "pass":
             findings.append(_finding("V3-MR076", "advisory_critical", path, "halted records must not report passing verification"))
+
+    if decision_state == "blocked":
+        if execution.get("files_changed"):
+            findings.append(_finding("V3-MR077", "advisory_critical", path, "blocked records must not report changed files"))
+        if verification.get("result") == "pass":
+            findings.append(_finding("V3-MR078", "advisory_critical", path, "blocked records must not report passing verification"))
+        if fallback.get("used") is not True:
+            findings.append(_finding("V3-MR079", "advisory_critical", path, "blocked records must mark fallback.used true"))
+        if halt.get("halted") is True:
+            findings.append(_finding("V3-MR080", "advisory_critical", path, "blocked records must not mark halt.halted true"))
     return findings
 
 
