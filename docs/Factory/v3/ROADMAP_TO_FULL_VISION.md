@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v0.9
+v1.0
 
 ## Change Log
+- v1.0 (2026-05-25): Added Phase 2.5 mission-record adoption decision, added a final V3 product-independence decision for V2 scaffolding removal, and updated the recommended next move.
 - v0.9 (2026-05-25): Added a valid Phase 2 blocked-state shadow mission-record fixture and advisory blocked-state consistency checks.
 - v0.8 (2026-05-25): Clarified the dedicated-repository product direction: V3 should ultimately have no V2 dependency here after explicit confidence and release approval, while V2 remains preserved in the separate V2-only repository.
 - v0.7 (2026-05-25): Added valid Phase 2 shadow mission-record fixtures for verification-halt and stale-reentry examples while keeping validator behavior advisory-only.
@@ -169,6 +170,40 @@ Required evidence:
 Promotion gate:
 
 Approve structured mission records for optional use only after they improve replayability without creating a second conflicting mission-state source.
+
+## Phase 2.5 - Mission Record Adoption Decision
+
+Goal:
+
+Decide whether the shadow mission-record format is useful enough to keep using before adding telemetry.
+
+Work:
+
+1. Use `V3_MISSION_RECORD` on the next 2-3 real V3 repository changes.
+2. Backfill mission records for recent V3 work in this repository where practical.
+3. Compare replay quality between prose-only closeout evidence and structured mission records.
+4. Record user/operator friction, missing fields, duplicated effort, and false-positive or false-negative validator findings.
+5. Confirm that mission records remain advisory and do not conflict with Mission Mode or create a second source of truth.
+
+Required evidence:
+
+- at least 2 fresh real V3 repository mission records,
+- at least 1 record for a blocked, halted, or fallback outcome,
+- validator reports for those records,
+- short replayability review,
+- explicit source-of-truth conflict review,
+- decision note naming whether to continue, revise, pause, or recommend optional shadow use.
+
+Possible decisions:
+
+- `CONTINUE_SHADOW_USE`: keep using mission records as advisory shadow evidence.
+- `REVISE_SCHEMA`: update the v0 shape before telemetry.
+- `PAUSE_RECORD_WORK`: stop if the record adds burden without replay value.
+- `RECOMMEND_OPTIONAL_SHADOW_USE`: recommend the record for named low-risk `V3-OP-001` work, still non-blocking.
+
+Promotion gate:
+
+Do not start telemetry/replay implementation until this decision shows the record is stable enough to serve as the base event context.
 
 ## Phase 3 - Telemetry And Evidence Replay
 
@@ -359,12 +394,44 @@ Hard no-go conditions:
 - failed verification can continue without explicit human override,
 - capability evidence is harness-specific but presented as universal.
 
+## Phase 9 - V3 Product Independence Decision
+
+Goal:
+
+Decide whether this dedicated repository can become V3-only and remove V2 build-support scaffolding from this repo, while preserving V2 in the separate V2-only repository.
+
+Decision inputs:
+
+- Phase 8 default-mode decision result,
+- approved V3 governance path that no longer depends on V2 scaffolding,
+- migration guidance for contributors using this repository,
+- inventory of V2 files/scripts/templates to remove or archive elsewhere,
+- confirmation that V2 remains preserved in the separate V2-only repository,
+- verification that V3 product docs do not depend on V2-only commands or artifacts,
+- human release approval naming the exact removal scope.
+
+Possible decisions:
+
+- `NO-GO`: keep V2 build-support scaffolding in this repo.
+- `PARTIAL REMOVAL`: remove only unused V2 helper files while keeping named build-support pieces.
+- `V3_ONLY_REPO`: remove V2 scaffolding from this repo and rely on V3-native governance.
+- `DEFER`: collect named missing confidence evidence.
+
+Hard no-go conditions:
+
+- V3 still requires V2 stage, pack, or lint behavior to govern itself,
+- contributors lack a V3-native replacement for required development governance,
+- removal would erase historical evidence needed to understand V3 decisions,
+- the separate V2-only repository is not confirmed as the V2 preservation home,
+- release approval does not name exact files and replacement commands.
+
 ## High-Level Checklist
 
 Before any decision to operationalize V3 beyond `V3-OP-001`, confirm:
 
 - [ ] real-project trial evidence exists,
 - [ ] structured mission record exists and has fixtures,
+- [ ] mission-record adoption decision exists,
 - [ ] telemetry/replay format exists and has pilots,
 - [ ] evals cover both positive and negative cases,
 - [ ] capability profiles exist for the target harness,
@@ -374,7 +441,14 @@ Before any decision to operationalize V3 beyond `V3-OP-001`, confirm:
 - [ ] external-kernel boundary remains intact,
 - [ ] human approval names the exact profile and release level.
 
-## Recommended Next Move
-Start Phase 1.
+Before making this repository V3-only, also confirm:
 
-Run real-project `V3-OP-001` trials using the current `USER_GUIDE.md`, then use the evidence to design Phase 2's structured mission record. Do not design the full persistent runtime first; the record format should emerge from observed operational evidence.
+- [ ] V3-native governance can build and review V3 without V2 scaffolding,
+- [ ] V2 is preserved in the separate V2-only repository,
+- [ ] migration/removal scope names exact files and replacement commands,
+- [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
+
+## Recommended Next Move
+Complete Phase 2.5.
+
+Use the current shadow mission-record format on the next real V3 repository changes, backfill recent V3 work where practical, and write a mission-record adoption decision before starting telemetry/replay. Do not add telemetry, governance routing, enforcement, default-mode behavior, or V2 scaffolding removal until the relevant later phase explicitly approves it.
