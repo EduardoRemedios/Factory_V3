@@ -278,6 +278,12 @@ def _check_state_consistency(
             findings.append(_finding("V3-MR073", "advisory_critical", path, "completed V3 records must not mark halt.halted true"))
         if not verification.get("commands") and not authority.get("allowed_commands"):
             findings.append(_finding("V3-MR074", "advisory_critical", path, "completed V3 records must record verification command evidence"))
+
+    if decision_state == "halted":
+        if halt.get("halted") is not True:
+            findings.append(_finding("V3-MR075", "advisory_critical", path, "halted records must mark halt.halted true"))
+        if verification.get("result") == "pass":
+            findings.append(_finding("V3-MR076", "advisory_critical", path, "halted records must not report passing verification"))
     return findings
 
 

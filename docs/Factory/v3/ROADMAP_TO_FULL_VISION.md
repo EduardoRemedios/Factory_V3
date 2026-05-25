@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v0.6
+v0.7
 
 ## Change Log
+- v0.7 (2026-05-25): Added valid Phase 2 shadow mission-record fixtures for verification-halt and stale-reentry examples while keeping validator behavior advisory-only.
 - v0.6 (2026-05-24): Added the Phase 2 standalone advisory mission-record validator, malformed fixtures, and deterministic expected-output fixtures.
 - v0.5 (2026-05-24): Added Phase 2 v0 shadow mission-record design artifacts and trial-derived fixtures.
 - v0.4 (2026-05-24): Recorded Phase 1 decision review result and unblocked Phase 2 shadow mission-record design.
@@ -116,7 +117,7 @@ Decision:
 
 ## Phase 2 - Structured Mission Record
 
-Status: In progress. v0 shadow template, trial-derived fixtures, malformed fixtures, deterministic expected outputs, and a standalone advisory validator exist.
+Status: In progress. v0 shadow template, trial-derived fixtures, valid halted/stale-reentry design fixtures, malformed fixtures, deterministic expected outputs, and a standalone advisory validator exist.
 
 Goal:
 
@@ -150,7 +151,7 @@ Work:
 
 1. Design the JSON schema as a shadow artifact. Status: v0 template exists at `docs/Factory/v3/templates/V3_MISSION_RECORD_TEMPLATE.json`.
 2. Backfill the schema against existing V3 pilot evidence where practical. Status: first five Phase 1 trials are backfilled under `tests/fixtures/factory_v3_mission_record/`.
-3. Add fixture coverage for valid records, missing authority, verification-halt outcomes, stale reentry, and V2 fallback. Status: pre-envelope fallback, happy-path fixtures, and malformed-record fixtures exist; valid verification-halt and stale-reentry examples remain future work.
+3. Add fixture coverage for valid records, missing authority, verification-halt outcomes, stale reentry, and V2 fallback. Status: pre-envelope fallback, happy-path fixtures, malformed-record fixtures, and valid synthetic verification-halt and stale-reentry examples exist.
 4. Add an advisory validator that reads the record and emits structured findings. Status: standalone validator exists at `scripts/factory_v3_mission_record_lint.py` with `blocking_effect: none` and no required-gate integration.
 5. Keep the authored Markdown envelope and closeout as the human-readable source until the schema has enough evidence.
 

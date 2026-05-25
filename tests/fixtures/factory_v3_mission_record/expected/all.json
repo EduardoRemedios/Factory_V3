@@ -1,7 +1,11 @@
 {
   "blocking_effect": "none",
   "checked_records": [
+    "tests/fixtures/factory_v3_mission_record/fixture_halted_stale_reentry.json",
+    "tests/fixtures/factory_v3_mission_record/fixture_halted_verification_failure.json",
     "tests/fixtures/factory_v3_mission_record/invalid/fallback_used_no_reason_code.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/halted_without_halt_flag.json",
     "tests/fixtures/factory_v3_mission_record/invalid/missing_allowed_command.json",
     "tests/fixtures/factory_v3_mission_record/invalid/missing_authorized_files.json",
     "tests/fixtures/factory_v3_mission_record/invalid/missing_verification_result.json",
@@ -60,6 +64,18 @@
       "id": "V3-MR057",
       "message": "execution.fallback is true but reason_codes is empty",
       "path": "tests/fixtures/factory_v3_mission_record/invalid/fallback_used_no_reason_code.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR075",
+      "message": "halted records must mark halt.halted true",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/halted_without_halt_flag.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR076",
+      "message": "halted records must not report passing verification",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json",
       "severity": "advisory_critical"
     }
   ],

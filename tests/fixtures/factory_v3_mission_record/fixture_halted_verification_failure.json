@@ -1,0 +1,127 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "halted",
+    "created_date": "2026-05-25",
+    "source_trial_id": "V3-G005_shadow_halt_fixture",
+    "source_trial_path": "tests/fixtures/factory_v3_operational_readiness_eval/cases/V3-G005/input.md",
+    "source_closeout_reference": "synthetic Phase 2 fixture derived from V3-G005 halt-on-failure eval case",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "not_recorded",
+    "commit_before": "not_recorded",
+    "commit_after": "not_recorded",
+    "user_or_reviewer": "Phase 2 fixture",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Represent a bounded V3 mission that stopped after required verification failed.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "tests/fixtures/factory_v3_mission_record/fixture_halted_verification_failure.json",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "/tmp/factory_v3_fixture/example_module.py",
+      "/tmp/factory_v3_fixture/test_example_module.py"
+    ],
+    "forbidden_scope": [
+      "no files outside authorized scope",
+      "no dependency additions",
+      "no runtime authority",
+      "no required-gate integration"
+    ],
+    "allowed_commands": [
+      "python3 -m unittest test_example_module -v"
+    ],
+    "dependency_policy": "No new dependencies.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "verification failure",
+      "scope expansion",
+      "dependency need",
+      "missing authority"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "/tmp/factory_v3_fixture/example_module.py",
+      "/tmp/factory_v3_fixture/test_example_module.py"
+    ],
+    "verification": {
+      "commands": [
+        "python3 -m unittest test_example_module -v"
+      ],
+      "result": "fail",
+      "summary": "Synthetic fixture: required verification failed, so V3 execution halted without continuation."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "not_run",
+        "classification": "not_run"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "not_run",
+        "classification": "not_run"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "not_run",
+        "classification": "not_run"
+      }
+    ],
+    "halt": {
+      "halted": true,
+      "reason_codes": [
+        "verification_failed"
+      ]
+    },
+    "fallback": {
+      "used": true,
+      "reason_codes": [
+        "verification_failed_requires_v2_or_human_review"
+      ]
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Fixture remains local and direct; no abstraction, dependency, or broader authority is introduced."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Failed verification triggered halt and fallback instead of continued execution."
+      ]
+    },
+    "friction_notes": [
+      "Synthetic fixture captures the Phase 2 need for a valid halted state."
+    ],
+    "false_positive_notes": [
+      "Not applicable; this is a fixture for validator shape."
+    ],
+    "false_negative_notes": [
+      "Not applicable; this is a fixture for validator shape."
+    ]
+  },
+  "phase2_design_signals": [
+    "Halted records need explicit halt reason codes and non-passing verification evidence."
+  ]
+}

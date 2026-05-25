@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v0.8
+v0.9
 
 ## Change Log
+- v0.9 (2026-05-25): Added valid Phase 2 shadow mission-record fixtures for halted verification failure and stale reentry, plus advisory halted-state consistency checks.
 - v0.8 (2026-05-24): Added the standalone advisory V3 mission-record validator, malformed-record fixtures, and deterministic expected outputs.
 - v0.7 (2026-05-24): Added Phase 2 shadow mission-record v0 design and trial-derived JSON fixtures.
 - v0.6 (2026-05-24): Added Phase 1 trial operating plan and trial index.
@@ -110,11 +111,13 @@ Use:
 - `tests/fixtures/factory_v3_mission_record/`
 - `scripts/factory_v3_mission_record_lint.py`
 
-The v0 record captures pre-envelope fallback, thread-local mission envelopes, bounded authority, command evidence, verification, fallback review, SIMPLE-CODE-GATE review, and Phase 2 design signals.
+The v0 record captures pre-envelope fallback, thread-local mission envelopes, bounded authority, command evidence, verification, halt/fallback review, SIMPLE-CODE-GATE review, and Phase 2 design signals.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 
 It does not approve enforcement, required gates, runtime authority, telemetry, governance routing, or new V3 profiles.
+
+Valid shadow fixtures now include completed, pre-envelope fallback, halted verification-failure, and halted stale-reentry examples. The halted fixtures are synthetic Phase 2 design examples, not operational promotion evidence.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.

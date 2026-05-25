@@ -1,9 +1,10 @@
 # Factory v3 Mission Record Design v0
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-05-25): Added valid halted verification-failure and stale-reentry shadow fixtures, with advisory halted-state consistency checks.
 - v0.2 (2026-05-24): Added malformed-record fixture coverage and a standalone advisory mission-record validator with deterministic expected outputs.
 - v0.1 (2026-05-24): Initial shadow mission-record design derived from the first five Phase 1 `V3-OP-001` trials.
 
@@ -61,7 +62,7 @@ scripts/factory_v3_mission_record_lint.py
 | `halted` | V3 started and then stopped because verification did not pass, scope expanded, authority was missing, or another halt rule fired. No further execution is implied by this state. |
 | `blocked` | The work could not safely proceed and no execution occurred. |
 
-Phase 1 produced `pre_envelope_fallback` and `completed_with_v3` records. `halted` and `blocked` remain design states for future valid-record fixtures.
+Phase 1 produced `pre_envelope_fallback` and `completed_with_v3` records. Phase 2 now includes synthetic valid `halted` fixtures for verification failure and stale reentry. `blocked` remains a design state for future valid-record fixtures.
 
 ## Required Field Groups
 
@@ -112,7 +113,9 @@ Deterministic expected outputs live under:
 tests/fixtures/factory_v3_mission_record/expected/
 ```
 
-Malformed-record fixtures currently cover missing authorized files, missing allowed commands, missing verification result, fallback without reason code, thread-local envelope without reference, and unsafe approval-scope flags.
+Valid shadow fixtures currently cover completed missions, pre-envelope fallback, halted verification failure, and halted stale reentry.
+
+Malformed-record fixtures currently cover missing authorized files, missing allowed commands, missing verification result, halted-state inconsistency, fallback without reason code, thread-local envelope without reference, and unsafe approval-scope flags.
 
 ## Out Of Scope For v0
 
@@ -126,4 +129,4 @@ Malformed-record fixtures currently cover missing authorized files, missing allo
 - External governance-kernel adapters.
 
 ## Next Step
-Use the advisory validator against future shadow records and add valid halted, blocked, stale-reentry, and verification-failure examples only when real evidence or an approved Phase 2 design task justifies them.
+Use the advisory validator against future shadow records and add a valid blocked example only when real evidence or an approved Phase 2 design task justifies it.
