@@ -1,18 +1,21 @@
 # Factory v3 Promotion Criteria
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-05-25): Clarified that V2 governance is build-support during V3 maturation, not a V3 product dependency, and that V2 deprecation/removal from this repo requires explicit confidence and release evidence.
 - v0.1 (2026-05-18): Initial promotion criteria for Factory v3 research.
 
 ## Status
 Research only. This document defines candidate promotion criteria but does not promote Factory v3.
 
 ## Promotion Principle
-Factory v3 may only be promoted after it has been planned, evaluated, and hardened using Factory v2 governance.
+Factory v3 may only be promoted after it has been planned, evaluated, and hardened using the currently available Factory v2 governance scaffolding or a later explicitly approved V3-equivalent governance path.
 
 Promotion requires evidence and explicit human release approval.
+
+V2 governance in this repository is build-support during V3 maturation. It is not a V3 product dependency. V2 deprecation/removal from this repository is a future promotion decision that requires explicit V3 confidence evidence, migration guidance, and human release approval; the separate V2-only repository remains the preservation home for V2.
 
 ## Minimum Promotion Inputs
 Before any v3 artifact becomes authoritative, there must be:

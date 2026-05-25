@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v0.7
+v0.8
 
 ## Change Log
+- v0.8 (2026-05-25): Clarified the dedicated-repository product direction: V3 should ultimately have no V2 dependency here after explicit confidence and release approval, while V2 remains preserved in the separate V2-only repository.
 - v0.7 (2026-05-25): Added valid Phase 2 shadow mission-record fixtures for verification-halt and stale-reentry examples while keeping validator behavior advisory-only.
 - v0.6 (2026-05-24): Added the Phase 2 standalone advisory mission-record validator, malformed fixtures, and deterministic expected-output fixtures.
 - v0.5 (2026-05-24): Added Phase 2 v0 shadow mission-record design artifacts and trial-derived fixtures.
@@ -14,6 +15,8 @@ v0.7
 
 ## Status
 Roadmap. This document does not approve new V3 profiles, make V3 the default, deprecate V2, or wire V3 into required gates.
+
+Product direction: this dedicated repository is intended to become V3-only after V3 is built, confidence-backed, and explicitly released. Until that future decision, V2 process artifacts may be used as build-support scaffolding and fallback language remains current. V2 is preserved long-term in the separate V2-only repository.
 
 ## Purpose
 Define the practical path from the current Factory v3 bridgehead to the full mission-governance runtime vision.

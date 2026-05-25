@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v0.9
+v1.0
 
 ## Change Log
+- v1.0 (2026-05-25): Clarified that V2 is temporary build-support and fallback during V3 maturation, not a V3 product dependency; future V2 deprecation in this repo requires explicit V3 confidence and release evidence.
 - v0.9 (2026-05-25): Added valid Phase 2 shadow mission-record fixtures for halted verification failure and stale reentry, plus advisory halted-state consistency checks.
 - v0.8 (2026-05-24): Added the standalone advisory V3 mission-record validator, malformed-record fixtures, and deterministic expected outputs.
 - v0.7 (2026-05-24): Added Phase 2 shadow mission-record v0 design and trial-derived JSON fixtures.
@@ -23,7 +24,9 @@ Approval is recorded at `OPERATIONAL_RELEASE_APPROVAL_V3_OP_001.md`.
 
 This directory does not make Factory v3 the default mode, deprecate Factory v2, alter the `A -> B -> C -> D -> E -> F -> G -> H -> I -> J -> I2` planning pipeline, or change any required validator behavior.
 
-Factory v2 remains supported and available as fallback.
+At the current maturity level, Factory v2 remains supported and available as fallback.
+
+The intended product direction for this dedicated repository is V3 independence: once V3 is built, confidence-backed, and explicitly approved, this repo may deprecate/remove V2 build-support scaffolding here. V2 remains preserved in the separate V2-only repository. Until that explicit release evidence exists, V2 fallback and non-deprecation language remains current.
 
 The prior research and decision-prep evidence remains part of the approval basis; V3 docs remain non-enforcing for required repository gates unless a future integration run explicitly changes that.
 
