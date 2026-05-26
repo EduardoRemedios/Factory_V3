@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.11
+v1.12
 
 ## Change Log
+- v1.12 (2026-05-26): Recorded the Phase 3 telemetry evidence review and moved the recommended next step to Phase 4 planning.
 - v1.11 (2026-05-26): Recorded the third real advisory Phase 3 telemetry pilot and moved the next step to evidence review.
 - v1.10 (2026-05-26): Recorded the second real advisory Phase 3 telemetry pilot.
 - v1.9 (2026-05-26): Recorded the first real advisory Phase 3 telemetry pilot.
@@ -220,7 +221,7 @@ Passed for Phase 3 planning only. Telemetry/replay implementation still requires
 
 ## Phase 3 - Telemetry And Evidence Replay
 
-Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. Three real advisory telemetry pilots exist under `telemetry/pilots/`; the third records that no natural halted, fallback, or clarification-heavy case occurred. Required gates, runtime authority, proof, lease enforcement, governance routing, and default-mode behavior are not approved.
+Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. Three real advisory telemetry pilots exist under `telemetry/pilots/`, and the evidence review at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md` recommends optional advisory telemetry only for selected narrow `V3-OP-001` evidence missions with conditions. The missing natural halted, fallback, or clarification-heavy pilot remains a gap. Required gates, runtime authority, proof, lease enforcement, governance routing, telemetry enforcement, and default-mode behavior are not approved.
 
 Goal:
 
@@ -239,12 +240,13 @@ Required evidence:
 - replay pass/fail fixtures, Status: initial deterministic fixtures exist.
 - real telemetry capture plan, Status: planning-only capture shape exists.
 - at least 3 real mission telemetry logs, Status: 3 of 3 captured.
-- overhead report,
-- data-minimization review confirming no chain-of-thought or vendor-private cognition state is stored.
+- overhead report, Status: recorded in pilot overhead notes and rolled up in `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
+- data-minimization review confirming no chain-of-thought or vendor-private cognition state is stored, Status: all three pilot redaction reviews PASS and are summarized in `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
+- negative-case telemetry evidence, Status: gap remains; no natural halted, fallback, or clarification-heavy pilot has been captured.
 
 Promotion gate:
 
-Telemetry becomes recommended only when it provides better replay and diagnosis without adding disproportionate user burden.
+Telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not recommended as a required or routine gate because overhead remains meaningful and real negative-case telemetry evidence is still missing.
 
 Watchpoint:
 
@@ -472,6 +474,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Run the Phase 3 telemetry evidence review.
+Plan Phase 4 eval expansion and capability profiling.
 
-Use the three real pilot logs, mission records, overhead notes, redaction reviews, and replay reports to decide whether Phase 3 telemetry should remain experimental, continue to more pilots, or become recommended optional advisory evidence for narrow `V3-OP-001` work. The review must explicitly address the missing natural halted/fallback/clarification-heavy case. Do not add governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Use the Phase 3 evidence review to design Phase 4 evaluation templates, fixture expansion, and harness capability-profile questions. Carry forward the missing natural halted/fallback/clarification-heavy telemetry case as a named evidence gap. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.

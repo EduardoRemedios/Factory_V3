@@ -1,0 +1,49 @@
+schema_version: 1
+run_id: RUN_20260526_1200_v3_phase3_telemetry_evidence_review
+sprint_id: SPRINT_20260526_009
+execution_mode: EXECUTION_ENABLED
+
+checks:
+  - id: VM-001
+    tier: V2
+    type: test
+    constraint_ids:
+      - C1
+    description: Check V3 advisory posture.
+    command: python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json
+    expected: Command exits 0 and reports ADVISORY_PASS.
+    halt_on_failure: true
+    evidence_path: terminal output
+
+  - id: VM-002
+    tier: V2
+    type: test
+    constraint_ids:
+      - C4
+    description: Validate real shadow mission records.
+    command: python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json
+    expected: Command exits 0 and reports no findings for real mission records.
+    halt_on_failure: true
+    evidence_path: terminal output
+
+  - id: VM-003
+    tier: V2
+    type: test
+    constraint_ids:
+      - C4
+    description: Preserve deterministic telemetry replay fixture expectations.
+    command: python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json
+    expected: Command exits 0.
+    halt_on_failure: true
+    evidence_path: terminal output
+
+  - id: VM-004
+    tier: V1
+    type: command
+    constraint_ids:
+      - C5
+    description: Check repository hygiene.
+    command: git diff --check
+    expected: Command exits 0.
+    halt_on_failure: true
+    evidence_path: terminal output

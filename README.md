@@ -19,7 +19,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - Optional `V3-OP-001 Bounded Code Change` guidance and evidence.
 - V3 mission-envelope, closeout, fallback, SIMPLE-CODE-GATE, and mission-record templates.
 - V3 advisory validators and deterministic fixtures.
-- V3 advisory telemetry replay evidence, including three real Phase 3 pilot logs.
+- V3 advisory telemetry replay evidence, including three real Phase 3 pilot logs and an evidence review that conditionally recommends optional advisory telemetry for selected narrow evidence missions.
 - V3 operational-readiness, trial, and decision evidence.
 - External governance-kernel boundary guidance for V3 work.
 - Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, Mission Mode, and helper tooling for building V3 while V3 matures.
@@ -34,6 +34,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - Future V2 deprecation/removal from this repository requires explicit V3 confidence evidence and release approval.
 - Runtime authority, production action mediation, proof, leases, telemetry enforcement, and governance routing remain separately governed by explicit V3 evidence and approval.
 - Existing V3 advisory tools remain advisory unless a future release explicitly promotes them.
+- Phase 3 telemetry is not a required gate; the current next roadmap move is Phase 4 eval-expansion planning.
 
 ## Key Paths
 

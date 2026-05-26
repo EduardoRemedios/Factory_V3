@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.11
+v1.12
 
 ## Change Log
+- v1.12 (2026-05-26): Added the Phase 3 telemetry evidence review and conditional optional-advisory recommendation.
 - v1.11 (2026-05-26): Recorded the third real advisory Phase 3 telemetry pilot and evidence-review prep.
 - v1.10 (2026-05-26): Recorded the second real advisory Phase 3 telemetry pilot.
 - v1.9 (2026-05-26): Recorded the first real advisory Phase 3 telemetry pilot.
@@ -97,6 +98,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`
 - `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md`
 - `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`
+- `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
 - `USER_GUIDE.md`
@@ -161,6 +163,8 @@ The first three real advisory telemetry pilots are recorded under `telemetry/pil
 - `PILOT_20260526_003_evidence_review_prep/` links to `mission_records/MR_20260526_006_third_real_telemetry_pilot.json`.
 
 They remain optional, research-only, and non-enforcing. The third pilot records that no natural halted, fallback, or clarification-heavy case occurred; this is a gap for evidence review, not negative-case evidence.
+
+Phase 3 evidence review is recorded at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`. The review recommends optional advisory telemetry only for selected narrow `V3-OP-001` evidence-gathering missions and only with explicit conditions. It does not recommend routine required telemetry, telemetry completeness enforcement, CI wiring, `factoryctl` integration, runtime authority, proof, lease enforcement, governance routing, default-mode behavior, V3 promotion, or V2 build-support removal. The missing natural halted/fallback/clarification-heavy pilot remains a gap to carry into Phase 4 planning and later evidence collection.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.

@@ -1,9 +1,10 @@
 # Factory v3 Phase 3 Telemetry Replay Implementation Status
 
 ## Version
-v0.5
+v0.6
 
 ## Change Log
+- v0.6 (2026-05-26): Recorded the Phase 3 telemetry evidence review and next step into Phase 4 planning.
 - v0.5 (2026-05-26): Recorded the third real advisory telemetry pilot and evidence-review prep.
 - v0.4 (2026-05-26): Recorded the second real advisory telemetry pilot for fixture-maintenance work.
 - v0.3 (2026-05-26): Recorded the first real advisory telemetry pilot for a docs-only Phase 3 status update.
@@ -57,12 +58,13 @@ Invalid fixtures:
   - `telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/`
   - `telemetry/pilots/PILOT_20260526_003_evidence_review_prep/`
 - No natural halted, fallback, or clarification-heavy pilot has been captured yet; this is a gap, not negative-case evidence.
-- Phase 3 now needs an evidence review before deciding whether telemetry remains experimental, continues to more pilots, or becomes recommended advisory evidence.
+- Phase 3 evidence review exists at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
+- The review recommends optional advisory telemetry for selected narrow `V3-OP-001` evidence missions only, with the negative-case gap carried forward.
 - `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md` defines the future pilot shape only.
 - The validator is standalone and advisory only.
 - The validator does not execute commands, read source contents, inspect git history, upload data, or block repository operations.
 
 ## Next Required Evidence
-Run the Phase 3 telemetry evidence review using the three real pilot logs, overhead notes, redaction reviews, mission records, and replay reports.
+Plan Phase 4 eval expansion and capability profiling in a separate V2-governed run.
 
-Phase 3 cannot recommend telemetry until it has real mission telemetry logs, overhead notes, data-minimization review, and false-positive or false-negative classification.
+That planning work should preserve telemetry as optional and advisory, carry the missing natural negative-case pilot gap, and avoid enforcement, routing, telemetry completeness checks, runtime authority, proof, leases, default-mode behavior, or V2 build-support removal.

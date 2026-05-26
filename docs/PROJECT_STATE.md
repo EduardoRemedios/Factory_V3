@@ -8,8 +8,7 @@
 - Factory V2 process docs, templates, scripts, and helper fixtures are present in this repository as temporary build-support scaffolding for V3 development work.
 - Optional operational use is approved only for `V3-OP-001 Bounded Code Change`.
 - V3 docs, templates, trials, evidence, advisory scripts, and deterministic fixtures are present under this repository.
-- Phase 3 telemetry/replay now has a fixture-first advisory replay validator, deterministic fixtures, and three real advisory telemetry pilot logs under `docs/Factory/v3/telemetry/pilots/`.
-- Phase 3 telemetry evidence review prep exists at `docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW_PREP.md`.
+- Phase 3 telemetry/replay now has a fixture-first advisory replay validator, deterministic fixtures, three real advisory telemetry pilot logs under `docs/Factory/v3/telemetry/pilots/`, and an evidence review at `docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
 - The migrated content preserves its original paths where practical so historical evidence remains readable.
 
 ## Current Boundary
@@ -20,7 +19,7 @@
 - The intended future state is V3 as a separate product with no V2 dependency in this repository, after explicit confidence evidence and release approval. V2 remains preserved in the separate V2-only repository.
 - Advisory validators and telemetry replay checks remain advisory unless future evidence and approval promote them.
 - Runtime authority, proof, lease enforcement, telemetry enforcement, governance routing, and external governance-kernel adapters remain out of scope unless explicitly approved.
-- Phase 3 telemetry is not recommended, required, or gate-enforced yet; the next step is evidence review across the three pilots, including the recorded gap that no natural halted/fallback/clarification-heavy pilot has been captured.
+- Phase 3 telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not required or gate-enforced. The next step is Phase 4 eval-expansion planning, carrying forward the recorded gap that no natural halted/fallback/clarification-heavy pilot has been captured.
 
 ## Verification
 
