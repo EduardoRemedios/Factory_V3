@@ -19,6 +19,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - Optional `V3-OP-001 Bounded Code Change` guidance and evidence.
 - V3 mission-envelope, closeout, fallback, SIMPLE-CODE-GATE, and mission-record templates.
 - V3 advisory validators and deterministic fixtures.
+- V3 advisory telemetry replay evidence, including three real Phase 3 pilot logs.
 - V3 operational-readiness, trial, and decision evidence.
 - External governance-kernel boundary guidance for V3 work.
 - Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, Mission Mode, and helper tooling for building V3 while V3 matures.
@@ -31,7 +32,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 required-gate integration is not implied by this repository split.
 - V2 process tooling in this repo is build-support scaffolding for V3 development; it does not make V3 validators required gates or create a V3 product dependency on V2.
 - Future V2 deprecation/removal from this repository requires explicit V3 confidence evidence and release approval.
-- Runtime authority, production action mediation, proof, leases, telemetry, and governance routing remain separately governed by explicit V3 evidence and approval.
+- Runtime authority, production action mediation, proof, leases, telemetry enforcement, and governance routing remain separately governed by explicit V3 evidence and approval.
 - Existing V3 advisory tools remain advisory unless a future release explicitly promotes them.
 
 ## Key Paths
@@ -52,4 +53,6 @@ python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json
 python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json
 python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json
 python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --json
+python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json
+python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json
 ```
