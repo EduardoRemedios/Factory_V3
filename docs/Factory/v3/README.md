@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.2
+v1.3
 
 ## Change Log
+- v1.3 (2026-05-26): Added a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
 - v1.2 (2026-05-26): Started Phase 2.5 mission-record adoption evidence with backfilled real Factory V3 repository mission records.
 - v1.1 (2026-05-25): Added a valid Phase 2 blocked-state shadow mission-record fixture and advisory blocked-state consistency checks.
 - v1.0 (2026-05-25): Clarified that V2 is temporary build-support and fallback during V3 maturation, not a V3 product dependency; future V2 deprecation in this repo requires explicit V3 confidence and release evidence.
@@ -126,7 +127,7 @@ It does not approve enforcement, required gates, runtime authority, telemetry, g
 
 Valid shadow fixtures now include completed, pre-envelope fallback, halted verification-failure, halted stale-reentry, and blocked missing-authority examples. The halted and blocked fixtures are synthetic Phase 2 design examples, not operational promotion evidence.
 
-Phase 2.5 adoption evidence now starts under `mission_records/`. These records are real V3 repository backfills for replayability evaluation, still advisory and non-blocking.
+Phase 2.5 adoption evidence now lives under `mission_records/`. These records include real V3 repository backfills and a fresh pre-envelope fallback decision for replayability evaluation, still advisory and non-blocking.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
 - Start Phase 2.5 mission-record adoption evidence with real Factory V3 repository backfills.
 - Add roadmap gates for Phase 2.5 mission-record adoption and final V3 product independence.
 - Add Phase 2 V3 blocked-state mission-record fixture coverage and advisory consistency checks.

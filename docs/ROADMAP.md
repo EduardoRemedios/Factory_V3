@@ -14,7 +14,7 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 
 - Keep `V3-OP-001` evidence and guidance in this repository.
 - Use Factory V2 process artifacts and validators for V3 development work that needs Factory-controlled planning while V3 is still maturing.
-- Continue Phase 2.5 mission-record adoption evidence before starting telemetry/replay; two backfilled real V3 repo records now exist, and one fresh real blocked/halted/fallback record remains required.
+- Write the Phase 2.5 mission-record adoption decision review before starting telemetry/replay; completed and fresh pre-envelope fallback adoption records now exist.
 - Continue Phase 2 structured mission-record use in shadow/advisory mode; valid completed, pre-envelope fallback, halted, stale-reentry, and blocked examples now exist.
 - Preserve current V2 fallback language and non-deprecation guarantees until explicit V3 confidence evidence approves the repository transition.
 - Do not add required-gate integration, default-mode promotion, telemetry, runtime authority, or governance routing without explicit approval.

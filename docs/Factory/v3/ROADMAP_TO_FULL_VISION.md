@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.1
+v1.2
 
 ## Change Log
+- v1.2 (2026-05-26): Recorded that Phase 2.5 now has a fresh real pre-envelope fallback mission record and is ready for an adoption decision review.
 - v1.1 (2026-05-26): Started Phase 2.5 mission-record adoption evidence with two backfilled real Factory V3 repository records.
 - v1.0 (2026-05-25): Added Phase 2.5 mission-record adoption decision, added a final V3 product-independence decision for V2 scaffolding removal, and updated the recommended next move.
 - v0.9 (2026-05-25): Added a valid Phase 2 blocked-state shadow mission-record fixture and advisory blocked-state consistency checks.
@@ -174,7 +175,7 @@ Approve structured mission records for optional use only after they improve repl
 
 ## Phase 2.5 - Mission Record Adoption Decision
 
-Status: In progress. Two backfilled real Factory V3 repository mission records exist under `docs/Factory/v3/mission_records/`; a fresh real blocked, halted, or fallback record is still required.
+Status: In progress. Real mission-record adoption evidence exists under `docs/Factory/v3/mission_records/`, including two completed records and one fresh real pre-envelope fallback record. The next step is a Phase 2.5 adoption decision review.
 
 Goal:
 
