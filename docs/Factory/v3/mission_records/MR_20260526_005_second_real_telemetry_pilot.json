@@ -1,0 +1,185 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-05-26",
+    "source_trial_id": "PILOT_20260526_002_replay_fixture_maintenance",
+    "source_trial_path": "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/V3_TELEMETRY.jsonl",
+    "source_closeout_reference": "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/OVERHEAD.md",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "b531591",
+    "commit_after": "not_recorded",
+    "user_or_reviewer": "Eduardo Remedios / Codex",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Capture the second real advisory Phase 3 telemetry pilot through a small telemetry replay fixture-maintenance mission.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/runs/RUN_20260526_1100_v3_second_real_telemetry_pilot/pack/SPRINT_20260526_007_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "CHANGELOG.md",
+      "docs/CHANGELOG.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md",
+      "docs/Factory/v3/mission_records/MR_20260526_005_second_real_telemetry_pilot.json",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/V3_TELEMETRY.jsonl",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/OVERHEAD.md",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/REDACTION_REVIEW.md",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/REPLAY_REPORT.json",
+      "tests/fixtures/factory_v3_telemetry_replay/README.md",
+      "tests/fixtures/factory_v3_telemetry_replay/valid/real_pilot_style.jsonl",
+      "tests/fixtures/factory_v3_telemetry_replay/expected/all.json",
+      "docs/Factory/runs/RUN_20260526_1100_v3_second_real_telemetry_pilot/**"
+    ],
+    "forbidden_scope": [
+      "no validator script changes",
+      "no dependency changes",
+      "no required-gate integration",
+      "no CI or factoryctl integration",
+      "no runtime authority",
+      "no proof or lease enforcement",
+      "no governance routing",
+      "no default-mode behavior",
+      "no V2 scaffolding removal"
+    ],
+    "allowed_commands": [
+      "./scripts/factoryctl stage-lint --run RUN_20260526_1100_v3_second_real_telemetry_pilot --stage <STAGE>",
+      "./scripts/factoryctl pack-lint --run RUN_20260526_1100_v3_second_real_telemetry_pilot",
+      "python3 scripts/factory_v3_telemetry_replay_lint.py --target docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/V3_TELEMETRY.jsonl --json",
+      "python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 -m py_compile scripts/factory_v3_telemetry_replay_lint.py scripts/factory_v3_advisory_lint.py scripts/factory_v3_mission_record_lint.py scripts/factory_v3_operational_readiness_eval.py",
+      "python3 -m json.tool docs/Factory/v3/mission_records/MR_20260526_005_second_real_telemetry_pilot.json",
+      "python3 -m json.tool docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/REPLAY_REPORT.json",
+      "git diff --check"
+    ],
+    "dependency_policy": "No new dependencies.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "validator behavior change is required",
+      "expected output changes beyond the new valid fixture",
+      "verification fails",
+      "scope expands beyond named files",
+      "required-gate or runtime authority behavior is needed",
+      "mission no longer qualifies for V3-OP-001"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "CHANGELOG.md",
+      "docs/CHANGELOG.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md",
+      "docs/Factory/v3/mission_records/MR_20260526_005_second_real_telemetry_pilot.json",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/V3_TELEMETRY.jsonl",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/OVERHEAD.md",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/REDACTION_REVIEW.md",
+      "docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/REPLAY_REPORT.json",
+      "tests/fixtures/factory_v3_telemetry_replay/README.md",
+      "tests/fixtures/factory_v3_telemetry_replay/valid/real_pilot_style.jsonl",
+      "tests/fixtures/factory_v3_telemetry_replay/expected/all.json",
+      "docs/Factory/runs/RUN_20260526_1100_v3_second_real_telemetry_pilot/**"
+    ],
+    "verification": {
+      "commands": [
+        "./scripts/factoryctl stage-lint --run RUN_20260526_1100_v3_second_real_telemetry_pilot --stage <STAGE>",
+        "./scripts/factoryctl pack-lint --run RUN_20260526_1100_v3_second_real_telemetry_pilot",
+        "python3 scripts/factory_v3_telemetry_replay_lint.py --target docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/V3_TELEMETRY.jsonl --json",
+        "python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 -m py_compile scripts/factory_v3_telemetry_replay_lint.py scripts/factory_v3_advisory_lint.py scripts/factory_v3_mission_record_lint.py scripts/factory_v3_operational_readiness_eval.py",
+        "python3 -m json.tool docs/Factory/v3/mission_records/MR_20260526_005_second_real_telemetry_pilot.json",
+        "python3 -m json.tool docs/Factory/v3/telemetry/pilots/PILOT_20260526_002_replay_fixture_maintenance/REPLAY_REPORT.json",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "V2 pack checks and V3 advisory checks passed; deterministic telemetry replay fixtures were updated and verified."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_telemetry_replay_lint.py",
+        "result": "pass",
+        "classification": "true_negative"
+      },
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "true_negative"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "true_negative"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "true_negative"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Fixture/data/docs-only change.",
+        "No script, dependency, CI, runtime, or router changes."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "not_applicable",
+      "notes": [
+        "No halt or fallback occurred."
+      ]
+    },
+    "friction_notes": [
+      "Pilot 2 was lighter than pilot 1 because the mission shape and telemetry event set were already established."
+    ],
+    "false_positive_notes": [
+      "No false positives observed in the real pilot log."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed in the real pilot log."
+    ]
+  },
+  "phase2_design_signals": [
+    "Telemetry is more useful when expected-output drift is bounded and explicitly reviewed.",
+    "The mission record remains a compact index over the larger telemetry log."
+  ]
+}

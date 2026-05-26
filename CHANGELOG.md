@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add the second real advisory Phase 3 telemetry pilot and a valid real-pilot-style replay fixture.
 - Add the first real advisory Phase 3 telemetry pilot.
 - Add the planning-only Phase 3 real mission telemetry capture plan.
 - Add the Phase 3 fixture-first advisory telemetry replay validator and deterministic fixture corpus.

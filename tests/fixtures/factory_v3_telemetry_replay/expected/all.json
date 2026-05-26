@@ -10,6 +10,7 @@
     "tests/fixtures/factory_v3_telemetry_replay/valid/happy_path.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/valid/human_clarification.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/valid/pre_envelope_fallback.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/valid/real_pilot_style.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/valid/stale_reentry.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/valid/verification_halt.jsonl"
   ],

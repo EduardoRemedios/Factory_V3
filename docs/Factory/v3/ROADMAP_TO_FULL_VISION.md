@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.9
+v1.10
 
 ## Change Log
+- v1.10 (2026-05-26): Recorded the second real advisory Phase 3 telemetry pilot.
 - v1.9 (2026-05-26): Recorded the first real advisory Phase 3 telemetry pilot.
 - v1.8 (2026-05-26): Added the planning-only Phase 3 real mission telemetry capture plan and moved the recommended next step to the first real telemetry pilot.
 - v1.7 (2026-05-26): Added the Phase 3 fixture-first advisory telemetry replay validator and deterministic fixture corpus.
@@ -218,7 +219,7 @@ Passed for Phase 3 planning only. Telemetry/replay implementation still requires
 
 ## Phase 3 - Telemetry And Evidence Replay
 
-Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. The first real advisory telemetry pilot exists at `telemetry/pilots/PILOT_20260526_001_phase3_status_update/`. Required gates, runtime authority, proof, lease enforcement, governance routing, and default-mode behavior are not approved.
+Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. The first two real advisory telemetry pilots exist under `telemetry/pilots/`. Required gates, runtime authority, proof, lease enforcement, governance routing, and default-mode behavior are not approved.
 
 Goal:
 
@@ -236,7 +237,7 @@ Required evidence:
 - telemetry fixture corpus, Status: initial synthetic corpus exists.
 - replay pass/fail fixtures, Status: initial deterministic fixtures exist.
 - real telemetry capture plan, Status: planning-only capture shape exists.
-- at least 3 real mission telemetry logs, Status: 1 of 3 captured.
+- at least 3 real mission telemetry logs, Status: 2 of 3 captured.
 - overhead report,
 - data-minimization review confirming no chain-of-thought or vendor-private cognition state is stored.
 
@@ -470,6 +471,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Run the second real telemetry pilot.
+Run the third real telemetry pilot.
 
-Create a separate execution-enabled V2-governed run before writing the next real telemetry log. Prefer the planned small fixture or validator maintenance mission if it remains low-risk and bounded. That run must name the exact `V3-OP-001` mission, pilot directory, allowed event subset, redaction workflow, storage path, and verification commands. Do not add governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Create a separate execution-enabled V2-governed run before writing the next real telemetry log. Prefer a naturally occurring halted, fallback, or clarification-heavy mission; if no suitable case occurs, record the gap rather than manufacturing one. That run must name the exact `V3-OP-001` mission, pilot directory, allowed event subset, redaction workflow, storage path, and verification commands. Do not add governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
