@@ -1,9 +1,10 @@
 # Factory v3 Phase 3 Telemetry Replay Implementation Status
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-05-26): Recorded the first real advisory telemetry pilot for a docs-only Phase 3 status update.
 - v0.2 (2026-05-26): Linked the planning-only real mission telemetry capture plan as the next Phase 3 evidence shape.
 - v0.1 (2026-05-26): Recorded initial fixture-first advisory replay validator implementation.
 
@@ -48,12 +49,13 @@ Invalid fixtures:
 
 ## Current Limits
 - Fixtures are synthetic.
-- No real mission telemetry logs exist yet.
+- One real advisory telemetry pilot exists at `telemetry/pilots/PILOT_20260526_001_phase3_status_update/`.
+- Two additional real mission telemetry logs are still needed before Phase 3 can evaluate whether telemetry should be recommended.
 - `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md` defines the future pilot shape only.
 - The validator is standalone and advisory only.
 - The validator does not execute commands, read source contents, inspect git history, upload data, or block repository operations.
 
 ## Next Required Evidence
-Use the validator on future real `V3-OP-001` mission telemetry only after a separate execution-enabled V2 run approves the exact pilot mission, telemetry storage path, redaction workflow, allowed event subset, and verification commands.
+Continue real `V3-OP-001` telemetry capture only through separate execution-enabled V2 runs that approve the exact pilot mission, telemetry storage path, redaction workflow, allowed event subset, and verification commands.
 
 Phase 3 cannot recommend telemetry until it has real mission telemetry logs, overhead notes, data-minimization review, and false-positive or false-negative classification.

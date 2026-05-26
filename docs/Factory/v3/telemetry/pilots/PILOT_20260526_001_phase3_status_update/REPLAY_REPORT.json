@@ -1,0 +1,15 @@
+{
+  "blocking_effect": "none",
+  "checked_logs": [
+    "docs/Factory/v3/telemetry/pilots/PILOT_20260526_001_phase3_status_update/V3_TELEMETRY.jsonl"
+  ],
+  "findings": [],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "No telemetry replay findings. Keep replay checks advisory until a promotion pack approves otherwise."
+  ],
+  "report_id": "factory-v3-telemetry-replay-lint",
+  "status": "ADVISORY_PASS",
+  "target": "docs/Factory/v3/telemetry/pilots/PILOT_20260526_001_phase3_status_update/V3_TELEMETRY.jsonl",
+  "warnings": []
+}

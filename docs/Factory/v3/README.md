@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.8
+v1.9
 
 ## Change Log
+- v1.9 (2026-05-26): Recorded the first real advisory Phase 3 telemetry pilot.
 - v1.8 (2026-05-26): Added the planning-only Phase 3 real mission telemetry capture plan.
 - v1.7 (2026-05-26): Added the fixture-first advisory telemetry replay validator and deterministic fixtures.
 - v1.6 (2026-05-26): Added the Phase 3 fixture-first telemetry/replay implementation approval.
@@ -150,6 +151,8 @@ Phase 3 implementation approval is recorded at `PHASE3_TELEMETRY_REPLAY_IMPLEMEN
 Initial Phase 3 fixture-first implementation status is recorded at `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md`. The standalone validator `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic JSONL fixtures under `tests/fixtures/factory_v3_telemetry_replay/` and emits `blocking_effect: none`.
 
 Real mission telemetry capture planning is recorded at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. It defines the future pilot storage shape, event subset, redaction rules, operator workflow, overhead capture, and stop conditions, but adds no real telemetry logs and authorizes no enforcement.
+
+The first real advisory telemetry pilot is recorded under `telemetry/pilots/PILOT_20260526_001_phase3_status_update/` and linked to `mission_records/MR_20260526_004_first_real_telemetry_pilot.json`. It remains optional, research-only, and non-enforcing.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.
