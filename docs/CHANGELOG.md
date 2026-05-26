@@ -2,6 +2,7 @@
 
 ## 2026-05-26
 
+- Added the Phase 2.5 mission-record adoption decision recommending optional shadow use.
 - Added a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
 - Started Phase 2.5 mission-record adoption evidence with real Factory V3 repository backfills.
 

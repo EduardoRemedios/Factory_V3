@@ -1,9 +1,10 @@
 # Factory v3 Phase 2.5 Mission Record Adoption Status
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-05-26): Recorded Phase 2.5 adoption decision result.
 - v0.2 (2026-05-26): Added a fresh real pre-envelope fallback mission record for the rejected white mouse app idea.
 - v0.1 (2026-05-26): Started Phase 2.5 adoption evidence with two backfilled real Factory V3 repository mission records.
 
@@ -31,10 +32,10 @@ Track whether `V3_MISSION_RECORD` is useful enough to keep using before Phase 3 
 - The fresh pre-envelope fallback record was easier to replay because it was captured at the time of decision rather than reconstructed later.
 
 ## Current Decision
-Decision: CONTINUE_SHADOW_USE
+Decision: RECOMMEND_OPTIONAL_SHADOW_USE
 
 Reason:
-The current records are valid and useful enough to continue shadow use, and the core Phase 2.5 evidence requirements are now present. Do not start Phase 3 telemetry/replay until a dedicated Phase 2.5 adoption decision review is written.
+The Phase 2.5 adoption decision is recorded at `docs/Factory/v3/PHASE2_5_MISSION_RECORD_ADOPTION_DECISION.md`. Mission records may continue as optional shadow evidence. Do not implement telemetry until a separate Phase 3 plan approves exact scope.
 
 ## Next Required Evidence
-Write the Phase 2.5 adoption decision review. It should decide whether to continue, revise, pause, or recommend optional shadow use before Phase 3 telemetry/replay begins.
+Create a V2-governed Phase 3 telemetry/replay plan before implementation.

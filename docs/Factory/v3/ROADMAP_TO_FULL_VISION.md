@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.2
+v1.3
 
 ## Change Log
+- v1.3 (2026-05-26): Recorded the Phase 2.5 adoption decision and limited the next step to Phase 3 telemetry/replay planning.
 - v1.2 (2026-05-26): Recorded that Phase 2.5 now has a fresh real pre-envelope fallback mission record and is ready for an adoption decision review.
 - v1.1 (2026-05-26): Started Phase 2.5 mission-record adoption evidence with two backfilled real Factory V3 repository records.
 - v1.0 (2026-05-25): Added Phase 2.5 mission-record adoption decision, added a final V3 product-independence decision for V2 scaffolding removal, and updated the recommended next move.
@@ -175,7 +176,7 @@ Approve structured mission records for optional use only after they improve repl
 
 ## Phase 2.5 - Mission Record Adoption Decision
 
-Status: In progress. Real mission-record adoption evidence exists under `docs/Factory/v3/mission_records/`, including two completed records and one fresh real pre-envelope fallback record. The next step is a Phase 2.5 adoption decision review.
+Status: Complete. Decision `RECOMMEND_OPTIONAL_SHADOW_USE` is recorded at `docs/Factory/v3/PHASE2_5_MISSION_RECORD_ADOPTION_DECISION.md`.
 
 Goal:
 
@@ -207,7 +208,7 @@ Possible decisions:
 
 Promotion gate:
 
-Do not start telemetry/replay implementation until this decision shows the record is stable enough to serve as the base event context.
+Passed for Phase 3 planning only. Telemetry/replay implementation still requires a separate V2-governed Phase 3 plan.
 
 ## Phase 3 - Telemetry And Evidence Replay
 
@@ -453,6 +454,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Complete Phase 2.5.
+Start Phase 3 planning.
 
-Use the current shadow mission-record format on the next real V3 repository changes, backfill recent V3 work where practical, and write a mission-record adoption decision before starting telemetry/replay. Do not add telemetry, governance routing, enforcement, default-mode behavior, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Create a V2-governed plan for the minimal telemetry/replay format. Define event fields, excluded data, fixture shape, replay checks, and data-minimization rules before implementation. Do not add telemetry, governance routing, enforcement, default-mode behavior, or V2 scaffolding removal until the relevant later phase explicitly approves it.

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add the Phase 2.5 mission-record adoption decision recommending optional shadow use.
 - Add a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
 - Start Phase 2.5 mission-record adoption evidence with real Factory V3 repository backfills.
 - Add roadmap gates for Phase 2.5 mission-record adoption and final V3 product independence.
