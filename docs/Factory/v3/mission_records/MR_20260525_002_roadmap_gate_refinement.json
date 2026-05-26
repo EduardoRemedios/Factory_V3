@@ -1,0 +1,141 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-05-26",
+    "source_trial_id": "MR_20260525_002_roadmap_gate_refinement",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260525_002_roadmap_gate_refinement.json",
+    "source_closeout_reference": "git commit 6e38f99 Refine V3 roadmap gates",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "83dc47a",
+    "commit_after": "6e38f99",
+    "user_or_reviewer": "Eduardo Remedios / Codex",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Refine the V3 roadmap by adding Phase 2.5 mission-record adoption and final V3 product-independence decision gates.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Codex thread mission scope for commit 6e38f99",
+      "not_created_reason": "The mission-record adoption evidence area was not yet present."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "/Users/eduardodosremedios/Factory_V3/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/ROADMAP.md"
+    ],
+    "forbidden_scope": [
+      "no telemetry implementation",
+      "no governance router",
+      "no required-gate integration",
+      "no runtime authority",
+      "no V2 scaffolding removal",
+      "no files outside authorized scope"
+    ],
+    "allowed_commands": [
+      "bash scripts/knowledge_lint.sh",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json",
+      "git diff --check"
+    ],
+    "dependency_policy": "No new dependencies.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion",
+      "verification failure",
+      "request to implement telemetry",
+      "request to remove V2 scaffolding",
+      "required-gate integration pressure"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "/Users/eduardodosremedios/Factory_V3/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/ROADMAP.md"
+    ],
+    "verification": {
+      "commands": [
+        "bash scripts/knowledge_lint.sh",
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "All listed checks passed before commit 6e38f99 was pushed."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only roadmap refinement with explicit gates and no runtime behavior."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "The change explicitly deferred telemetry, routing, required gates, default-mode behavior, and V2 scaffolding removal."
+      ]
+    },
+    "friction_notes": [
+      "The record had to reconstruct the thread-local envelope and verification evidence after the commit."
+    ],
+    "false_positive_notes": [
+      "No advisory false positives observed."
+    ],
+    "false_negative_notes": [
+      "No advisory false negatives observed."
+    ]
+  },
+  "phase2_design_signals": [
+    "Roadmap-only changes are representable, but commit metadata alone is not enough to capture the original authority envelope.",
+    "Mission-record adoption should happen during the mission rather than as a later reconstruction."
+  ]
+}

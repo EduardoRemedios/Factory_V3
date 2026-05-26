@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-05-26
+
+- Started Phase 2.5 mission-record adoption evidence with real Factory V3 repository backfills.
+
 ## 2026-05-25
 
 - Added roadmap gates for Phase 2.5 mission-record adoption and final V3 product independence.

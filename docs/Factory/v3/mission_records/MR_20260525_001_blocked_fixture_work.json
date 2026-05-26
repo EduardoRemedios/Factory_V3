@@ -1,0 +1,175 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-05-26",
+    "source_trial_id": "MR_20260525_001_blocked_fixture_work",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260525_001_blocked_fixture_work.json",
+    "source_closeout_reference": "git commit 83dc47a Add V3 blocked mission record fixture",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "b4a08e8",
+    "commit_after": "83dc47a",
+    "user_or_reviewer": "Eduardo Remedios / Codex",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Add Phase 2 blocked-state mission-record fixture coverage and advisory consistency checks while keeping V3 mission records shadow-only.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Codex thread mission scope for commit 83dc47a",
+      "not_created_reason": "The repository did not yet have a dedicated real mission-record evidence area."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "/Users/eduardodosremedios/Factory_V3/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/README.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/ROADMAP.md",
+      "/Users/eduardodosremedios/Factory_V3/scripts/factory_v3_mission_record_lint.py",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/README.md",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/expected/all.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/expected/invalid.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/expected/valid_blocked_missing_authority.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json"
+    ],
+    "forbidden_scope": [
+      "no telemetry format",
+      "no governance router",
+      "no required-gate integration",
+      "no runtime authority",
+      "no V3 default-mode promotion",
+      "no files outside authorized scope"
+    ],
+    "allowed_commands": [
+      "bash scripts/knowledge_lint.sh",
+      "python3 -m json.tool tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json --expect tests/fixtures/factory_v3_mission_record/expected/valid_blocked_missing_authority.json --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record/invalid --expect tests/fixtures/factory_v3_mission_record/expected/invalid.json --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 -m py_compile scripts/*.py tools/repo_cartographer/*.py",
+      "git diff --check"
+    ],
+    "dependency_policy": "No new dependencies.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion",
+      "verification failure",
+      "required-gate integration pressure",
+      "telemetry or runtime authority request",
+      "dependency need"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "/Users/eduardodosremedios/Factory_V3/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/CHANGELOG.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/README.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "/Users/eduardodosremedios/Factory_V3/docs/ROADMAP.md",
+      "/Users/eduardodosremedios/Factory_V3/scripts/factory_v3_mission_record_lint.py",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/README.md",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/expected/all.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/expected/invalid.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/expected/valid_blocked_missing_authority.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json",
+      "/Users/eduardodosremedios/Factory_V3/tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json"
+    ],
+    "verification": {
+      "commands": [
+        "bash scripts/knowledge_lint.sh",
+        "python3 -m json.tool on changed JSON fixtures and expected outputs",
+        "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json --expect tests/fixtures/factory_v3_mission_record/expected/valid_blocked_missing_authority.json --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record/invalid --expect tests/fixtures/factory_v3_mission_record/expected/invalid.json --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json",
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 -m py_compile scripts/*.py tools/repo_cartographer/*.py",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "All listed checks passed before commit 83dc47a was pushed."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Change stayed local to mission-record fixture coverage, validator consistency checks, expected outputs, and matching docs.",
+        "No dependencies or broad abstractions were added."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope did not expand into telemetry, routing, runtime authority, or required gates.",
+        "Verification passed before push."
+      ]
+    },
+    "friction_notes": [
+      "The record had to reconstruct command evidence from closeout context rather than an authored record at mission start."
+    ],
+    "false_positive_notes": [
+      "No advisory false positives observed."
+    ],
+    "false_negative_notes": [
+      "No advisory false negatives observed."
+    ]
+  },
+  "phase2_design_signals": [
+    "Backfilling after commit is possible but lower quality than authoring the record during the mission.",
+    "The schema can represent a real fixture/validator change without adding telemetry."
+  ]
+}
