@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.6
+v1.7
 
 ## Change Log
+- v1.7 (2026-05-26): Added the fixture-first advisory telemetry replay validator and deterministic fixtures.
 - v1.6 (2026-05-26): Added the Phase 3 fixture-first telemetry/replay implementation approval.
 - v1.5 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
 - v1.4 (2026-05-26): Added the Phase 2.5 mission-record adoption decision recommending optional shadow use.
@@ -90,6 +91,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `MISSION_RECORD_DESIGN_V0.md`
 - `PHASE3_TELEMETRY_REPLAY_PLAN.md`
 - `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`
+- `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
 - `USER_GUIDE.md`
@@ -143,8 +145,11 @@ The plan defines a future minimal event model, excluded data, fixture shape, rep
 
 Phase 3 implementation approval is recorded at `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`. It approves only the next fixture-first advisory replay-validator implementation step, with exact files and verification commands. It does not approve real mission telemetry collection, required gates, runtime authority, proof, lease enforcement, governance routing, default-mode behavior, or V2 scaffolding removal.
 
+Initial Phase 3 fixture-first implementation status is recorded at `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md`. The standalone validator `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic JSONL fixtures under `tests/fixtures/factory_v3_telemetry_replay/` and emits `blocking_effect: none`.
+
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.
 - `scripts/factory_v3_operational_readiness_eval.py` checks standalone operational-readiness fixture scenarios and emits advisory-only reports.
 - `scripts/factory_v3_mission_record_lint.py` checks shadow V3 mission-record JSON files and malformed-record fixtures in advisory mode.
+- `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic telemetry replay JSONL fixtures in advisory mode.
 - These tools are not wired into required Factory v2 gates and do not authorize broader V3 promotion.

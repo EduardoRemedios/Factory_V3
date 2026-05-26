@@ -2,6 +2,7 @@
 
 ## 2026-05-26
 
+- Added the Phase 3 fixture-first advisory telemetry replay validator and deterministic fixture corpus.
 - Added tactical V3 roadmap watchpoints for advisory drift, topology-aware routing, and V3 self-governance before product independence.
 - Added the Phase 3 fixture-first telemetry/replay implementation approval.
 - Added the planning-only Phase 3 telemetry/replay plan.

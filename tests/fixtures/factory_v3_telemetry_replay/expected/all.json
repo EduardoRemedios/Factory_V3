@@ -1,0 +1,64 @@
+{
+  "blocking_effect": "none",
+  "checked_logs": [
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/excluded_data_marker.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/missing_halt_after_verification_failure.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/non_monotonic_sequence.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/post_terminal_event.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_command.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_file.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/valid/happy_path.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/valid/human_clarification.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/valid/pre_envelope_fallback.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/valid/stale_reentry.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/valid/verification_halt.jsonl"
+  ],
+  "findings": [
+    {
+      "id": "V3-TR030",
+      "message": "event sequence must be gap-free and monotonic: expected 2",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/non_monotonic_sequence.jsonl:2",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR041",
+      "message": "command is outside declared authority: npm install",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_command.jsonl:3",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR042",
+      "message": "file path is outside declared authority: app/protected.py",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_file.jsonl:3",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR050",
+      "message": "execution appears after failed verification without halt, fallback, or human decision",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/missing_halt_after_verification_failure.jsonl:4",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR060",
+      "message": "event appears after terminal event",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/post_terminal_event.jsonl:4",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR071",
+      "message": "excluded data marker present: contains_secret",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/excluded_data_marker.jsonl:1",
+      "severity": "advisory_critical"
+    }
+  ],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "Review telemetry replay findings manually; this report is advisory and non-blocking.",
+    "Classify findings as accepted, false_positive, needs_more_context, or deferred.",
+    "Do not wire telemetry replay checks into required gates without explicit Factory governance approval."
+  ],
+  "report_id": "factory-v3-telemetry-replay-lint",
+  "status": "ADVISORY_FAIL_NON_BLOCKING",
+  "target": "tests/fixtures/factory_v3_telemetry_replay",
+  "warnings": []
+}

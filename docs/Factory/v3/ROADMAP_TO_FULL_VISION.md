@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.6
+v1.7
 
 ## Change Log
+- v1.7 (2026-05-26): Added the Phase 3 fixture-first advisory telemetry replay validator and deterministic fixture corpus.
 - v1.6 (2026-05-26): Added tactical engineering watchpoints for advisory drift, topology-aware routing, and V3 self-governance before product independence.
 - v1.5 (2026-05-26): Added Phase 3 fixture-first telemetry/replay implementation approval.
 - v1.4 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
@@ -215,7 +216,7 @@ Passed for Phase 3 planning only. Telemetry/replay implementation still requires
 
 ## Phase 3 - Telemetry And Evidence Replay
 
-Status: Fixture-first advisory implementation approval exists at `docs/Factory/v3/PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`. Real mission telemetry collection, required gates, runtime authority, proof, lease enforcement, governance routing, and default-mode behavior are not approved.
+Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. Real mission telemetry collection, required gates, runtime authority, proof, lease enforcement, governance routing, and default-mode behavior are not approved.
 
 Goal:
 
@@ -230,8 +231,8 @@ Work:
 
 Required evidence:
 
-- telemetry fixture corpus,
-- replay pass/fail fixtures,
+- telemetry fixture corpus, Status: initial synthetic corpus exists.
+- replay pass/fail fixtures, Status: initial deterministic fixtures exist.
 - at least 3 real mission telemetry logs,
 - overhead report,
 - data-minimization review confirming no chain-of-thought or vendor-private cognition state is stored.
@@ -466,6 +467,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Implement Phase 3 fixture-first advisory replay checks.
+Plan real mission telemetry capture.
 
-Implement only the approved fixture-first scope: `scripts/factory_v3_telemetry_replay_lint.py`, `tests/fixtures/factory_v3_telemetry_replay/**`, deterministic expected outputs, and status/docs updates. Keep the replay validator standalone and advisory with `blocking_effect: none`. Do not add real mission telemetry collection, governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Create a separate V2-governed plan before collecting real mission telemetry. That plan must name storage location, redaction rules, operator workflow, overhead capture, and the first 3 real `V3-OP-001` telemetry pilots. Do not add governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
