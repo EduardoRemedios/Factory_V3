@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.12
+v1.13
 
 ## Change Log
+- v1.13 (2026-05-26): Added Phase 4 eval expansion planning, the harness capability profile template, and synthetic operational-readiness fixture expansion.
 - v1.12 (2026-05-26): Added the Phase 3 telemetry evidence review and conditional optional-advisory recommendation.
 - v1.11 (2026-05-26): Recorded the third real advisory Phase 3 telemetry pilot and evidence-review prep.
 - v1.10 (2026-05-26): Recorded the second real advisory Phase 3 telemetry pilot.
@@ -99,6 +100,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md`
 - `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`
 - `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`
+- `PHASE4_EVAL_EXPANSION_PLAN.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
 - `USER_GUIDE.md`
@@ -166,9 +168,20 @@ They remain optional, research-only, and non-enforcing. The third pilot records 
 
 Phase 3 evidence review is recorded at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`. The review recommends optional advisory telemetry only for selected narrow `V3-OP-001` evidence-gathering missions and only with explicit conditions. It does not recommend routine required telemetry, telemetry completeness enforcement, CI wiring, `factoryctl` integration, runtime authority, proof, lease enforcement, governance routing, default-mode behavior, V3 promotion, or V2 build-support removal. The missing natural halted/fallback/clarification-heavy pilot remains a gap to carry into Phase 4 planning and later evidence collection.
 
+## Phase 4 Eval Expansion And Capability Profiling
+Phase 4 planning is recorded at `PHASE4_EVAL_EXPANSION_PLAN.md`.
+
+The harness capability profile template exists at `templates/V3_HARNESS_CAPABILITY_PROFILE_TEMPLATE.md`.
+
+Initial synthetic Phase 4 operational-readiness fixture expansion exists under `tests/fixtures/factory_v3_operational_readiness_eval/cases/` with `V3-P4-*` cases for capability profile completeness, execution reliability, scope discipline, verification quality, interruption recovery, evidence quality, false-positive/false-negative rollup shape, and advisory threshold wording.
+
+These fixtures are synthetic design coverage only. They are not real negative-case telemetry evidence, do not approve governance routing, and do not reduce V2 governance. The missing natural halted/fallback/clarification-heavy telemetry case remains a Phase 4 evidence gap.
+
+The next Phase 4 step is to plan real-run corpus and harness capability profile capture for selected narrow `V3-OP-001` evidence work.
+
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.
-- `scripts/factory_v3_operational_readiness_eval.py` checks standalone operational-readiness fixture scenarios and emits advisory-only reports.
+- `scripts/factory_v3_operational_readiness_eval.py` checks standalone operational-readiness fixture scenarios, including Phase 4 synthetic fixture triggers, and emits advisory-only reports.
 - `scripts/factory_v3_mission_record_lint.py` checks shadow V3 mission-record JSON files and malformed-record fixtures in advisory mode.
 - `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic telemetry replay JSONL fixtures in advisory mode.
 - These tools are not wired into required Factory v2 gates and do not authorize broader V3 promotion.

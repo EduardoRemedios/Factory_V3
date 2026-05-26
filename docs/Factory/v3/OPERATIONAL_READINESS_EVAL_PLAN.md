@@ -1,9 +1,10 @@
 # Factory v3 Operational Readiness Eval Plan
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-05-26): Recorded Phase 4 eval expansion planning and synthetic fixture expansion status.
 - v0.1 (2026-05-21): Initial pre-mortem and eval plan for judging when Factory v3 can become an optional operational mode while Factory v2 remains supported.
 
 ## Status
@@ -19,7 +20,7 @@ The current eval set is not sufficient to judge operational readiness.
 
 Existing evidence supports continued Level 0 research and standalone advisory lint use. It does not yet prove that V3 can govern real implementation runs as an operational mode.
 
-Before any V3 operational promotion, run a V3 pre-mortem and derive golden fixtures from its failure modes.
+Phase 4 now has a research-only eval expansion plan, a harness capability profile template, and initial synthetic `V3-P4-*` operational-readiness fixtures. These fixtures improve design coverage but are not real-run corpus evidence and do not close the missing natural halted, fallback, or clarification-heavy telemetry gap.
 
 ## Target Promotion Shape
 The first operational promotion target should be:
@@ -191,4 +192,4 @@ Do not promote V3 operationally if:
 - V3 makes V2 look deprecated
 
 ## Next Step
-Create a Factory v2 planning pack for a V3 operational-readiness eval suite. The pack should define exact fixture files, expected JSON output shape, pilot evidence templates, and the first operational-readiness decision report format.
+Plan Phase 4 real-run corpus and harness capability profile capture for selected narrow `V3-OP-001` evidence work. Keep all outputs advisory and non-enforcing, and preserve Factory V2 fallback until explicit later release evidence approves any change.

@@ -9,6 +9,7 @@
 - Optional operational use is approved only for `V3-OP-001 Bounded Code Change`.
 - V3 docs, templates, trials, evidence, advisory scripts, and deterministic fixtures are present under this repository.
 - Phase 3 telemetry/replay now has a fixture-first advisory replay validator, deterministic fixtures, three real advisory telemetry pilot logs under `docs/Factory/v3/telemetry/pilots/`, and an evidence review at `docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
+- Phase 4 eval expansion has started. `docs/Factory/v3/PHASE4_EVAL_EXPANSION_PLAN.md`, `docs/Factory/v3/templates/V3_HARNESS_CAPABILITY_PROFILE_TEMPLATE.md`, and synthetic `V3-P4-*` operational-readiness fixtures now exist.
 - The migrated content preserves its original paths where practical so historical evidence remains readable.
 
 ## Current Boundary
@@ -19,7 +20,8 @@
 - The intended future state is V3 as a separate product with no V2 dependency in this repository, after explicit confidence evidence and release approval. V2 remains preserved in the separate V2-only repository.
 - Advisory validators and telemetry replay checks remain advisory unless future evidence and approval promote them.
 - Runtime authority, proof, lease enforcement, telemetry enforcement, governance routing, and external governance-kernel adapters remain out of scope unless explicitly approved.
-- Phase 3 telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not required or gate-enforced. The next step is Phase 4 eval-expansion planning, carrying forward the recorded gap that no natural halted/fallback/clarification-heavy pilot has been captured.
+- Phase 3 telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not required or gate-enforced.
+- Phase 4 remains research-only and non-enforcing. The current next step is to plan real-run corpus and harness capability profile capture, carrying forward the recorded gap that no natural halted/fallback/clarification-heavy telemetry pilot has been captured.
 
 ## Verification
 

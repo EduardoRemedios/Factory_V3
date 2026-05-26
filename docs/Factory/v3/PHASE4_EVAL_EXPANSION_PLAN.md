@@ -1,9 +1,10 @@
 # Factory V3 Phase 4 Eval Expansion Plan
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-05-26): Recorded initial synthetic Phase 4 operational-readiness fixture expansion.
 - v0.1 (2026-05-26): Initial Phase 4 eval expansion and harness capability profiling plan.
 
 ## Status
@@ -94,7 +95,9 @@ Required signals:
 - no chain-of-thought, raw command output dumps, source file contents, secrets, or vendor-private cognition state are captured in profile artifacts.
 
 ## Fixture Expansion Plan
-Do not add fixture files until a later approved execution run names exact files and expected outputs.
+Initial synthetic fixture expansion now exists under `tests/fixtures/factory_v3_operational_readiness_eval/cases/` with `V3-P4-*` cases.
+
+These fixtures are synthetic design coverage only. They are not real-run evidence and do not close the Phase 3 missing natural halted, fallback, or clarification-heavy telemetry gap.
 
 Planned fixture families for `tests/fixtures/factory_v3_operational_readiness_eval/`:
 

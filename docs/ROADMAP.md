@@ -14,7 +14,8 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 
 - Keep `V3-OP-001` evidence and guidance in this repository.
 - Use Factory V2 process artifacts and validators for V3 development work that needs Factory-controlled planning while V3 is still maturing.
-- Plan Phase 4 eval expansion and capability profiling; Phase 3 evidence review now conditionally recommends optional advisory telemetry for selected narrow `V3-OP-001` evidence missions, with a recorded gap for the missing natural halted/fallback/clarification-heavy case.
+- Continue Phase 4 eval expansion and capability profiling. The Phase 4 plan, harness capability profile template, and first synthetic operational-readiness fixture expansion now exist in advisory mode.
+- Plan real-run corpus and harness capability profile capture next; carry forward the recorded Phase 3 gap for the missing natural halted/fallback/clarification-heavy case.
 - Continue Phase 2 structured mission-record use in shadow/advisory mode; valid completed, pre-envelope fallback, halted, stale-reentry, and blocked examples now exist.
 - Preserve current V2 fallback language and non-deprecation guarantees until explicit V3 confidence evidence approves the repository transition.
 - Do not add required-gate integration, default-mode promotion, telemetry enforcement, runtime authority, or governance routing without explicit approval.
