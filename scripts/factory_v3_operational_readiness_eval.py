@@ -76,6 +76,54 @@ CHECKS: tuple[tuple[str, str, str, re.Pattern[str]], ...] = (
         "promotion approval lacks evidence",
         re.compile(r"^\s*EVAL_TRIGGER:\s*V3-G014\s*$", re.IGNORECASE | re.MULTILINE),
     ),
+    (
+        "V3-P4-CAP-001",
+        "advisory_high",
+        "harness capability profile is incomplete",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-CAP-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
+    (
+        "V3-P4-REL-001",
+        "advisory_critical",
+        "execution reliability evidence is incomplete",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-REL-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
+    (
+        "V3-P4-SCOPE-001",
+        "advisory_critical",
+        "Phase 4 scope discipline risk found",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-SCOPE-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
+    (
+        "V3-P4-VERIFY-001",
+        "advisory_high",
+        "verification quality evidence is weak",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-VERIFY-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
+    (
+        "V3-P4-RECOVER-001",
+        "advisory_critical",
+        "interruption recovery evidence is stale or source-conflicting",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-RECOVER-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
+    (
+        "V3-P4-EVID-001",
+        "advisory_high",
+        "Phase 3 negative-case evidence gap is missing or overstated",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-EVID-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
+    (
+        "V3-P4-FPN-001",
+        "advisory_high",
+        "false-positive/false-negative rollup lacks human adjudication",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-FPN-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
+    (
+        "V3-P4-THRESH-001",
+        "advisory_critical",
+        "advisory threshold wording implies routing or reduced governance",
+        re.compile(r"^\s*EVAL_TRIGGER:\s*V3-P4-THRESH-001\s*$", re.IGNORECASE | re.MULTILINE),
+    ),
 )
 
 NL_CHECKS: tuple[tuple[str, str, str, tuple[re.Pattern[str], ...]], ...] = (
