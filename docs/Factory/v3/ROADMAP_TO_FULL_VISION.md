@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.4
+v1.5
 
 ## Change Log
+- v1.5 (2026-05-26): Added Phase 3 fixture-first telemetry/replay implementation approval.
 - v1.4 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
 - v1.3 (2026-05-26): Recorded the Phase 2.5 adoption decision and limited the next step to Phase 3 telemetry/replay planning.
 - v1.2 (2026-05-26): Recorded that Phase 2.5 now has a fresh real pre-envelope fallback mission record and is ready for an adoption decision review.
@@ -213,7 +214,7 @@ Passed for Phase 3 planning only. Telemetry/replay implementation still requires
 
 ## Phase 3 - Telemetry And Evidence Replay
 
-Status: Planning artifact exists at `docs/Factory/v3/PHASE3_TELEMETRY_REPLAY_PLAN.md`. Telemetry implementation is not approved.
+Status: Fixture-first advisory implementation approval exists at `docs/Factory/v3/PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`. Real mission telemetry collection, required gates, runtime authority, proof, lease enforcement, governance routing, and default-mode behavior are not approved.
 
 Goal:
 
@@ -457,6 +458,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Prepare Phase 3 implementation approval.
+Implement Phase 3 fixture-first advisory replay checks.
 
-Create a separate V2-governed implementation pack for fixture-first telemetry/replay work. The first implementation should add telemetry fixtures and an advisory replay validator only if the pack explicitly approves exact files, commands, and verification. Do not add governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Implement only the approved fixture-first scope: `scripts/factory_v3_telemetry_replay_lint.py`, `tests/fixtures/factory_v3_telemetry_replay/**`, deterministic expected outputs, and status/docs updates. Keep the replay validator standalone and advisory with `blocking_effect: none`. Do not add real mission telemetry collection, governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.

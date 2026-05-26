@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.5
+v1.6
 
 ## Change Log
+- v1.6 (2026-05-26): Added the Phase 3 fixture-first telemetry/replay implementation approval.
 - v1.5 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
 - v1.4 (2026-05-26): Added the Phase 2.5 mission-record adoption decision recommending optional shadow use.
 - v1.3 (2026-05-26): Added a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
@@ -88,6 +89,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `ROADMAP_PREMORTEM.md`
 - `MISSION_RECORD_DESIGN_V0.md`
 - `PHASE3_TELEMETRY_REPLAY_PLAN.md`
+- `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
 - `USER_GUIDE.md`
@@ -138,6 +140,8 @@ Phase 2.5 decision evidence is recorded at `PHASE2_5_MISSION_RECORD_ADOPTION_DEC
 Phase 3 planning is recorded at `PHASE3_TELEMETRY_REPLAY_PLAN.md`.
 
 The plan defines a future minimal event model, excluded data, fixture shape, replay checks, and data-minimization rules. It is planning-only and does not implement telemetry, replay validators, required gates, runtime authority, proof, lease enforcement, governance routing, default-mode behavior, or V2 scaffolding removal.
+
+Phase 3 implementation approval is recorded at `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`. It approves only the next fixture-first advisory replay-validator implementation step, with exact files and verification commands. It does not approve real mission telemetry collection, required gates, runtime authority, proof, lease enforcement, governance routing, default-mode behavior, or V2 scaffolding removal.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.

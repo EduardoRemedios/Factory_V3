@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add the Phase 3 fixture-first telemetry/replay implementation approval.
 - Add the planning-only Phase 3 telemetry/replay plan.
 - Add the Phase 2.5 mission-record adoption decision recommending optional shadow use.
 - Add a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.

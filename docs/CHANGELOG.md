@@ -2,6 +2,7 @@
 
 ## 2026-05-26
 
+- Added the Phase 3 fixture-first telemetry/replay implementation approval.
 - Added the planning-only Phase 3 telemetry/replay plan.
 - Added the Phase 2.5 mission-record adoption decision recommending optional shadow use.
 - Added a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
