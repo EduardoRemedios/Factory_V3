@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.7
+v1.8
 
 ## Change Log
+- v1.8 (2026-05-26): Added the planning-only Phase 3 real mission telemetry capture plan.
 - v1.7 (2026-05-26): Added the fixture-first advisory telemetry replay validator and deterministic fixtures.
 - v1.6 (2026-05-26): Added the Phase 3 fixture-first telemetry/replay implementation approval.
 - v1.5 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
@@ -92,6 +93,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `PHASE3_TELEMETRY_REPLAY_PLAN.md`
 - `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`
 - `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md`
+- `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
 - `USER_GUIDE.md`
@@ -146,6 +148,8 @@ The plan defines a future minimal event model, excluded data, fixture shape, rep
 Phase 3 implementation approval is recorded at `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`. It approves only the next fixture-first advisory replay-validator implementation step, with exact files and verification commands. It does not approve real mission telemetry collection, required gates, runtime authority, proof, lease enforcement, governance routing, default-mode behavior, or V2 scaffolding removal.
 
 Initial Phase 3 fixture-first implementation status is recorded at `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_STATUS.md`. The standalone validator `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic JSONL fixtures under `tests/fixtures/factory_v3_telemetry_replay/` and emits `blocking_effect: none`.
+
+Real mission telemetry capture planning is recorded at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. It defines the future pilot storage shape, event subset, redaction rules, operator workflow, overhead capture, and stop conditions, but adds no real telemetry logs and authorizes no enforcement.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add the planning-only Phase 3 real mission telemetry capture plan.
 - Add the Phase 3 fixture-first advisory telemetry replay validator and deterministic fixture corpus.
 - Add tactical V3 roadmap watchpoints for advisory drift, topology-aware routing, and V3 self-governance before product independence.
 - Add the Phase 3 fixture-first telemetry/replay implementation approval.
