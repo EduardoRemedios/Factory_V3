@@ -1,9 +1,11 @@
 # Factory v3 Vision
 
 ## Version
-v0.2
+v0.4
 
 ## Change Log
+- v0.4 (2026-05-26): Tightened the distinction between long-term supervised-worker vision and the current coding-only operational approval.
+- v0.3 (2026-05-26): Added non-technical product framing for governed autonomous execution across knowledge work and engineering missions, while preserving the current coding-first operational scope.
 - v0.2 (2026-05-22): Removed private-kernel naming from the public vision, defined the governance-runtime boundary, and made the document self-contained for readers without private system context.
 - v0.1 (2026-05-22): Initial vision document for the path from optional `V3-OP-001` use to the full mission-governance runtime vision.
 
@@ -11,9 +13,19 @@ v0.2
 Strategic direction and research roadmap context only. This document is non-enforcing: it does not make Factory v3 the default Factory mode, approve any profile beyond `V3-OP-001`, deprecate Factory v2, or wire V3 checks into required gates.
 
 ## Purpose
-Factory v3 exists because coding models and harnesses are improving toward longer, more autonomous execution. As that happens, some Factory v2 orchestration work should collapse into smaller mission-governance primitives.
+Factory v3 exists because AI workers and harnesses are improving toward longer, more autonomous execution. As that happens, some step-by-step human orchestration should collapse into smaller mission-governance primitives.
 
-The durable Factory value is not more project-management ceremony. The durable value is governance of autonomous coding work:
+The non-technical framing is:
+
+```text
+Factory v3 is an operating system for supervised AI workers.
+```
+
+This is a long-term product framing, not a current approval for general-purpose autonomous work.
+
+Humans define missions, constraints, budgets, verification requirements, and approval rules. Autonomous AI workers can then execute over longer horizons while staying inside bounded authority, producing replayable evidence, escalating when confidence drops, and returning to human supervision at key checkpoints.
+
+The durable Factory value is not more project-management ceremony. The durable value is governance of autonomous knowledge work and engineering missions:
 
 - clear mission authority,
 - bounded scope,
@@ -23,6 +35,8 @@ The durable Factory value is not more project-management ceremony. The durable v
 - evidence integrity,
 - replayability,
 - V2 fallback when the mission is not safe for V3.
+
+Coding is the first concrete proving ground because it has unusually good evidence surfaces: files, diffs, commands, tests, failures, review, and closeout records. The broader problem is how to safely govern autonomous actors operating over long horizons, but broader non-coding mission classes remain roadmap vision until separate profile evidence and approval exist.
 
 ## Core Thesis
 Factory v3 should evolve from:
@@ -37,7 +51,7 @@ to:
 human -> mission definition -> governed autonomous execution
 ```
 
-The goal is not to replace human judgment. The goal is to let better coding harnesses handle more local decomposition and repair while Factory preserves the governance properties that keep the work bounded, testable, and auditable.
+The goal is not to replace human judgment. The goal is to let better AI workers handle more local decomposition and repair while Factory preserves the governance properties that keep the work bounded, testable, and auditable.
 
 ## Current Position
 Factory v3 has achieved the first operational bridgehead:
@@ -54,9 +68,9 @@ This is enough for careful optional use on bounded code changes.
 It is not yet the full Factory v3 platform.
 
 ## Full Vision
-The full Factory v3 vision is a harness-agnostic mission-governance runtime for autonomous coding workers.
+The full Factory v3 vision is a harness-agnostic mission-governance runtime for autonomous knowledge-work and engineering workers.
 
-In this document, runtime means repo-local governance records, validators, routing rules, verification state, and evidence replay for coding missions. It does not mean a production autonomy runtime, policy engine, payment system, regulated-action mediator, or deployed product control plane.
+In this document, runtime means local governance records, validators, routing rules, verification state, and evidence replay for supervised missions. In this repository, the approved operational profile is still coding-first: `V3-OP-001 Bounded Code Change`. Runtime does not mean a production autonomy runtime, policy engine, payment system, regulated-action mediator, deployed product control plane, or authority to execute non-coding work.
 
 At that point, Factory v3 should provide:
 
@@ -119,7 +133,9 @@ At that point, Factory v3 should provide:
     - Codex, Claude Code, Cursor, and future harnesses can all emit or consume the same governance artifacts.
 
 ## Boundary
-Factory v3 governs coding missions.
+Factory v3 is intended to govern supervised knowledge-work and engineering missions.
+
+In the current repository maturity state, the only approved optional operational profile is still `V3-OP-001 Bounded Code Change`. Broader non-coding mission profiles require separate evidence, approval, and governance before promotion, and this vision document does not provide that approval.
 
 Factory v3 does not become:
 

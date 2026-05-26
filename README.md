@@ -1,6 +1,12 @@
 # Factory V3
 
-Factory V3 is the experimental and operational-evidence track for mission-governed AI coding workflows.
+Factory V3 is the experimental and operational-evidence track for governed autonomous execution.
+
+The long-term product framing is simple: Factory V3 is an operating system for supervised AI workers. Humans define missions, constraints, budgets, verification requirements, and approval rules; autonomous AI workers execute over longer horizons under bounded authority, continuous verification, replayable evidence, escalation rules, and human supervision at key checkpoints.
+
+That is the product vision, not the current operational approval. Today this repository approves only optional `V3-OP-001 Bounded Code Change` use.
+
+Coding is the first concrete proving ground for this model because software work produces reviewable evidence: diffs, commands, tests, failures, and closeout records. The broader target is knowledge work and engineering missions where autonomous actors need to operate safely under controlled supervision, but non-coding profiles require separate evidence, governance review, and explicit approval before use.
 
 This repository was split out of `factory-starter-kit` so V3 can evolve independently from Factory V2 and earlier content.
 
@@ -19,6 +25,8 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 
 ## Important Boundaries
 
+- The only currently approved optional V3 operational profile is `V3-OP-001 Bounded Code Change`.
+- Broader supervised-worker or non-coding mission language is roadmap vision, not current operating authority.
 - Current Factory V3 state does not make Factory V2 obsolete.
 - V3 required-gate integration is not implied by this repository split.
 - V2 process tooling in this repo is build-support scaffolding for V3 development; it does not make V3 validators required gates or create a V3 product dependency on V2.
