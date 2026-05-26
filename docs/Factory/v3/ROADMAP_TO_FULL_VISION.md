@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.3
+v1.4
 
 ## Change Log
+- v1.4 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
 - v1.3 (2026-05-26): Recorded the Phase 2.5 adoption decision and limited the next step to Phase 3 telemetry/replay planning.
 - v1.2 (2026-05-26): Recorded that Phase 2.5 now has a fresh real pre-envelope fallback mission record and is ready for an adoption decision review.
 - v1.1 (2026-05-26): Started Phase 2.5 mission-record adoption evidence with two backfilled real Factory V3 repository records.
@@ -211,6 +212,8 @@ Promotion gate:
 Passed for Phase 3 planning only. Telemetry/replay implementation still requires a separate V2-governed Phase 3 plan.
 
 ## Phase 3 - Telemetry And Evidence Replay
+
+Status: Planning artifact exists at `docs/Factory/v3/PHASE3_TELEMETRY_REPLAY_PLAN.md`. Telemetry implementation is not approved.
 
 Goal:
 
@@ -454,6 +457,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Start Phase 3 planning.
+Prepare Phase 3 implementation approval.
 
-Create a V2-governed plan for the minimal telemetry/replay format. Define event fields, excluded data, fixture shape, replay checks, and data-minimization rules before implementation. Do not add telemetry, governance routing, enforcement, default-mode behavior, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Create a separate V2-governed implementation pack for fixture-first telemetry/replay work. The first implementation should add telemetry fixtures and an advisory replay validator only if the pack explicitly approves exact files, commands, and verification. Do not add governance routing, enforcement, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.

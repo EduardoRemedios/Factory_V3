@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.4
+v1.5
 
 ## Change Log
+- v1.5 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
 - v1.4 (2026-05-26): Added the Phase 2.5 mission-record adoption decision recommending optional shadow use.
 - v1.3 (2026-05-26): Added a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
 - v1.2 (2026-05-26): Started Phase 2.5 mission-record adoption evidence with backfilled real Factory V3 repository mission records.
@@ -86,6 +87,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `ROADMAP_TO_FULL_VISION.md`
 - `ROADMAP_PREMORTEM.md`
 - `MISSION_RECORD_DESIGN_V0.md`
+- `PHASE3_TELEMETRY_REPLAY_PLAN.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
 - `USER_GUIDE.md`
@@ -131,6 +133,11 @@ Valid shadow fixtures now include completed, pre-envelope fallback, halted verif
 Phase 2.5 adoption evidence now lives under `mission_records/`. These records include real V3 repository backfills and a fresh pre-envelope fallback decision for replayability evaluation, still advisory and non-blocking.
 
 Phase 2.5 decision evidence is recorded at `PHASE2_5_MISSION_RECORD_ADOPTION_DECISION.md`. The decision recommends optional shadow mission-record use and allows Phase 3 telemetry/replay planning, but does not approve telemetry implementation or required gates.
+
+## Phase 3 Telemetry And Evidence Replay
+Phase 3 planning is recorded at `PHASE3_TELEMETRY_REPLAY_PLAN.md`.
+
+The plan defines a future minimal event model, excluded data, fixture shape, replay checks, and data-minimization rules. It is planning-only and does not implement telemetry, replay validators, required gates, runtime authority, proof, lease enforcement, governance routing, default-mode behavior, or V2 scaffolding removal.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.

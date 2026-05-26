@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add the planning-only Phase 3 telemetry/replay plan.
 - Add the Phase 2.5 mission-record adoption decision recommending optional shadow use.
 - Add a fresh real pre-envelope fallback mission record for Phase 2.5 adoption evidence.
 - Start Phase 2.5 mission-record adoption evidence with real Factory V3 repository backfills.
