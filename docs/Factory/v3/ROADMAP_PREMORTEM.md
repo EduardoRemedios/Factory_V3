@@ -1,9 +1,10 @@
 # Factory v3 Roadmap Pre-Mortem
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-05-26): Added tactical engineering watchpoints for advisory drift, governance-router topology ambiguity, and V3-native self-governance before V2 scaffolding removal.
 - v0.1 (2026-05-22): Initial roadmap-level pre-mortem and golden-fixture backlog for the path from optional `V3-OP-001` use to the full Factory v3 vision.
 
 ## Status
@@ -41,6 +42,9 @@ It does not redesign the roadmap, define the structured mission record schema, b
 | PM-016 | Real-project trials collect only success stories. | High | The evidence base misses friction, fallbacks, and near-misses. | Trial report template requires failures and fallback notes. | Phase 1 |
 | PM-017 | External-kernel adapter language implies Factory evidence is runtime proof. | Critical | Factory overclaims authority in advanced repositories. | Boundary fixtures and public-language scan. | Now and Phase 7 |
 | PM-018 | Evals pass curated fixtures but miss real-world drift. | High | The suite becomes reassuring but weak. | False-negative log from Phase 1 and periodic fixture refresh. | Phase 1 onward |
+| PM-019 | Advisory validators are bypassed during heavy debugging because they do not block repository operations. | High | The Phase 3 to Phase 6 window may produce incomplete replay evidence if models learn that advisory checks have no required-gate effect. | Compare mission records, command evidence, and telemetry fixtures for missing expected events; consider a later warn-only dirty-tree helper before enforcement. | Phase 3 and Phase 6 |
+| PM-020 | Governance routing relies on prompt intent and misses protected path topology. | Critical | A nominally light change can become high-risk when it touches compliance, authentication, payment, deployment, or other protected paths. | Seeded negative router fixtures that compare requested lane, touched paths, and codebase topology. | Phase 5 |
+| PM-021 | V2 scaffolding is removed before V3 can self-govern complex V3 upgrades. | Critical | Product independence would be brittle if V3 cannot safely plan, test, audit, and repair its own validators without falling back to V2. | Phase 9 self-governance rehearsal on a complex V3 validator change before removal approval. | Phase 9 |
 
 ## Blue Team Response
 The roadmap sequencing remains sound if these controls are added:
@@ -52,6 +56,9 @@ The roadmap sequencing remains sound if these controls are added:
 5. The governance router must be conservative and route unclear work to V2.
 6. Partial enforcement must advertise its limits.
 7. Persistent mission runtime must remain blocked until records, telemetry, evals, routing, and validators prove useful.
+8. Advisory checks must record missing evidence clearly during the Phase 3 to Phase 6 gap, even though they remain non-blocking.
+9. Router design must inspect target paths and protected topology, not only prompt intent.
+10. V3 product independence must require proof that V3 can self-govern meaningful V3 upgrades before V2 scaffolding removal.
 
 ## Purple Judgment
 The approach is viable if the pre-mortem becomes part of the Phase 1 evidence design.
@@ -106,10 +113,13 @@ These should wait until the relevant artifact exists.
 | V3-RM-202 | Mission record improves replay without replacing authored artifacts. | Phase 2 |
 | V3-RM-301 | Telemetry includes cognition state or vendor-private session detail. | Phase 3 |
 | V3-RM-302 | Telemetry cannot reconstruct mission status. | Phase 3 |
+| V3-RM-303 | Advisory telemetry/replay checks are skipped during debugging and closeout lacks expected replay events. | Phase 3 |
 | V3-RM-401 | Capability profile applies one harness result to all harnesses. | Phase 4 |
 | V3-RM-501 | Router sends ambiguous, high-risk work to V3. | Phase 5 |
+| V3-RM-502 | Router classifies work as light from prompt intent while touched paths intersect protected topology. | Phase 5 |
 | V3-RM-601 | Partial enforcement passes while a known out-of-scope risk remains unreviewed. | Phase 6 |
 | V3-RM-701 | Persistent mission runtime creates a second source of truth. | Phase 7 |
+| V3-RM-901 | V3 cannot self-govern a complex V3 validator upgrade without V2 fallback. | Phase 9 |
 
 ## Phase 1 Trial Evidence Requirements
 Every Phase 1 trial should record:
@@ -137,8 +147,11 @@ Stop roadmap advancement and run a new Factory review if any condition occurs:
 - failed verification continues without explicit human override,
 - mission records conflict with authored Mission Mode artifacts,
 - telemetry captures cognition state,
+- advisory telemetry or mission-record evidence is repeatedly skipped during model debugging,
 - routing pushes high-risk work into V3,
+- routing ignores protected target-path topology,
 - persistent runtime work starts before Phase 2 and Phase 3 evidence exists.
+- V2 scaffolding removal is proposed before V3 self-governance rehearsal passes.
 
 ## Recommended Next Step
-Use this pre-mortem to create the Phase 1 trial capture template before running more real-project V3 trials.
+Use these watchpoints during the Phase 3 fixture-first advisory replay-validator implementation. The validator should improve evidence visibility without implying required-gate enforcement.

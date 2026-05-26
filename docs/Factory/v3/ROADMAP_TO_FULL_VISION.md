@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.5
+v1.6
 
 ## Change Log
+- v1.6 (2026-05-26): Added tactical engineering watchpoints for advisory drift, topology-aware routing, and V3 self-governance before product independence.
 - v1.5 (2026-05-26): Added Phase 3 fixture-first telemetry/replay implementation approval.
 - v1.4 (2026-05-26): Added the planning-only Phase 3 telemetry/replay plan.
 - v1.3 (2026-05-26): Recorded the Phase 2.5 adoption decision and limited the next step to Phase 3 telemetry/replay planning.
@@ -239,6 +240,10 @@ Promotion gate:
 
 Telemetry becomes recommended only when it provides better replay and diagnosis without adding disproportionate user burden.
 
+Watchpoint:
+
+During the Phase 3 to Phase 6 advisory window, models may skip structured evidence because advisory checks do not block repository operations. Track missing replay events and consider only later, separately approved warn-only helpers before any enforcement.
+
 ## Phase 4 - Eval Expansion And Capability Profiling
 
 Goal:
@@ -285,6 +290,8 @@ Work:
 3. Run the router in advisory mode against historical and real work.
 4. Compare router recommendations against human decisions.
 5. Tune only from classified evidence.
+
+Router fixtures must test prompt intent against target-path topology. A light-looking request that touches protected compliance, authentication, payment, deployment, runtime, or infrastructure paths must route conservatively.
 
 Required evidence:
 
@@ -429,6 +436,7 @@ Possible decisions:
 Hard no-go conditions:
 
 - V3 still requires V2 stage, pack, or lint behavior to govern itself,
+- V3 cannot successfully plan, verify, and audit a complex V3 validator upgrade without V2 fallback,
 - contributors lack a V3-native replacement for required development governance,
 - removal would erase historical evidence needed to understand V3 decisions,
 - the separate V2-only repository is not confirmed as the V2 preservation home,

@@ -2,6 +2,7 @@
 
 ## 2026-05-26
 
+- Added tactical V3 roadmap watchpoints for advisory drift, topology-aware routing, and V3 self-governance before product independence.
 - Added the Phase 3 fixture-first telemetry/replay implementation approval.
 - Added the planning-only Phase 3 telemetry/replay plan.
 - Added the Phase 2.5 mission-record adoption decision recommending optional shadow use.
