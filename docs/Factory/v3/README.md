@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.10
+v1.11
 
 ## Change Log
+- v1.11 (2026-05-26): Recorded the third real advisory Phase 3 telemetry pilot and evidence-review prep.
 - v1.10 (2026-05-26): Recorded the second real advisory Phase 3 telemetry pilot.
 - v1.9 (2026-05-26): Recorded the first real advisory Phase 3 telemetry pilot.
 - v1.8 (2026-05-26): Added the planning-only Phase 3 real mission telemetry capture plan.
@@ -153,12 +154,13 @@ Initial Phase 3 fixture-first implementation status is recorded at `PHASE3_TELEM
 
 Real mission telemetry capture planning is recorded at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. It defines the future pilot storage shape, event subset, redaction rules, operator workflow, overhead capture, and stop conditions, but adds no real telemetry logs and authorizes no enforcement.
 
-The first two real advisory telemetry pilots are recorded under `telemetry/pilots/` and linked to shadow mission records:
+The first three real advisory telemetry pilots are recorded under `telemetry/pilots/` and linked to shadow mission records:
 
 - `PILOT_20260526_001_phase3_status_update/` links to `mission_records/MR_20260526_004_first_real_telemetry_pilot.json`.
 - `PILOT_20260526_002_replay_fixture_maintenance/` links to `mission_records/MR_20260526_005_second_real_telemetry_pilot.json`.
+- `PILOT_20260526_003_evidence_review_prep/` links to `mission_records/MR_20260526_006_third_real_telemetry_pilot.json`.
 
-They remain optional, research-only, and non-enforcing.
+They remain optional, research-only, and non-enforcing. The third pilot records that no natural halted, fallback, or clarification-heavy case occurred; this is a gap for evidence review, not negative-case evidence.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.

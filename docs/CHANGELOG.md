@@ -2,6 +2,7 @@
 
 ## 2026-05-26
 
+- Added the third real advisory Phase 3 telemetry pilot and evidence-review prep.
 - Added the second real advisory Phase 3 telemetry pilot and a valid real-pilot-style replay fixture.
 - Added the first real advisory Phase 3 telemetry pilot.
 - Added the planning-only Phase 3 real mission telemetry capture plan.

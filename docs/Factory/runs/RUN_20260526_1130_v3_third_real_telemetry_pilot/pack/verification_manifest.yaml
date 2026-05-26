@@ -1,0 +1,50 @@
+schema_version: 1
+run_id: RUN_20260526_1130_v3_third_real_telemetry_pilot
+sprint_id: SPRINT_20260526_008
+execution_mode: EXECUTION_ENABLED
+
+checks:
+  - id: VM-001
+    tier: V2
+    type: test
+    constraint_ids:
+      - C2
+    description: Replay the real pilot 3 telemetry log.
+    command: python3 scripts/factory_v3_telemetry_replay_lint.py --target docs/Factory/v3/telemetry/pilots/PILOT_20260526_003_evidence_review_prep/V3_TELEMETRY.jsonl --json
+    expected: Command exits 0 and reports ADVISORY_PASS.
+    halt_on_failure: true
+    evidence_path: docs/Factory/v3/telemetry/pilots/PILOT_20260526_003_evidence_review_prep/REPLAY_REPORT.json
+
+  - id: VM-002
+    tier: V2
+    type: test
+    constraint_ids:
+      - C4
+    description: Preserve deterministic telemetry replay fixture expectations.
+    command: python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json
+    expected: Command exits 0.
+    halt_on_failure: true
+    evidence_path: terminal output
+
+  - id: VM-003
+    tier: V2
+    type: test
+    constraint_ids:
+      - C3
+    description: Validate real shadow mission records.
+    command: python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json
+    expected: Command exits 0 and reports no findings for real mission records.
+    halt_on_failure: true
+    evidence_path: terminal output
+
+  - id: VM-004
+    tier: V1
+    type: command
+    constraint_ids:
+      - C1
+      - C5
+    description: Check advisory posture and repository hygiene.
+    command: python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json && git diff --check
+    expected: Commands exit 0.
+    halt_on_failure: true
+    evidence_path: terminal output
