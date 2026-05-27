@@ -15,7 +15,7 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 - Keep `V3-OP-001` evidence and guidance in this repository.
 - Use Factory V2 process artifacts and validators for V3 development work that needs Factory-controlled planning while V3 is still maturing.
 - Continue Phase 4 eval expansion and capability profiling. The Phase 4 plan, harness capability profile template, and first synthetic operational-readiness fixture expansion now exist in advisory mode.
-- Phase 4 real-run corpus capture planning and result-summary template now exist. Next, select and separately approve one narrow `V3-OP-001` evidence mission candidate; carry forward the recorded Phase 3 gap for the missing natural halted/fallback/clarification-heavy case.
+- Phase 4 real-run corpus capture planning and result-summary template now exist. The first separately approved happy-path docs-only capture record now exists, with `NO_TELEMETRY`; next, continue collecting only separately approved narrow `V3-OP-001` evidence and carry forward the recorded Phase 3 gap for the missing natural halted/fallback/clarification-heavy case.
 - Continue Phase 2 structured mission-record use in shadow/advisory mode; valid completed, pre-envelope fallback, halted, stale-reentry, and blocked examples now exist.
 - Preserve current V2 fallback language and non-deprecation guarantees until explicit V3 confidence evidence approves the repository transition.
 - Do not add required-gate integration, default-mode promotion, telemetry enforcement, runtime authority, or governance routing without explicit approval.
