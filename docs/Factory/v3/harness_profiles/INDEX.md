@@ -4,6 +4,7 @@
 v0.1
 
 ## Change Log
+- v0.2 (2026-05-27): Added third harness profile for the negative-case opportunity register.
 - v0.1 (2026-05-27): Initial Phase 4 harness capability profile index.
 
 ## Status
@@ -18,6 +19,7 @@ Factory V3 is not promoted by this index. V3 remains optional/advisory except fo
 | --- | --- | --- | --- | --- | --- | --- |
 | `HP_20260527_001` | `HP_20260527_001_codex_phase4_candidate_status_update.md` | `../real_run_corpus/RR_20260527_001_phase4_candidate_status_update.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` | `harness_profile_observed` | One happy-path docs-only run; no natural halt, fallback, clarification-heavy, or reentry stress. |
 | `HP_20260527_002` | `HP_20260527_002_codex_phase4_corpus_index_update.md` | `../real_run_corpus/RR_20260527_002_phase4_corpus_index_update.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` | `harness_profile_observed` | Second happy-path docs-only run; still no natural halt, fallback, clarification-heavy, or reentry stress. |
+| `HP_20260527_003` | `HP_20260527_003_codex_phase4_negative_case_opportunity_register.md` | `../real_run_corpus/RR_20260527_003_phase4_negative_case_opportunity_register.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` | `harness_profile_observed` | Third happy-path docs-only run; opportunity list does not itself create natural negative-case evidence. |
 
 ## Use Rules
 - Use this index to locate advisory harness profiles only.
