@@ -20,7 +20,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 mission-envelope, closeout, fallback, SIMPLE-CODE-GATE, and mission-record templates.
 - V3 advisory validators and deterministic fixtures.
 - V3 advisory telemetry replay evidence, including three real Phase 3 pilot logs and an evidence review that conditionally recommends optional advisory telemetry for selected narrow evidence missions.
-- V3 Phase 4 eval expansion plan, harness capability profile template, and synthetic operational-readiness fixture expansion for capability, reliability, scope, verification, recovery, evidence, false-positive/false-negative, and threshold-wording signals.
+- V3 Phase 4 eval expansion plan, harness capability profile template, synthetic operational-readiness fixture expansion, and the first happy-path real-run corpus record with a matching harness profile.
 - V3 operational-readiness, trial, and decision evidence.
 - External governance-kernel boundary guidance for V3 work.
 - Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, Mission Mode, and helper tooling for building V3 while V3 matures.
@@ -35,7 +35,8 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - Future V2 deprecation/removal from this repository requires explicit V3 confidence evidence and release approval.
 - Runtime authority, production action mediation, proof, leases, telemetry enforcement, and governance routing remain separately governed by explicit V3 evidence and approval.
 - Existing V3 advisory tools remain advisory unless a future release explicitly promotes them.
-- Phase 3 telemetry is not a required gate; Phase 4 eval expansion has started with advisory planning artifacts and synthetic fixtures only.
+- Phase 3 telemetry is not a required gate; Phase 4 eval expansion has started with advisory planning artifacts, synthetic fixtures, and one separately approved happy-path docs-only real-run capture using `NO_TELEMETRY`.
+- The Phase 3 natural halted/fallback/clarification-heavy telemetry gap remains open.
 - Phase 4 does not approve governance routing, reduced governance, default-mode behavior, telemetry completeness checks, required gates, runtime authority, proof, lease enforcement, or V2 build-support removal.
 
 ## Key Paths

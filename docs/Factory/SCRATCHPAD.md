@@ -16,6 +16,7 @@ Format:
 `<ID> | <Tag> | <Pitfall (one sentence)> | <Evidence RUN_ID:path> | <Status>`
 
 - FP-001 | scope | When execution reveals contract ambiguity, harden contracts first; do not start feature expansion on top of drift. | (add evidence after first run) | ACTIVE
+- FP-002 | consistency | Promotion-sensitive evidence records need explicit non-promotion language in the same paragraph as any V3 approval or operational-status wording. | RUN_20260527_0732_v3_phase4_first_capture_candidate_plan:docs/Factory/v3/real_run_corpus/RR_20260527_001_phase4_candidate_status_update.md | ACTIVE
 
 ---
 

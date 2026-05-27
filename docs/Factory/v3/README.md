@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.14
+v1.15
 
 ## Change Log
+- v1.15 (2026-05-27): Recorded the first Phase 4 real-run corpus result summary and harness capability profile.
 - v1.14 (2026-05-27): Added Phase 4 real-run corpus capture plan and real-run result summary template.
 - v1.13 (2026-05-26): Added Phase 4 eval expansion planning, the harness capability profile template, and synthetic operational-readiness fixture expansion.
 - v1.12 (2026-05-26): Added the Phase 3 telemetry evidence review and conditional optional-advisory recommendation.
@@ -179,7 +180,11 @@ Initial synthetic Phase 4 operational-readiness fixture expansion exists under `
 
 These fixtures are synthetic design coverage only. They are not real negative-case telemetry evidence, do not approve governance routing, and do not reduce V2 governance. The missing natural halted/fallback/clarification-heavy telemetry case remains a Phase 4 evidence gap.
 
-The next Phase 4 step is to plan real-run corpus and harness capability profile capture for selected narrow `V3-OP-001` evidence work.
+The first separately approved Phase 4 real-run corpus record is `real_run_corpus/RR_20260527_001_phase4_candidate_status_update.md`, with matching harness profile `harness_profiles/HP_20260527_001_codex_phase4_candidate_status_update.md`.
+
+This first record is happy-path docs-only evidence with `NO_TELEMETRY`. It does not close the natural halted/fallback/clarification-heavy gap and does not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
+
+The next Phase 4 step is to plan another separately approved narrow `V3-OP-001` capture candidate, preferably one with a natural chance to exercise halt, fallback, clarification, or reentry behavior without manufacturing a failure.
 
 Real-run corpus capture planning is recorded at `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`.
 
