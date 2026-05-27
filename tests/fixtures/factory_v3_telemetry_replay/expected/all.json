@@ -1,12 +1,16 @@
 {
   "blocking_effect": "none",
   "checked_logs": [
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/duplicate_event_id.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/invalid/excluded_data_marker.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/invalid/missing_halt_after_verification_failure.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/missing_terminal_event.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/invalid/non_monotonic_sequence.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/invalid/post_terminal_event.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_command.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_file.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/unknown_excluded_data_marker.jsonl",
+    "tests/fixtures/factory_v3_telemetry_replay/invalid/unsafe_authorized_path.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/valid/happy_path.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/valid/human_clarification.jsonl",
     "tests/fixtures/factory_v3_telemetry_replay/valid/pre_envelope_fallback.jsonl",
@@ -22,6 +26,12 @@
       "severity": "advisory_critical"
     },
     {
+      "id": "V3-TR031",
+      "message": "event_id is duplicated: evt-001",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/duplicate_event_id.jsonl:2",
+      "severity": "advisory_critical"
+    },
+    {
       "id": "V3-TR041",
       "message": "command is outside declared authority: npm install",
       "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_command.jsonl:3",
@@ -31,6 +41,18 @@
       "id": "V3-TR042",
       "message": "file path is outside declared authority: app/protected.py",
       "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_file.jsonl:3",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR043",
+      "message": "authorized file path is unsafe: ../outside.py",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unsafe_authorized_path.jsonl:2",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR044",
+      "message": "file path is unsafe: ../outside.py",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unsafe_authorized_path.jsonl:3",
       "severity": "advisory_critical"
     },
     {
@@ -46,9 +68,51 @@
       "severity": "advisory_critical"
     },
     {
+      "id": "V3-TR061",
+      "message": "telemetry log must contain exactly one terminal event, found 0",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/excluded_data_marker.jsonl",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR061",
+      "message": "telemetry log must contain exactly one terminal event, found 0",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/missing_halt_after_verification_failure.jsonl",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR061",
+      "message": "telemetry log must contain exactly one terminal event, found 0",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/missing_terminal_event.jsonl",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR061",
+      "message": "telemetry log must contain exactly one terminal event, found 0",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/non_monotonic_sequence.jsonl",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR061",
+      "message": "telemetry log must contain exactly one terminal event, found 0",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_command.jsonl",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR061",
+      "message": "telemetry log must contain exactly one terminal event, found 0",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unauthorized_file.jsonl",
+      "severity": "advisory_critical"
+    },
+    {
       "id": "V3-TR071",
       "message": "excluded data marker present: contains_secret",
       "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/excluded_data_marker.jsonl:1",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-TR071",
+      "message": "excluded data marker present: contains_password",
+      "path": "tests/fixtures/factory_v3_telemetry_replay/invalid/unknown_excluded_data_marker.jsonl:1",
       "severity": "advisory_critical"
     }
   ],

@@ -14,6 +14,7 @@
 - Phase 4 real-run corpus and harness-profile indexes now exist at `docs/Factory/v3/real_run_corpus/INDEX.md` and `docs/Factory/v3/harness_profiles/INDEX.md`.
 - Three separately approved Phase 4 real-run capture records now exist under `docs/Factory/v3/real_run_corpus/`, with matching harness profiles under `docs/Factory/v3/harness_profiles/`.
 - The Phase 4 negative-case opportunity register now exists at `docs/Factory/v3/PHASE4_NEGATIVE_CASE_OPPORTUNITY_REGISTER.md` as research-only planning aid for future natural halt, fallback, clarification-heavy, stale-reentry, or advisory FP/FN opportunities.
+- A Codex Security scan found no critical, high, or medium findings in the repository. The validated low-severity advisory evidence-integrity gap has regression coverage in the V3 mission-record and telemetry replay validators for unsafe path shapes, duplicate telemetry event IDs, missing terminal replay events, and excluded-data markers.
 - The migrated content preserves its original paths where practical so historical evidence remains readable.
 
 ## Current Boundary
@@ -35,7 +36,7 @@ bash scripts/knowledge_lint.sh
 python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json
 python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json
 python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json
-python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --json
+python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json
 python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json
 python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json
 ```

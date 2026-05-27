@@ -1,5 +1,8 @@
 # Factory v3 Mission Record Fixtures
 
+## Change Log
+- v0.1 (2026-05-27): Added unsafe path-shape regression fixture for advisory scope evidence.
+
 ## Status
 Research-only shadow fixtures. These examples are non-enforcing and do not approve new V3 profiles, make V3 the default, deprecate V2, or wire V3 into required gates.
 

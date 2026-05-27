@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.17
+v1.18
 
 ## Change Log
+- v1.18 (2026-05-27): Recorded Codex Security scan follow-up hardening for advisory mission-record and telemetry replay validator false negatives.
 - v1.17 (2026-05-27): Recorded the Phase 4 negative-case opportunity register and third happy-path real-run evidence pair.
 - v1.16 (2026-05-27): Recorded Phase 4 corpus and harness-profile indexes plus the second happy-path real-run evidence pair.
 - v1.15 (2026-05-27): Recorded the first Phase 4 real-run corpus result summary and harness capability profile.
@@ -56,7 +57,8 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Preserve the external governance kernel and runtime-kernel boundary.
 - Keep V2 fallback explicit.
 - Capture evals, stress tests, pilot evidence, decision reports, and promotion criteria.
-- Provide a shadow `V3_MISSION_RECORD` design and standalone advisory validator for Phase 2 replay and evidence-shape testing.
+- Provide a shadow `V3_MISSION_RECORD` design and standalone advisory validator for Phase 2 replay and evidence-shape testing, including regression coverage for unsafe path shapes in self-attested scope evidence.
+- Provide an advisory telemetry replay validator with regression coverage for duplicate telemetry event IDs, missing terminal replay events, unsafe path shapes in self-attested scope evidence, and excluded-data markers.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule

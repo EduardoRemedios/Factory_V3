@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.16
+v1.17
 
 ## Change Log
+- v1.17 (2026-05-27): Recorded Codex Security scan follow-up hardening for advisory mission-record and telemetry replay validator false negatives.
 - v1.16 (2026-05-27): Recorded the Phase 4 negative-case opportunity register and third happy-path real-run evidence pair.
 - v1.15 (2026-05-27): Recorded Phase 4 corpus and harness-profile indexes plus the second happy-path real-run evidence pair.
 - v1.14 (2026-05-27): Recorded the first Phase 4 real-run corpus result summary and harness profile.
@@ -225,7 +226,7 @@ Passed for Phase 3 planning only. Telemetry/replay implementation still requires
 
 ## Phase 3 - Telemetry And Evidence Replay
 
-Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. Three real advisory telemetry pilots exist under `telemetry/pilots/`, and the evidence review at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md` recommends optional advisory telemetry only for selected narrow `V3-OP-001` evidence missions with conditions. The missing natural halted, fallback, or clarification-heavy pilot remains a gap. Required gates, runtime authority, proof, lease enforcement, governance routing, telemetry enforcement, and default-mode behavior are not approved.
+Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. Three real advisory telemetry pilots exist under `telemetry/pilots/`, and the evidence review at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md` recommends optional advisory telemetry only for selected narrow `V3-OP-001` evidence missions with conditions. Codex Security scan follow-up added advisory regression coverage for duplicate telemetry event IDs, missing terminal replay events, unsafe path shapes in self-attested scope evidence, and excluded-data markers. The missing natural halted, fallback, or clarification-heavy pilot remains a gap. Required gates, runtime authority, proof, lease enforcement, governance routing, telemetry enforcement, and default-mode behavior are not approved.
 
 Goal:
 
@@ -258,7 +259,7 @@ During the Phase 3 to Phase 6 advisory window, models may skip structured eviden
 
 ## Phase 4 - Eval Expansion And Capability Profiling
 
-Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, and a research-only negative-case opportunity register exist.
+Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, and a research-only negative-case opportunity register exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
 
 Goal:
 

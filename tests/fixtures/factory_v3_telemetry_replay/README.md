@@ -1,9 +1,10 @@
 # Factory v3 Telemetry Replay Fixtures
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-05-27): Added regression fixtures for unsafe path shape, duplicate event IDs, missing terminal events, and unknown excluded-data markers.
 - v0.2 (2026-05-26): Added a valid real-pilot-style fixture covering summary-only fixture maintenance telemetry.
 - v0.1 (2026-05-26): Initial fixture corpus for the standalone advisory telemetry replay validator.
 

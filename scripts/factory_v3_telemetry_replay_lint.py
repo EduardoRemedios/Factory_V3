@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 
@@ -28,14 +28,6 @@ APPROVED_EVENT_TYPES = {
 APPROVED_ACTORS = {"human", "agent", "tool", "system"}
 APPROVED_SOURCES = {"live", "backfill", "fixture"}
 TERMINAL_EVENTS = {"closeout_recorded", "fallback_triggered"}
-SAFE_EXCLUDED_MARKERS = {
-    "contains_secret",
-    "contains_chain_of_thought",
-    "contains_full_transcript",
-    "contains_source_contents",
-    "contains_vendor_private_state",
-}
-
 
 def main() -> int:
     parser = argparse.ArgumentParser(
@@ -112,11 +104,13 @@ def _lint_events(path: Path, events: list[dict[str, Any]]) -> list[dict[str, str
 
     first_mission_id: str | None = None
     first_record_id: str | None = None
+    seen_event_ids: set[str] = set()
     expected_sequence = 1
     authority_seen = False
     authorized_files: set[str] = set()
     allowed_commands: set[str] = set()
     terminal_seen = False
+    terminal_count = 0
     verification_blocking = False
 
     for index, event in enumerate(events, start=1):
@@ -135,6 +129,11 @@ def _lint_events(path: Path, events: list[dict[str, Any]]) -> list[dict[str, str
                 first_record_id = record_id
             elif record_id != first_record_id:
                 findings.append(_finding("V3-TR021", "advisory_critical", event_path, "record_id changes within telemetry log"))
+        event_id = event.get("event_id")
+        if isinstance(event_id, str) and event_id:
+            if event_id in seen_event_ids:
+                findings.append(_finding("V3-TR031", "advisory_critical", event_path, f"event_id is duplicated: {event_id}"))
+            seen_event_ids.add(event_id)
 
         sequence = event.get("sequence")
         if sequence != expected_sequence:
@@ -160,6 +159,8 @@ def _lint_events(path: Path, events: list[dict[str, Any]]) -> list[dict[str, str
 
         if event_type == "authority_declared":
             authority_seen = True
+            for file_path in _invalid_safe_paths(payload.get("authorized_files")):
+                findings.append(_finding("V3-TR043", "advisory_critical", event_path, f"authorized file path is unsafe: {file_path}"))
             authorized_files = _string_set(payload.get("authorized_files"))
             allowed_commands = _string_set(payload.get("allowed_commands"))
 
@@ -174,6 +175,8 @@ def _lint_events(path: Path, events: list[dict[str, Any]]) -> list[dict[str, str
                 findings.append(_finding("V3-TR050", "advisory_critical", event_path, "execution appears after failed verification without halt, fallback, or human decision"))
 
         if event_type == "file_change_summary":
+            for file_path in _invalid_safe_paths(payload.get("paths")):
+                findings.append(_finding("V3-TR044", "advisory_critical", event_path, f"file path is unsafe: {file_path}"))
             for file_path in sorted(_string_set(payload.get("paths")) - authorized_files):
                 findings.append(_finding("V3-TR042", "advisory_critical", event_path, f"file path is outside declared authority: {file_path}"))
             if verification_blocking:
@@ -188,8 +191,11 @@ def _lint_events(path: Path, events: list[dict[str, Any]]) -> list[dict[str, str
         findings.extend(_check_excluded_data(event_path, event))
 
         if event_type in TERMINAL_EVENTS:
+            terminal_count += 1
             terminal_seen = True
 
+    if terminal_count != 1:
+        findings.append(_finding("V3-TR061", "advisory_critical", path_text, f"telemetry log must contain exactly one terminal event, found {terminal_count}"))
     return findings
 
 
@@ -222,9 +228,8 @@ def _check_excluded_data(path: str, event: dict[str, Any]) -> list[dict[str, str
         return findings
     if not isinstance(markers, list):
         return [_finding("V3-TR070", "advisory_critical", path, "excluded_data_markers must be a list when present")]
-    for marker in sorted(str(item) for item in markers):
-        if marker in SAFE_EXCLUDED_MARKERS:
-            findings.append(_finding("V3-TR071", "advisory_critical", path, f"excluded data marker present: {marker}"))
+    for marker in sorted(str(item) for item in markers if str(item).strip()):
+        findings.append(_finding("V3-TR071", "advisory_critical", path, f"excluded data marker present: {marker}"))
     return findings
 
 
@@ -288,6 +293,24 @@ def _string_set(value: Any) -> set[str]:
     if not isinstance(value, list):
         return set()
     return {item for item in value if isinstance(item, str) and item}
+
+
+def _invalid_safe_paths(value: Any) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    invalid: list[str] = []
+    for item in value:
+        if not isinstance(item, str):
+            invalid.append(str(item))
+            continue
+        path = item.strip()
+        if not path or path.startswith("~") or "\\" in path:
+            invalid.append(item)
+            continue
+        parts = PurePosixPath(path).parts
+        if not parts or any(part in {"", ".", ".."} for part in parts):
+            invalid.append(item)
+    return invalid
 
 
 def _nonempty_string(value: Any) -> bool:

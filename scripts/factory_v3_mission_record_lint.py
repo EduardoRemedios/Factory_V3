@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 
@@ -187,6 +187,9 @@ def _check_authority(path: str, authority: dict[str, Any], decision_state: Any) 
         findings.append(_finding("V3-MR040", "advisory_critical", path, "authority.authorized_files must be a list"))
     elif decision_state in {"completed_with_v3", "halted"} and not authorized_files:
         findings.append(_finding("V3-MR041", "advisory_critical", path, "executed V3 records must include authorized files"))
+    if isinstance(authorized_files, list):
+        for file_path in _invalid_safe_paths(authorized_files):
+            findings.append(_finding("V3-MR046", "advisory_critical", path, f"authorized file path is unsafe: {file_path}"))
 
     if not isinstance(allowed_commands, list):
         findings.append(_finding("V3-MR042", "advisory_critical", path, "authority.allowed_commands must be a list"))
@@ -210,6 +213,9 @@ def _check_execution(
     files_changed = execution.get("files_changed")
     if not isinstance(files_changed, list):
         findings.append(_finding("V3-MR050", "advisory_critical", path, "execution.files_changed must be a list"))
+    else:
+        for file_path in _invalid_safe_paths(files_changed):
+            findings.append(_finding("V3-MR059", "advisory_critical", path, f"changed file path is unsafe: {file_path}"))
 
     verification = execution.get("verification")
     if not isinstance(verification, dict):
@@ -362,6 +368,22 @@ def _nonempty_string(value: Any) -> bool:
 
 def _meaningful_reference(value: Any) -> bool:
     return _nonempty_string(value) and value.strip().lower() not in {"none", "not_recorded"}
+
+
+def _invalid_safe_paths(values: list[Any]) -> list[str]:
+    invalid: list[str] = []
+    for value in values:
+        if not isinstance(value, str):
+            invalid.append(str(value))
+            continue
+        path = value.strip()
+        if not path or path.startswith("~") or "\\" in path:
+            invalid.append(value)
+            continue
+        parts = PurePosixPath(path).parts
+        if not parts or any(part in {"", ".", ".."} for part in parts):
+            invalid.append(value)
+    return invalid
 
 
 def _finding(check_id: str, severity: str, path: str, message: str) -> dict[str, str]:

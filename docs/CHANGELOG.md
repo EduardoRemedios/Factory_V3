@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-05-27
+
+- Hardened advisory V3 mission-record and telemetry replay validators against security-scan false negatives for unsafe path shapes, duplicate telemetry event IDs, missing terminal replay events, and excluded-data markers; these checks remain advisory and non-blocking.
+
 ## 2026-05-26
 
 - Added Phase 4 eval expansion planning, the harness capability profile template, and synthetic operational-readiness fixture expansion.
