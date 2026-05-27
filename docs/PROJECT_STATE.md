@@ -11,7 +11,8 @@
 - Phase 3 telemetry/replay now has a fixture-first advisory replay validator, deterministic fixtures, three real advisory telemetry pilot logs under `docs/Factory/v3/telemetry/pilots/`, and an evidence review at `docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
 - Phase 4 eval expansion has started. `docs/Factory/v3/PHASE4_EVAL_EXPANSION_PLAN.md`, `docs/Factory/v3/templates/V3_HARNESS_CAPABILITY_PROFILE_TEMPLATE.md`, and synthetic `V3-P4-*` operational-readiness fixtures now exist.
 - Phase 4 real-run corpus capture planning artifacts now exist at `docs/Factory/v3/PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md` and `docs/Factory/v3/templates/V3_REAL_RUN_RESULT_SUMMARY_TEMPLATE.md`.
-- The first separately approved Phase 4 real-run capture record now exists at `docs/Factory/v3/real_run_corpus/RR_20260527_001_phase4_candidate_status_update.md` with the matching harness profile at `docs/Factory/v3/harness_profiles/HP_20260527_001_codex_phase4_candidate_status_update.md`.
+- Phase 4 real-run corpus and harness-profile indexes now exist at `docs/Factory/v3/real_run_corpus/INDEX.md` and `docs/Factory/v3/harness_profiles/INDEX.md`.
+- Two separately approved Phase 4 real-run capture records now exist under `docs/Factory/v3/real_run_corpus/`, with matching harness profiles under `docs/Factory/v3/harness_profiles/`.
 - The migrated content preserves its original paths where practical so historical evidence remains readable.
 
 ## Current Boundary
@@ -23,7 +24,7 @@
 - Advisory validators and telemetry replay checks remain advisory unless future evidence and approval promote them.
 - Runtime authority, proof, lease enforcement, telemetry enforcement, governance routing, and external governance-kernel adapters remain out of scope unless explicitly approved.
 - Phase 3 telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not required or gate-enforced.
-- Phase 4 remains research-only and non-enforcing. One happy-path docs-only `V3-OP-001` real-run corpus record exists with `NO_TELEMETRY`, but it does not close the Phase 3 natural halted/fallback/clarification-heavy gap and does not support routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
+- Phase 4 remains research-only and non-enforcing. Two happy-path docs-only `V3-OP-001` real-run corpus records exist with `NO_TELEMETRY`, but they do not close the Phase 3 natural halted/fallback/clarification-heavy gap and do not support routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
 
 ## Verification
 

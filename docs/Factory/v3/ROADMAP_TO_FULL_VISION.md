@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.14
+v1.15
 
 ## Change Log
+- v1.15 (2026-05-27): Recorded Phase 4 corpus and harness-profile indexes plus the second happy-path real-run evidence pair.
 - v1.14 (2026-05-27): Recorded the first Phase 4 real-run corpus result summary and harness profile.
 - v1.13 (2026-05-26): Recorded Phase 4 planning artifacts and initial synthetic operational-readiness fixture expansion.
 - v1.12 (2026-05-26): Recorded the Phase 3 telemetry evidence review and moved the recommended next step to Phase 4 planning.
@@ -256,7 +257,7 @@ During the Phase 3 to Phase 6 advisory window, models may skip structured eviden
 
 ## Phase 4 - Eval Expansion And Capability Profiling
 
-Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, and first separately approved happy-path real-run corpus record with matching harness profile exist.
+Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, and two separately approved happy-path real-run corpus records with matching harness profiles exist.
 
 Goal:
 
@@ -273,8 +274,8 @@ Required evidence:
 
 - harness capability report template, Status: initial template exists.
 - golden fixture expansion, Status: initial synthetic `V3-P4-*` operational-readiness fixtures exist.
-- real-run result corpus, Status: first happy-path docs-only result summary exists with `NO_TELEMETRY`.
-- false-positive and false-negative rollup, Status: rollup shape is planned; first real adjudication notes exist for the initial NL-pilot wording repair, but evidence remains too narrow for thresholds.
+- real-run result corpus, Status: two happy-path docs-only result summaries exist with `NO_TELEMETRY`.
+- false-positive and false-negative rollup, Status: rollup shape is planned; first real adjudication notes exist for the initial NL-pilot wording repair, but evidence remains too narrow and happy-path-heavy for thresholds.
 - advisory threshold discussion for later routing study, Status: planning-only and non-operational.
 
 Promotion gate:
@@ -480,4 +481,4 @@ Before making this repository V3-only, also confirm:
 ## Recommended Next Move
 Plan the next Phase 4 real-run corpus and harness capability profile capture candidate.
 
-Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, and first happy-path capture record to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer a candidate with a natural chance to exercise halt, fallback, clarification, or reentry behavior, but do not manufacture a failure or claim the gap is closed before evidence exists. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, and first two happy-path capture records to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer a candidate with a natural chance to exercise halt, fallback, clarification, or reentry behavior, but do not manufacture a failure or claim the gap is closed before evidence exists. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
