@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.16
+v1.17
 
 ## Change Log
+- v1.17 (2026-05-27): Recorded the Phase 4 negative-case opportunity register and third happy-path real-run evidence pair.
 - v1.16 (2026-05-27): Recorded Phase 4 corpus and harness-profile indexes plus the second happy-path real-run evidence pair.
 - v1.15 (2026-05-27): Recorded the first Phase 4 real-run corpus result summary and harness capability profile.
 - v1.14 (2026-05-27): Added Phase 4 real-run corpus capture plan and real-run result summary template.
@@ -187,9 +188,13 @@ The first separately approved Phase 4 real-run corpus record is `real_run_corpus
 
 The second separately approved Phase 4 real-run corpus record is `real_run_corpus/RR_20260527_002_phase4_corpus_index_update.md`, with matching harness profile `harness_profiles/HP_20260527_002_codex_phase4_corpus_index_update.md`.
 
-These first two records are happy-path docs-only evidence with `NO_TELEMETRY`. They do not close the natural halted/fallback/clarification-heavy gap and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
+The third separately approved Phase 4 real-run corpus record is `real_run_corpus/RR_20260527_003_phase4_negative_case_opportunity_register.md`, with matching harness profile `harness_profiles/HP_20260527_003_codex_phase4_negative_case_opportunity_register.md`.
 
-The next Phase 4 step is to plan another separately approved narrow `V3-OP-001` capture candidate, preferably one with a natural chance to exercise halt, fallback, clarification, or reentry behavior without manufacturing a failure.
+The Phase 4 negative-case opportunity register is `PHASE4_NEGATIVE_CASE_OPPORTUNITY_REGISTER.md`.
+
+These first three records are happy-path docs-only evidence with `NO_TELEMETRY`. The opportunity register lists unapproved future opportunities only. They do not close the natural halted/fallback/clarification-heavy gap and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
+
+The next Phase 4 step is to plan a separately approved narrow `V3-OP-001` capture candidate from the opportunity register, preferably one with a natural chance to exercise halt, fallback, clarification, or reentry behavior without manufacturing a failure.
 
 Real-run corpus capture planning is recorded at `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`.
 
