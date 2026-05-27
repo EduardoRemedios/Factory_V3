@@ -1,6 +1,6 @@
 # PROJECT_STATE.md - Factory V3 State
 
-> Last updated: 2026-05-26
+> Last updated: 2026-05-27
 
 ## What Exists
 
@@ -10,6 +10,7 @@
 - V3 docs, templates, trials, evidence, advisory scripts, and deterministic fixtures are present under this repository.
 - Phase 3 telemetry/replay now has a fixture-first advisory replay validator, deterministic fixtures, three real advisory telemetry pilot logs under `docs/Factory/v3/telemetry/pilots/`, and an evidence review at `docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
 - Phase 4 eval expansion has started. `docs/Factory/v3/PHASE4_EVAL_EXPANSION_PLAN.md`, `docs/Factory/v3/templates/V3_HARNESS_CAPABILITY_PROFILE_TEMPLATE.md`, and synthetic `V3-P4-*` operational-readiness fixtures now exist.
+- Phase 4 real-run corpus capture planning artifacts now exist at `docs/Factory/v3/PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md` and `docs/Factory/v3/templates/V3_REAL_RUN_RESULT_SUMMARY_TEMPLATE.md`.
 - The migrated content preserves its original paths where practical so historical evidence remains readable.
 
 ## Current Boundary
@@ -21,7 +22,7 @@
 - Advisory validators and telemetry replay checks remain advisory unless future evidence and approval promote them.
 - Runtime authority, proof, lease enforcement, telemetry enforcement, governance routing, and external governance-kernel adapters remain out of scope unless explicitly approved.
 - Phase 3 telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not required or gate-enforced.
-- Phase 4 remains research-only and non-enforcing. The current next step is to plan real-run corpus and harness capability profile capture, carrying forward the recorded gap that no natural halted/fallback/clarification-heavy telemetry pilot has been captured.
+- Phase 4 remains research-only and non-enforcing. Real-run corpus planning exists, but no real evidence mission, corpus record, or telemetry capture has been approved or executed yet. The current next step is to select and separately approve one narrow `V3-OP-001` evidence mission candidate.
 
 ## Verification
 

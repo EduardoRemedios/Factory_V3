@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.13
+v1.14
 
 ## Change Log
+- v1.14 (2026-05-27): Added Phase 4 real-run corpus capture plan and real-run result summary template.
 - v1.13 (2026-05-26): Added Phase 4 eval expansion planning, the harness capability profile template, and synthetic operational-readiness fixture expansion.
 - v1.12 (2026-05-26): Added the Phase 3 telemetry evidence review and conditional optional-advisory recommendation.
 - v1.11 (2026-05-26): Recorded the third real advisory Phase 3 telemetry pilot and evidence-review prep.
@@ -101,6 +102,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`
 - `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`
 - `PHASE4_EVAL_EXPANSION_PLAN.md`
+- `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
 - `USER_GUIDE.md`
@@ -178,6 +180,12 @@ Initial synthetic Phase 4 operational-readiness fixture expansion exists under `
 These fixtures are synthetic design coverage only. They are not real negative-case telemetry evidence, do not approve governance routing, and do not reduce V2 governance. The missing natural halted/fallback/clarification-heavy telemetry case remains a Phase 4 evidence gap.
 
 The next Phase 4 step is to plan real-run corpus and harness capability profile capture for selected narrow `V3-OP-001` evidence work.
+
+Real-run corpus capture planning is recorded at `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`.
+
+Use `templates/V3_REAL_RUN_RESULT_SUMMARY_TEMPLATE.md` for future result summaries after a specific `V3-OP-001` evidence mission is separately approved.
+
+The capture plan does not authorize live mission execution, telemetry collection, routing, reduced governance, required gates, runtime authority, proof, leases, default-mode behavior, V3 promotion, or V2 build-support removal.
 
 ## Advisory Eval Tooling
 - `scripts/factory_v3_advisory_lint.py` checks research-posture and promotion-evidence drift in V3 docs.
