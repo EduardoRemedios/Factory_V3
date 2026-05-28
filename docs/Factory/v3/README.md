@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.18
+v1.19
 
 ## Change Log
+- v1.19 (2026-05-28): Recorded two approved Phase 4 negative-case capture candidates that produced clean non-events and kept the Phase 3 natural negative-case gap open.
 - v1.18 (2026-05-27): Recorded Codex Security scan follow-up hardening for advisory mission-record and telemetry replay validator false negatives.
 - v1.17 (2026-05-27): Recorded the Phase 4 negative-case opportunity register and third happy-path real-run evidence pair.
 - v1.16 (2026-05-27): Recorded Phase 4 corpus and harness-profile indexes plus the second happy-path real-run evidence pair.
@@ -192,11 +193,15 @@ The second separately approved Phase 4 real-run corpus record is `real_run_corpu
 
 The third separately approved Phase 4 real-run corpus record is `real_run_corpus/RR_20260527_003_phase4_negative_case_opportunity_register.md`, with matching harness profile `harness_profiles/HP_20260527_003_codex_phase4_negative_case_opportunity_register.md`.
 
+The first approved Phase 4 negative-case capture candidate record is `real_run_corpus/RR_20260528_001_phase4_advisory_threshold_wording.md`, with matching harness profile `harness_profiles/HP_20260528_001_codex_phase4_advisory_threshold_wording.md`. It produced a clean advisory FP/FN non-event with `NO_TELEMETRY`.
+
+The second approved Phase 4 negative-case capture candidate record is `real_run_corpus/RR_20260528_002_phase4_verification_halt_fixture.md`, with matching harness profile `harness_profiles/HP_20260528_002_codex_phase4_verification_halt_fixture.md`. It produced a clean verification-halt non-event with `NO_TELEMETRY`.
+
 The Phase 4 negative-case opportunity register is `PHASE4_NEGATIVE_CASE_OPPORTUNITY_REGISTER.md`.
 
-These first three records are happy-path docs-only evidence with `NO_TELEMETRY`. The opportunity register lists unapproved future opportunities only. They do not close the natural halted/fallback/clarification-heavy gap and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
+The first three records are happy-path docs-only evidence with `NO_TELEMETRY`, and the first two approved negative-case candidates are clean non-events with `NO_TELEMETRY`. They do not close the natural halted/fallback/clarification-heavy gap and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
 
-The next Phase 4 step is to plan a separately approved narrow `V3-OP-001` capture candidate from the opportunity register, preferably one with a natural chance to exercise halt, fallback, clarification, or reentry behavior without manufacturing a failure.
+The next Phase 4 step should prefer a separately planned narrow `V3-OP-001` clarification-heavy candidate from the opportunity register, without manufacturing ambiguity or claiming the gap is closed before evidence exists.
 
 Real-run corpus capture planning is recorded at `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`.
 

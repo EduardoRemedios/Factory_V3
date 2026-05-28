@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.17
+v1.18
 
 ## Change Log
+- v1.18 (2026-05-28): Recorded two approved Phase 4 negative-case clean non-events and updated the recommended next move toward clarification-heavy evidence planning.
 - v1.17 (2026-05-27): Recorded Codex Security scan follow-up hardening for advisory mission-record and telemetry replay validator false negatives.
 - v1.16 (2026-05-27): Recorded the Phase 4 negative-case opportunity register and third happy-path real-run evidence pair.
 - v1.15 (2026-05-27): Recorded Phase 4 corpus and harness-profile indexes plus the second happy-path real-run evidence pair.
@@ -259,7 +260,7 @@ During the Phase 3 to Phase 6 advisory window, models may skip structured eviden
 
 ## Phase 4 - Eval Expansion And Capability Profiling
 
-Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, and a research-only negative-case opportunity register exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
+Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, two approved negative-case clean non-events with matching harness profiles, and a research-only negative-case opportunity register exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
 
 Goal:
 
@@ -276,9 +277,9 @@ Required evidence:
 
 - harness capability report template, Status: initial template exists.
 - golden fixture expansion, Status: initial synthetic `V3-P4-*` operational-readiness fixtures exist.
-- real-run result corpus, Status: three happy-path docs-only result summaries exist with `NO_TELEMETRY`.
+- real-run result corpus, Status: three happy-path docs-only result summaries and two approved negative-case clean non-events exist with `NO_TELEMETRY`.
 - false-positive and false-negative rollup, Status: rollup shape is planned; first real adjudication notes exist for the initial NL-pilot wording repair, but evidence remains too narrow and happy-path-heavy for thresholds.
-- negative-case opportunity register, Status: research-only register exists; listed opportunities are unapproved and do not close the natural negative-case gap.
+- negative-case opportunity register, Status: research-only register exists; `P4-NEG-OPP-005` and `P4-NEG-OPP-002` were executed as clean non-events, while remaining listed opportunities are unapproved and do not close the natural negative-case gap.
 - advisory threshold discussion for later routing study, Status: planning-only and non-operational.
 
 Promotion gate:
@@ -482,6 +483,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Plan the first Phase 4 real-run capture candidate from the negative-case opportunity register.
+Plan a Phase 4 clarification-heavy capture candidate from the negative-case opportunity register.
 
-Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, and negative-case opportunity register to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer a candidate with a natural chance to exercise halt, fallback, clarification, or reentry behavior, but do not manufacture a failure or claim the gap is closed before evidence exists. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, two clean negative-case non-events, and negative-case opportunity register to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer `P4-NEG-OPP-001` or an equivalent clarification-heavy shape with a natural chance to require clarification, but do not manufacture ambiguity, failure, or claim the gap is closed before evidence exists. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
