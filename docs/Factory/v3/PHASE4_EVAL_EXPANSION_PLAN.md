@@ -1,9 +1,10 @@
 # Factory V3 Phase 4 Eval Expansion Plan
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-05-28): Recorded the first approved Phase 4 negative-case capture candidate as a clean advisory FP/FN non-event.
 - v0.2 (2026-05-26): Recorded initial synthetic Phase 4 operational-readiness fixture expansion.
 - v0.1 (2026-05-26): Initial Phase 4 eval expansion and harness capability profiling plan.
 
@@ -131,6 +132,8 @@ Each result should record:
 - residual risk.
 
 Optional telemetry may be attached only when it follows Phase 3 conditions: selected narrow evidence missions, summary-only payloads, non-blocking replay output, and no gate wiring.
+
+Current real-run corpus status: three happy-path docs-only records exist, and one approved docs-only negative-case capture candidate for advisory threshold wording produced a clean non-event with `NO_TELEMETRY`. The clean non-event records no natural advisory FP/FN finding, halt, fallback, clarification-heavy behavior, stale reentry, evidence-quality weakness, verification-quality weakness, or scope-discipline pressure. It does not close the Phase 3 natural halted/fallback/clarification-heavy gap and does not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or Factory V2 build-support removal.
 
 ## False-positive And False-negative Rollup Shape
 Use a rollup table or JSON-compatible structure with these fields:
