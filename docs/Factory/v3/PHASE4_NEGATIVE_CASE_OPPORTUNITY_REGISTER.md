@@ -1,9 +1,11 @@
 # Factory V3 Phase 4 Negative-case Opportunity Register
 
 ## Version
-v0.3
+v0.5
 
 ## Change Log
+- v0.5 (2026-05-30): Generalized the dynamic-workflow opportunity to include future dynamic/parallel workflow harnesses such as possible Codex equivalents.
+- v0.4 (2026-05-30): Added an unapproved dynamic-workflow evidence-export opportunity for future harness research.
 - v0.3 (2026-05-28): Recorded `P4-NEG-OPP-002` as the source for the second approved negative-case capture candidate, with a clean verification-halt non-event.
 - v0.2 (2026-05-28): Recorded `P4-NEG-OPP-005` as the source for the first approved negative-case capture candidate, with a clean advisory FP/FN non-event.
 - v0.1 (2026-05-27): Initial research-only opportunity register for future natural negative-case capture candidates.
@@ -33,6 +35,7 @@ That evidence gap remains open. The first three Phase 4 real-run captures are ha
 | `P4-NEG-OPP-003` | V2 fallback before execution | A candidate that appears `V3-OP-001` eligible but reveals broader scope during planning. | A natural scope expansion should trigger fallback to V2 planning instead of execution. | Unapproved opportunity only | Do not approve broad scope inside V3 advisory evidence. |
 | `P4-NEG-OPP-004` | Stale reentry or source-conflict recovery | A future continuation after canon files changed since the candidate was planned. | A real reentry should reread source artifacts and reject stale derived context. | Unapproved opportunity only | Source artifacts remain authority; derived summaries are aids only. |
 | `P4-NEG-OPP-005` | Advisory false positive or false negative | A docs-only change whose wording is close to promotion, routing, or threshold language. | The natural-language pilot may flag risk that needs human adjudication. | Executed as `P4-NEG-CAPTURE-CANDIDATE-001`; clean non-event; no advisory FP/FN finding observed | Use same-paragraph non-promotion language and classify findings honestly. |
+| `P4-NEG-OPP-006` | Dynamic-workflow evidence export or replay gap | A future dynamic/parallel workflow candidate, including Claude Code dynamic workflows or Codex subagent workflows, whose subtask, verification, or resume evidence may be incomplete for Factory replay. | A parallel harness may finish work while exposing too little reviewable evidence for Factory closeout. | Unapproved opportunity only; linked research plan at `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Do not execute without separate approval; do not capture chain-of-thought, vendor-private cognition state, raw transcripts, secrets, or broad workflow internals. |
 
 ## Executed Candidate Records
 | Candidate ID | Source Opportunity | Result Summary | Harness Profile | Observed Signal | Gap Status |

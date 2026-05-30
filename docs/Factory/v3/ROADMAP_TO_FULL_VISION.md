@@ -1,9 +1,11 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.18
+v1.20
 
 ## Change Log
+- v1.20 (2026-05-30): Generalized dynamic-workflow harness research to a capability class and added Codex as an official-docs `insufficient_evidence` sibling profile.
+- v1.19 (2026-05-30): Added research-only Claude Code dynamic workflows harness profiling path with `insufficient_evidence` status.
 - v1.18 (2026-05-28): Recorded two approved Phase 4 negative-case clean non-events and updated the recommended next move toward clarification-heavy evidence planning.
 - v1.17 (2026-05-27): Recorded Codex Security scan follow-up hardening for advisory mission-record and telemetry replay validator false negatives.
 - v1.16 (2026-05-27): Recorded the Phase 4 negative-case opportunity register and third happy-path real-run evidence pair.
@@ -260,7 +262,7 @@ During the Phase 3 to Phase 6 advisory window, models may skip structured eviden
 
 ## Phase 4 - Eval Expansion And Capability Profiling
 
-Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, two approved negative-case clean non-events with matching harness profiles, and a research-only negative-case opportunity register exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
+Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, two approved negative-case clean non-events with matching harness profiles, a research-only negative-case opportunity register, and dynamic/parallel workflow research profiles with `insufficient_evidence` status exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
 
 Goal:
 
@@ -275,7 +277,7 @@ Work:
 
 Required evidence:
 
-- harness capability report template, Status: initial template exists.
+- harness capability report template, Status: initial template exists; initial dynamic/parallel workflow profiles exist only as `insufficient_evidence` research context and have no local execution evidence. The Claude profile is announcement-based; the Codex profile is based on official OpenAI docs for subagent workflows and experimental CSV fanout.
 - golden fixture expansion, Status: initial synthetic `V3-P4-*` operational-readiness fixtures exist.
 - real-run result corpus, Status: three happy-path docs-only result summaries and two approved negative-case clean non-events exist with `NO_TELEMETRY`.
 - false-positive and false-negative rollup, Status: rollup shape is planned; first real adjudication notes exist for the initial NL-pilot wording repair, but evidence remains too narrow and happy-path-heavy for thresholds.
@@ -485,4 +487,4 @@ Before making this repository V3-only, also confirm:
 ## Recommended Next Move
 Plan a Phase 4 clarification-heavy capture candidate from the negative-case opportunity register.
 
-Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, two clean negative-case non-events, and negative-case opportunity register to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer `P4-NEG-OPP-001` or an equivalent clarification-heavy shape with a natural chance to require clarification, but do not manufacture ambiguity, failure, or claim the gap is closed before evidence exists. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, two clean negative-case non-events, negative-case opportunity register, and dynamic-workflows research plan to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer `P4-NEG-OPP-001` or an equivalent clarification-heavy shape with a natural chance to require clarification, but do not manufacture ambiguity, failure, or claim the gap is closed before evidence exists. Treat `P4-NEG-OPP-006` as unapproved dynamic/parallel workflow research only until a separate candidate is planned and approved. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.

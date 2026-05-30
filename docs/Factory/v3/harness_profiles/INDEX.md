@@ -1,9 +1,11 @@
 # V3 Harness Capability Profile Index
 
 ## Version
-v0.4
+v0.6
 
 ## Change Log
+- v0.6 (2026-05-30): Added Codex subagent-workflows research profile and generalized the dynamic-workflow class path.
+- v0.5 (2026-05-30): Added Claude Code dynamic workflows research profile with `insufficient_evidence` band.
 - v0.4 (2026-05-28): Added second approved negative-case capture candidate harness profile.
 - v0.3 (2026-05-28): Added first approved negative-case capture candidate harness profile.
 - v0.2 (2026-05-27): Added third harness profile for the negative-case opportunity register.
@@ -24,6 +26,8 @@ Factory V3 is not promoted by this index. V3 remains optional/advisory except fo
 | `HP_20260527_003` | `HP_20260527_003_codex_phase4_negative_case_opportunity_register.md` | `../real_run_corpus/RR_20260527_003_phase4_negative_case_opportunity_register.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` | `harness_profile_observed` | Third happy-path docs-only run; opportunity list does not itself create natural negative-case evidence. |
 | `HP_20260528_001` | `HP_20260528_001_codex_phase4_advisory_threshold_wording.md` | `../real_run_corpus/RR_20260528_001_phase4_advisory_threshold_wording.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` | `harness_profile_observed` | First negative-case capture candidate produced a clean non-event; no natural advisory FP/FN finding, halt, fallback, clarification-heavy behavior, or reentry stress. |
 | `HP_20260528_002` | `HP_20260528_002_codex_phase4_verification_halt_fixture.md` | `../real_run_corpus/RR_20260528_002_phase4_verification_halt_fixture.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` | `harness_profile_observed` | Second negative-case capture candidate produced a clean non-event; deterministic fixture `--expect` verification passed with no natural halt. |
+| `HP_20260530_001` | `HP_20260530_001_claude_code_dynamic_workflows_research.md` | `../PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Claude Code dynamic workflows | no local mission; future candidate must be separately scoped | `insufficient_evidence` | External announcement and local research plan only; no local command, diff, verification, interruption, resume, token, or cost evidence. |
+| `HP_20260530_002` | `HP_20260530_002_codex_subagent_workflows_research.md` | `../PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Codex subagent workflows and experimental CSV fanout | no local mission | `insufficient_evidence` | Official-docs source signal only; no local command, diff, verification, interruption, resume, token, or cost evidence. |
 
 ## Use Rules
 - Use this index to locate advisory harness profiles only.

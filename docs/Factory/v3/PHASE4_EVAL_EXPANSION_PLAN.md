@@ -1,9 +1,11 @@
 # Factory V3 Phase 4 Eval Expansion Plan
 
 ## Version
-v0.4
+v0.6
 
 ## Change Log
+- v0.6 (2026-05-30): Generalized dynamic-workflow harness profiling to a capability class and added Codex as an official-docs `insufficient_evidence` sibling.
+- v0.5 (2026-05-30): Added research-only Claude Code dynamic workflows harness profiling path with `insufficient_evidence` status.
 - v0.4 (2026-05-28): Recorded the second approved Phase 4 negative-case capture candidate as a clean verification-halt non-event.
 - v0.3 (2026-05-28): Recorded the first approved Phase 4 negative-case capture candidate as a clean advisory FP/FN non-event.
 - v0.2 (2026-05-26): Recorded initial synthetic Phase 4 operational-readiness fixture expansion.
@@ -28,6 +30,7 @@ Phase 4 measures whether a harness can preserve V2 safety properties for bounded
 - `OPERATIONAL_READINESS_EVAL_PLAN.md`.
 - `tests/fixtures/factory_v3_operational_readiness_eval/`.
 - The Factory V2 planning pack at `docs/Factory/runs/RUN_20260526_1304_v3_phase4_eval_expansion_plan/`.
+- `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` for the research-only dynamic/parallel workflow harness path, with Claude as an external-announcement signal and Codex as an official-docs source signal.
 
 ## Phase 3 Carry-forward Gap
 Phase 3 did not capture a natural halted, fallback, or clarification-heavy telemetry pilot.
@@ -136,6 +139,8 @@ Optional telemetry may be attached only when it follows Phase 3 conditions: sele
 
 Current real-run corpus status: three happy-path docs-only records exist, one approved docs-only negative-case capture candidate for advisory threshold wording produced a clean non-event with `NO_TELEMETRY`, and one approved verification-halt candidate produced a clean non-event with `NO_TELEMETRY`. These clean non-events record no natural halt, fallback, clarification-heavy behavior, stale reentry, evidence-quality weakness, verification-quality weakness, or scope-discipline pressure. They do not close the Phase 3 natural halted/fallback/clarification-heavy gap and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or Factory V2 build-support removal.
 
+Dynamic/parallel workflow harnesses are tracked only as an `insufficient_evidence` research path until a future candidate is separately planned, approved, and observed locally. Claude Code is the first external announcement signal; Codex is tracked from official OpenAI docs for subagent workflows and experimental CSV fanout.
+
 ## False-positive And False-negative Rollup Shape
 Use a rollup table or JSON-compatible structure with these fields:
 
@@ -171,6 +176,8 @@ These bands do not route work. They do not reduce V2 governance. They do not mak
 Use `templates/V3_HARNESS_CAPABILITY_PROFILE_TEMPLATE.md` for individual profile reports.
 
 Profile reports should be reviewed as evidence snapshots, not scorecards with universal meaning.
+
+The initial Claude Code dynamic workflows profile at `harness_profiles/HP_20260530_001_claude_code_dynamic_workflows_research.md` is an announcement-based research profile, not a local execution profile. The Codex subagent-workflows profile at `harness_profiles/HP_20260530_002_codex_subagent_workflows_research.md` is official-docs-based, not a local execution profile. Neither profile may be used for thresholds, routing, governance reduction, or profile promotion.
 
 ## Verification For A Later Phase 4 Implementation
 Run:
