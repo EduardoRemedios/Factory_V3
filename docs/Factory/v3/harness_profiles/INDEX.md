@@ -1,9 +1,10 @@
 # V3 Harness Capability Profile Index
 
 ## Version
-v0.6
+v0.7
 
 ## Change Log
+- v0.7 (2026-05-30): Added third approved negative-case capture candidate harness profile for clarification-heavy stop-before-edit intake.
 - v0.6 (2026-05-30): Added Codex subagent-workflows research profile and generalized the dynamic-workflow class path.
 - v0.5 (2026-05-30): Added Claude Code dynamic workflows research profile with `insufficient_evidence` band.
 - v0.4 (2026-05-28): Added second approved negative-case capture candidate harness profile.
@@ -28,6 +29,7 @@ Factory V3 is not promoted by this index. V3 remains optional/advisory except fo
 | `HP_20260528_002` | `HP_20260528_002_codex_phase4_verification_halt_fixture.md` | `../real_run_corpus/RR_20260528_002_phase4_verification_halt_fixture.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` | `harness_profile_observed` | Second negative-case capture candidate produced a clean non-event; deterministic fixture `--expect` verification passed with no natural halt. |
 | `HP_20260530_001` | `HP_20260530_001_claude_code_dynamic_workflows_research.md` | `../PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Claude Code dynamic workflows | no local mission; future candidate must be separately scoped | `insufficient_evidence` | External announcement and local research plan only; no local command, diff, verification, interruption, resume, token, or cost evidence. |
 | `HP_20260530_002` | `HP_20260530_002_codex_subagent_workflows_research.md` | `../PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Codex subagent workflows and experimental CSV fanout | no local mission | `insufficient_evidence` | Official-docs source signal only; no local command, diff, verification, interruption, resume, token, or cost evidence. |
+| `HP_20260530_003` | `HP_20260530_003_codex_phase4_clarification_heavy_candidate.md` | `../real_run_corpus/RR_20260530_003_phase4_clarification_heavy_candidate.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` candidate intake only | `harness_profile_observed` | Third negative-case capture candidate produced a natural stop-before-edit clarification signal; no optional telemetry, failed-verification halt, or V2 fallback execution occurred. |
 
 ## Use Rules
 - Use this index to locate advisory harness profiles only.
