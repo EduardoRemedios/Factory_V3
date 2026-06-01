@@ -1,9 +1,10 @@
 # Factory V3 Phase 4 Negative-case Opportunity Register
 
 ## Version
-v0.6
+v0.7
 
 ## Change Log
+- v0.7 (2026-06-01): Recorded `P4-NEG-OPP-006` as the source for the fourth approved negative-case capture candidate, with a read-only dynamic/parallel evidence-export signal.
 - v0.6 (2026-05-30): Recorded `P4-NEG-OPP-001` as the source for the third approved negative-case capture candidate, with a clarification-heavy stop-before-edit signal.
 - v0.5 (2026-05-30): Generalized the dynamic-workflow opportunity to include future dynamic/parallel workflow harnesses such as possible Codex equivalents.
 - v0.4 (2026-05-30): Added an unapproved dynamic-workflow evidence-export opportunity for future harness research.
@@ -26,7 +27,7 @@ This register does not create, approve, execute, or preselect any future candida
 ## Evidence Gap
 Phase 3 did not capture a natural halted, fallback, or clarification-heavy telemetry pilot.
 
-That evidence gap remains open. The first three Phase 4 real-run captures are happy-path docs-only records with `NO_TELEMETRY`, the first two approved negative-case capture candidates produced clean non-events with `NO_TELEMETRY`, and the third approved negative-case capture candidate produced a natural clarification-before-edit signal with `NO_TELEMETRY`. These records narrow the clarification evidence gap but do not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps.
+That evidence gap remains open. The first three Phase 4 real-run captures are happy-path docs-only records with `NO_TELEMETRY`, the first two approved negative-case capture candidates produced clean non-events with `NO_TELEMETRY`, the third approved negative-case capture candidate produced a natural clarification-before-edit signal with `NO_TELEMETRY`, and the fourth approved negative-case capture candidate produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`. These records narrow clarification and summary-export evidence gaps but do not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps.
 
 ## Opportunity Register
 | Opportunity ID | Natural Signal To Watch | Possible Future Candidate Shape | Why It Might Produce Signal | Current Status | Guardrail |
@@ -36,7 +37,7 @@ That evidence gap remains open. The first three Phase 4 real-run captures are ha
 | `P4-NEG-OPP-003` | V2 fallback before execution | A candidate that appears `V3-OP-001` eligible but reveals broader scope during planning. | A natural scope expansion should trigger fallback to V2 planning instead of execution. | Unapproved opportunity only | Do not approve broad scope inside V3 advisory evidence. |
 | `P4-NEG-OPP-004` | Stale reentry or source-conflict recovery | A future continuation after canon files changed since the candidate was planned. | A real reentry should reread source artifacts and reject stale derived context. | Unapproved opportunity only | Source artifacts remain authority; derived summaries are aids only. |
 | `P4-NEG-OPP-005` | Advisory false positive or false negative | A docs-only change whose wording is close to promotion, routing, or threshold language. | The natural-language pilot may flag risk that needs human adjudication. | Executed as `P4-NEG-CAPTURE-CANDIDATE-001`; clean non-event; no advisory FP/FN finding observed | Use same-paragraph non-promotion language and classify findings honestly. |
-| `P4-NEG-OPP-006` | Dynamic-workflow evidence export or replay gap | A future dynamic/parallel workflow candidate, including Claude Code dynamic workflows or Codex subagent workflows, whose subtask, verification, or resume evidence may be incomplete for Factory replay. | A parallel harness may finish work while exposing too little reviewable evidence for Factory closeout. | Unapproved opportunity only; linked research plan at `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Do not execute without separate approval; do not capture chain-of-thought, vendor-private cognition state, raw transcripts, secrets, or broad workflow internals. |
+| `P4-NEG-OPP-006` | Dynamic-workflow evidence export or replay gap | A future dynamic/parallel workflow candidate, including Claude Code dynamic workflows or Codex subagent workflows, whose subtask, verification, or resume evidence may be incomplete for Factory replay. | A parallel harness may finish work while exposing too little reviewable evidence for Factory closeout. | Executed as `P4-NEG-CAPTURE-CANDIDATE-004`; read-only Codex multi-agent summary-export signal observed; no optional telemetry, command-producing implementation, failed-verification halt, or V2 fallback execution occurred | Do not capture chain-of-thought, vendor-private cognition state, raw transcripts, secrets, or broad workflow internals; do not generalize one read-only probe to routing or promotion. |
 
 ## Executed Candidate Records
 | Candidate ID | Source Opportunity | Result Summary | Harness Profile | Observed Signal | Gap Status |
@@ -44,6 +45,7 @@ That evidence gap remains open. The first three Phase 4 real-run captures are ha
 | `P4-NEG-CAPTURE-CANDIDATE-001` | `P4-NEG-OPP-005` | `real_run_corpus/RR_20260528_001_phase4_advisory_threshold_wording.md` | `harness_profiles/HP_20260528_001_codex_phase4_advisory_threshold_wording.md` | Clean non-event: no natural advisory FP/FN finding, halt, fallback, clarification-heavy behavior, stale reentry, evidence-quality weakness, verification-quality weakness, or scope-discipline pressure occurred. | Phase 3 natural halted/fallback/clarification-heavy gap remains open. |
 | `P4-NEG-CAPTURE-CANDIDATE-002` | `P4-NEG-OPP-002` | `real_run_corpus/RR_20260528_002_phase4_verification_halt_fixture.md` | `harness_profiles/HP_20260528_002_codex_phase4_verification_halt_fixture.md` | Clean non-event: deterministic fixture `--expect` verification passed, so no natural verification halt, fallback, clarification-heavy behavior, stale reentry, evidence-quality weakness, verification-quality weakness, or scope-discipline pressure occurred. | Phase 3 natural halted/fallback/clarification-heavy gap remains open. |
 | `P4-NEG-CAPTURE-CANDIDATE-003` | `P4-NEG-OPP-001` | `real_run_corpus/RR_20260530_003_phase4_clarification_heavy_candidate.md` | `harness_profiles/HP_20260530_003_codex_phase4_clarification_heavy_candidate.md` | Natural clarification-before-edit signal: broad roadmap/status edits and optional telemetry were not performed because exact target files and telemetry authority were not explicit after Go. | Clarification evidence gap is narrowed; telemetry, failed-verification halt, fallback, and recovery gaps remain open. |
+| `P4-NEG-CAPTURE-CANDIDATE-004` | `P4-NEG-OPP-006` | `real_run_corpus/RR_20260601_004_phase4_dynamic_evidence_export_candidate.md` | `harness_profiles/HP_20260601_004_codex_phase4_dynamic_evidence_export_candidate.md` | Read-only dynamic/parallel summary-export signal: a Codex multi-agent explorer returned enough safe summary evidence for replay of this probe without raw transcript, private reasoning, or file contents. | Summary-export evidence gap is narrowed; telemetry, command-producing dynamic execution, failed-verification halt, fallback, recovery, and routing-threshold gaps remain open. |
 
 ## Selection Rules For Later Candidates
 - A later candidate must be separately planned and approved before execution.
