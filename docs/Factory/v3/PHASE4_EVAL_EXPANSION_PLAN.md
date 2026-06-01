@@ -1,9 +1,10 @@
 # Factory V3 Phase 4 Eval Expansion Plan
 
 ## Version
-v0.6
+v0.7
 
 ## Change Log
+- v0.7 (2026-06-01): Recorded the third Phase 4 negative-case capture candidate as a clarification-before-edit signal and identified dynamic/parallel evidence-export planning as the next research target.
 - v0.6 (2026-05-30): Generalized dynamic-workflow harness profiling to a capability class and added Codex as an official-docs `insufficient_evidence` sibling.
 - v0.5 (2026-05-30): Added research-only Claude Code dynamic workflows harness profiling path with `insufficient_evidence` status.
 - v0.4 (2026-05-28): Recorded the second approved Phase 4 negative-case capture candidate as a clean verification-halt non-event.
@@ -35,7 +36,7 @@ Phase 4 measures whether a harness can preserve V2 safety properties for bounded
 ## Phase 3 Carry-forward Gap
 Phase 3 did not capture a natural halted, fallback, or clarification-heavy telemetry pilot.
 
-Phase 4 must treat that as an evidence gap. It may plan fixture and profile coverage for the gap, but it must not claim real negative-case telemetry evidence until a real case exists.
+Phase 4 must treat that as an evidence gap. The third approved Phase 4 negative-case capture candidate produced a natural clarification-before-edit signal with `NO_TELEMETRY`, which narrows clarification evidence but does not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps.
 
 ## Evaluation Dimensions
 
@@ -137,9 +138,9 @@ Each result should record:
 
 Optional telemetry may be attached only when it follows Phase 3 conditions: selected narrow evidence missions, summary-only payloads, non-blocking replay output, and no gate wiring.
 
-Current real-run corpus status: three happy-path docs-only records exist, one approved docs-only negative-case capture candidate for advisory threshold wording produced a clean non-event with `NO_TELEMETRY`, and one approved verification-halt candidate produced a clean non-event with `NO_TELEMETRY`. These clean non-events record no natural halt, fallback, clarification-heavy behavior, stale reentry, evidence-quality weakness, verification-quality weakness, or scope-discipline pressure. They do not close the Phase 3 natural halted/fallback/clarification-heavy gap and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or Factory V2 build-support removal.
+Current real-run corpus status: three happy-path docs-only records exist, one approved docs-only negative-case capture candidate for advisory threshold wording produced a clean non-event with `NO_TELEMETRY`, one approved verification-halt candidate produced a clean non-event with `NO_TELEMETRY`, and one approved clarification-heavy candidate produced a natural stop-before-edit clarification signal with `NO_TELEMETRY`. This narrows clarification evidence but does not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps and does not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or Factory V2 build-support removal.
 
-Dynamic/parallel workflow harnesses are tracked only as an `insufficient_evidence` research path until a future candidate is separately planned, approved, and observed locally. Claude Code is the first external announcement signal; Codex is tracked from official OpenAI docs for subagent workflows and experimental CSV fanout.
+Dynamic/parallel workflow harnesses are tracked only as an `insufficient_evidence` research path until a future candidate is separately planned, approved, and observed locally. Claude Code is the first external announcement signal; Codex is tracked from official OpenAI docs for subagent workflows and experimental CSV fanout. The next eligible research target is `P4-NEG-OPP-006`, focused on whether Factory can capture enough summary evidence from dynamic/parallel work for review without collecting chain-of-thought, vendor-private cognition state, raw transcripts, secrets, or broad workflow internals.
 
 ## False-positive And False-negative Rollup Shape
 Use a rollup table or JSON-compatible structure with these fields:
@@ -203,7 +204,7 @@ Phase 4 is ready for evidence review only when:
 - planned fixture families are implemented under separate approval,
 - at least one real-run result corpus format is trialed,
 - false-positive and false-negative rollups include human adjudication,
-- the missing natural halted, fallback, or clarification-heavy case is either captured or still carried as an explicit gap,
+- the missing natural halted, fallback, or clarification-heavy case is either captured or still carried as an explicit gap, with clarification-before-edit evidence distinguished from telemetry, failed-verification halt, fallback, and recovery evidence,
 - threshold discussion remains advisory and non-operational.
 
 ## No-go Conditions

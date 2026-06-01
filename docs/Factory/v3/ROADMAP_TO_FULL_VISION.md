@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.20
+v1.21
 
 ## Change Log
+- v1.21 (2026-06-01): Recorded the third Phase 4 negative-case capture candidate as a clarification-before-edit signal and moved the recommended next move to dynamic/parallel evidence-export planning.
 - v1.20 (2026-05-30): Generalized dynamic-workflow harness research to a capability class and added Codex as an official-docs `insufficient_evidence` sibling profile.
 - v1.19 (2026-05-30): Added research-only Claude Code dynamic workflows harness profiling path with `insufficient_evidence` status.
 - v1.18 (2026-05-28): Recorded two approved Phase 4 negative-case clean non-events and updated the recommended next move toward clarification-heavy evidence planning.
@@ -229,7 +230,7 @@ Passed for Phase 3 planning only. Telemetry/replay implementation still requires
 
 ## Phase 3 - Telemetry And Evidence Replay
 
-Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. Three real advisory telemetry pilots exist under `telemetry/pilots/`, and the evidence review at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md` recommends optional advisory telemetry only for selected narrow `V3-OP-001` evidence missions with conditions. Codex Security scan follow-up added advisory regression coverage for duplicate telemetry event IDs, missing terminal replay events, unsafe path shapes in self-attested scope evidence, and excluded-data markers. The missing natural halted, fallback, or clarification-heavy pilot remains a gap. Required gates, runtime authority, proof, lease enforcement, governance routing, telemetry enforcement, and default-mode behavior are not approved.
+Status: Fixture-first advisory replay validator exists at `scripts/factory_v3_telemetry_replay_lint.py` with deterministic fixtures under `tests/fixtures/factory_v3_telemetry_replay/`. A planning-only real mission telemetry capture plan exists at `PHASE3_REAL_MISSION_TELEMETRY_CAPTURE_PLAN.md`. Three real advisory telemetry pilots exist under `telemetry/pilots/`, and the evidence review at `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md` recommends optional advisory telemetry only for selected narrow `V3-OP-001` evidence missions with conditions. Codex Security scan follow-up added advisory regression coverage for duplicate telemetry event IDs, missing terminal replay events, unsafe path shapes in self-attested scope evidence, and excluded-data markers. A later Phase 4 record produced clarification-before-edit evidence with `NO_TELEMETRY`, but the missing natural halted, fallback, or clarification-heavy telemetry pilot remains a gap. Required gates, runtime authority, proof, lease enforcement, governance routing, telemetry enforcement, and default-mode behavior are not approved.
 
 Goal:
 
@@ -250,7 +251,7 @@ Required evidence:
 - at least 3 real mission telemetry logs, Status: 3 of 3 captured.
 - overhead report, Status: recorded in pilot overhead notes and rolled up in `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
 - data-minimization review confirming no chain-of-thought or vendor-private cognition state is stored, Status: all three pilot redaction reviews PASS and are summarized in `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
-- negative-case telemetry evidence, Status: gap remains; no natural halted, fallback, or clarification-heavy pilot has been captured.
+- negative-case telemetry evidence, Status: gap remains; one natural clarification-before-edit signal exists with `NO_TELEMETRY`, but no natural halted, fallback, or clarification-heavy telemetry pilot has been captured.
 
 Promotion gate:
 
@@ -262,7 +263,7 @@ During the Phase 3 to Phase 6 advisory window, models may skip structured eviden
 
 ## Phase 4 - Eval Expansion And Capability Profiling
 
-Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, two approved negative-case clean non-events with matching harness profiles, a research-only negative-case opportunity register, and dynamic/parallel workflow research profiles with `insufficient_evidence` status exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
+Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, two approved negative-case clean non-events with matching harness profiles, one approved clarification-before-edit signal with a matching harness profile, a research-only negative-case opportunity register, and dynamic/parallel workflow research profiles with `insufficient_evidence` status exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
 
 Goal:
 
@@ -279,9 +280,9 @@ Required evidence:
 
 - harness capability report template, Status: initial template exists; initial dynamic/parallel workflow profiles exist only as `insufficient_evidence` research context and have no local execution evidence. The Claude profile is announcement-based; the Codex profile is based on official OpenAI docs for subagent workflows and experimental CSV fanout.
 - golden fixture expansion, Status: initial synthetic `V3-P4-*` operational-readiness fixtures exist.
-- real-run result corpus, Status: three happy-path docs-only result summaries and two approved negative-case clean non-events exist with `NO_TELEMETRY`.
+- real-run result corpus, Status: three happy-path docs-only result summaries, two approved negative-case clean non-events, and one clarification-before-edit signal exist with `NO_TELEMETRY`.
 - false-positive and false-negative rollup, Status: rollup shape is planned; first real adjudication notes exist for the initial NL-pilot wording repair, but evidence remains too narrow and happy-path-heavy for thresholds.
-- negative-case opportunity register, Status: research-only register exists; `P4-NEG-OPP-005` and `P4-NEG-OPP-002` were executed as clean non-events, while remaining listed opportunities are unapproved and do not close the natural negative-case gap.
+- negative-case opportunity register, Status: research-only register exists; `P4-NEG-OPP-005` and `P4-NEG-OPP-002` were executed as clean non-events, and `P4-NEG-OPP-001` produced a clarification-before-edit signal with `NO_TELEMETRY`. Remaining listed opportunities are unapproved and do not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps.
 - advisory threshold discussion for later routing study, Status: planning-only and non-operational.
 
 Promotion gate:
@@ -485,6 +486,6 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Plan a Phase 4 clarification-heavy capture candidate from the negative-case opportunity register.
+Plan a Phase 4 dynamic/parallel evidence-export capture candidate from the negative-case opportunity register.
 
-Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, two clean negative-case non-events, negative-case opportunity register, and dynamic-workflows research plan to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer `P4-NEG-OPP-001` or an equivalent clarification-heavy shape with a natural chance to require clarification, but do not manufacture ambiguity, failure, or claim the gap is closed before evidence exists. Treat `P4-NEG-OPP-006` as unapproved dynamic/parallel workflow research only until a separate candidate is planned and approved. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, two clean negative-case non-events, the clarification-before-edit capture record, negative-case opportunity register, and dynamic-workflows research plan to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer `P4-NEG-OPP-006` or an equivalent dynamic/parallel evidence-export shape that can test whether Factory receives enough reviewable summary evidence from a parallel harness. Do not execute a dynamic/parallel workflow from research docs alone, do not manufacture ambiguity or failure, and do not claim the gap is closed before evidence exists. Do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
