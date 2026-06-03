@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.25
+v1.26
 
 ## Change Log
+- v1.26 (2026-06-03): Added the V3 standalone bootstrap package for seeding a clean V3-only POC project.
 - v1.25 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
 - v1.24 (2026-06-03): Recorded the fifth Phase 4 negative-case capture candidate as a telemetry-backed verification-halt clean non-event and moved the next research step to operational-readiness decision prep for Codex app design/build/test/deploy usage.
 - v1.23 (2026-06-03): Recorded the fourth Phase 4 negative-case capture candidate as a read-only dynamic/parallel summary-export signal and moved the next research step toward failed-verification halt or fallback planning with optional advisory telemetry.
@@ -69,6 +70,7 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Track research-only dynamic/parallel workflow harness planning with `insufficient_evidence` status until local Factory V3 evidence exists; Claude Code is an external-announcement signal and Codex is an official-docs source signal.
 - Prepare the next operational-readiness decision around a proof-of-concept application built with Codex under V3. The current candidate concept is an internal/private personal health and fitness tracker for the sponsor. App construction is not approved until a separate project brief and V3-only plan name exact scope, data path, commands, tests, and deployment authority. Operational approval for this scope requires standalone V3 operation; V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application.
 - Research Garmin Connect/API data paths and Hermes Agent surfaces before any POC dependency decision. Synthetic data may accelerate design and build, but Garmin-backed evidence and Hermes-assisted evidence must be labeled separately and cannot be inferred from synthetic-only or research-only work.
+- Provide `standalone_bootstrap/` as a copyable V3-only seed package for a clean POC project. The package includes starter canons, mission templates, closeout and mission-record templates, and a POC eval rubric; it does not authorize the POC build or depend on V2.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule

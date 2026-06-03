@@ -23,6 +23,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 Phase 4 eval expansion plan, harness capability profile template, synthetic operational-readiness fixture expansion, real-run corpus and harness-profile indexes, three happy-path docs-only real-run corpus records, five negative-case capture records, and a research-only negative-case opportunity register.
 - V3 research-only dynamic/parallel workflow harness planning with `insufficient_evidence` status, including Claude Code as an external-announcement signal and Codex as an official-docs source signal.
 - V3 operational-readiness, trial, and decision evidence.
+- V3 standalone bootstrap package for seeding a clean V3-only POC project.
 - External governance-kernel boundary guidance for V3 work.
 - Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, Mission Mode, and helper tooling for building V3 while V3 matures.
 

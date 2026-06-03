@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.24
+v1.25
 
 ## Change Log
+- v1.25 (2026-06-03): Added the V3 standalone bootstrap package as the seed for a clean V3-only POC project.
 - v1.24 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
 - v1.23 (2026-06-03): Recorded the fifth Phase 4 negative-case capture candidate as a telemetry-backed verification-halt clean non-event and moved the recommended next move to operational-readiness decision prep for Codex app design/build/test/deploy usage.
 - v1.22 (2026-06-03): Recorded the fourth Phase 4 negative-case capture candidate as a read-only dynamic/parallel summary-export signal and moved the recommended next move to failed-verification halt or fallback planning with optional advisory telemetry.
@@ -495,6 +496,8 @@ Plan an operational-readiness decision-prep pack for user-defined V3 operational
 Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, five negative-case capture records, optional telemetry evidence, the operational-release approval for `V3-OP-001`, and the negative-case opportunity register to decide what evidence is still needed before the human sponsor can judge whether V3 is ready to be used operationally for designing, building, testing, and deploying an application with Codex in the same practical sense that V2 is used today. The decision must treat standalone V3-only POC execution as a hard criterion: V2 may support current repository planning while V3 matures, but V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application.
 
 The likely first operational proof is a POC application built under V3. Current candidate concept: an internal/private personal health and fitness tracking app for the sponsor. The decision-prep pack must treat that as a candidate proof scope only, not execution approval. It must define the data path, test and deployment target, credentials/secrets handling, and separate approval requirements for app implementation, Garmin integration, production action, and infrastructure authority. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately.
+
+The clean POC project should be seeded from `docs/Factory/v3/standalone_bootstrap/`, copying the package `.factory-v3/` folder into the new project. That bootstrap package contains V3-only canons, mission templates, closeout and mission-record templates, and a POC eval rubric. It must not import V2 stage, pack, lint, fallback, or recovery machinery into the POC workspace.
 
 The decision-prep pack should include research spikes before POC dependency decisions:
 - Garmin Connect/API: compare official Garmin Connect Developer Program and Health/API options with relevant open-source or manual import/export approaches, including access, terms, auth, credentials, reliability, maintenance, and data shape.
