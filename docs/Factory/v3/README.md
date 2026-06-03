@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.22
+v1.23
 
 ## Change Log
+- v1.23 (2026-06-03): Recorded the fourth Phase 4 negative-case capture candidate as a read-only dynamic/parallel summary-export signal and moved the next research step toward failed-verification halt or fallback planning with optional advisory telemetry.
 - v1.22 (2026-06-01): Recorded the third Phase 4 negative-case capture candidate as a clarification-before-edit signal and moved the next research step toward dynamic/parallel evidence-export planning.
 - v1.21 (2026-05-30): Generalized dynamic-workflow harness research to a capability class and added Codex as an official-docs `insufficient_evidence` sibling profile.
 - v1.20 (2026-05-30): Added research-only Claude Code dynamic workflows harness profile and Phase 4 planning path with `insufficient_evidence` status.
@@ -204,13 +205,15 @@ The second approved Phase 4 negative-case capture candidate record is `real_run_
 
 The third approved Phase 4 negative-case capture candidate record is `real_run_corpus/RR_20260530_003_phase4_clarification_heavy_candidate.md`, with matching harness profile `harness_profiles/HP_20260530_003_codex_phase4_clarification_heavy_candidate.md`. It produced a natural clarification-before-edit signal with `NO_TELEMETRY`; broad roadmap/status edits and optional telemetry were not performed because exact target files and telemetry authority were not explicit after Go.
 
+The fourth approved Phase 4 negative-case capture candidate record is `real_run_corpus/RR_20260601_004_phase4_dynamic_evidence_export_candidate.md`, with matching harness profile `harness_profiles/HP_20260601_004_codex_phase4_dynamic_evidence_export_candidate.md`. It produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`; the Codex multi-agent explorer returned enough safe summary evidence for replay of that probe without raw transcript, private reasoning, or file contents.
+
 The Phase 4 negative-case opportunity register is `PHASE4_NEGATIVE_CASE_OPPORTUNITY_REGISTER.md`.
 
-The dynamic/parallel workflows research plan is `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md`, with initial Claude Code profile `harness_profiles/HP_20260530_001_claude_code_dynamic_workflows_research.md` and Codex subagent-workflows profile `harness_profiles/HP_20260530_002_codex_subagent_workflows_research.md`. Both have evidence band `insufficient_evidence`; the Claude profile is external-announcement-driven research context, and the Codex profile is official-docs-driven research context. They do not authorize dynamic-workflow execution, routing, governance reduction, required gates, profile promotion, or V2 build-support removal.
+The dynamic/parallel workflows research plan is `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md`, with initial Claude Code profile `harness_profiles/HP_20260530_001_claude_code_dynamic_workflows_research.md`, Codex subagent-workflows profile `harness_profiles/HP_20260530_002_codex_subagent_workflows_research.md`, and local read-only Codex multi-agent evidence-export profile `harness_profiles/HP_20260601_004_codex_phase4_dynamic_evidence_export_candidate.md`. These do not authorize dynamic-workflow execution by default, routing, governance reduction, required gates, profile promotion, or V2 build-support removal.
 
-The first three records are happy-path docs-only evidence with `NO_TELEMETRY`, the first two approved negative-case candidates are clean non-events with `NO_TELEMETRY`, and the third approved negative-case candidate is a clarification-before-edit signal with `NO_TELEMETRY`. They narrow the clarification evidence gap but do not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
+The first three records are happy-path docs-only evidence with `NO_TELEMETRY`, the first two approved negative-case candidates are clean non-events with `NO_TELEMETRY`, the third approved negative-case candidate is a clarification-before-edit signal with `NO_TELEMETRY`, and the fourth approved negative-case candidate is a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`. They narrow clarification and summary-export evidence gaps but do not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
 
-The next Phase 4 step should prefer separately planned `P4-NEG-OPP-006` dynamic/parallel evidence-export research from the opportunity register. Do not execute any local dynamic/parallel workflow without a separate Factory V2-governed candidate plan, explicit approval, exact file authority, summary-only evidence rules, and V2 fallback triggers.
+The next Phase 4 step should prefer a separately planned failed-verification halt or fallback candidate with optional advisory telemetry approved. Do not execute such a candidate without a separate Factory V2-governed candidate plan, explicit approval, exact file authority, summary-only evidence rules, and V2 fallback triggers.
 
 Real-run corpus capture planning is recorded at `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`.
 
