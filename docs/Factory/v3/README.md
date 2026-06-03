@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.26
+v1.27
 
 ## Change Log
+- v1.27 (2026-06-03): Added research-only adaptive mission control guidance and standalone templates for checkpoints, human decision interrupts, plan deltas, and mission state.
 - v1.26 (2026-06-03): Added the V3 standalone bootstrap package for seeding a clean V3-only POC project.
 - v1.25 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
 - v1.24 (2026-06-03): Recorded the fifth Phase 4 negative-case capture candidate as a telemetry-backed verification-halt clean non-event and moved the next research step to operational-readiness decision prep for Codex app design/build/test/deploy usage.
@@ -71,6 +72,7 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Prepare the next operational-readiness decision around a proof-of-concept application built with Codex under V3. The current candidate concept is an internal/private personal health and fitness tracker for the sponsor. App construction is not approved until a separate project brief and V3-only plan name exact scope, data path, commands, tests, and deployment authority. Operational approval for this scope requires standalone V3 operation; V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application.
 - Research Garmin Connect/API data paths and Hermes Agent surfaces before any POC dependency decision. Synthetic data may accelerate design and build, but Garmin-backed evidence and Hermes-assisted evidence must be labeled separately and cannot be inferred from synthetic-only or research-only work.
 - Provide `standalone_bootstrap/` as a copyable V3-only seed package for a clean POC project. The package includes starter canons, mission templates, closeout and mission-record templates, and a POC eval rubric; it does not authorize the POC build or depend on V2.
+- Provide `ADAPTIVE_MISSION_CONTROL.md` and templates for larger V3 missions that need checkpoints, authored mission state, human decision interrupts, plan deltas, read-only verification discipline, and explicit git authority. These artifacts are research-only and do not approve live Telegram automation or required gates.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -120,6 +122,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`
 - `PHASE4_EVAL_EXPANSION_PLAN.md`
 - `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md`
+- `ADAPTIVE_MISSION_CONTROL.md`
 - `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`
 - `PHASE1_DECISION_REVIEW_V3_OP_001.md`
 - `PHASE1_TRIAL_PLAN.md`
@@ -219,7 +222,7 @@ The dynamic/parallel workflows research plan is `PHASE4_DYNAMIC_WORKFLOWS_HARNES
 
 The first three records are happy-path docs-only evidence with `NO_TELEMETRY`, the first two approved negative-case candidates are clean non-events with `NO_TELEMETRY`, the third approved negative-case candidate is a clarification-before-edit signal with `NO_TELEMETRY`, the fourth approved negative-case candidate is a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and the fifth approved negative-case candidate is a telemetry-backed verification-halt clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`. They narrow clarification, summary-export, and selected telemetry replay evidence gaps but do not close failed-verification halt, fallback, recovery, or routing-threshold gaps and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
 
-The next Phase 4 step should prepare an operational-readiness decision pack for standalone V3 use with Codex over an application POC. The future POC build must use V3 only, not V2 help. Do not execute the POC without a separate project brief, explicit approval, exact file authority, data path, verification commands, summary-only evidence rules, deployment authority, Garmin/Hermes research decisions where relevant, and standalone V3 acceptance criteria.
+The next Phase 4 step should prepare an operational-readiness decision pack for standalone V3 use with Codex over an application POC. The future POC build must use V3 only, not V2 help. Do not execute the POC without a separate project brief, explicit approval, exact file authority, data path, verification commands, summary-only evidence rules, deployment authority, Garmin/Hermes research decisions where relevant, adaptive mission control evidence rules for larger missions, and standalone V3 acceptance criteria.
 
 Real-run corpus capture planning is recorded at `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`.
 

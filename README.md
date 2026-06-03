@@ -24,6 +24,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 research-only dynamic/parallel workflow harness planning with `insufficient_evidence` status, including Claude Code as an external-announcement signal and Codex as an official-docs source signal.
 - V3 operational-readiness, trial, and decision evidence.
 - V3 standalone bootstrap package for seeding a clean V3-only POC project.
+- V3 research-only adaptive mission control guidance and templates for checkpoints, human decision interrupts, plan deltas, mission state, and replayable long-running mission evidence.
 - External governance-kernel boundary guidance for V3 work.
 - Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, Mission Mode, and helper tooling for building V3 while V3 matures.
 
@@ -39,6 +40,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - Future V2 deprecation/removal from this repository requires explicit V3 confidence evidence and release approval.
 - Runtime authority, production action mediation, proof, leases, telemetry enforcement, and governance routing remain separately governed by explicit V3 evidence and approval.
 - Existing V3 advisory tools remain advisory unless a future release explicitly promotes them.
+- Adaptive mission control is research-only and non-enforcing. It does not approve live Telegram automation, unattended production work, new required gates, runtime authority, or V3 default-mode execution.
 - Phase 3 telemetry is not a required gate; Phase 4 eval expansion has started with advisory planning artifacts, synthetic fixtures, three separately approved happy-path docs-only real-run captures using `NO_TELEMETRY`, two approved negative-case clean non-events using `NO_TELEMETRY`, one clarification-before-edit capture using `NO_TELEMETRY`, one read-only dynamic/parallel summary-export capture using `NO_TELEMETRY`, one telemetry-backed verification-halt clean non-event using `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`, and a research-only opportunity register.
 - The Phase 3 natural halted/fallback/clarification-heavy telemetry gap remains open; clarification, summary-export, and selected telemetry replay evidence gaps are narrowed, but failed-verification halt, fallback, recovery, and routing-threshold gaps remain open.
 - Phase 4 does not approve governance routing, reduced governance, default-mode behavior, telemetry completeness checks, required gates, runtime authority, proof, lease enforcement, dynamic-workflow execution by default, or V2 build-support removal.

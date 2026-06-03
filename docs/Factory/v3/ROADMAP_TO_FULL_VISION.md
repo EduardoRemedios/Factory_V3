@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.25
+v1.26
 
 ## Change Log
+- v1.26 (2026-06-03): Added research-only adaptive mission control as the checkpoint, human-interrupt, plan-delta, and mission-state bridge for larger standalone V3 missions.
 - v1.25 (2026-06-03): Added the V3 standalone bootstrap package as the seed for a clean V3-only POC project.
 - v1.24 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
 - v1.23 (2026-06-03): Recorded the fifth Phase 4 negative-case capture candidate as a telemetry-backed verification-halt clean non-event and moved the recommended next move to operational-readiness decision prep for Codex app design/build/test/deploy usage.
@@ -56,6 +57,7 @@ Current state:
 - Factory v2 is the default and fallback process.
 - Factory v3 `V3-OP-001 Bounded Code Change` is approved for optional operational use.
 - V3 has user guidance, templates, advisory evals, seeded fixtures, and pilot evidence.
+- V3 has research-only adaptive mission control guidance and standalone templates for checkpoints, human decision interrupts, plan deltas, and authored mission state.
 - Phase 1 real-project trial evidence has reached decision-review readiness: 5 trial records, 2 fallback/pre-envelope trials, 3 completed happy-path trials across Harmony and Temper, and an owner waiver for the non-author user trial requirement in a solo AI-native development context.
 - V3 does not yet have persistent mission state, enforced authority leases, structured telemetry, dynamic governance routing, continuous verification, capability profiling, or replayable execution graphs.
 - This plan does not authorize promotion beyond the already approved optional `V3-OP-001` profile.

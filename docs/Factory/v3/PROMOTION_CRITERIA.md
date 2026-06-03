@@ -1,9 +1,10 @@
 # Factory v3 Promotion Criteria
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-06-03): Added long-running mission promotion inputs and no-go conditions for adaptive mission control, replay stability, git authority, and verification side effects.
 - v0.2 (2026-05-25): Clarified that V2 governance is build-support during V3 maturation, not a V3 product dependency, and that V2 deprecation/removal from this repo requires explicit confidence and release evidence.
 - v0.1 (2026-05-18): Initial promotion criteria for Factory v3 research.
 
@@ -27,6 +28,7 @@ Before any v3 artifact becomes authoritative, there must be:
 - public README language explaining the release posture
 - migration guidance for existing v2 users
 - standalone V3 operation evidence for the named scope, with no dependency on Factory V2 stage, pack, or lint behavior for normal operation
+- for any long-running or overnight-capable mission claim, checkpoint, authored mission-state, human decision interrupt, plan-delta, verification side-effect, and git-authority evidence showing the mission can continue from artifacts instead of hidden chat memory or elapsed-time assumptions
 - explicit human release approval
 
 ## Required Evidence
@@ -76,6 +78,10 @@ Do not promote if:
 - promotion language lacks exact artifact paths
 - public README language is ambiguous
 - human release approval is absent
+- historical replay depends on a mutable global fixture set instead of mission-scoped evidence
+- verification mutates tracked evidence without explicit authority and review rules
+- git init, commit, push, remote changes, or branch deletion are performed or recommended without mission-level authority and before/after evidence
+- live Telegram, bot token, polling, webhook, or other human-interrupt automation is implied without separate bridge approval, identity allowlisting, timeout behavior, and replay-log rules
 
 ## Release Decision Template
 Use this shape for a future release decision:

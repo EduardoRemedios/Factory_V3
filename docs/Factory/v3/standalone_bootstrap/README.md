@@ -46,6 +46,7 @@ Before building the app:
 - complete Garmin Connect/API research,
 - complete Hermes Agent surface research if it may influence tooling,
 - create the first V3 mission from the starting mission template,
+- define checkpoint, human decision interrupt, mission-state, and plan-delta rules for any larger mission,
 - define the eval record that will judge whether V3 passed the POC.
 
 ## Not Included
@@ -55,4 +56,3 @@ This package intentionally does not include:
 - Garmin credentials or implementation,
 - Hermes installation or configuration,
 - runtime authority, proof, leases, telemetry enforcement, or governance routing.
-

@@ -17,10 +17,15 @@ Research-only and non-enforcing. This manifest does not approve POC execution, V
 | `canons/POC_CONSTRAINTS.md` | Scope, authority, data, deployment, and dependency constraints. |
 | `canons/POC_VERIFICATION.md` | Project verification plan and evidence expectations. |
 | `canons/DEPENDENCY_RESEARCH.md` | Garmin and Hermes research decision record. |
+| `canons/ADAPTIVE_MISSION_CONTROL.md` | Checkpoint, human-interrupt, plan-delta, and reentry rules for larger missions. |
 | `missions/MISSION_001_START_HERE.md` | First V3-only mission envelope template. |
 | `templates/V3_POC_MISSION_TEMPLATE.md` | Reusable mission template for later missions. |
 | `templates/V3_POC_CLOSEOUT_TEMPLATE.md` | Closeout template for V3-only POC missions. |
 | `templates/V3_POC_MISSION_RECORD_TEMPLATE.json` | Structured mission record template. |
+| `templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json` | Structured human decision interrupt record. |
+| `templates/V3_MISSION_CHECKPOINT_TEMPLATE.md` | Checkpoint template for longer missions. |
+| `templates/V3_MISSION_STATE_TEMPLATE.md` | Authored mission-state template for reentry. |
+| `templates/V3_MISSION_PLAN_DELTA_TEMPLATE.md` | Plan-delta template for human-approved mission changes. |
 | `evals/V3_POC_EVAL_RUBRIC.md` | Pass/fail rubric for the operational POC. |
 | `evals/V3_POC_EVAL_RECORD_TEMPLATE.json` | Structured eval result template. |
 
