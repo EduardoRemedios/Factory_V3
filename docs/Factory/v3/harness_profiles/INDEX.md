@@ -1,9 +1,10 @@
 # V3 Harness Capability Profile Index
 
 ## Version
-v0.8
+v0.9
 
 ## Change Log
+- v0.9 (2026-06-03): Added fifth approved negative-case capture candidate harness profile for verification-halt fixture maintenance with optional advisory telemetry.
 - v0.8 (2026-06-01): Added fourth approved negative-case capture candidate harness profile for read-only Codex multi-agent evidence-export probing.
 - v0.7 (2026-05-30): Added third approved negative-case capture candidate harness profile for clarification-heavy stop-before-edit intake.
 - v0.6 (2026-05-30): Added Codex subagent-workflows research profile and generalized the dynamic-workflow class path.
@@ -32,6 +33,7 @@ Factory V3 is not promoted by this index. V3 remains optional/advisory except fo
 | `HP_20260530_002` | `HP_20260530_002_codex_subagent_workflows_research.md` | `../PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Codex subagent workflows and experimental CSV fanout | no local mission | `insufficient_evidence` | Official-docs source signal only; no local command, diff, verification, interruption, resume, token, or cost evidence. |
 | `HP_20260530_003` | `HP_20260530_003_codex_phase4_clarification_heavy_candidate.md` | `../real_run_corpus/RR_20260530_003_phase4_clarification_heavy_candidate.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` candidate intake only | `harness_profile_observed` | Third negative-case capture candidate produced a natural stop-before-edit clarification signal; no optional telemetry, failed-verification halt, or V2 fallback execution occurred. |
 | `HP_20260601_004` | `HP_20260601_004_codex_phase4_dynamic_evidence_export_candidate.md` | `../real_run_corpus/RR_20260601_004_phase4_dynamic_evidence_export_candidate.md` | Codex desktop app with multi-agent explorer subagent | `V3-OP-001 Bounded Code Change` read-only evidence probe | `harness_profile_observed` | Fourth negative-case capture candidate produced a safe summary-export signal for one read-only probe; no optional telemetry, command-producing implementation, failed-verification halt, V2 fallback execution, or interruption/resume stress occurred. |
+| `HP_20260603_005` | `HP_20260603_005_codex_phase4_verification_halt_telemetry_candidate.md` | `../real_run_corpus/RR_20260603_005_phase4_verification_halt_telemetry_candidate.md` | Codex desktop app | `V3-OP-001 Bounded Code Change` fixture maintenance | `harness_profile_observed` | Fifth negative-case capture candidate produced telemetry-backed clean non-event evidence; deterministic `--expect` verification passed with no natural halt, fallback, or recovery stress. |
 
 ## Use Rules
 - Use this index to locate advisory harness profiles only.
