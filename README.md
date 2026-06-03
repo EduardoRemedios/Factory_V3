@@ -20,7 +20,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 mission-envelope, closeout, fallback, SIMPLE-CODE-GATE, and mission-record templates.
 - V3 advisory validators and deterministic fixtures.
 - V3 advisory telemetry replay evidence, including three real Phase 3 pilot logs and an evidence review that conditionally recommends optional advisory telemetry for selected narrow evidence missions.
-- V3 Phase 4 eval expansion plan, harness capability profile template, synthetic operational-readiness fixture expansion, real-run corpus and harness-profile indexes, three happy-path docs-only real-run corpus records, four negative-case capture records, and a research-only negative-case opportunity register.
+- V3 Phase 4 eval expansion plan, harness capability profile template, synthetic operational-readiness fixture expansion, real-run corpus and harness-profile indexes, three happy-path docs-only real-run corpus records, five negative-case capture records, and a research-only negative-case opportunity register.
 - V3 research-only dynamic/parallel workflow harness planning with `insufficient_evidence` status, including Claude Code as an external-announcement signal and Codex as an official-docs source signal.
 - V3 operational-readiness, trial, and decision evidence.
 - External governance-kernel boundary guidance for V3 work.
@@ -29,6 +29,8 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 ## Important Boundaries
 
 - The only currently approved optional V3 operational profile is `V3-OP-001 Bounded Code Change`.
+- The next operational-readiness decision scope is user-defined as using V3 with Codex to design, build, test, and deploy an application in the same operational sense that V2 is used today. The future POC application build itself must use V3 only; V2 may support current V3 repository planning, but V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application. For that scope to be approved as operational, V3 must be usable standalone and must not depend on Factory V2 behavior for normal operation; this does not by itself approve production-action, infrastructure, CI, required-gate, runtime-authority, or V2-removal scope.
+- The current candidate POC is an internal/private personal health and fitness tracker. Synthetic data may be used to accelerate design and build. Garmin Connect/API data paths and Hermes Agent surfaces, including CLI, desktop, gateway, memory, skills, MCP, scheduling, subagents, and sandbox backends, require research spikes before any dependency or execution decision.
 - Broader supervised-worker or non-coding mission language is roadmap vision, not current operating authority.
 - Current Factory V3 state does not make Factory V2 obsolete.
 - V3 required-gate integration is not implied by this repository split.
@@ -36,8 +38,8 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - Future V2 deprecation/removal from this repository requires explicit V3 confidence evidence and release approval.
 - Runtime authority, production action mediation, proof, leases, telemetry enforcement, and governance routing remain separately governed by explicit V3 evidence and approval.
 - Existing V3 advisory tools remain advisory unless a future release explicitly promotes them.
-- Phase 3 telemetry is not a required gate; Phase 4 eval expansion has started with advisory planning artifacts, synthetic fixtures, three separately approved happy-path docs-only real-run captures using `NO_TELEMETRY`, two approved negative-case clean non-events using `NO_TELEMETRY`, one clarification-before-edit capture using `NO_TELEMETRY`, one read-only dynamic/parallel summary-export capture using `NO_TELEMETRY`, and a research-only opportunity register.
-- The Phase 3 natural halted/fallback/clarification-heavy telemetry gap remains open; clarification and summary-export evidence gaps are narrowed by non-telemetry evidence only.
+- Phase 3 telemetry is not a required gate; Phase 4 eval expansion has started with advisory planning artifacts, synthetic fixtures, three separately approved happy-path docs-only real-run captures using `NO_TELEMETRY`, two approved negative-case clean non-events using `NO_TELEMETRY`, one clarification-before-edit capture using `NO_TELEMETRY`, one read-only dynamic/parallel summary-export capture using `NO_TELEMETRY`, one telemetry-backed verification-halt clean non-event using `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`, and a research-only opportunity register.
+- The Phase 3 natural halted/fallback/clarification-heavy telemetry gap remains open; clarification, summary-export, and selected telemetry replay evidence gaps are narrowed, but failed-verification halt, fallback, recovery, and routing-threshold gaps remain open.
 - Phase 4 does not approve governance routing, reduced governance, default-mode behavior, telemetry completeness checks, required gates, runtime authority, proof, lease enforcement, dynamic-workflow execution by default, or V2 build-support removal.
 
 ## Key Paths

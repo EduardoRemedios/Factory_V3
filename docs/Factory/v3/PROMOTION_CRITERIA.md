@@ -26,6 +26,7 @@ Before any v3 artifact becomes authoritative, there must be:
 - external-kernel boundary review
 - public README language explaining the release posture
 - migration guidance for existing v2 users
+- standalone V3 operation evidence for the named scope, with no dependency on Factory V2 stage, pack, or lint behavior for normal operation
 - explicit human release approval
 
 ## Required Evidence
@@ -68,6 +69,7 @@ Promotion evidence should include:
 ## Hard No-go Conditions
 Do not promote if:
 - Factory v2 behavior would change without explicit approval
+- the named operational scope still depends on Factory V2 stage, pack, or lint behavior for normal operation
 - external governance kernel would become required
 - Factory would duplicate runtime-kernel authority
 - shadow schemas would become required without advisory evidence

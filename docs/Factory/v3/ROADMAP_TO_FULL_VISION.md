@@ -1,9 +1,11 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.22
+v1.24
 
 ## Change Log
+- v1.24 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
+- v1.23 (2026-06-03): Recorded the fifth Phase 4 negative-case capture candidate as a telemetry-backed verification-halt clean non-event and moved the recommended next move to operational-readiness decision prep for Codex app design/build/test/deploy usage.
 - v1.22 (2026-06-03): Recorded the fourth Phase 4 negative-case capture candidate as a read-only dynamic/parallel summary-export signal and moved the recommended next move to failed-verification halt or fallback planning with optional advisory telemetry.
 - v1.21 (2026-06-01): Recorded the third Phase 4 negative-case capture candidate as a clarification-before-edit signal and moved the recommended next move to dynamic/parallel evidence-export planning.
 - v1.20 (2026-05-30): Generalized dynamic-workflow harness research to a capability class and added Codex as an official-docs `insufficient_evidence` sibling profile.
@@ -252,11 +254,11 @@ Required evidence:
 - at least 3 real mission telemetry logs, Status: 3 of 3 captured.
 - overhead report, Status: recorded in pilot overhead notes and rolled up in `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
 - data-minimization review confirming no chain-of-thought or vendor-private cognition state is stored, Status: all three pilot redaction reviews PASS and are summarized in `PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
-- negative-case telemetry evidence, Status: gap remains; one natural clarification-before-edit signal exists with `NO_TELEMETRY`, but no natural halted, fallback, or clarification-heavy telemetry pilot has been captured.
+- negative-case telemetry evidence, Status: partially narrowed; one natural clarification-before-edit signal exists with `NO_TELEMETRY`, and one verification-halt candidate produced a telemetry-backed clean non-event, but no natural halted, fallback, or failed-verification telemetry pilot has been captured.
 
 Promotion gate:
 
-Telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not recommended as a required or routine gate because overhead remains meaningful and real negative-case telemetry evidence is still missing.
+Telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not recommended as a required or routine gate because overhead remains meaningful and real failed-verification or fallback telemetry evidence is still missing.
 
 Watchpoint:
 
@@ -264,7 +266,7 @@ During the Phase 3 to Phase 6 advisory window, models may skip structured eviden
 
 ## Phase 4 - Eval Expansion And Capability Profiling
 
-Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, two approved negative-case clean non-events with matching harness profiles, one approved clarification-before-edit signal with a matching harness profile, one approved read-only dynamic/parallel summary-export signal with a matching harness profile, a research-only negative-case opportunity register, and dynamic/parallel workflow research profiles exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
+Status: In progress. The Phase 4 eval expansion plan, harness capability profile template, first synthetic operational-readiness fixture expansion, corpus and harness-profile indexes, three separately approved happy-path real-run corpus records with matching harness profiles, two approved negative-case clean non-events with matching harness profiles, one approved clarification-before-edit signal with a matching harness profile, one approved read-only dynamic/parallel summary-export signal with a matching harness profile, one telemetry-backed verification-halt clean non-event with a matching harness profile, a research-only negative-case opportunity register, and dynamic/parallel workflow research profiles exist. Advisory validator hardening from the Codex Security scan improves evidence-shape checks but does not create thresholds, routing authority, required gates, or default-mode promotion.
 
 Goal:
 
@@ -281,9 +283,9 @@ Required evidence:
 
 - harness capability report template, Status: initial template exists; initial dynamic/parallel workflow profiles include external-source research profiles and one local read-only Codex multi-agent summary-export profile, but no command-producing dynamic execution, interruption/resume, token/cost, failed-verification halt, or fallback evidence.
 - golden fixture expansion, Status: initial synthetic `V3-P4-*` operational-readiness fixtures exist.
-- real-run result corpus, Status: three happy-path docs-only result summaries, two approved negative-case clean non-events, one clarification-before-edit signal, and one read-only dynamic/parallel summary-export signal exist with `NO_TELEMETRY`.
+- real-run result corpus, Status: three happy-path docs-only result summaries, two approved negative-case clean non-events with `NO_TELEMETRY`, one clarification-before-edit signal with `NO_TELEMETRY`, one read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and one telemetry-backed verification-halt clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`.
 - false-positive and false-negative rollup, Status: rollup shape is planned; first real adjudication notes exist for the initial NL-pilot wording repair, but evidence remains too narrow and happy-path-heavy for thresholds.
-- negative-case opportunity register, Status: research-only register exists; `P4-NEG-OPP-005` and `P4-NEG-OPP-002` were executed as clean non-events, `P4-NEG-OPP-001` produced a clarification-before-edit signal with `NO_TELEMETRY`, and `P4-NEG-OPP-006` produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`. Remaining evidence gaps include telemetry, failed-verification halt, fallback, recovery, and routing-threshold evidence.
+- negative-case opportunity register, Status: research-only register exists; `P4-NEG-OPP-005` and `P4-NEG-OPP-002` were executed as clean non-events, `P4-NEG-OPP-001` produced a clarification-before-edit signal with `NO_TELEMETRY`, `P4-NEG-OPP-006` produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and a `P4-NEG-OPP-002` follow-up produced a telemetry-backed clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`. Remaining evidence gaps include failed-verification halt, fallback, recovery, and routing-threshold evidence.
 - advisory threshold discussion for later routing study, Status: planning-only and non-operational.
 
 Promotion gate:
@@ -476,6 +478,7 @@ Before any decision to operationalize V3 beyond `V3-OP-001`, confirm:
 - [ ] governance router has human-classified evidence,
 - [ ] enforceable validators exist for basic authority and verification rules,
 - [ ] V2 fallback remains explicit,
+- [ ] the named operational profile can run standalone without relying on Factory V2 stage, pack, or lint behavior for normal operation,
 - [ ] external-kernel boundary remains intact,
 - [ ] human approval names the exact profile and release level.
 
@@ -487,6 +490,14 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Plan a Phase 4 failed-verification halt or fallback candidate with optional advisory telemetry.
+Plan an operational-readiness decision-prep pack for user-defined V3 operational use with Codex.
 
-Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, two clean negative-case non-events, the clarification-before-edit capture record, the read-only dynamic/parallel summary-export record, and the negative-case opportunity register to design the next evidence-capture step for selected narrow `V3-OP-001` work. Prefer a deterministic fixture or expected-output maintenance shape with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED` where verification could naturally fail and force halt, fallback, or human decision. Do not manufacture failure, do not claim the gap is closed before evidence exists, and do not add governance routing, enforcement, telemetry completeness checks, default-mode behavior, runtime authority, proof, lease enforcement, or V2 scaffolding removal until the relevant later phase explicitly approves it.
+Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, five negative-case capture records, optional telemetry evidence, the operational-release approval for `V3-OP-001`, and the negative-case opportunity register to decide what evidence is still needed before the human sponsor can judge whether V3 is ready to be used operationally for designing, building, testing, and deploying an application with Codex in the same practical sense that V2 is used today. The decision must treat standalone V3-only POC execution as a hard criterion: V2 may support current repository planning while V3 matures, but V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application.
+
+The likely first operational proof is a POC application built under V3. Current candidate concept: an internal/private personal health and fitness tracking app for the sponsor. The decision-prep pack must treat that as a candidate proof scope only, not execution approval. It must define the data path, test and deployment target, credentials/secrets handling, and separate approval requirements for app implementation, Garmin integration, production action, and infrastructure authority. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately.
+
+The decision-prep pack should include research spikes before POC dependency decisions:
+- Garmin Connect/API: compare official Garmin Connect Developer Program and Health/API options with relevant open-source or manual import/export approaches, including access, terms, auth, credentials, reliability, maintenance, and data shape.
+- Hermes Agent surfaces: evaluate CLI, desktop, gateway/messaging, persistent memory, skills, MCP, scheduling, subagents, and sandbox backends as possible research leverage, optional harness, or out-of-scope tooling. Hermes must not become a hidden V3 substitute or obscure whether the POC was executed by V3 alone.
+
+The pack must distinguish optional `V3-OP-001` use from default-mode promotion, required gates, governance routing, telemetry completeness checks, runtime authority, production-action mediation, proof, lease enforcement, infrastructure authority, and V2 scaffolding removal. Do not claim operational readiness before the decision pack proves or defers standalone V3 operation for the named app-building scope, and do not claim production/default readiness before the pack explicitly names the release level, artifacts, residual risks, and any missing evidence.

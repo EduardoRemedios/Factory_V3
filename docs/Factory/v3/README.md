@@ -1,9 +1,11 @@
 # Factory v3
 
 ## Version
-v1.23
+v1.25
 
 ## Change Log
+- v1.25 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
+- v1.24 (2026-06-03): Recorded the fifth Phase 4 negative-case capture candidate as a telemetry-backed verification-halt clean non-event and moved the next research step to operational-readiness decision prep for Codex app design/build/test/deploy usage.
 - v1.23 (2026-06-03): Recorded the fourth Phase 4 negative-case capture candidate as a read-only dynamic/parallel summary-export signal and moved the next research step toward failed-verification halt or fallback planning with optional advisory telemetry.
 - v1.22 (2026-06-01): Recorded the third Phase 4 negative-case capture candidate as a clarification-before-edit signal and moved the next research step toward dynamic/parallel evidence-export planning.
 - v1.21 (2026-05-30): Generalized dynamic-workflow harness research to a capability class and added Codex as an official-docs `insufficient_evidence` sibling profile.
@@ -65,6 +67,8 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide a shadow `V3_MISSION_RECORD` design and standalone advisory validator for Phase 2 replay and evidence-shape testing, including regression coverage for unsafe path shapes in self-attested scope evidence.
 - Provide an advisory telemetry replay validator with regression coverage for duplicate telemetry event IDs, missing terminal replay events, unsafe path shapes in self-attested scope evidence, and excluded-data markers.
 - Track research-only dynamic/parallel workflow harness planning with `insufficient_evidence` status until local Factory V3 evidence exists; Claude Code is an external-announcement signal and Codex is an official-docs source signal.
+- Prepare the next operational-readiness decision around a proof-of-concept application built with Codex under V3. The current candidate concept is an internal/private personal health and fitness tracker for the sponsor. App construction is not approved until a separate project brief and V3-only plan name exact scope, data path, commands, tests, and deployment authority. Operational approval for this scope requires standalone V3 operation; V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application.
+- Research Garmin Connect/API data paths and Hermes Agent surfaces before any POC dependency decision. Synthetic data may accelerate design and build, but Garmin-backed evidence and Hermes-assisted evidence must be labeled separately and cannot be inferred from synthetic-only or research-only work.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -211,9 +215,9 @@ The Phase 4 negative-case opportunity register is `PHASE4_NEGATIVE_CASE_OPPORTUN
 
 The dynamic/parallel workflows research plan is `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md`, with initial Claude Code profile `harness_profiles/HP_20260530_001_claude_code_dynamic_workflows_research.md`, Codex subagent-workflows profile `harness_profiles/HP_20260530_002_codex_subagent_workflows_research.md`, and local read-only Codex multi-agent evidence-export profile `harness_profiles/HP_20260601_004_codex_phase4_dynamic_evidence_export_candidate.md`. These do not authorize dynamic-workflow execution by default, routing, governance reduction, required gates, profile promotion, or V2 build-support removal.
 
-The first three records are happy-path docs-only evidence with `NO_TELEMETRY`, the first two approved negative-case candidates are clean non-events with `NO_TELEMETRY`, the third approved negative-case candidate is a clarification-before-edit signal with `NO_TELEMETRY`, and the fourth approved negative-case candidate is a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`. They narrow clarification and summary-export evidence gaps but do not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
+The first three records are happy-path docs-only evidence with `NO_TELEMETRY`, the first two approved negative-case candidates are clean non-events with `NO_TELEMETRY`, the third approved negative-case candidate is a clarification-before-edit signal with `NO_TELEMETRY`, the fourth approved negative-case candidate is a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and the fifth approved negative-case candidate is a telemetry-backed verification-halt clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`. They narrow clarification, summary-export, and selected telemetry replay evidence gaps but do not close failed-verification halt, fallback, recovery, or routing-threshold gaps and do not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or V2 build-support removal.
 
-The next Phase 4 step should prefer a separately planned failed-verification halt or fallback candidate with optional advisory telemetry approved. Do not execute such a candidate without a separate Factory V2-governed candidate plan, explicit approval, exact file authority, summary-only evidence rules, and V2 fallback triggers.
+The next Phase 4 step should prepare an operational-readiness decision pack for standalone V3 use with Codex over an application POC. The future POC build must use V3 only, not V2 help. Do not execute the POC without a separate project brief, explicit approval, exact file authority, data path, verification commands, summary-only evidence rules, deployment authority, Garmin/Hermes research decisions where relevant, and standalone V3 acceptance criteria.
 
 Real-run corpus capture planning is recorded at `PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md`.
 

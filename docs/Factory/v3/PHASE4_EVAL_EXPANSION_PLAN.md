@@ -1,9 +1,10 @@
 # Factory V3 Phase 4 Eval Expansion Plan
 
 ## Version
-v0.8
+v0.9
 
 ## Change Log
+- v0.9 (2026-06-03): Recorded the fifth Phase 4 negative-case capture candidate as a telemetry-backed verification-halt clean non-event and identified operational-readiness decision prep as the next target.
 - v0.8 (2026-06-03): Recorded the fourth Phase 4 negative-case capture candidate as a read-only dynamic/parallel summary-export signal and moved the next research target toward failed-verification halt or fallback evidence with optional advisory telemetry.
 - v0.7 (2026-06-01): Recorded the third Phase 4 negative-case capture candidate as a clarification-before-edit signal and identified dynamic/parallel evidence-export planning as the next research target.
 - v0.6 (2026-05-30): Generalized dynamic-workflow harness profiling to a capability class and added Codex as an official-docs `insufficient_evidence` sibling.
@@ -37,7 +38,7 @@ Phase 4 measures whether a harness can preserve V2 safety properties for bounded
 ## Phase 3 Carry-forward Gap
 Phase 3 did not capture a natural halted, fallback, or clarification-heavy telemetry pilot.
 
-Phase 4 must treat that as an evidence gap. The third approved Phase 4 negative-case capture candidate produced a natural clarification-before-edit signal with `NO_TELEMETRY`, and the fourth approved negative-case capture candidate produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`. These narrow clarification and summary-export evidence but do not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps.
+Phase 4 must treat that as an evidence gap. The third approved Phase 4 negative-case capture candidate produced a natural clarification-before-edit signal with `NO_TELEMETRY`, the fourth approved Phase 4 negative-case capture candidate produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and the fifth approved Phase 4 negative-case capture candidate produced a telemetry-backed verification-halt clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`. These narrow clarification, summary-export, and selected telemetry replay evidence but do not close failed-verification halt, fallback, recovery, or routing-threshold gaps.
 
 ## Evaluation Dimensions
 
@@ -139,9 +140,9 @@ Each result should record:
 
 Optional telemetry may be attached only when it follows Phase 3 conditions: selected narrow evidence missions, summary-only payloads, non-blocking replay output, and no gate wiring.
 
-Current real-run corpus status: three happy-path docs-only records exist, one approved docs-only negative-case capture candidate for advisory threshold wording produced a clean non-event with `NO_TELEMETRY`, one approved verification-halt candidate produced a clean non-event with `NO_TELEMETRY`, one approved clarification-heavy candidate produced a natural stop-before-edit clarification signal with `NO_TELEMETRY`, and one approved dynamic/parallel evidence-export candidate produced a read-only summary-export signal with `NO_TELEMETRY`. This narrows clarification and summary-export evidence but does not close telemetry, failed-verification halt, fallback, recovery, or routing-threshold gaps and does not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or Factory V2 build-support removal.
+Current real-run corpus status: three happy-path docs-only records exist, one approved docs-only negative-case capture candidate for advisory threshold wording produced a clean non-event with `NO_TELEMETRY`, one approved verification-halt candidate produced a clean non-event with `NO_TELEMETRY`, one approved clarification-heavy candidate produced a natural stop-before-edit clarification signal with `NO_TELEMETRY`, one approved dynamic/parallel evidence-export candidate produced a read-only summary-export signal with `NO_TELEMETRY`, and one approved verification-halt follow-up produced a telemetry-backed clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`. This narrows clarification, summary-export, and selected telemetry replay evidence but does not close failed-verification halt, fallback, recovery, or routing-threshold gaps and does not support governance routing, reduced governance, required gates, default-mode behavior, V3 promotion, or Factory V2 build-support removal.
 
-Dynamic/parallel workflow harnesses are tracked as a research path with external-source profiles and one local read-only Codex multi-agent evidence-export profile. The next eligible research target should focus on failed-verification halt or fallback evidence with optional advisory telemetry approved, not routing or promotion.
+Dynamic/parallel workflow harnesses are tracked as a research path with external-source profiles and one local read-only Codex multi-agent evidence-export profile. The next eligible research target is an operational-readiness decision-prep pack for user-defined V3 operational use with Codex, not routing, enforcement, or promotion by implication.
 
 ## False-positive And False-negative Rollup Shape
 Use a rollup table or JSON-compatible structure with these fields:
