@@ -3,6 +3,8 @@
 ## Status
 APPROVED (sponsor: Eduardo dos Remedios, 2026-06-04). Optional `V3-OP-001` use; non-enforcing; based on Mission 012/013 POC evidence and sponsor doctrine recorded in `RAW_BRIEF_20260604_long_running_mission_path.md`.
 
+Execution status: completed as of `2026-06-04T11:57:57Z`; checkpoints recorded in `docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_checkpoints.md`; mission record recorded in `docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_update.json`.
+
 ## Sizing Forecast (labeled forecast, not measurement)
 Pre-execution forecast from measured baselines (Mission 012: 17m38s real, ~101 tool calls; Mission 013: 34m46s real, ~229 tool calls): roughly 10-15 minutes wall clock and 60-90 tool calls, zero interrupts expected. The closeout must compare actuals (timestamp-derived) against this forecast and record the variance.
 

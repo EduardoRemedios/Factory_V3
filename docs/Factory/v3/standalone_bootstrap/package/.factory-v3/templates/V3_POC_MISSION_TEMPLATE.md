@@ -25,6 +25,18 @@ Why this mission is bounded enough for V3:
 ## Non-Goals
 -
 
+## Pre-Resolved Decisions
+Optional Tier 1 decisions answered before execution:
+-
+
+## Decision Principles (Tier 2)
+Optional principles for resolving implementation choices within mission authority:
+-
+
+## Deferred Decisions Log
+Tier 2 choices to review at closeout:
+-
+
 ## Authorized Files And Directories
 -
 
@@ -49,11 +61,15 @@ Commands and expected evidence:
 - Checkpoint cadence: phase boundary | verification gate | before pause | other
 - Mission state file:
 - Human decision interrupts allowed: YES/NO
+- Human decision interrupt tier: Tier 3 only after Tier 1 pre-resolved decisions and Tier 2 decision principles cannot answer the decision.
 - Interrupt surfaces allowed: thread | file | telegram-research-only | other
 - Timeout behavior for unresolved interrupts: pause | continue_without_expansion | halt
 - Plan delta required before scope change: YES
 - Verification side effects allowed: YES/NO
 - If YES, authorized output paths:
+- Budget timestamp command: `date -u +%Y-%m-%dT%H:%M:%SZ`
+- Duration measurement source: checkpoint timestamps or git commit times; never model-estimated minutes.
+- Rate-limit window note:
 
 ## Halt Rules
 Stop if:

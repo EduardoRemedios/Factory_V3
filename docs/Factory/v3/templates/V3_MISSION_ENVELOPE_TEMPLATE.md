@@ -20,6 +20,18 @@ Template for optional `V3-OP-001` use. It is based on approved research evidence
 ## Non-Goals
 -
 
+## Pre-Resolved Decisions
+Optional Tier 1 decisions answered before execution:
+-
+
+## Decision Principles (Tier 2)
+Optional principles for resolving implementation choices within mission authority:
+-
+
+## Deferred Decisions Log
+Tier 2 choices to review at closeout:
+-
+
 ## Authorized Scope
 Files and directories:
 -

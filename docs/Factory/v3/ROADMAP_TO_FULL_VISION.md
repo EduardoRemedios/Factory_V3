@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.29
+v1.30
 
 ## Change Log
+- v1.30 (2026-06-04): Updated Adaptive Mission Control to v0.2 with timestamped Budget State guidance, rate-limit window awareness, and three decision tiers; synced repository and standalone bootstrap templates while preserving research-only/non-enforcing status.
 - v1.29 (2026-06-04): Recorded POC Mission 013 remote-interrupt evidence (two phone-answered interrupts via Codex mobile, Android-steered mission, second fresh-session resume with stale-hash recovery) and the mission-timing finding that checkpoint-estimated minutes are 6-9x inflated versus git timestamps; added timestamped checkpoint instrumentation to the recommended next moves.
 - v1.28 (2026-06-04): Recorded POC Mission 012 adaptive-mission-control evidence: first real human decision interrupt lifecycle (asked/answered/applied), fresh-session resume from authored artifacts, scoped checkpoint-commit git authority, and measured budget fields. Narrowed the interrupt, resume, budget, and git-authority limitations; moved the recommended next move to the versioned validator, negative-path missions, and remote-interrupt Mission 013.
 - v1.27 (2026-06-04): Recorded standalone V3-only POC execution evidence through Mission 011 and the sponsor-approved interim POC eval `PASS_WITH_LIMITATIONS` (17/22); moved the recommended next move to POC evidence consolidation (versioned mission-record validator, negative-path missions, interrupt-bearing Mission 012, deployment mission).
@@ -60,7 +61,7 @@ Current state:
 - Factory v2 is the default and fallback process.
 - Factory v3 `V3-OP-001 Bounded Code Change` is approved for optional operational use.
 - V3 has user guidance, templates, advisory evals, seeded fixtures, and pilot evidence.
-- V3 has research-only adaptive mission control guidance and standalone templates for checkpoints, human decision interrupts, plan deltas, and authored mission state.
+- V3 has research-only adaptive mission control guidance and standalone templates for checkpoints, human decision interrupts, plan deltas, and authored mission state. AMC v0.2 adds command-sourced timestamp Budget State guidance and three decision tiers.
 - Phase 1 real-project trial evidence has reached decision-review readiness: 5 trial records, 2 fallback/pre-envelope trials, 3 completed happy-path trials across Harmony and Temper, and an owner waiver for the non-author user trial requirement in a solo AI-native development context.
 - V3 does not yet have persistent mission state, enforced authority leases, structured telemetry, dynamic governance routing, continuous verification, capability profiling, or replayable execution graphs.
 - This plan does not authorize promotion beyond the already approved optional `V3-OP-001` profile.
@@ -500,13 +501,14 @@ Consolidate the standalone POC evidence and close its named limitations.
 
 Status update (2026-06-04): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-013 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. Mission 012 (commit `8667e96`) produced the first real adaptive-mission-control evidence: a genuine interrupt completing the asked/answered/applied lifecycle, a fresh-session resume from authored artifacts only, scoped checkpoint-commit git authority, and filled budget fields. Mission 013 (commit `a74efbd`) added the first remote-interrupt evidence: two genuine interrupts answered from the sponsor's phone via Codex in the ChatGPT mobile app, the mission steered from Android end to end, and a second fresh-session resume that recovered a stale checkpoint hash from git log. Mission timing finding: checkpoint-estimated minutes proved 6-9x inflated versus git commit timestamps (Mission 012 real ~17m38s vs estimated ~115m; Mission 013 real ~34m46s vs estimated ~328m); tool-call counts were the more reliable size metric. The hard standalone criterion has held through Mission 013. The interim eval does not approve operational readiness for the full named scope, the candidate `V3-OP-003` remote-interrupt profile, default-mode promotion, required gates, governance routing, telemetry enforcement, runtime authority, production action, infrastructure authority, or V2 scaffolding removal.
 
+AMC v0.2 status update (2026-06-04): timestamped checkpoint instrumentation is now present in the AMC guidance, repository templates, and standalone bootstrap copies. Budget State records command-sourced UTC timestamps, derived elapsed durations, tool-call counts, qualitative context, stop-threshold judgment, and rate-limit window notes. Decision tiers now prefer Tier 1 pre-resolved decisions and Tier 2 resolve-and-log choices before Tier 3 human interrupts. This does not approve validators, promotion, required gates, routing, runtime authority, Telegram usage, production action, or V2 scaffolding removal.
+
 The recommended next moves, in order:
 
-1. Timestamped checkpoint instrumentation: update the AMC checkpoint guidance, templates, and standalone bootstrap so Budget State captures command-sourced timestamps (e.g., `date -u`) or git-derived durations instead of model-estimated minutes, which Mission 012/013 evidence shows are 6-9x inflated.
-2. Versioned mission-record validator: extend `scripts/factory_v3_mission_record_lint.py` with a schema-version discriminator covering the Factory_V3 v0.1 shape, `v0.1-poc-standalone` with and without the `adaptive_mission_control` block, and the flat Mission 007-009 shape, with fixtures for each and a migration or validation path for the diverged records. Candidate for execution as a `V3-OP-001` bounded code change under V3 governance.
-3. Negative-path POC missions: deliberately seeded failed-verification halt, recovery, stale-reentry, and fallback/no-go missions in the POC repository. Missions 012/013's mid-mission stops were intentional pauses, not failure halts, so failure-path behavior remains untested.
-4. Separately approved private deployment mission: deployment boundary, secrets policy, rollback, and smoke verification, closing the deployment-evidence limitation.
-5. Final POC eval re-run once deployment and negative-path evidence exist, deciding whether `PASS_NAMED_POC` is supportable, and a separately named decision on the candidate `V3-OP-003` long-running remote-interrupt profile using Mission 012/013 evidence.
+1. Versioned mission-record validator: extend `scripts/factory_v3_mission_record_lint.py` with a schema-version discriminator covering the Factory_V3 v0.1 shape, `v0.1-poc-standalone` with and without the `adaptive_mission_control` block, and the flat Mission 007-009 shape, with fixtures for each and a migration or validation path for the diverged records. Candidate for execution as a `V3-OP-001` bounded code change under V3 governance.
+2. Negative-path POC missions: deliberately seeded failed-verification halt, recovery, stale-reentry, and fallback/no-go missions in the POC repository. Missions 012/013's mid-mission stops were intentional pauses, not failure halts, so failure-path behavior remains untested.
+3. Separately approved private deployment mission: deployment boundary, secrets policy, rollback, and smoke verification, closing the deployment-evidence limitation.
+4. Final POC eval re-run once deployment and negative-path evidence exist, deciding whether `PASS_NAMED_POC` is supportable, and a separately named decision on the candidate `V3-OP-003` long-running remote-interrupt profile using Mission 012/013 evidence.
 
 The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 

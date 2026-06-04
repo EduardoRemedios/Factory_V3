@@ -1,0 +1,171 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-04",
+    "source_trial_id": "",
+    "source_trial_path": "",
+    "source_closeout_reference": "docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_checkpoints.md",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "f018152",
+    "commit_after": "not_recorded",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Update Adaptive Mission Control to v0.2 with timestamped budget instrumentation and three decision tiers, including synced repository and standalone bootstrap templates.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/missions/MISSION_V3OP001_20260604_AMC_V02_DECISION_TIERS_AND_TIMESTAMPS.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ADAPTIVE_MISSION_CONTROL.md",
+      "docs/Factory/v3/templates/V3_MISSION_ENVELOPE_TEMPLATE.md",
+      "docs/Factory/v3/templates/V3_MISSION_CHECKPOINT_TEMPLATE.md",
+      "docs/Factory/v3/templates/V3_MISSION_STATE_TEMPLATE.md",
+      "docs/Factory/v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/canons/ADAPTIVE_MISSION_CONTROL.md",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_MISSION_CHECKPOINT_TEMPLATE.md",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_MISSION_STATE_TEMPLATE.md",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_POC_MISSION_TEMPLATE.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/CHANGELOG.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/missions/MISSION_V3OP001_20260604_AMC_V02_DECISION_TIERS_AND_TIMESTAMPS.md",
+      "docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_update.json",
+      "docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_checkpoints.md",
+      "docs/Factory/v3/mission_records/README.md"
+    ],
+    "forbidden_scope": [
+      "scripts/",
+      "tests/",
+      "tools/",
+      ".agents/",
+      "AGENTS.md",
+      "Factory V2 process docs except named status docs",
+      "POC repository",
+      "promotion, enforcement, gates, routing, runtime authority, Telegram, or V2-removal language"
+    ],
+    "allowed_commands": [
+      "read/search/status commands listed in the mission envelope",
+      "date -u +%Y-%m-%dT%H:%M:%SZ",
+      "scoped git add and git commit",
+      "verification commands listed in the mission envelope"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "objective ambiguity remains after Tier 1/2 resolution",
+      "scope expands beyond named files",
+      "verification fails irrecoverably within authority",
+      "human sponsor requests V2"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ADAPTIVE_MISSION_CONTROL.md",
+      "docs/Factory/v3/templates/V3_MISSION_ENVELOPE_TEMPLATE.md",
+      "docs/Factory/v3/templates/V3_MISSION_CHECKPOINT_TEMPLATE.md",
+      "docs/Factory/v3/templates/V3_MISSION_STATE_TEMPLATE.md",
+      "docs/Factory/v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/canons/ADAPTIVE_MISSION_CONTROL.md",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_MISSION_CHECKPOINT_TEMPLATE.md",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_MISSION_STATE_TEMPLATE.md",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json",
+      "docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_POC_MISSION_TEMPLATE.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/CHANGELOG.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/missions/MISSION_V3OP001_20260604_AMC_V02_DECISION_TIERS_AND_TIMESTAMPS.md",
+      "docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_update.json",
+      "docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_checkpoints.md",
+      "docs/Factory/v3/mission_records/README.md"
+    ],
+    "verification": {
+      "commands": [
+        "bash scripts/knowledge_lint.sh",
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "python3 -m json.tool docs/Factory/v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json",
+        "python3 -m json.tool docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json",
+        "python3 -m json.tool docs/Factory/v3/mission_records/MR_20260604_007_amc_v02_update.json",
+        "diff docs/Factory/v3/ADAPTIVE_MISSION_CONTROL.md docs/Factory/v3/standalone_bootstrap/package/.factory-v3/canons/ADAPTIVE_MISSION_CONTROL.md",
+        "diff docs/Factory/v3/templates/V3_MISSION_CHECKPOINT_TEMPLATE.md docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_MISSION_CHECKPOINT_TEMPLATE.md",
+        "diff docs/Factory/v3/templates/V3_MISSION_STATE_TEMPLATE.md docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_MISSION_STATE_TEMPLATE.md",
+        "diff docs/Factory/v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json docs/Factory/v3/standalone_bootstrap/package/.factory-v3/templates/V3_HUMAN_DECISION_INTERRUPT_TEMPLATE.json"
+      ],
+      "result": "pass",
+      "summary": "Knowledge lint passed; V3 advisory lint reported zero findings/warnings; operational-readiness eval reported ADVISORY_PASS; mission-record lint was clean after the record was updated from draft; JSON templates and mission record parsed; synced bootstrap diffs were empty."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "true_negative"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "true_negative"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "true_negative"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs/templates-only change.",
+        "No validator, dependency, runtime, Telegram, promotion, required-gate, or V2-removal change."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "not_applicable",
+      "notes": []
+    },
+    "friction_notes": [
+      "Initial workspace was the POC repository; no POC edits were made. The authorized home repo was located at /Users/eduardodosremedios/Factory_V3 before edits began."
+    ],
+    "false_positive_notes": [],
+    "false_negative_notes": []
+  },
+  "phase2_design_signals": [
+    "Tier 2 decision DDL-001: synced bootstrap AMC/checkpoint/state/interrupt files to repository counterparts.",
+    "Tier 2 decision DDL-002: adapted POC mission template with optional decision-tier and timestamped-budget fields.",
+    "Tier 2 decision DDL-003: kept rate-limit window target as tunable operational context, not validator authority.",
+    "Timestamp-derived actual duration: start 2026-06-04T11:51:19Z, closeout timestamp 2026-06-04T11:57:57Z, elapsed 6m38s.",
+    "Forecast comparison: wall-clock actual was 3m22s to 8m22s under the 10-15 minute forecast; tool-call count was approximately 70 individual command/tool invocations, within the 60-90 forecast band; zero interrupts occurred as forecast."
+  ]
+}

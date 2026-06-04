@@ -1,9 +1,10 @@
 # V3 Adaptive Mission Control
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-06-04): Added command-sourced timestamp budget discipline and three decision tiers so human interrupts remain exceptional.
 - v0.1 (2026-06-03): Initial adaptive mission control protocol with checkpoints, human decision interrupts, plan deltas, and reentry state.
 
 ## Status
@@ -47,6 +48,32 @@ For larger missions, V3 should operate in this loop:
 7. Record the human answer as an interrupt and, if needed, a plan delta.
 8. Halt if the answer is missing, ambiguous, unsafe, or outside mission authority.
 
+## Budget And Timing Discipline
+Budget state should be measured from command-sourced evidence where possible.
+
+At each checkpoint, record:
+- `checkpoint_recorded_at` from `date -u +%Y-%m-%dT%H:%M:%SZ`,
+- elapsed time since the previous checkpoint, derived from checkpoint timestamps or git commit times,
+- tool-call count since the previous checkpoint or mission start,
+- qualitative context and buffer concerns,
+- whether a stop threshold has been reached,
+- rate-limit window notes when relevant.
+
+Do not record model-estimated minutes as measurements. Forecasts may be recorded only when clearly labeled as forecasts. Mission 012 and Mission 013 POC evidence showed checkpoint-estimated minutes inflated real elapsed time by roughly 6-9x, while tool-call counts were the more useful self-reported size metric.
+
+Duration bands may remain observational guardrails, but they must not become mission size classes. Mission size still emerges from objective, scope, implementation facts, verification requirements, budget, and evidence.
+
+Rate-limit window awareness is operational context, not a required gate. The current sponsor target is an interim, tunable parameter: aim to fit a roughly 4-hour run inside a roughly 5-hour plan window when designing long-running work. If throttling, exhaustion, or context risk prevents clean continuation, record a checkpoint, commit if authorized, halt cleanly, and include a reentry instruction.
+
+## Decision Tiers
+Human interrupts should be the exception, not the default. Missions should use the lowest decision tier that preserves authority and safety.
+
+Tier 1 Pre-Resolved Decisions are questions answered by the sponsor in the mission envelope before execution. The envelope should enumerate the decision, answer, source, and date so the mission can proceed without re-asking.
+
+Tier 2 Resolve-and-Log decisions use envelope-stated decision principles to decide within mission authority. The mission records the choice in a deferred-decisions log for closeout review. Tier 2 is appropriate for wording, ordering, synchronization, or implementation-detail choices that do not expand scope or weaken boundaries.
+
+Tier 3 Human Decision Interrupts are reserved for decisions involving missing authority, safety or privacy boundaries, irreversible actions, dependency or credential choices, deployment authority, failed-verification recovery outside the envelope, or contradictions inside the envelope. If possible, continue parallel authorized work while the answer is pending. If the mission becomes blocked, checkpoint, commit if authorized, and halt cleanly with reentry instructions.
+
 ## Human Decision Interrupts
 A human decision interrupt is a structured request for human input during a mission.
 
@@ -61,12 +88,14 @@ Use it when the mission encounters:
 - budget/context risk,
 - deployment or credential decision.
 
-Do not use it for ordinary implementation judgment that remains within mission authority.
+Before asking, check whether Tier 1 or Tier 2 already answers the decision. Do not use a human decision interrupt for ordinary implementation judgment that remains within mission authority.
 
 ## Interrupt Record
 Each interrupt should record:
 - interrupt ID,
 - mission ID,
+- decision tier,
+- pre-resolution check,
 - question,
 - reason,
 - decision type,
@@ -163,4 +192,3 @@ If a mission may initialize git, commit, push, or change remotes, the mission en
 Complete the mission when the objective is satisfied and verification evidence passes. Do not pad files, fixtures, tests, or phases to satisfy a size target.
 
 If the mission becomes too broad, halt and create a plan delta or successor mission.
-

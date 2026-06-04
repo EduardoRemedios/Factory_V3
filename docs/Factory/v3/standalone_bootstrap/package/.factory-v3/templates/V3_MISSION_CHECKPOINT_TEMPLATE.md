@@ -1,7 +1,7 @@
 # V3 Mission Checkpoint Template
 
 ## Status
-Research-only and non-enforcing template for larger V3 POC missions.
+Research-only and non-enforcing template for larger V3 missions.
 
 ## Mission
 - Mission ID:
@@ -26,15 +26,21 @@ Research-only and non-enforcing template for larger V3 POC missions.
 |  |  |  |
 
 ## Budget State
-- Token budget:
-- Tool-call budget:
-- Context/buffer concern:
-- Stop threshold reached: YES/NO
+- `checkpoint_recorded_at` (UTC, command-sourced with `date -u +%Y-%m-%dT%H:%M:%SZ`):
+- Elapsed since last checkpoint: derived from checkpoint timestamps or git commit times; never model-estimated minutes as measurement.
+- Tool-call count:
+- Qualitative context note:
+- Stop-threshold judgment:
+- Rate-limit window note:
 
 ## Open Risks
 -
 
 ## Pending Human Decisions
+-
+
+## Deferred Decisions Log
+Tier 2 resolve-and-log choices since last checkpoint:
 -
 
 ## Plan Delta References
@@ -49,4 +55,3 @@ Resume from:
 
 Halt if:
 -
-

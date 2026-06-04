@@ -1,11 +1,13 @@
 {
   "interrupt_id": "HDI-001",
   "mission_id": "",
+  "tier": "tier_3",
   "status": "draft | asked | answered | timed_out | cancelled | applied",
   "decision_type": "scope_decision | product_decision | dependency_decision | safety_boundary | verification_recovery | budget_reentry | deployment_authority | credential_authority",
   "question": "",
   "context_summary": "",
   "reason_for_interrupt": "",
+  "preresolution_check": "Why Tier 1 pre-resolved decisions and Tier 2 decision principles could not answer this.",
   "options": [
     {
       "id": "option_a",
@@ -37,4 +39,3 @@
   },
   "continuation_decision": "not_decided | continue | halt | create_successor_mission"
 }
-

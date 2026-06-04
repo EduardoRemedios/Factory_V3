@@ -2,6 +2,8 @@
 
 ## 2026-06-04
 
+- Updated Adaptive Mission Control to v0.2 and synced the standalone bootstrap templates: Budget State now uses command-sourced timestamps or git-derived durations instead of model-estimated minutes, records tool-call counts and rate-limit window notes, and adds Tier 1 pre-resolved decisions, Tier 2 resolve-and-log decisions, and Tier 3 human decision interrupts. Research-only/non-enforcing; no profile approval, default-mode, required-gate, routing, runtime-authority, Telegram, validator, dependency, or V2-removal change.
+
 - Back-ported POC Mission 013 evidence (POC repo commit `a74efbd`): first remote interrupts answered from the sponsor's phone via Codex mobile, Android-steered mission, second fresh-session resume with stale-hash recovery, and the Garmin-shaped synthetic bridge with fact materialization and approval UX. Recorded the mission-timing finding (checkpoint-estimated minutes 6-9x inflated vs git timestamps; Mission 012 real ~17m38s, Mission 013 real ~34m46s) and added timestamped checkpoint instrumentation to the next moves. No promotion, profile-approval, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
 
 - Back-ported POC Mission 012 evidence (POC repo commit `8667e96`): first real human decision interrupt lifecycle (asked/answered/applied with fresh-session resume from authored artifacts), scoped checkpoint-commit git authority, and measured budget fields; narrowed the interrupt, resume, budget, and git-authority limitations and pointed the next moves at the versioned validator, negative-path missions, and remote-interrupt Mission 013. No promotion, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
