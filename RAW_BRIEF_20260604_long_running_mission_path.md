@@ -62,11 +62,11 @@ One separately authorized POC mission: private local deployment with explicit de
 A1 → A2 first (small, immediate). A3 and B run in parallel next. D1–D3 can start now (D1 needs only existing templates). D4 and D5 require D3 plus approval. D6 gates the unattended rungs of D8. C is independent and needed only for upgrading the POC verdict.
 
 ## Suggested Next Three Moves
-(A1 approved 2026-06-04; A2 back-ported at `f68bb48`; D3 spike complete; D1+D2 complete via Mission 012, POC commit `8667e96`.)
+(A1 approved 2026-06-04; A2 back-ported at `f68bb48`; D3 spike complete; D1+D2 complete via Mission 012 `8667e96`; remote-interrupt evidence complete via Mission 013 `a74efbd` — two phone-answered interrupts, Android-steered, real elapsed ~34m46s = 2.0x Mission 012's real ~17m38s. Timing finding: model-estimated checkpoint minutes are 6-9x inflated vs git timestamps.)
 
-1. Mission 013: synthetic-shape research for the file-based Garmin manual export/import bridge chosen in `HDI-012-001`, with interrupts answered from the phone via Codex mobile — the first remote-interrupt evidence (candidate `V3-OP-003` profile prep).
+1. Timestamped checkpoint instrumentation: AMC templates and standalone bootstrap capture command-sourced timestamps or git-derived durations, replacing model-estimated minutes.
 2. A3: versioned mission-record validator with migration fixtures — candidate for execution as a `V3-OP-001` bounded code change under V3 governance in Factory_V3.
-3. Track B negative-path missions: deliberate failed-verification halt and recovery (Mission 012's stops were intentional pauses, not failure halts), plus stale-reentry and fallback/no-go evidence.
+3. Track B negative-path missions: deliberate failed-verification halt and recovery, plus stale-reentry and fallback/no-go evidence — now the largest remaining gap before a `V3-OP-003` profile decision and the final POC eval.
 
 ## Boundaries Restated
 Nothing here approves live Telegram automation, bot tokens, polling, webhooks, unattended runs, required gates, governance routing, runtime authority, default-mode promotion, Garmin/Hermes use, real personal data, public deployment, or V2 removal. Each gated item above requires its own named approval per existing repo conventions.

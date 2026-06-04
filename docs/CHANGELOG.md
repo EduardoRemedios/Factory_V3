@@ -2,6 +2,8 @@
 
 ## 2026-06-04
 
+- Back-ported POC Mission 013 evidence (POC repo commit `a74efbd`): first remote interrupts answered from the sponsor's phone via Codex mobile, Android-steered mission, second fresh-session resume with stale-hash recovery, and the Garmin-shaped synthetic bridge with fact materialization and approval UX. Recorded the mission-timing finding (checkpoint-estimated minutes 6-9x inflated vs git timestamps; Mission 012 real ~17m38s, Mission 013 real ~34m46s) and added timestamped checkpoint instrumentation to the next moves. No promotion, profile-approval, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
+
 - Back-ported POC Mission 012 evidence (POC repo commit `8667e96`): first real human decision interrupt lifecycle (asked/answered/applied with fresh-session resume from authored artifacts), scoped checkpoint-commit git authority, and measured budget fields; narrowed the interrupt, resume, budget, and git-authority limitations and pointed the next moves at the versioned validator, negative-path missions, and remote-interrupt Mission 013. No promotion, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
 - Back-ported standalone V3-only POC execution evidence (Missions 002-011, `V3_POC_App_Creation`) and the sponsor-approved interim POC eval `PASS_WITH_LIMITATIONS` (17/22, POC repo commit `ea8e00c`) into PROJECT_STATE, ROADMAP, and the V3 roadmap; recorded the eight open limitations and moved the recommended next move to POC evidence consolidation. No promotion, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
 
