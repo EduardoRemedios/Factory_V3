@@ -61,12 +61,24 @@ One separately authorized POC mission: private local deployment with explicit de
 ## Dependency Order
 A1 → A2 first (small, immediate). A3 and B run in parallel next. D1–D3 can start now (D1 needs only existing templates). D4 and D5 require D3 plus approval. D6 gates the unattended rungs of D8. C is independent and needed only for upgrading the POC verdict.
 
+## Sponsor Doctrine Update (2026-06-04, post-Mission 013)
+Two standing directions from the sponsor, to be baked into AMC guidance, templates, and all future envelopes:
+
+1. Estimation correction. Self-estimated durations are consistently and dramatically overestimated; work completes much faster than predicted. Sizing and budget decisions must use measured evidence (git timestamps, tool-call counts) and the growing mission baseline, never model-estimated minutes.
+
+2. Decision front-loading. Interrupts must become the exception, not the default. At envelope-authoring time, anticipate the decision points the mission will hit and resolve them with the sponsor upfront, recording the answers in the envelope. Three-tier decision model:
+   - Tier 1 — Pre-resolved: a "Pre-Resolved Decisions" envelope section enumerates anticipated decisions (scope, product, retention, conflict strategy, UX defaults, dependency posture) with the sponsor's answers, recorded before execution starts.
+   - Tier 2 — Resolve-and-log: for low-stakes ambiguity within mission authority, the envelope states decision principles (e.g., choose the conservative option, preserve provenance, prefer reversibility); the mission decides, logs the decision in a deferred-decisions log, and the sponsor reviews at closeout instead of being interrupted.
+   - Tier 3 — Interrupt: reserved for what genuinely cannot be known until building (authority boundaries, safety/privacy, irreversible choices, contradictions with the envelope). The proven 012/013 interrupt lifecycle remains the safety valve. While a Tier 3 interrupt is pending, the mission continues parallel authorized work where possible; if fully blocked, it checkpoints, commits, and halts cleanly.
+
+3. Overnight target. The end-state mission shape is a highly detailed, decision-complete envelope that can run through the night (subject to plan token/usage limits) and deliver significant advancement by morning. Honest constraint: overnight runs will likely span plan rate-limit windows; budget instrumentation with real timestamps must detect throttling/exhaustion and produce a clean checkpoint-halt-resume rather than degraded work. The trial ladder is now: first a zero-interrupt mission (decision-complete envelope, hours-scale scope), then the overnight run.
+
 ## Suggested Next Three Moves
 (A1 approved 2026-06-04; A2 back-ported at `f68bb48`; D3 spike complete; D1+D2 complete via Mission 012 `8667e96`; remote-interrupt evidence complete via Mission 013 `a74efbd` — two phone-answered interrupts, Android-steered, real elapsed ~34m46s = 2.0x Mission 012's real ~17m38s. Timing finding: model-estimated checkpoint minutes are 6-9x inflated vs git timestamps.)
 
-1. Timestamped checkpoint instrumentation: AMC templates and standalone bootstrap capture command-sourced timestamps or git-derived durations, replacing model-estimated minutes.
-2. A3: versioned mission-record validator with migration fixtures — candidate for execution as a `V3-OP-001` bounded code change under V3 governance in Factory_V3.
-3. Track B negative-path missions: deliberate failed-verification halt and recovery, plus stale-reentry and fallback/no-go evidence — now the largest remaining gap before a `V3-OP-003` profile decision and the final POC eval.
+1. AMC v0.2 update in Factory_V3 (single governed change combining both lessons): timestamped checkpoint instrumentation (command-sourced `date` / git-derived durations replacing model-estimated minutes) plus the three-tier decision model (Pre-Resolved Decisions envelope section, resolve-and-log principles, interrupts as Tier 3 exception). Update ADAPTIVE_MISSION_CONTROL.md, the checkpoint/mission templates, and the standalone bootstrap package. Candidate for execution as a `V3-OP-001` bounded change under V3 governance.
+2. Mission 014: the first decision-complete envelope test — larger scope from the POC roadmap, Pre-Resolved Decisions section answered by the sponsor at authoring time, zero expected interrupts, at least one fresh-session resume, timestamped budgets. This is the dress rehearsal for the overnight run.
+3. A3 versioned mission-record validator, and Track B negative-path missions (failed-verification halt, recovery, stale reentry, fallback) — the negative paths become even more important for overnight runs, since nobody is watching when verification fails at 3am.
 
 ## Boundaries Restated
 Nothing here approves live Telegram automation, bot tokens, polling, webhooks, unattended runs, required gates, governance routing, runtime authority, default-mode promotion, Garmin/Hermes use, real personal data, public deployment, or V2 removal. Each gated item above requires its own named approval per existing repo conventions.
