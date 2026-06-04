@@ -2,6 +2,7 @@
 
 ## 2026-06-04
 
+- Back-ported POC Mission 012 evidence (POC repo commit `8667e96`): first real human decision interrupt lifecycle (asked/answered/applied with fresh-session resume from authored artifacts), scoped checkpoint-commit git authority, and measured budget fields; narrowed the interrupt, resume, budget, and git-authority limitations and pointed the next moves at the versioned validator, negative-path missions, and remote-interrupt Mission 013. No promotion, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
 - Back-ported standalone V3-only POC execution evidence (Missions 002-011, `V3_POC_App_Creation`) and the sponsor-approved interim POC eval `PASS_WITH_LIMITATIONS` (17/22, POC repo commit `ea8e00c`) into PROJECT_STATE, ROADMAP, and the V3 roadmap; recorded the eight open limitations and moved the recommended next move to POC evidence consolidation. No promotion, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
 
 ## 2026-05-27

@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.27
+v1.28
 
 ## Change Log
+- v1.28 (2026-06-04): Recorded POC Mission 012 adaptive-mission-control evidence: first real human decision interrupt lifecycle (asked/answered/applied), fresh-session resume from authored artifacts, scoped checkpoint-commit git authority, and measured budget fields. Narrowed the interrupt, resume, budget, and git-authority limitations; moved the recommended next move to the versioned validator, negative-path missions, and remote-interrupt Mission 013.
 - v1.27 (2026-06-04): Recorded standalone V3-only POC execution evidence through Mission 011 and the sponsor-approved interim POC eval `PASS_WITH_LIMITATIONS` (17/22); moved the recommended next move to POC evidence consolidation (versioned mission-record validator, negative-path missions, interrupt-bearing Mission 012, deployment mission).
 - v1.26 (2026-06-03): Added research-only adaptive mission control as the checkpoint, human-interrupt, plan-delta, and mission-state bridge for larger standalone V3 missions.
 - v1.25 (2026-06-03): Added the V3 standalone bootstrap package as the seed for a clean V3-only POC project.
@@ -496,13 +497,13 @@ Before making this repository V3-only, also confirm:
 ## Recommended Next Move
 Consolidate the standalone POC evidence and close its named limitations.
 
-Status update (2026-06-04): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-011 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. The hard standalone criterion held through Mission 011. The interim eval does not approve operational readiness for the full named scope, default-mode promotion, required gates, governance routing, telemetry enforcement, runtime authority, production action, infrastructure authority, or V2 scaffolding removal.
+Status update (2026-06-04): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-012 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. Mission 012 (commit `8667e96`) then produced the first real adaptive-mission-control evidence: a genuine human decision interrupt completing the asked/answered/applied lifecycle, a fresh-session resume from authored artifacts only, scoped checkpoint-commit git authority with before/after hashes, and measured budget fields at every checkpoint. The hard standalone criterion has held through Mission 012. The interim eval does not approve operational readiness for the full named scope, default-mode promotion, required gates, governance routing, telemetry enforcement, runtime authority, production action, infrastructure authority, or V2 scaffolding removal.
 
 The recommended next moves, in order:
 
-1. Versioned mission-record validator: extend `scripts/factory_v3_mission_record_lint.py` with a schema-version discriminator covering the Factory_V3 v0.1 shape, `v0.1-poc-standalone` with and without the `adaptive_mission_control` block, and the flat Mission 007-009 shape, with fixtures for each and a migration or validation path for the diverged records.
-2. Negative-path POC missions: deliberately seeded failed-verification halt, recovery, stale-reentry, and fallback/no-go missions in the POC repository, since clean-halt behavior remains untested in practice.
-3. Interrupt-bearing Mission 012: manual-import hardening hosting the first real human decision interrupt (real-data approval design), budget instrumentation in checkpoint budget fields, scoped git commit authority per the adaptive mission control git-authority sections, and a deliberate cross-session resume from artifacts.
+1. Versioned mission-record validator: extend `scripts/factory_v3_mission_record_lint.py` with a schema-version discriminator covering the Factory_V3 v0.1 shape, `v0.1-poc-standalone` with and without the `adaptive_mission_control` block, and the flat Mission 007-009 shape, with fixtures for each and a migration or validation path for the diverged records. Candidate for execution as a `V3-OP-001` bounded code change under V3 governance.
+2. Negative-path POC missions: deliberately seeded failed-verification halt, recovery, stale-reentry, and fallback/no-go missions in the POC repository. Mission 012's two mid-mission stops were intentional pauses, not failure halts, so failure-path behavior remains untested.
+3. Mission 013 candidate: synthetic-shape research for the file-based Garmin manual export/import bridge selected by the sponsor in `HDI-012-001` (per the Mission 012 closeout recommendation), with interrupts answered from the phone via Codex in the ChatGPT mobile app as the first remote-interrupt evidence and candidate `V3-OP-003` profile input. Synthetic-only unless real data is separately approved.
 4. Separately approved private deployment mission: deployment boundary, secrets policy, rollback, and smoke verification, closing the deployment-evidence limitation.
 5. Final POC eval re-run once deployment and negative-path evidence exist, deciding whether `PASS_NAMED_POC` is supportable.
 
