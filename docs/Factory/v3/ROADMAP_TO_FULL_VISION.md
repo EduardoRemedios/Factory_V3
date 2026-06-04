@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.26
+v1.27
 
 ## Change Log
+- v1.27 (2026-06-04): Recorded standalone V3-only POC execution evidence through Mission 011 and the sponsor-approved interim POC eval `PASS_WITH_LIMITATIONS` (17/22); moved the recommended next move to POC evidence consolidation (versioned mission-record validator, negative-path missions, interrupt-bearing Mission 012, deployment mission).
 - v1.26 (2026-06-03): Added research-only adaptive mission control as the checkpoint, human-interrupt, plan-delta, and mission-state bridge for larger standalone V3 missions.
 - v1.25 (2026-06-03): Added the V3 standalone bootstrap package as the seed for a clean V3-only POC project.
 - v1.24 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
@@ -493,13 +494,19 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Plan an operational-readiness decision-prep pack for user-defined V3 operational use with Codex.
+Consolidate the standalone POC evidence and close its named limitations.
 
-Use the Phase 4 plan, harness capability profile template, synthetic fixture expansion, indexes, first three happy-path capture records, five negative-case capture records, optional telemetry evidence, the operational-release approval for `V3-OP-001`, and the negative-case opportunity register to decide what evidence is still needed before the human sponsor can judge whether V3 is ready to be used operationally for designing, building, testing, and deploying an application with Codex in the same practical sense that V2 is used today. The decision must treat standalone V3-only POC execution as a hard criterion: V2 may support current repository planning while V3 matures, but V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application.
+Status update (2026-06-04): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-011 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. The hard standalone criterion held through Mission 011. The interim eval does not approve operational readiness for the full named scope, default-mode promotion, required gates, governance routing, telemetry enforcement, runtime authority, production action, infrastructure authority, or V2 scaffolding removal.
 
-The likely first operational proof is a POC application built under V3. Current candidate concept: an internal/private personal health and fitness tracking app for the sponsor. The decision-prep pack must treat that as a candidate proof scope only, not execution approval. It must define the data path, test and deployment target, credentials/secrets handling, and separate approval requirements for app implementation, Garmin integration, production action, and infrastructure authority. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately.
+The recommended next moves, in order:
 
-The clean POC project should be seeded from `docs/Factory/v3/standalone_bootstrap/`, copying the package `.factory-v3/` folder into the new project. That bootstrap package contains V3-only canons, mission templates, closeout and mission-record templates, and a POC eval rubric. It must not import V2 stage, pack, lint, fallback, or recovery machinery into the POC workspace.
+1. Versioned mission-record validator: extend `scripts/factory_v3_mission_record_lint.py` with a schema-version discriminator covering the Factory_V3 v0.1 shape, `v0.1-poc-standalone` with and without the `adaptive_mission_control` block, and the flat Mission 007-009 shape, with fixtures for each and a migration or validation path for the diverged records.
+2. Negative-path POC missions: deliberately seeded failed-verification halt, recovery, stale-reentry, and fallback/no-go missions in the POC repository, since clean-halt behavior remains untested in practice.
+3. Interrupt-bearing Mission 012: manual-import hardening hosting the first real human decision interrupt (real-data approval design), budget instrumentation in checkpoint budget fields, scoped git commit authority per the adaptive mission control git-authority sections, and a deliberate cross-session resume from artifacts.
+4. Separately approved private deployment mission: deployment boundary, secrets policy, rollback, and smoke verification, closing the deployment-evidence limitation.
+5. Final POC eval re-run once deployment and negative-path evidence exist, deciding whether `PASS_NAMED_POC` is supportable.
+
+The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 
 The decision-prep pack should include research spikes before POC dependency decisions:
 - Garmin Connect/API: compare official Garmin Connect Developer Program and Health/API options with relevant open-source or manual import/export approaches, including access, terms, auth, credentials, reliability, maintenance, and data shape.

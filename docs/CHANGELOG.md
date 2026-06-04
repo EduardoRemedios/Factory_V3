@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-06-04
+
+- Back-ported standalone V3-only POC execution evidence (Missions 002-011, `V3_POC_App_Creation`) and the sponsor-approved interim POC eval `PASS_WITH_LIMITATIONS` (17/22, POC repo commit `ea8e00c`) into PROJECT_STATE, ROADMAP, and the V3 roadmap; recorded the eight open limitations and moved the recommended next move to POC evidence consolidation. No promotion, default-mode, required-gate, routing, runtime-authority, or V2-removal change.
+
 ## 2026-05-27
 
 - Hardened advisory V3 mission-record and telemetry replay validators against security-scan false negatives for unsafe path shapes, duplicate telemetry event IDs, missing terminal replay events, and excluded-data markers; these checks remain advisory and non-blocking.
