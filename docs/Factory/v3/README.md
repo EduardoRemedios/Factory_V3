@@ -1,9 +1,12 @@
 # Factory v3
 
 ## Version
-v1.27
+v1.30
 
 ## Change Log
+- v1.30 (2026-06-05): Added initial research-stage repo skills for mission formation and challenge, with dry-run trial evidence.
+- v1.29 (2026-06-05): Added strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority.
+- v1.28 (2026-06-05): Added strategic mission-formation direction note for discovery, challenge, mission contracts, and long-running autonomy preparation.
 - v1.27 (2026-06-03): Added research-only adaptive mission control guidance and standalone templates for checkpoints, human decision interrupts, plan deltas, and mission state.
 - v1.26 (2026-06-03): Added the V3 standalone bootstrap package for seeding a clean V3-only POC project.
 - v1.25 (2026-06-03): Clarified that the future operational POC build must use V3 only and added Garmin Connect/API plus Hermes Agent surface research spikes before POC dependency decisions.
@@ -73,6 +76,9 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Research Garmin Connect/API data paths and Hermes Agent surfaces before any POC dependency decision. Synthetic data may accelerate design and build, but Garmin-backed evidence and Hermes-assisted evidence must be labeled separately and cannot be inferred from synthetic-only or research-only work.
 - Provide `standalone_bootstrap/` as a copyable V3-only seed package for a clean POC project. The package includes starter canons, mission templates, closeout and mission-record templates, and a POC eval rubric; it does not authorize the POC build or depend on V2.
 - Provide `ADAPTIVE_MISSION_CONTROL.md` and templates for larger V3 missions that need checkpoints, authored mission state, human decision interrupts, plan deltas, read-only verification discipline, and explicit git authority. These artifacts are research-only and do not approve live Telegram automation or required gates.
+- Provide `MISSION_FORMATION_DIRECTION.md` as strategic context for discovery, challenge, mission contracts, and the thesis that mission quality determines autonomy quality. This artifact is research-only and does not approve new V3 profiles or non-coding execution.
+- Provide `CODEX_SDK_ORCHESTRATION_DIRECTION.md` as strategic context for possible Codex SDK, Codex MCP, and Agents SDK orchestration research where Codex is a worker runtime and Factory/Harmony remains the authority layer. This artifact is research-only and does not approve unattended execution or new profiles.
+- Provide initial research-stage repo skills `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`, plus dry-run trial evidence under `skill_trials/mission_formation/`. These skills are non-executing and do not approve V3 intake recommendation, new profiles, or autonomous execution.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -112,8 +118,11 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 
 ## Key Research Artifacts
 - `VISION.md`
+- `MISSION_FORMATION_DIRECTION.md`
+- `CODEX_SDK_ORCHESTRATION_DIRECTION.md`
 - `ROADMAP_TO_FULL_VISION.md`
 - `ROADMAP_PREMORTEM.md`
+- `skill_trials/mission_formation/`
 - `MISSION_RECORD_DESIGN_V0.md`
 - `PHASE3_TELEMETRY_REPLAY_PLAN.md`
 - `PHASE3_TELEMETRY_REPLAY_IMPLEMENTATION_APPROVAL.md`

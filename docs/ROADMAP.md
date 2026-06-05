@@ -1,6 +1,6 @@
 # ROADMAP.md - Factory V3 Roadmap
 
-> Last updated: 2026-06-04
+> Last updated: 2026-06-05
 
 ## Current State
 
@@ -23,6 +23,8 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 - AMC v0.2 now carries timestamped checkpoint instrumentation (command-sourced `date` or git-derived durations), rate-limit window awareness, and three decision tiers in the repository and standalone bootstrap templates. This is research-only guidance and does not create validators, required gates, default-mode behavior, routing, runtime authority, or a new profile.
 - Remaining near-term POC follow-ups: a versioned mission-record validator covering the diverged record shapes; deliberate negative-path missions (failed-verification halt, recovery, stale reentry, fallback); and a separately approved private deployment mission. Re-run the POC eval as final once deployment and negative-path evidence exist.
 - Use `docs/Factory/v3/ADAPTIVE_MISSION_CONTROL.md` and the standalone checkpoint, mission-state, human-interrupt, and plan-delta templates as research-only guidance for larger V3 missions. The next evidence target is to prove that V3 can continue from explicit artifacts and use Tier 1/2 decisions before asking for Tier 3 human interrupts, without using artificial time or size classes as mission-sizing authority.
+- Initial non-executing mission-formation skills now exist for V3 discovery and challenge work, with dry-run trial evidence. The next evidence target is live use in real V3/Harmony conversations before the skills can become recommended V3 intake aids.
+- Capture Codex SDK/MCP orchestration as a follow-on research spike: test whether Factory/Harmony can programmatically supervise Codex as a worker runtime while preserving mission records, sandbox discipline, human approval, verification evidence, and halt behavior. Start read-only; do not treat the spike as approval for unattended execution or runtime authority.
 - Keep the Codex Security scan follow-up narrow: advisory validator hardening is acceptable, but it does not create required gates, routing authority, default-mode promotion, or reduced-governance thresholds.
 - Continue Phase 2 structured mission-record use in shadow/advisory mode; valid completed, pre-envelope fallback, halted, stale-reentry, and blocked examples now exist.
 - Preserve current V2 fallback language and non-deprecation guarantees until explicit V3 confidence evidence approves the repository transition.

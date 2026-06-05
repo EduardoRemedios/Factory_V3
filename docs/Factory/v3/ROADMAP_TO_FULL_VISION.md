@@ -1,9 +1,12 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.30
+v1.33
 
 ## Change Log
+- v1.33 (2026-06-05): Recorded initial research-stage mission-formation and challenge skills with dry-run trial evidence; live trial evidence remains pending before recommendation.
+- v1.32 (2026-06-05): Added Codex SDK/MCP orchestration research direction as a planned Phase 4.5 follow-on, preserving Codex-as-worker and Factory-as-authority boundaries.
+- v1.31 (2026-06-05): Added Phase 4.5 roadmap item for designing and creating non-executing mission-formation and challenge skills before long-running execution profiles.
 - v1.30 (2026-06-04): Updated Adaptive Mission Control to v0.2 with timestamped Budget State guidance, rate-limit window awareness, and three decision tiers; synced repository and standalone bootstrap templates while preserving research-only/non-enforcing status.
 - v1.29 (2026-06-04): Recorded POC Mission 013 remote-interrupt evidence (two phone-answered interrupts via Codex mobile, Android-steered mission, second fresh-session resume with stale-hash recovery) and the mission-timing finding that checkpoint-estimated minutes are 6-9x inflated versus git timestamps; added timestamped checkpoint instrumentation to the recommended next moves.
 - v1.28 (2026-06-04): Recorded POC Mission 012 adaptive-mission-control evidence: first real human decision interrupt lifecycle (asked/answered/applied), fresh-session resume from authored artifacts, scoped checkpoint-commit git authority, and measured budget fields. Narrowed the interrupt, resume, budget, and git-authority limitations; moved the recommended next move to the versioned validator, negative-path missions, and remote-interrupt Mission 013.
@@ -62,6 +65,8 @@ Current state:
 - Factory v3 `V3-OP-001 Bounded Code Change` is approved for optional operational use.
 - V3 has user guidance, templates, advisory evals, seeded fixtures, and pilot evidence.
 - V3 has research-only adaptive mission control guidance and standalone templates for checkpoints, human decision interrupts, plan deltas, and authored mission state. AMC v0.2 adds command-sourced timestamp Budget State guidance and three decision tiers.
+- V3 has a strategic mission-formation direction note plus initial research-stage repo skills for discovery/challenge mission formation. The skills have dry-run trial evidence only; they do not approve new profiles, recommended V3 intake, or non-coding execution.
+- V3 has a strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority. It is roadmap context only and does not approve unattended execution, production actions, runtime authority, or new profiles.
 - Phase 1 real-project trial evidence has reached decision-review readiness: 5 trial records, 2 fallback/pre-envelope trials, 3 completed happy-path trials across Harmony and Temper, and an owner waiver for the non-author user trial requirement in a solo AI-native development context.
 - V3 does not yet have persistent mission state, enforced authority leases, structured telemetry, dynamic governance routing, continuous verification, capability profiling, or replayable execution graphs.
 - This plan does not authorize promotion beyond the already approved optional `V3-OP-001` profile.
@@ -299,6 +304,51 @@ Promotion gate:
 
 No governance reduction is allowed until capability thresholds are evidence-backed for the relevant harness and mission profile.
 
+## Phase 4.5 - Mission Formation Skills
+
+Status: Initial research implementation exists. Strategic direction exists in `MISSION_FORMATION_DIRECTION.md`; repo-scoped instruction-only skills now exist at `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`; dry-run trial evidence exists under `docs/Factory/v3/skill_trials/mission_formation/`. Live trial evidence and recommendation remain pending.
+
+Goal:
+
+Create non-executing Codex skills that improve mission quality before long-running autonomous work begins.
+
+Candidate skills:
+
+- `factory-mission-formation`: Socratic discovery, problem framing, assumption testing, option design, and candidate mission-contract creation.
+- `factory-challenge-mission`: Red-team review of discovery output, weak assumptions, missing authority, over-scoping, verification gaps, and overnight-run failure modes.
+
+These names are directional only. They do not approve new V3 profiles.
+
+Work:
+
+1. Design the skill contract, triggers, non-authority rules, and output artifacts. Status: initial done.
+2. Define required discovery outputs: problem statement, desired outcome, non-goals, assumptions, unknowns, options considered, rejected paths, risks, human decisions, execution-readiness assessment, and candidate mission envelope. Status: initial done.
+3. Define challenge outputs: unsupported assumptions, cheaper or safer alternatives, authority gaps, verification gaps, scope risks, fallback triggers, and recommended route. Status: initial done.
+4. Create the initial skill or skills under the repository's approved skill location, with explicit instructions not to edit code, grant execution authority, or treat conversation as approval. Status: initial done.
+5. Trial the skills against real V3/Harmony-style mission ideas, including at least one case that routes to more discovery, one case that routes to V2/heavier planning, and one case that produces a bounded candidate V3 execution envelope. Status: dry-run evidence exists; live evidence pending.
+6. Compare mission envelopes produced with and without the skills for clarity, assumptions, authority boundaries, verification quality, and interruption/reentry readiness.
+7. Decide whether to keep, revise, split, or pause the skills before using them as recommended V3 intake guidance.
+
+Required evidence:
+
+- skill design note, Status: initial planning pack exists at `docs/Factory/runs/RUN_20260605_0759_v3_mission_formation_skills_plan/`.
+- skill implementation artifact, Status: initial skills exist.
+- at least 3 trial records, Status: dry-run records exist; live records pending.
+- before/after mission-envelope quality comparison, Status: initial dry-run review exists.
+- false-confidence review for performative questioning without convergence, Status: initial dry-run review exists; live evidence pending.
+- explicit authority-boundary review, Status: initial dry-run review exists.
+- V2 fallback preservation review, Status: initial dry-run review exists.
+
+Promotion gate:
+
+Mission-formation skills may become recommended intake aids only after evidence shows that they improve mission-envelope quality without creating execution authority, default-mode promotion, or confusion between conversation, evidence, and human approval.
+
+Follow-on research:
+
+After the initial non-executing skills have trial evidence, create a bounded Codex SDK/MCP orchestration spike. The spike should test whether Factory or Harmony can programmatically supervise Codex as a worker while preserving mission records, sandbox discipline, handoffs, human approval, verification evidence, and halt behavior.
+
+The spike must start with read-only discovery/challenge trials before any workspace-write execution trial. It must not approve runtime authority, production action, default execution, credential use, deployment, or a hidden replacement for V3 governance.
+
 ## Phase 5 - Governance Router
 
 Goal:
@@ -482,6 +532,8 @@ Before any decision to operationalize V3 beyond `V3-OP-001`, confirm:
 - [ ] telemetry/replay format exists and has pilots,
 - [ ] evals cover both positive and negative cases,
 - [ ] capability profiles exist for the target harness,
+- [ ] mission-formation skills, if used, have trial evidence and preserve non-executing authority boundaries,
+- [ ] Codex SDK/MCP orchestration, if used, has read-only spike evidence and preserves Codex-as-worker / Factory-as-authority boundaries,
 - [ ] governance router has human-classified evidence,
 - [ ] enforceable validators exist for basic authority and verification rules,
 - [ ] V2 fallback remains explicit,
@@ -509,6 +561,8 @@ The recommended next moves, in order:
 2. Negative-path POC missions: deliberately seeded failed-verification halt, recovery, stale-reentry, and fallback/no-go missions in the POC repository. Missions 012/013's mid-mission stops were intentional pauses, not failure halts, so failure-path behavior remains untested.
 3. Separately approved private deployment mission: deployment boundary, secrets policy, rollback, and smoke verification, closing the deployment-evidence limitation.
 4. Final POC eval re-run once deployment and negative-path evidence exist, deciding whether `PASS_NAMED_POC` is supportable, and a separately named decision on the candidate `V3-OP-003` long-running remote-interrupt profile using Mission 012/013 evidence.
+5. Mission-formation live trials: use the initial `factory-mission-formation` and `factory-challenge-mission` skills in real V3/Harmony conversations, recording at least one more-discovery route, one V2/heavier-planning route, and one bounded candidate V3 envelope route before recommending them as intake aids.
+6. Codex SDK/MCP orchestration spike: after live mission-formation skill trials exist, create a bounded research pack for programmatic Codex worker orchestration. Start with read-only discovery/challenge runs and record sandbox, thread, prompt, output, trace, interrupt, and closeout evidence. Do not treat this as approval for unattended execution or runtime authority.
 
 The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 
