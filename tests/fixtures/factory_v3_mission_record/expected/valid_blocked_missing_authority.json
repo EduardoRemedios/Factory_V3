@@ -3,6 +3,9 @@
   "checked_records": [
     "tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json"
   ],
+  "checked_schema_versions": {
+    "tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json": "factory_v3_shadow_v0_1"
+  },
   "findings": [],
   "generated_at": "not_recorded",
   "recommended_next_steps": [

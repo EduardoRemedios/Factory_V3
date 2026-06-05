@@ -1,9 +1,10 @@
 # Factory v3 Mission Record Design v0
 
 ## Version
-v0.4
+v0.5
 
 ## Change Log
+- v0.5 (2026-06-05): Added advisory schema-version routing for Factory V3 shadow records, standalone POC nested records, standalone POC adaptive mission control records, standalone POC flat records, and legacy flat POC migration warnings.
 - v0.4 (2026-05-25): Added a valid blocked missing-authority shadow fixture, with advisory blocked-state consistency checks.
 - v0.3 (2026-05-25): Added valid halted verification-failure and stale-reentry shadow fixtures, with advisory halted-state consistency checks.
 - v0.2 (2026-05-24): Added malformed-record fixture coverage and a standalone advisory mission-record validator with deterministic expected outputs.
@@ -113,6 +114,16 @@ Deterministic expected outputs live under:
 ```text
 tests/fixtures/factory_v3_mission_record/expected/
 ```
+
+The validator reports `checked_schema_versions` for every scanned JSON record. Supported advisory schema routes are:
+
+| Route | Meaning |
+|---|---|
+| `factory_v3_shadow_v0_1` | Current V3 shadow record shape used by `V3-OP-001` fixtures. |
+| `poc_standalone_v0_1` | Nested standalone POC record without adaptive mission control evidence. |
+| `poc_standalone_v0_1_amc` | Nested standalone POC record with adaptive mission control evidence. |
+| `poc_standalone_flat_v0_1` | Top-level standalone POC closeout/evidence record shape. |
+| `poc_legacy_flat` | Earlier flat POC evidence shape; accepted with an advisory migration warning when otherwise well-formed. |
 
 Valid shadow fixtures currently cover completed missions, pre-envelope fallback, halted verification failure, halted stale reentry, and blocked missing authority.
 

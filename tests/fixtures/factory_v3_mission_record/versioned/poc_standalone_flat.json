@@ -1,0 +1,36 @@
+{
+  "adaptive_mission_control": {
+    "checkpoints_recorded": 3,
+    "checkpoints_required": true,
+    "halt_rules_triggered": [],
+    "human_decision_interrupts_applied": [
+      "scope confirmation"
+    ],
+    "human_decision_interrupts_required": [
+      "scope confirmation"
+    ],
+    "mission_state_file": ".factory-v3/state/MISSION_FIXTURE_STATE.json",
+    "plan_deltas_applied": []
+  },
+  "checkpoint_commits": [
+    "abc1234 checkpoint fixture"
+  ],
+  "decision": "COMPLETE",
+  "factory_v2_used": false,
+  "interrupts": [
+    "scope confirmation"
+  ],
+  "live_integrations_used": false,
+  "mission_id": "MISSION_FIXTURE_FLAT_POC",
+  "new_dependencies_used": false,
+  "objective_completed": true,
+  "profile_id": "V3-POC-STANDALONE",
+  "real_data_used": false,
+  "schema_version": "v0.1-poc-standalone",
+  "synthetic_only": true,
+  "v3_only": true,
+  "verification": {
+    "unit_tests": "PASS",
+    "json_parse_checks": "PASS"
+  }
+}

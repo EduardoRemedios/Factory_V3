@@ -17,6 +17,31 @@ ENVELOPE_MODES = {"not_created_pre_envelope_fallback", "thread_local", "file_art
 VERIFICATION_RESULTS = {"pass", "fail", "not_run", "not_applicable"}
 REVIEW_RESULTS = {"pass", "fail", "not_applicable"}
 KERNEL_VALUES = {"yes", "no", "unknown"}
+SCHEMA_FACTORY_V3_SHADOW = "factory_v3_shadow_v0_1"
+SCHEMA_POC_STANDALONE = "poc_standalone_v0_1"
+SCHEMA_POC_STANDALONE_AMC = "poc_standalone_v0_1_amc"
+SCHEMA_POC_STANDALONE_FLAT = "poc_standalone_flat_v0_1"
+SCHEMA_POC_LEGACY_FLAT = "poc_legacy_flat"
+SCHEMA_UNKNOWN = "unknown"
+POC_PROFILE_ID = "V3-POC-STANDALONE"
+POC_RECORD_TYPE = "factory_v3_poc_mission_record"
+POC_SCHEMA_VERSION = "v0.1-poc-standalone"
+SHADOW_SCHEMA_VERSION = "v0.1-shadow"
+POC_DECISION_STATES = {"draft", "completed_with_v3", "halted", "blocked", "standalone_gap"}
+POC_DEPLOYMENT_TARGETS = {"private_internal", "local_only", "not_applicable", "other"}
+POC_DATA_MODES = {
+    "synthetic",
+    "manual_local",
+    "garmin_official",
+    "garmin_unofficial",
+    "mixed",
+    "not_applicable",
+}
+POC_REVIEW_RESULTS = {"pass", "fail", "not_reviewed"}
+POC_DEPENDENCY_MODES = {
+    "garmin": {"not_used", "research_only", "official_api", "manual_import", "unofficial_client", "deferred"},
+    "hermes": {"not_used", "research_only", "optional_harness", "integration_candidate"},
+}
 
 UNSAFE_APPROVAL_FLAGS = {
     "factory_v3_default_approved",
@@ -53,12 +78,15 @@ def main() -> int:
 def lint_target(target: Path) -> dict[str, Any]:
     files = _json_files(target)
     findings: list[dict[str, str]] = []
+    schema_versions: dict[str, str] = {}
 
     for path in files:
         record = _load_record(path, findings)
         if record is None:
             continue
-        findings.extend(_lint_record(path, record))
+        schema_id = _schema_id(record)
+        schema_versions[path.as_posix()] = schema_id
+        findings.extend(_lint_record(path, record, schema_id))
 
     findings.sort(key=lambda item: (item["id"], item["path"], item["message"]))
     warnings = [item for item in findings if item["severity"] == "advisory_high"]
@@ -66,6 +94,7 @@ def lint_target(target: Path) -> dict[str, Any]:
     return {
         "blocking_effect": "none",
         "checked_records": [path.as_posix() for path in files],
+        "checked_schema_versions": schema_versions,
         "findings": findings,
         "generated_at": "not_recorded",
         "recommended_next_steps": _recommended_next_steps(findings),
@@ -95,12 +124,23 @@ def format_text(report: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def _lint_record(path: Path, data: Any) -> list[dict[str, str]]:
+def _lint_record(path: Path, data: Any, schema_id: str) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     path_text = path.as_posix()
 
     if not isinstance(data, dict):
         return [_finding("V3-MR000", "advisory_critical", path_text, "mission record root must be an object")]
+
+    if schema_id == SCHEMA_POC_STANDALONE:
+        return _lint_poc_standalone_record(path_text, data, require_amc=False)
+    if schema_id == SCHEMA_POC_STANDALONE_AMC:
+        return _lint_poc_standalone_record(path_text, data, require_amc=True)
+    if schema_id == SCHEMA_POC_STANDALONE_FLAT:
+        return _lint_poc_standalone_flat_record(path_text, data)
+    if schema_id == SCHEMA_POC_LEGACY_FLAT:
+        return _lint_poc_legacy_flat_record(path_text, data)
+    if schema_id == SCHEMA_UNKNOWN:
+        return [_finding("V3-MR090", "advisory_critical", path_text, "unsupported or missing mission-record schema version")]
 
     record = data.get("record")
     mission = data.get("mission")
@@ -121,6 +161,8 @@ def _lint_record(path: Path, data: Any) -> list[dict[str, str]]:
     if not all(isinstance(value, dict) for value in (record, mission, authority, execution, reviews)):
         return findings
 
+    if "schema_version" in record and record.get("schema_version") != SHADOW_SCHEMA_VERSION:
+        findings.append(_finding("V3-MR006", "advisory_high", path_text, f"unexpected Factory V3 shadow schema_version: {record.get('schema_version')}"))
     decision_state = record.get("decision_state")
     if decision_state not in DECISION_STATES:
         findings.append(_finding("V3-MR002", "advisory_critical", path_text, "record.decision_state is invalid or missing"))
@@ -137,6 +179,309 @@ def _lint_record(path: Path, data: Any) -> list[dict[str, str]]:
     findings.extend(_check_execution(path_text, authority, execution, decision_state))
     findings.extend(_check_reviews(path_text, reviews))
     findings.extend(_check_state_consistency(path_text, mission, authority, execution, decision_state))
+    return findings
+
+
+def _schema_id(data: Any) -> str:
+    if not isinstance(data, dict):
+        return SCHEMA_UNKNOWN
+    record = data.get("record")
+    if isinstance(record, dict):
+        schema_version = record.get("schema_version")
+        record_type = record.get("record_type")
+        if record_type == "factory_v3_mission_record":
+            return SCHEMA_FACTORY_V3_SHADOW
+        if schema_version == POC_SCHEMA_VERSION and record_type == POC_RECORD_TYPE:
+            return SCHEMA_POC_STANDALONE_AMC if isinstance(data.get("adaptive_mission_control"), dict) else SCHEMA_POC_STANDALONE
+        return SCHEMA_UNKNOWN
+    if data.get("schema_version") == POC_SCHEMA_VERSION:
+        return SCHEMA_POC_STANDALONE_FLAT if "mission_id" in data else SCHEMA_UNKNOWN
+    if {"mission_id", "status", "v3_only", "authorized_paths", "commands_run"}.issubset(data.keys()):
+        return SCHEMA_POC_LEGACY_FLAT
+    return SCHEMA_UNKNOWN
+
+
+def _lint_poc_standalone_record(path: str, data: dict[str, Any], require_amc: bool) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    record = data.get("record")
+    mission = data.get("mission")
+    authority = data.get("authority")
+    execution = data.get("execution")
+    reviews = data.get("reviews")
+
+    for name, value in (
+        ("record", record),
+        ("mission", mission),
+        ("authority", authority),
+        ("execution", execution),
+        ("reviews", reviews),
+    ):
+        if not isinstance(value, dict):
+            findings.append(_finding("V3-MR101", "advisory_critical", path, f"POC record missing object: {name}"))
+    if not all(isinstance(value, dict) for value in (record, mission, authority, execution, reviews)):
+        return findings
+
+    decision_state = record.get("decision_state")
+    if record.get("schema_version") != POC_SCHEMA_VERSION:
+        findings.append(_finding("V3-MR102", "advisory_critical", path, "POC record.schema_version must be v0.1-poc-standalone"))
+    if record.get("record_type") != POC_RECORD_TYPE:
+        findings.append(_finding("V3-MR103", "advisory_critical", path, "POC record.record_type must be factory_v3_poc_mission_record"))
+    if record.get("profile_id") != POC_PROFILE_ID:
+        findings.append(_finding("V3-MR104", "advisory_critical", path, "POC record.profile_id must be V3-POC-STANDALONE"))
+    if decision_state not in POC_DECISION_STATES:
+        findings.append(_finding("V3-MR105", "advisory_critical", path, "POC record.decision_state is invalid or missing"))
+    if record.get("v3_only") is not True:
+        findings.append(_finding("V3-MR106", "advisory_critical", path, "POC record.v3_only must be true"))
+    if record.get("factory_v2_used") is not False:
+        findings.append(_finding("V3-MR107", "advisory_critical", path, "POC record.factory_v2_used must be false"))
+
+    findings.extend(_check_poc_mission(path, mission))
+    findings.extend(_check_poc_authority(path, authority, decision_state))
+    findings.extend(_check_poc_execution(path, authority, execution, decision_state))
+    findings.extend(_check_poc_reviews(path, reviews))
+
+    amc = data.get("adaptive_mission_control")
+    if require_amc:
+        findings.extend(_check_poc_adaptive_mission_control(path, amc))
+    elif amc is not None and not isinstance(amc, dict):
+        findings.append(_finding("V3-MR130", "advisory_critical", path, "adaptive_mission_control must be an object when present"))
+
+    dependency_evidence = data.get("dependency_evidence")
+    if dependency_evidence is not None:
+        findings.extend(_check_poc_dependency_evidence(path, dependency_evidence))
+    return findings
+
+
+def _check_poc_mission(path: str, mission: dict[str, Any]) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    for key in ("repository", "objective", "coding_harness"):
+        if not _nonempty_string(mission.get(key)):
+            findings.append(_finding("V3-MR111", "advisory_critical", path, f"POC mission.{key} is missing"))
+    if mission.get("deployment_target") not in POC_DEPLOYMENT_TARGETS:
+        findings.append(_finding("V3-MR112", "advisory_critical", path, "POC mission.deployment_target is invalid or missing"))
+    if mission.get("data_mode") not in POC_DATA_MODES:
+        findings.append(_finding("V3-MR113", "advisory_critical", path, "POC mission.data_mode is invalid or missing"))
+    return findings
+
+
+def _check_poc_authority(path: str, authority: dict[str, Any], decision_state: Any) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    authorized_files = authority.get("authorized_files")
+    forbidden_scope = authority.get("forbidden_scope")
+    allowed_commands = authority.get("allowed_commands")
+    approved_dependencies = authority.get("approved_dependencies")
+
+    if not isinstance(authorized_files, list):
+        findings.append(_finding("V3-MR114", "advisory_critical", path, "POC authority.authorized_files must be a list"))
+    elif decision_state in {"completed_with_v3", "halted"} and not authorized_files:
+        findings.append(_finding("V3-MR115", "advisory_critical", path, "executed POC records must include authorized files"))
+    if isinstance(authorized_files, list):
+        for file_path in _invalid_safe_paths(authorized_files):
+            findings.append(_finding("V3-MR116", "advisory_critical", path, f"POC authorized file path is unsafe: {file_path}"))
+    if not isinstance(forbidden_scope, list):
+        findings.append(_finding("V3-MR117", "advisory_critical", path, "POC authority.forbidden_scope must be a list"))
+    if not isinstance(allowed_commands, list):
+        findings.append(_finding("V3-MR118", "advisory_critical", path, "POC authority.allowed_commands must be a list"))
+    elif decision_state in {"completed_with_v3", "halted"} and not allowed_commands:
+        findings.append(_finding("V3-MR119", "advisory_critical", path, "executed POC records must include allowed commands"))
+    if not _nonempty_string(authority.get("dependency_policy")):
+        findings.append(_finding("V3-MR120", "advisory_critical", path, "POC authority.dependency_policy is missing"))
+    if not isinstance(approved_dependencies, list):
+        findings.append(_finding("V3-MR121", "advisory_critical", path, "POC authority.approved_dependencies must be a list"))
+    return findings
+
+
+def _check_poc_execution(
+    path: str,
+    authority: dict[str, Any],
+    execution: dict[str, Any],
+    decision_state: Any,
+) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    files_changed = execution.get("files_changed")
+    commands_run = execution.get("commands_run")
+    if not isinstance(files_changed, list):
+        findings.append(_finding("V3-MR122", "advisory_critical", path, "POC execution.files_changed must be a list"))
+    else:
+        for file_path in _invalid_safe_paths(files_changed):
+            findings.append(_finding("V3-MR123", "advisory_critical", path, f"POC changed file path is unsafe: {file_path}"))
+    if not isinstance(commands_run, list):
+        findings.append(_finding("V3-MR124", "advisory_critical", path, "POC execution.commands_run must be a list"))
+
+    verification = execution.get("verification")
+    if not isinstance(verification, dict):
+        findings.append(_finding("V3-MR125", "advisory_critical", path, "POC execution.verification must be an object"))
+    else:
+        result = verification.get("result")
+        if not isinstance(verification.get("commands"), list):
+            findings.append(_finding("V3-MR126", "advisory_critical", path, "POC execution.verification.commands must be a list"))
+        if result not in VERIFICATION_RESULTS:
+            findings.append(_finding("V3-MR127", "advisory_critical", path, "POC execution.verification.result is invalid or missing"))
+        if decision_state == "completed_with_v3" and result != "pass":
+            findings.append(_finding("V3-MR128", "advisory_critical", path, "completed POC records must have passing verification"))
+
+    findings.extend(_check_reasoned_boolean(path, execution.get("halt"), "halt", "V3-MR129"))
+    standalone_gap = execution.get("standalone_gap")
+    if isinstance(standalone_gap, dict):
+        if not isinstance(standalone_gap.get("found"), bool):
+            findings.append(_finding("V3-MR131", "advisory_critical", path, "POC execution.standalone_gap.found must be boolean"))
+    elif standalone_gap is not None:
+        findings.append(_finding("V3-MR131", "advisory_critical", path, "POC execution.standalone_gap must be an object when present"))
+
+    if isinstance(files_changed, list) and decision_state == "blocked" and files_changed:
+        findings.append(_finding("V3-MR132", "advisory_critical", path, "blocked POC records must not report changed files"))
+    if isinstance(files_changed, list):
+        authorized_files = authority.get("authorized_files")
+        if isinstance(authorized_files, list) and authorized_files:
+            unauthorized = sorted(str(item) for item in files_changed if not _path_is_authorized_by_patterns(str(item), authorized_files))
+            for file_path in unauthorized:
+                findings.append(_finding("V3-MR133", "advisory_critical", path, f"POC changed file is outside authorized_files: {file_path}"))
+    return findings
+
+
+def _check_poc_adaptive_mission_control(path: str, amc: Any) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    if not isinstance(amc, dict):
+        return [_finding("V3-MR130", "advisory_critical", path, "adaptive_mission_control must be an object")]
+    for key in ("checkpoints", "human_decision_interrupts", "plan_deltas", "verification_side_effects"):
+        if not isinstance(amc.get(key), list):
+            findings.append(_finding("V3-MR134", "advisory_critical", path, f"adaptive_mission_control.{key} must be a list"))
+    if not _nonempty_string(amc.get("mission_state_reference")) and not _nonempty_string(amc.get("mission_state_file")):
+        findings.append(_finding("V3-MR135", "advisory_critical", path, "adaptive_mission_control must reference mission state"))
+    git = amc.get("git")
+    if git is not None:
+        if not isinstance(git, dict):
+            findings.append(_finding("V3-MR136", "advisory_critical", path, "adaptive_mission_control.git must be an object when present"))
+        elif "allowed" in git and not isinstance(git.get("allowed"), bool):
+            findings.append(_finding("V3-MR137", "advisory_critical", path, "adaptive_mission_control.git.allowed must be boolean"))
+    return findings
+
+
+def _check_poc_reviews(path: str, reviews: dict[str, Any]) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    for key in ("scope_discipline", "verification_quality", "evidence_replay"):
+        if reviews.get(key) not in POC_REVIEW_RESULTS:
+            findings.append(_finding("V3-MR138", "advisory_critical", path, f"POC reviews.{key} is invalid or missing"))
+    notes = reviews.get("operator_friction_notes")
+    if notes is not None and not isinstance(notes, list):
+        findings.append(_finding("V3-MR139", "advisory_critical", path, "POC reviews.operator_friction_notes must be a list when present"))
+    return findings
+
+
+def _check_poc_dependency_evidence(path: str, value: Any) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    if not isinstance(value, dict):
+        return [_finding("V3-MR140", "advisory_critical", path, "dependency_evidence must be an object")]
+    for key, modes in POC_DEPENDENCY_MODES.items():
+        evidence = value.get(key)
+        if evidence is None:
+            continue
+        if not isinstance(evidence, dict):
+            findings.append(_finding("V3-MR141", "advisory_critical", path, f"dependency_evidence.{key} must be an object"))
+        elif evidence.get("mode") not in modes:
+            findings.append(_finding("V3-MR142", "advisory_critical", path, f"dependency_evidence.{key}.mode is invalid or missing"))
+    return findings
+
+
+def _lint_poc_standalone_flat_record(path: str, data: dict[str, Any]) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    if data.get("schema_version") != POC_SCHEMA_VERSION:
+        findings.append(_finding("V3-MR160", "advisory_critical", path, "flat POC schema_version must be v0.1-poc-standalone"))
+    if data.get("profile_id") != POC_PROFILE_ID:
+        findings.append(_finding("V3-MR161", "advisory_critical", path, "flat POC profile_id must be V3-POC-STANDALONE"))
+    if not _nonempty_string(data.get("mission_id")):
+        findings.append(_finding("V3-MR162", "advisory_critical", path, "flat POC mission_id is missing"))
+    if data.get("v3_only") is not True:
+        findings.append(_finding("V3-MR163", "advisory_critical", path, "flat POC v3_only must be true"))
+    if data.get("factory_v2_used") is not False:
+        findings.append(_finding("V3-MR164", "advisory_critical", path, "flat POC factory_v2_used must be false"))
+    if data.get("real_data_used") is not False:
+        findings.append(_finding("V3-MR165", "advisory_critical", path, "flat POC real_data_used must be false unless separately approved"))
+
+    decision = data.get("decision")
+    if decision not in {"COMPLETE", "HALTED", "BLOCKED", "STANDALONE_GAP", "DRAFT"}:
+        findings.append(_finding("V3-MR166", "advisory_critical", path, "flat POC decision is invalid or missing"))
+    if decision == "COMPLETE" and data.get("objective_completed") is not True:
+        findings.append(_finding("V3-MR167", "advisory_critical", path, "complete flat POC records must mark objective_completed true"))
+
+    verification = data.get("verification")
+    if not isinstance(verification, dict) or not verification:
+        findings.append(_finding("V3-MR168", "advisory_critical", path, "flat POC verification must be a non-empty object"))
+    elif decision == "COMPLETE" and not _has_passing_verification_value(verification):
+        findings.append(_finding("V3-MR169", "advisory_critical", path, "complete flat POC records must include passing verification evidence"))
+
+    interrupts = data.get("interrupts")
+    if interrupts is not None and not isinstance(interrupts, list):
+        findings.append(_finding("V3-MR170", "advisory_critical", path, "flat POC interrupts must be a list when present"))
+    checkpoint_commits = data.get("checkpoint_commits")
+    if checkpoint_commits is not None and not isinstance(checkpoint_commits, list):
+        findings.append(_finding("V3-MR171", "advisory_critical", path, "flat POC checkpoint_commits must be a list when present"))
+
+    amc = data.get("adaptive_mission_control")
+    if amc is not None:
+        findings.extend(_check_poc_flat_adaptive_mission_control(path, amc))
+    return findings
+
+
+def _check_poc_flat_adaptive_mission_control(path: str, amc: Any) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    if not isinstance(amc, dict):
+        return [_finding("V3-MR172", "advisory_critical", path, "flat POC adaptive_mission_control must be an object")]
+    if amc.get("checkpoints_required") is True:
+        checkpoints_recorded = amc.get("checkpoints_recorded")
+        if not isinstance(checkpoints_recorded, int) or checkpoints_recorded <= 0:
+            findings.append(_finding("V3-MR173", "advisory_critical", path, "flat POC adaptive_mission_control.checkpoints_recorded must be positive when checkpoints are required"))
+    if not _nonempty_string(amc.get("mission_state_file")) and not _nonempty_string(amc.get("mission_state_reference")):
+        findings.append(_finding("V3-MR174", "advisory_critical", path, "flat POC adaptive_mission_control must reference mission state"))
+    required_interrupts = amc.get("human_decision_interrupts_required")
+    applied_interrupts = amc.get("human_decision_interrupts_applied")
+    if required_interrupts is not None and not isinstance(required_interrupts, list):
+        findings.append(_finding("V3-MR175", "advisory_critical", path, "flat POC adaptive_mission_control.human_decision_interrupts_required must be a list when present"))
+    if applied_interrupts is not None and not isinstance(applied_interrupts, list):
+        findings.append(_finding("V3-MR176", "advisory_critical", path, "flat POC adaptive_mission_control.human_decision_interrupts_applied must be a list when present"))
+    if isinstance(required_interrupts, list) and required_interrupts:
+        if not isinstance(applied_interrupts, list):
+            findings.append(_finding("V3-MR177", "advisory_critical", path, "flat POC adaptive_mission_control must record applied required interrupts"))
+        else:
+            missing = sorted(str(item) for item in required_interrupts if item not in applied_interrupts)
+            for interrupt in missing:
+                findings.append(_finding("V3-MR178", "advisory_critical", path, f"flat POC required interrupt was not applied: {interrupt}"))
+    for key in ("halt_rules_triggered", "plan_deltas_applied"):
+        if key in amc and not isinstance(amc.get(key), list):
+            findings.append(_finding("V3-MR179", "advisory_critical", path, f"flat POC adaptive_mission_control.{key} must be a list"))
+    return findings
+
+
+def _lint_poc_legacy_flat_record(path: str, data: dict[str, Any]) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = [
+        _finding(
+            "V3-MR150",
+            "advisory_high",
+            path,
+            "legacy flat POC mission record should be migrated to v0.1-poc-standalone nested shape",
+        )
+    ]
+    if data.get("v3_only") is not True:
+        findings.append(_finding("V3-MR151", "advisory_critical", path, "legacy POC record.v3_only must be true"))
+    if data.get("real_data_used") is not False:
+        findings.append(_finding("V3-MR152", "advisory_critical", path, "legacy POC record.real_data_used must be false unless separately approved"))
+    for key in ("mission_id", "status", "workspace"):
+        if not _nonempty_string(data.get(key)):
+            findings.append(_finding("V3-MR153", "advisory_critical", path, f"legacy POC record.{key} is missing"))
+    authorized_paths = data.get("authorized_paths")
+    commands_run = data.get("commands_run")
+    if not isinstance(authorized_paths, list) or not authorized_paths:
+        findings.append(_finding("V3-MR154", "advisory_critical", path, "legacy POC record.authorized_paths must be a non-empty list"))
+    elif any(path_value for path_value in _invalid_safe_paths(authorized_paths) if not str(path_value).startswith("fixtures/")):
+        for file_path in _invalid_safe_paths(authorized_paths):
+            findings.append(_finding("V3-MR155", "advisory_critical", path, f"legacy POC authorized path is unsafe: {file_path}"))
+    if not isinstance(commands_run, list) or not commands_run:
+        findings.append(_finding("V3-MR156", "advisory_critical", path, "legacy POC record.commands_run must be a non-empty list"))
+    verification_results = data.get("verification_results")
+    if not isinstance(verification_results, dict) or not verification_results:
+        findings.append(_finding("V3-MR157", "advisory_critical", path, "legacy POC record.verification_results must be a non-empty object"))
+    elif not any(str(value).lower().startswith("pass") for value in verification_results.values()):
+        findings.append(_finding("V3-MR158", "advisory_critical", path, "legacy POC record must include passing verification evidence"))
     return findings
 
 
@@ -317,6 +662,16 @@ def _check_reasoned_boolean(path: str, value: Any, name: str, check_id: str) -> 
     return []
 
 
+def _has_passing_verification_value(value: Any) -> bool:
+    if isinstance(value, str):
+        return value.strip().lower().startswith("pass")
+    if isinstance(value, dict):
+        return any(_has_passing_verification_value(item) for item in value.values())
+    if isinstance(value, list):
+        return any(_has_passing_verification_value(item) for item in value)
+    return False
+
+
 def _status(findings: list[dict[str, str]]) -> str:
     if not findings:
         return ADVISORY_PASS
@@ -384,6 +739,17 @@ def _invalid_safe_paths(values: list[Any]) -> list[str]:
         if not parts or any(part in {"", ".", ".."} for part in parts):
             invalid.append(value)
     return invalid
+
+
+def _path_is_authorized_by_patterns(path: str, patterns: list[Any]) -> bool:
+    for pattern in patterns:
+        if not isinstance(pattern, str):
+            continue
+        if pattern == path:
+            return True
+        if "*" in pattern and PurePosixPath(path).match(pattern):
+            return True
+    return False
 
 
 def _finding(check_id: str, severity: str, path: str, message: str) -> dict[str, str]:

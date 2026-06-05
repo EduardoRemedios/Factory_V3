@@ -15,6 +15,21 @@
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_approval_scope.json",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_authorized_path.json"
   ],
+  "checked_schema_versions": {
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/fallback_used_no_reason_code.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/halted_without_halt_flag.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/missing_allowed_command.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/missing_authorized_files.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/missing_verification_result.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/thread_local_envelope_without_reference.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/unsafe_approval_scope.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/unsafe_authorized_path.json": "factory_v3_shadow_v0_1"
+  },
   "findings": [
     {
       "id": "V3-MR021",

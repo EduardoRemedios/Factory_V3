@@ -1,0 +1,16 @@
+{
+  "authorized_paths": [
+    "fixtures/example.json"
+  ],
+  "commands_run": [
+    "python3 -m unittest discover"
+  ],
+  "mission_id": "MISSION_FIXTURE_LEGACY_FLAT",
+  "real_data_used": false,
+  "status": "completed",
+  "v3_only": true,
+  "verification_results": {
+    "unit_tests": "PASS"
+  },
+  "workspace": "V3_POC_App_Creation"
+}

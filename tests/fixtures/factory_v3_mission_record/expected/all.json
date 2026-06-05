@@ -21,8 +21,39 @@
     "tests/fixtures/factory_v3_mission_record/trial_002_pre_envelope_placeholders.json",
     "tests/fixtures/factory_v3_mission_record/trial_003_harmony_faq_ingestion.json",
     "tests/fixtures/factory_v3_mission_record/trial_004_harmony_currency_defaults.json",
-    "tests/fixtures/factory_v3_mission_record/trial_005_temper_cs_aria_disabled.json"
+    "tests/fixtures/factory_v3_mission_record/trial_005_temper_cs_aria_disabled.json",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_flat.json",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested.json",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested_amc.json"
   ],
+  "checked_schema_versions": {
+    "tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/fixture_halted_stale_reentry.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/fixture_halted_verification_failure.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/fallback_used_no_reason_code.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/halted_without_halt_flag.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/missing_allowed_command.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/missing_authorized_files.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/missing_verification_result.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/thread_local_envelope_without_reference.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/unsafe_approval_scope.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/unsafe_authorized_path.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/trial_001_pre_envelope_no_bounded_code.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/trial_002_pre_envelope_placeholders.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/trial_003_harmony_faq_ingestion.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/trial_004_harmony_currency_defaults.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/trial_005_temper_cs_aria_disabled.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json": "poc_legacy_flat",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_flat.json": "poc_standalone_flat_v0_1",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested.json": "poc_standalone_v0_1",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested_amc.json": "poc_standalone_v0_1_amc"
+  },
   "findings": [
     {
       "id": "V3-MR021",
@@ -119,6 +150,12 @@
       "message": "blocked records must not mark halt.halted true",
       "path": "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
       "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR150",
+      "message": "legacy flat POC mission record should be migrated to v0.1-poc-standalone nested shape",
+      "path": "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json",
+      "severity": "advisory_high"
     }
   ],
   "generated_at": "not_recorded",
@@ -131,5 +168,12 @@
   "report_id": "factory-v3-mission-record-lint",
   "status": "ADVISORY_FAIL_NON_BLOCKING",
   "target": "tests/fixtures/factory_v3_mission_record",
-  "warnings": []
+  "warnings": [
+    {
+      "id": "V3-MR150",
+      "message": "legacy flat POC mission record should be migrated to v0.1-poc-standalone nested shape",
+      "path": "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json",
+      "severity": "advisory_high"
+    }
+  ]
 }

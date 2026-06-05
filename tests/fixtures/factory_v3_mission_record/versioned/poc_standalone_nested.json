@@ -1,0 +1,56 @@
+{
+  "authority": {
+    "allowed_commands": [
+      "python3 -m unittest discover"
+    ],
+    "approved_dependencies": [],
+    "authorized_files": [
+      "app/main.py"
+    ],
+    "dependency_policy": "no new dependencies",
+    "forbidden_scope": [
+      "production data",
+      "Factory V2 scaffolding"
+    ]
+  },
+  "execution": {
+    "commands_run": [
+      "python3 -m unittest discover"
+    ],
+    "files_changed": [
+      "app/main.py"
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "verification": {
+      "commands": [
+        "python3 -m unittest discover"
+      ],
+      "result": "pass"
+    }
+  },
+  "mission": {
+    "coding_harness": "Codex",
+    "data_mode": "synthetic",
+    "deployment_target": "private_internal",
+    "objective": "Exercise the nested standalone POC mission-record shape.",
+    "repository": "V3_POC_App_Creation"
+  },
+  "record": {
+    "decision_state": "completed_with_v3",
+    "factory_v2_used": false,
+    "mission_reference": "fixture",
+    "profile_id": "V3-POC-STANDALONE",
+    "record_type": "factory_v3_poc_mission_record",
+    "schema_version": "v0.1-poc-standalone",
+    "v3_only": true
+  },
+  "reviews": {
+    "evidence_replay": "pass",
+    "operator_friction_notes": [],
+    "scope_discipline": "pass",
+    "verification_quality": "pass"
+  }
+}

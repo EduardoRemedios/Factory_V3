@@ -1,0 +1,41 @@
+{
+  "blocking_effect": "none",
+  "checked_records": [
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_flat.json",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested.json",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested_amc.json"
+  ],
+  "checked_schema_versions": {
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json": "poc_legacy_flat",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_flat.json": "poc_standalone_flat_v0_1",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested.json": "poc_standalone_v0_1",
+    "tests/fixtures/factory_v3_mission_record/versioned/poc_standalone_nested_amc.json": "poc_standalone_v0_1_amc"
+  },
+  "findings": [
+    {
+      "id": "V3-MR150",
+      "message": "legacy flat POC mission record should be migrated to v0.1-poc-standalone nested shape",
+      "path": "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json",
+      "severity": "advisory_high"
+    }
+  ],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "Review findings manually; this report is advisory and non-blocking.",
+    "Classify findings as accepted, false_positive, needs_more_context, or deferred.",
+    "Do not wire mission-record checks into required gates without explicit Factory governance approval."
+  ],
+  "record_scope": "shadow_advisory",
+  "report_id": "factory-v3-mission-record-lint",
+  "status": "ADVISORY_WARN",
+  "target": "tests/fixtures/factory_v3_mission_record/versioned",
+  "warnings": [
+    {
+      "id": "V3-MR150",
+      "message": "legacy flat POC mission record should be migrated to v0.1-poc-standalone nested shape",
+      "path": "tests/fixtures/factory_v3_mission_record/versioned/poc_legacy_flat_migration.json",
+      "severity": "advisory_high"
+    }
+  ]
+}
