@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -58,9 +59,28 @@ def main() -> int:
     parser.add_argument("--target", required=True, help="Mission-record JSON file or directory to scan.")
     parser.add_argument("--json", action="store_true", help="Print JSON output.")
     parser.add_argument("--expect", help="Optional expected JSON file for fixture checks.")
+    parser.add_argument(
+        "--record-files-only",
+        action="store_true",
+        help="When scanning a directory, only include likely mission-record JSON files.",
+    )
+    parser.add_argument(
+        "--replay-evidence",
+        action="store_true",
+        help="Run passive, non-executing evidence replay checks against mission-record claims.",
+    )
+    parser.add_argument(
+        "--evidence-root",
+        help="Optional repository root used to resolve relative evidence paths during replay.",
+    )
     args = parser.parse_args()
 
-    report = lint_target(Path(args.target))
+    report = lint_target(
+        Path(args.target),
+        replay_evidence=args.replay_evidence,
+        evidence_root=Path(args.evidence_root) if args.evidence_root else None,
+        record_files_only=args.record_files_only,
+    )
 
     if args.expect:
         expected = _load_json(Path(args.expect))
@@ -75,10 +95,16 @@ def main() -> int:
     return 0
 
 
-def lint_target(target: Path) -> dict[str, Any]:
-    files = _json_files(target)
+def lint_target(
+    target: Path,
+    replay_evidence: bool = False,
+    evidence_root: Path | None = None,
+    record_files_only: bool = False,
+) -> dict[str, Any]:
+    files = _json_files(target, record_files_only=record_files_only)
     findings: list[dict[str, str]] = []
     schema_versions: dict[str, str] = {}
+    replay_summary = _new_replay_summary(evidence_root, record_files_only) if replay_evidence else None
 
     for path in files:
         record = _load_record(path, findings)
@@ -87,11 +113,15 @@ def lint_target(target: Path) -> dict[str, Any]:
         schema_id = _schema_id(record)
         schema_versions[path.as_posix()] = schema_id
         findings.extend(_lint_record(path, record, schema_id))
+        if replay_summary is not None and schema_id != SCHEMA_UNKNOWN:
+            replay = _replay_record_evidence(path, record, schema_id, evidence_root)
+            findings.extend(replay["findings"])
+            _merge_replay_summary(replay_summary, replay)
 
     findings.sort(key=lambda item: (item["id"], item["path"], item["message"]))
     warnings = [item for item in findings if item["severity"] == "advisory_high"]
 
-    return {
+    report = {
         "blocking_effect": "none",
         "checked_records": [path.as_posix() for path in files],
         "checked_schema_versions": schema_versions,
@@ -104,6 +134,13 @@ def lint_target(target: Path) -> dict[str, Any]:
         "target": target.as_posix(),
         "warnings": warnings,
     }
+    if replay_summary is not None:
+        replay_findings = [item for item in findings if item["id"].startswith("V3-MR2")]
+        replay_summary["claims_warned"] = replay_summary["claims_checked"] - replay_summary["claims_passed"]
+        replay_summary["findings_count"] = len(replay_findings)
+        replay_summary["status"] = _status(replay_findings)
+        report["evidence_replay"] = replay_summary
+    return report
 
 
 def format_text(report: dict[str, Any]) -> str:
@@ -662,6 +699,346 @@ def _check_reasoned_boolean(path: str, value: Any, name: str, check_id: str) -> 
     return []
 
 
+def _replay_record_evidence(
+    path: Path,
+    data: dict[str, Any],
+    schema_id: str,
+    configured_root: Path | None,
+) -> dict[str, Any]:
+    root = configured_root or _infer_evidence_root(path)
+    root = root.resolve()
+    path_text = path.as_posix()
+    findings: list[dict[str, str]] = []
+    checked_claims = 0
+    passed_claims = 0
+
+    if not root.exists():
+        return {
+            "claims_checked": 1,
+            "claims_passed": 0,
+            "evidence_root": root.as_posix(),
+            "findings": [
+                _finding("V3-MR201", "advisory_high", path_text, f"evidence replay root does not exist: {root.as_posix()}")
+            ],
+            "records_replayed": [path_text],
+        }
+
+    claims = _evidence_claims(path, data, schema_id)
+    related_text = _related_evidence_text(path, claims["mission_token"])
+
+    def check(condition: bool, check_id: str, message: str) -> None:
+        nonlocal checked_claims, passed_claims
+        checked_claims += 1
+        if condition:
+            passed_claims += 1
+        else:
+            findings.append(_finding(check_id, "advisory_high", path_text, message))
+
+    for ref in sorted(claims["file_refs"]):
+        resolved = _resolve_evidence_ref(root, ref)
+        if resolved is None:
+            continue
+        if _contains_glob(ref):
+            matches = _glob_evidence_ref(root, ref)
+            check(bool(matches), "V3-MR202", f"evidence replay glob matched no files: {ref}")
+            continue
+        exists = resolved.exists()
+        check(exists, "V3-MR203", f"evidence replay referenced file is missing: {ref}")
+        if exists and resolved.suffix == ".json":
+            try:
+                json.loads(resolved.read_text(encoding="utf-8"))
+                passed_claims += 1
+            except (OSError, json.JSONDecodeError) as exc:
+                findings.append(_finding("V3-MR204", "advisory_high", path_text, f"evidence replay JSON reference does not parse: {ref}: {exc}"))
+            checked_claims += 1
+
+    for checkpoint in sorted(claims["checkpoint_refs"]):
+        check(
+            _text_mentions_label(related_text, checkpoint),
+            "V3-MR205",
+            f"evidence replay checkpoint reference was not found in related evidence: {checkpoint}",
+        )
+
+    for interrupt_id in sorted(claims["interrupt_ids"]):
+        interrupt_file = _interrupt_file_for_id(claims["mission_token"], interrupt_id)
+        if interrupt_file:
+            resolved = _resolve_evidence_ref(root, interrupt_file)
+            check(
+                resolved is not None and resolved.exists(),
+                "V3-MR206",
+                f"evidence replay interrupt file is missing for {interrupt_id}: {interrupt_file}",
+            )
+        else:
+            check(
+                interrupt_id in related_text,
+                "V3-MR206",
+                f"evidence replay interrupt reference was not found in related evidence: {interrupt_id}",
+            )
+
+    command_evidence = claims["verification_commands"]
+    for command in command_evidence:
+        check(
+            _text_mentions_command(related_text, command),
+            "V3-MR207",
+            f"evidence replay verification command lacks external evidence mention: {command}",
+        )
+
+    for label in claims["verification_labels"]:
+        check(
+            _text_mentions_label(related_text, label),
+            "V3-MR208",
+            f"evidence replay verification label lacks external evidence mention: {label}",
+        )
+
+    return {
+        "claims_checked": checked_claims,
+        "claims_passed": passed_claims,
+        "evidence_root": root.as_posix(),
+        "findings": findings,
+        "records_replayed": [path_text],
+    }
+
+
+def _evidence_claims(path: Path, data: dict[str, Any], schema_id: str) -> dict[str, Any]:
+    file_refs: set[str] = set()
+    checkpoint_refs: set[str] = set()
+    interrupt_ids: set[str] = set()
+    verification_commands: list[str] = []
+    verification_labels: list[str] = []
+    mission_token = _mission_token(path, data)
+
+    def add_file_ref(value: Any) -> None:
+        if not isinstance(value, str):
+            return
+        ref = _clean_ref(value)
+        if ref and _looks_like_path(ref):
+            file_refs.add(ref)
+
+    if schema_id in {SCHEMA_POC_STANDALONE, SCHEMA_POC_STANDALONE_AMC}:
+        record = data.get("record") if isinstance(data.get("record"), dict) else {}
+        execution = data.get("execution") if isinstance(data.get("execution"), dict) else {}
+        amc = data.get("adaptive_mission_control") if isinstance(data.get("adaptive_mission_control"), dict) else {}
+
+        for value in execution.get("files_changed", []) if isinstance(execution.get("files_changed"), list) else []:
+            add_file_ref(value)
+        for value in amc.get("verification_side_effects", []) if isinstance(amc.get("verification_side_effects"), list) else []:
+            add_file_ref(value)
+        add_file_ref(amc.get("mission_state_reference"))
+        add_file_ref(amc.get("mission_state_file"))
+        add_file_ref(record.get("closeout_reference"))
+
+        for value in amc.get("checkpoints", []) if isinstance(amc.get("checkpoints"), list) else []:
+            _add_checkpoint_or_file_ref(value, checkpoint_refs, add_file_ref)
+        for value in amc.get("human_decision_interrupts", []) if isinstance(amc.get("human_decision_interrupts"), list) else []:
+            if isinstance(value, dict):
+                add_file_ref(value.get("reference"))
+                if _nonempty_string(value.get("interrupt_id")):
+                    interrupt_ids.add(value["interrupt_id"])
+            elif _nonempty_string(value):
+                interrupt_ids.add(value)
+
+        verification = execution.get("verification") if isinstance(execution.get("verification"), dict) else {}
+        verification_commands.extend(_verification_commands(verification))
+
+    elif schema_id == SCHEMA_POC_STANDALONE_FLAT:
+        amc = data.get("adaptive_mission_control") if isinstance(data.get("adaptive_mission_control"), dict) else {}
+        add_file_ref(amc.get("mission_state_file"))
+        add_file_ref(amc.get("mission_state_reference"))
+        for item in data.get("checkpoint_commits", []) if isinstance(data.get("checkpoint_commits"), list) else []:
+            if isinstance(item, dict) and _nonempty_string(item.get("checkpoint")):
+                checkpoint_refs.add(item["checkpoint"])
+        for value in amc.get("human_decision_interrupts_required", []) if isinstance(amc.get("human_decision_interrupts_required"), list) else []:
+            if _nonempty_string(value):
+                interrupt_ids.add(value)
+        for item in data.get("interrupts", []) if isinstance(data.get("interrupts"), list) else []:
+            if isinstance(item, dict) and _nonempty_string(item.get("interrupt_id")):
+                interrupt_ids.add(item["interrupt_id"])
+        verification = data.get("verification") if isinstance(data.get("verification"), dict) else {}
+        verification_labels.extend(str(key) for key, value in verification.items() if _has_passing_verification_value(value))
+
+    elif schema_id == SCHEMA_POC_LEGACY_FLAT:
+        for value in data.get("authorized_paths", []) if isinstance(data.get("authorized_paths"), list) else []:
+            add_file_ref(value)
+
+    else:
+        execution = data.get("execution") if isinstance(data.get("execution"), dict) else {}
+        mission = data.get("mission") if isinstance(data.get("mission"), dict) else {}
+        for value in execution.get("files_changed", []) if isinstance(execution.get("files_changed"), list) else []:
+            add_file_ref(value)
+        envelope = mission.get("envelope") if isinstance(mission.get("envelope"), dict) else {}
+        add_file_ref(envelope.get("reference"))
+        verification = execution.get("verification") if isinstance(execution.get("verification"), dict) else {}
+        verification_commands.extend(_verification_commands(verification))
+
+    return {
+        "checkpoint_refs": checkpoint_refs,
+        "file_refs": file_refs,
+        "interrupt_ids": interrupt_ids,
+        "mission_token": mission_token,
+        "verification_commands": verification_commands,
+        "verification_labels": verification_labels,
+    }
+
+
+def _add_checkpoint_or_file_ref(value: Any, checkpoint_refs: set[str], add_file_ref: Any) -> None:
+    if not isinstance(value, str):
+        return
+    ref = _clean_ref(value)
+    if not ref:
+        return
+    if _looks_like_path(ref):
+        add_file_ref(ref)
+        if "#" in ref:
+            anchor = ref.split("#", 1)[1].strip()
+            if anchor:
+                checkpoint_refs.add(anchor)
+    else:
+        checkpoint_refs.add(ref)
+
+
+def _verification_commands(verification: dict[str, Any]) -> list[str]:
+    commands = verification.get("commands")
+    if not isinstance(commands, list):
+        return []
+    values: list[str] = []
+    for item in commands:
+        if isinstance(item, str) and item.strip():
+            values.append(item.strip())
+        elif isinstance(item, dict) and _nonempty_string(item.get("command")):
+            values.append(item["command"].strip())
+    return values
+
+
+def _related_evidence_text(path: Path, mission_token: str | None) -> str:
+    if not mission_token:
+        return ""
+    parts: list[str] = []
+    for candidate in sorted(path.parent.glob(f"{mission_token}_*")):
+        if candidate == path or not candidate.is_file() or candidate.suffix not in {".md", ".txt", ".json"}:
+            continue
+        try:
+            parts.append(candidate.read_text(encoding="utf-8")[:500_000])
+        except OSError:
+            continue
+    return "\n".join(parts)
+
+
+def _infer_evidence_root(path: Path) -> Path:
+    parts = path.parts
+    if ".factory-v3" in parts:
+        index = parts.index(".factory-v3")
+        if index > 0:
+            return Path(*parts[:index])
+    return path.parent
+
+
+def _resolve_evidence_ref(root: Path, ref: str) -> Path | None:
+    clean = _clean_ref(ref)
+    if not clean or "://" in clean:
+        return None
+    clean = clean.split("#", 1)[0]
+    if not clean:
+        return None
+    path = Path(clean)
+    if path.is_absolute():
+        return path
+    return root / path
+
+
+def _glob_evidence_ref(root: Path, ref: str) -> list[Path]:
+    clean = _clean_ref(ref).split("#", 1)[0]
+    if not clean or Path(clean).is_absolute():
+        return []
+    return sorted(root.glob(clean))
+
+
+def _contains_glob(ref: str) -> bool:
+    return any(char in ref for char in "*?[")
+
+
+def _looks_like_path(value: str) -> bool:
+    clean = _clean_ref(value)
+    if not clean or "://" in clean:
+        return False
+    return (
+        "/" in clean
+        or clean.startswith(".")
+        or Path(clean.split("#", 1)[0]).suffix in {".json", ".md", ".txt", ".py", ".csv", ".html", ".css", ".js", ".sql"}
+    )
+
+
+def _clean_ref(value: str) -> str:
+    return value.strip().strip("`").strip()
+
+
+def _mission_token(path: Path, data: dict[str, Any]) -> str | None:
+    candidates: list[str] = [path.name]
+    if _nonempty_string(data.get("mission_id")):
+        candidates.append(data["mission_id"])
+    record = data.get("record") if isinstance(data.get("record"), dict) else {}
+    if _nonempty_string(record.get("mission_reference")):
+        candidates.append(record["mission_reference"])
+    for candidate in candidates:
+        match = re.search(r"MISSION_\d+", candidate)
+        if match:
+            return match.group(0)
+    return None
+
+
+def _interrupt_file_for_id(mission_token: str | None, interrupt_id: str) -> str | None:
+    if not mission_token:
+        return None
+    match = re.fullmatch(r"HDI-(\d+)-(\d+)", interrupt_id)
+    if match:
+        return f".factory-v3/evidence/MISSION_{match.group(1)}_INTERRUPT_HDI{match.group(2)}.json"
+    if re.fullmatch(r"HDI-\d+", interrupt_id):
+        return f".factory-v3/evidence/{mission_token}_INTERRUPT_{interrupt_id}.json"
+    return None
+
+
+def _text_mentions_command(text: str, command: str) -> bool:
+    if not command.strip():
+        return True
+    normalized_text = _normalize_evidence_text(text)
+    normalized_command = _normalize_evidence_text(command)
+    if normalized_command in normalized_text:
+        return True
+    first_token = normalized_command.split(" ", 1)[0]
+    return first_token in {"browser", "built-in"} and "browser qa" in normalized_text
+
+
+def _text_mentions_label(text: str, label: str) -> bool:
+    normalized_text = _normalize_evidence_text(text)
+    normalized_label = _normalize_evidence_text(label).replace("_", " ").replace("-", " ")
+    return normalized_label in normalized_text or label.lower() in text.lower()
+
+
+def _normalize_evidence_text(value: str) -> str:
+    return " ".join(value.lower().replace("`", "").split())
+
+
+def _new_replay_summary(evidence_root: Path | None, record_files_only: bool) -> dict[str, Any]:
+    return {
+        "blocking_effect": "none",
+        "claims_checked": 0,
+        "claims_passed": 0,
+        "claims_warned": 0,
+        "evidence_root": evidence_root.as_posix() if evidence_root else "inferred_per_record",
+        "enabled": True,
+        "findings_count": 0,
+        "mode": "passive_non_executing",
+        "record_files_only": record_files_only,
+        "records_replayed": [],
+        "status": ADVISORY_PASS,
+    }
+
+
+def _merge_replay_summary(summary: dict[str, Any], replay: dict[str, Any]) -> None:
+    summary["claims_checked"] += replay["claims_checked"]
+    summary["claims_passed"] += replay["claims_passed"]
+    summary["records_replayed"].extend(replay["records_replayed"])
+
+
 def _has_passing_verification_value(value: Any) -> bool:
     if isinstance(value, str):
         return value.strip().lower().startswith("pass")
@@ -690,7 +1067,7 @@ def _recommended_next_steps(findings: list[dict[str, str]]) -> list[str]:
     ]
 
 
-def _json_files(target: Path) -> list[Path]:
+def _json_files(target: Path, record_files_only: bool = False) -> list[Path]:
     if not target.exists():
         raise SystemExit(f"target does not exist: {target}")
     if target.is_file():
@@ -699,7 +1076,13 @@ def _json_files(target: Path) -> list[Path]:
         path
         for path in target.rglob("*.json")
         if path.is_file() and "expected" not in path.parts
+        and (not record_files_only or _likely_record_file(path))
     )
+
+
+def _likely_record_file(path: Path) -> bool:
+    name = path.name
+    return name.endswith("_RECORD.json") or name.startswith("MR_")
 
 
 def _load_record(path: Path, findings: list[dict[str, str]]) -> Any | None:

@@ -1,0 +1,89 @@
+{
+  "blocking_effect": "none",
+  "checked_records": [
+    "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_900_RECORD.json",
+    "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json"
+  ],
+  "checked_schema_versions": {
+    "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_900_RECORD.json": "poc_standalone_v0_1_amc",
+    "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json": "poc_standalone_v0_1_amc"
+  },
+  "evidence_replay": {
+    "blocking_effect": "none",
+    "claims_checked": 17,
+    "claims_passed": 13,
+    "claims_warned": 4,
+    "enabled": true,
+    "evidence_root": "tests/fixtures/factory_v3_evidence_replay/root",
+    "findings_count": 4,
+    "mode": "passive_non_executing",
+    "record_files_only": true,
+    "records_replayed": [
+      "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_900_RECORD.json",
+      "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json"
+    ],
+    "status": "ADVISORY_WARN"
+  },
+  "findings": [
+    {
+      "id": "V3-MR203",
+      "message": "evidence replay referenced file is missing: .factory-v3/evidence/MISSION_901_STATE.md",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    },
+    {
+      "id": "V3-MR203",
+      "message": "evidence replay referenced file is missing: missing/replay_feature.py",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    },
+    {
+      "id": "V3-MR205",
+      "message": "evidence replay checkpoint reference was not found in related evidence: M901-CP999",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    },
+    {
+      "id": "V3-MR207",
+      "message": "evidence replay verification command lacks external evidence mention: python3 -B scripts/verify_mission_901.py",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    }
+  ],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "Review findings manually; this report is advisory and non-blocking.",
+    "Classify findings as accepted, false_positive, needs_more_context, or deferred.",
+    "Do not wire mission-record checks into required gates without explicit Factory governance approval."
+  ],
+  "record_scope": "shadow_advisory",
+  "report_id": "factory-v3-mission-record-lint",
+  "status": "ADVISORY_WARN",
+  "target": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence",
+  "warnings": [
+    {
+      "id": "V3-MR203",
+      "message": "evidence replay referenced file is missing: .factory-v3/evidence/MISSION_901_STATE.md",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    },
+    {
+      "id": "V3-MR203",
+      "message": "evidence replay referenced file is missing: missing/replay_feature.py",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    },
+    {
+      "id": "V3-MR205",
+      "message": "evidence replay checkpoint reference was not found in related evidence: M901-CP999",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    },
+    {
+      "id": "V3-MR207",
+      "message": "evidence replay verification command lacks external evidence mention: python3 -B scripts/verify_mission_901.py",
+      "path": "tests/fixtures/factory_v3_evidence_replay/root/.factory-v3/evidence/MISSION_901_RECORD.json",
+      "severity": "advisory_high"
+    }
+  ]
+}

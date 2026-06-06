@@ -1,9 +1,10 @@
 # Factory v3 Mission Record Design v0
 
 ## Version
-v0.5
+v0.6
 
 ## Change Log
+- v0.6 (2026-06-06): Added optional passive evidence replay mode for mission-record claims, including record-file filtering, evidence-root resolution, file/reference checks, JSON parse checks, checkpoint/interrupt lookup, and external verification evidence checks.
 - v0.5 (2026-06-05): Added advisory schema-version routing for Factory V3 shadow records, standalone POC nested records, standalone POC adaptive mission control records, standalone POC flat records, and legacy flat POC migration warnings.
 - v0.4 (2026-05-25): Added a valid blocked missing-authority shadow fixture, with advisory blocked-state consistency checks.
 - v0.3 (2026-05-25): Added valid halted verification-failure and stale-reentry shadow fixtures, with advisory halted-state consistency checks.
@@ -124,6 +125,19 @@ The validator reports `checked_schema_versions` for every scanned JSON record. S
 | `poc_standalone_v0_1_amc` | Nested standalone POC record with adaptive mission control evidence. |
 | `poc_standalone_flat_v0_1` | Top-level standalone POC closeout/evidence record shape. |
 | `poc_legacy_flat` | Earlier flat POC evidence shape; accepted with an advisory migration warning when otherwise well-formed. |
+
+Optional passive evidence replay can be enabled with:
+
+```bash
+python3 scripts/factory_v3_mission_record_lint.py \
+  --target <record-or-directory> \
+  --record-files-only \
+  --replay-evidence \
+  --evidence-root <repo-root> \
+  --json
+```
+
+Evidence replay does not execute recorded commands. It resolves referenced files, parses referenced JSON, checks checkpoint and interrupt references, and searches related evidence files for verification-command or verification-label mentions. Replay findings are advisory only and keep `blocking_effect: none`.
 
 Valid shadow fixtures currently cover completed missions, pre-envelope fallback, halted verification failure, halted stale reentry, and blocked missing authority.
 
