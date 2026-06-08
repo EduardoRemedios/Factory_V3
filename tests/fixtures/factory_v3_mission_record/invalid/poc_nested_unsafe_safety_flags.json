@@ -1,0 +1,60 @@
+{
+  "authority": {
+    "allowed_commands": [
+      "python3 -m unittest discover"
+    ],
+    "approved_dependencies": [],
+    "authorized_files": [
+      "app/main.py"
+    ],
+    "dependency_policy": "no new dependencies",
+    "forbidden_scope": [
+      "production data",
+      "Factory V2 scaffolding"
+    ]
+  },
+  "execution": {
+    "commands_run": [
+      "python3 -m unittest discover"
+    ],
+    "files_changed": [
+      "app/main.py"
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "verification": {
+      "commands": [
+        "python3 -m unittest discover"
+      ],
+      "result": "pass"
+    }
+  },
+  "mission": {
+    "coding_harness": "Codex",
+    "data_mode": "synthetic",
+    "deployment_target": "local_only",
+    "objective": "Exercise unsafe optional safety flags on nested standalone POC records.",
+    "repository": "V3_POC_App_Creation"
+  },
+  "record": {
+    "decision_state": "completed_with_v3",
+    "factory_v2_used": false,
+    "live_integrations_used": true,
+    "mission_reference": "fixture",
+    "new_dependencies_used": true,
+    "profile_id": "V3-POC-STANDALONE",
+    "real_data_used": true,
+    "record_type": "factory_v3_poc_mission_record",
+    "schema_version": "v0.1-poc-standalone",
+    "synthetic_only": false,
+    "v3_only": true
+  },
+  "reviews": {
+    "evidence_replay": "pass",
+    "operator_friction_notes": [],
+    "scope_discipline": "pass",
+    "verification_quality": "pass"
+  }
+}

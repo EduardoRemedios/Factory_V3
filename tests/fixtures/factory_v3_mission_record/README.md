@@ -1,6 +1,7 @@
 # Factory v3 Mission Record Fixtures
 
 ## Change Log
+- v0.3 (2026-06-08): Added malformed nested POC safety-flag regression coverage for real-data, synthetic-only, live-integration, and dependency-use flags.
 - v0.2 (2026-06-05): Added versioned POC standalone fixtures for nested, nested adaptive mission control, flat standalone, and legacy flat migration-warning shapes.
 - v0.1 (2026-05-27): Added unsafe path-shape regression fixture for advisory scope evidence.
 

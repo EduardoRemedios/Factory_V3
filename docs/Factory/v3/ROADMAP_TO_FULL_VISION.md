@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.33
+v1.34
 
 ## Change Log
+- v1.34 (2026-06-08): Added research-only Phase 4.6 Mission Health and Continuation Judgment lane, preserving advisory-only semantics while connecting value-aware continuation signals to later routing and persistent-state work.
 - v1.33 (2026-06-05): Recorded initial research-stage mission-formation and challenge skills with dry-run trial evidence; live trial evidence remains pending before recommendation.
 - v1.32 (2026-06-05): Added Codex SDK/MCP orchestration research direction as a planned Phase 4.5 follow-on, preserving Codex-as-worker and Factory-as-authority boundaries.
 - v1.31 (2026-06-05): Added Phase 4.5 roadmap item for designing and creating non-executing mission-formation and challenge skills before long-running execution profiles.
@@ -67,6 +68,7 @@ Current state:
 - V3 has research-only adaptive mission control guidance and standalone templates for checkpoints, human decision interrupts, plan deltas, and authored mission state. AMC v0.2 adds command-sourced timestamp Budget State guidance and three decision tiers.
 - V3 has a strategic mission-formation direction note plus initial research-stage repo skills for discovery/challenge mission formation. The skills have dry-run trial evidence only; they do not approve new profiles, recommended V3 intake, or non-coding execution.
 - V3 has a strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority. It is roadmap context only and does not approve unattended execution, production actions, runtime authority, or new profiles.
+- V3 has a research-only mission-health roadmap lane for future value-aware continuation judgment. No mission-health schema, validator, router, gate, runtime-control power, or required checkpoint behavior is approved.
 - Phase 1 real-project trial evidence has reached decision-review readiness: 5 trial records, 2 fallback/pre-envelope trials, 3 completed happy-path trials across Harmony and Temper, and an owner waiver for the non-author user trial requirement in a solo AI-native development context.
 - V3 does not yet have persistent mission state, enforced authority leases, structured telemetry, dynamic governance routing, continuous verification, capability profiling, or replayable execution graphs.
 - This plan does not authorize promotion beyond the already approved optional `V3-OP-001` profile.
@@ -83,7 +85,7 @@ Factory v3 becomes the normal way to govern suitable autonomous coding missions 
 - execution telemetry is recorded,
 - verification and halt behavior are observable,
 - evals measure drift, scope discipline, recovery, and verification quality,
-- governance routing is based on mission risk and harness capability,
+- governance routing is based on mission risk, harness capability, and evidence-backed mission health,
 - V2 remains available for heavy, ambiguous, high-risk, or unsuitable work.
 
 ## Public Boundary
@@ -349,15 +351,58 @@ After the initial non-executing skills have trial evidence, create a bounded Cod
 
 The spike must start with read-only discovery/challenge trials before any workspace-write execution trial. It must not approve runtime authority, production action, default execution, credential use, deployment, or a hidden replacement for V3 governance.
 
+## Phase 4.6 - Mission Health And Continuation Judgment
+
+Status: Research roadmap lane only. No templates, schema, validators, fixtures, gates, router behavior, runtime-control power, required checkpoint fields, or default-mode behavior are approved.
+
+Goal:
+
+Evaluate whether a mission remains worth continuing, not only whether it remains authorized, bounded, and verifiable.
+
+Rationale:
+
+Adaptive Mission Control currently records budget state, checkpoint evidence, decisions, verification, risks, and halt/reentry behavior. That answers whether a mission can continue safely. Long-running autonomous work will also need evidence-backed judgment about whether continuing remains valuable enough relative to cost, confidence, drift, and unresolved risk.
+
+Candidate signals:
+
+- expected value band,
+- remaining value,
+- cost burned,
+- confidence level and evidence basis,
+- contract drift or divergence,
+- verification state,
+- unresolved risk,
+- continuation recommendation.
+
+Work:
+
+1. Define a minimal mission-health vocabulary for checkpoint and closeout discussion without creating false precision.
+2. Backfill the vocabulary against existing Mission 012/013 and later POC evidence where practical.
+3. Compare mission-health notes with actual continuation, pause, interrupt, halt, split-mission, or fallback decisions.
+4. Decide whether the signal belongs in mission records, checkpoint templates, governance-router fixtures, or persistent mission state.
+5. Keep all outputs advisory until evidence shows the signal improves continuation judgment without increasing performative bookkeeping.
+
+Required evidence:
+
+- at least 3 real mission-health notes attached to existing or future mission evidence,
+- forecast-vs-actual comparison for cost or effort where command-sourced timestamps or git-derived durations exist,
+- human review of whether the continuation recommendation would have changed the mission outcome,
+- false-confidence review for misleading value, confidence, or abandonment-threshold estimates,
+- explicit boundary review confirming no routing, gate, runtime, or profile authority is implied.
+
+Promotion gate:
+
+Mission-health signals may become recommended advisory evidence only after they improve continuation judgment without creating fake economic precision, hidden routing authority, or confusion between evidence and human approval.
+
 ## Phase 5 - Governance Router
 
 Goal:
 
-Route work to the right governance level based on risk, authority, verification, and harness capability.
+Route work to the right governance level based on risk, authority, verification, harness capability, and evidence-backed mission health.
 
 Modes:
 
-- `AUTONOMOUS`: low-risk, high-confidence, strongly bounded, fully verified.
+- `AUTONOMOUS`: low-risk, high-confidence, strongly bounded, fully verified, and healthy enough to continue.
 - `LIGHT`: docs, fixtures, examples, small UI polish, low blast radius.
 - `STANDARD`: bounded code changes with known verification.
 - `HEAVY`: core policy, auth, payment, compliance, runtime-kernel, evidence, temporal, or infrastructure work.
@@ -370,6 +415,7 @@ Work:
 3. Run the router in advisory mode against historical and real work.
 4. Compare router recommendations against human decisions.
 5. Tune only from classified evidence.
+6. Treat mission-health signals as advisory inputs only until they have their own evidence and false-confidence review.
 
 Router fixtures must test prompt intent against target-path topology. A light-looking request that touches protected compliance, authentication, payment, deployment, runtime, or infrastructure paths must route conservatively.
 
@@ -431,6 +477,7 @@ Possible artifacts:
 - `V3_AUTHORITY_LEASE.json`
 - `V3_TELEMETRY.jsonl`
 - `V3_VERIFICATION_STATE.json`
+- `V3_MISSION_HEALTH.json`
 - `V3_ESCALATION_LOG.json`
 
 Work:
@@ -533,6 +580,7 @@ Before any decision to operationalize V3 beyond `V3-OP-001`, confirm:
 - [ ] evals cover both positive and negative cases,
 - [ ] capability profiles exist for the target harness,
 - [ ] mission-formation skills, if used, have trial evidence and preserve non-executing authority boundaries,
+- [ ] mission-health signals, if used, have real evidence and false-confidence review,
 - [ ] Codex SDK/MCP orchestration, if used, has read-only spike evidence and preserves Codex-as-worker / Factory-as-authority boundaries,
 - [ ] governance router has human-classified evidence,
 - [ ] enforceable validators exist for basic authority and verification rules,
@@ -551,18 +599,20 @@ Before making this repository V3-only, also confirm:
 ## Recommended Next Move
 Consolidate the standalone POC evidence and close its named limitations.
 
-Status update (2026-06-04): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-013 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. Mission 012 (commit `8667e96`) produced the first real adaptive-mission-control evidence: a genuine interrupt completing the asked/answered/applied lifecycle, a fresh-session resume from authored artifacts only, scoped checkpoint-commit git authority, and filled budget fields. Mission 013 (commit `a74efbd`) added the first remote-interrupt evidence: two genuine interrupts answered from the sponsor's phone via Codex in the ChatGPT mobile app, the mission steered from Android end to end, and a second fresh-session resume that recovered a stale checkpoint hash from git log. Mission timing finding: checkpoint-estimated minutes proved 6-9x inflated versus git commit timestamps (Mission 012 real ~17m38s vs estimated ~115m; Mission 013 real ~34m46s vs estimated ~328m); tool-call counts were the more reliable size metric. The hard standalone criterion has held through Mission 013. The interim eval does not approve operational readiness for the full named scope, the candidate `V3-OP-003` remote-interrupt profile, default-mode promotion, required gates, governance routing, telemetry enforcement, runtime authority, production action, infrastructure authority, or V2 scaffolding removal.
+Status update (2026-06-08): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-013 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. Mission 012 (commit `8667e96`) produced the first real adaptive-mission-control evidence: a genuine interrupt completing the asked/answered/applied lifecycle, a fresh-session resume from authored artifacts only, scoped checkpoint-commit git authority, and filled budget fields. Mission 013 (commit `a74efbd`) added the first remote-interrupt evidence: two genuine interrupts answered from the sponsor's phone via Codex in the ChatGPT mobile app, the mission steered from Android end to end, and a second fresh-session resume that recovered a stale checkpoint hash from git log. Mission 015 (evidence-only, not committed at recording time) added the first deliberately seeded failed-verification halt evidence: baseline synthetic tests passed, an intentional local read-only verification command failed with exit code 17, and the mission halted without recovery or app edits. Mission timing finding: checkpoint-estimated minutes proved 6-9x inflated versus git commit timestamps (Mission 012 real ~17m38s vs estimated ~115m; Mission 013 real ~34m46s vs estimated ~328m); tool-call counts were the more reliable size metric. The hard standalone criterion has held through Mission 015. The interim eval does not approve operational readiness for the full named scope, the candidate `V3-OP-003` remote-interrupt profile, default-mode promotion, required gates, governance routing, telemetry enforcement, runtime authority, production action, infrastructure authority, or V2 scaffolding removal.
 
 AMC v0.2 status update (2026-06-04): timestamped checkpoint instrumentation is now present in the AMC guidance, repository templates, and standalone bootstrap copies. Budget State records command-sourced UTC timestamps, derived elapsed durations, tool-call counts, qualitative context, stop-threshold judgment, and rate-limit window notes. Decision tiers now prefer Tier 1 pre-resolved decisions and Tier 2 resolve-and-log choices before Tier 3 human interrupts. This does not approve validators, promotion, required gates, routing, runtime authority, Telegram usage, production action, or V2 scaffolding removal.
 
+Mission-record validator status update (2026-06-08): versioned advisory schema routing now covers the Factory V3 shadow shape, nested standalone POC records, nested standalone POC records with adaptive mission control, flat standalone POC records, and legacy flat POC migration warnings. Nested standalone POC safety-flag checks now reject separately governed real-data, live-integration, dependency-use, and non-synthetic claims when those optional flags appear. This remains advisory-only and does not approve required gates, routing, runtime-control power, default-mode behavior, real-data use, live integrations, dependency use, or profile promotion.
+
 The recommended next moves, in order:
 
-1. Versioned mission-record validator: extend `scripts/factory_v3_mission_record_lint.py` with a schema-version discriminator covering the Factory_V3 v0.1 shape, `v0.1-poc-standalone` with and without the `adaptive_mission_control` block, and the flat Mission 007-009 shape, with fixtures for each and a migration or validation path for the diverged records. Candidate for execution as a `V3-OP-001` bounded code change under V3 governance.
-2. Negative-path POC missions: deliberately seeded failed-verification halt, recovery, stale-reentry, and fallback/no-go missions in the POC repository. Missions 012/013's mid-mission stops were intentional pauses, not failure halts, so failure-path behavior remains untested.
-3. Separately approved private deployment mission: deployment boundary, secrets policy, rollback, and smoke verification, closing the deployment-evidence limitation.
-4. Final POC eval re-run once deployment and negative-path evidence exist, deciding whether `PASS_NAMED_POC` is supportable, and a separately named decision on the candidate `V3-OP-003` long-running remote-interrupt profile using Mission 012/013 evidence.
-5. Mission-formation live trials: use the initial `factory-mission-formation` and `factory-challenge-mission` skills in real V3/Harmony conversations, recording at least one more-discovery route, one V2/heavier-planning route, and one bounded candidate V3 envelope route before recommending them as intake aids.
-6. Codex SDK/MCP orchestration spike: after live mission-formation skill trials exist, create a bounded research pack for programmatic Codex worker orchestration. Start with read-only discovery/challenge runs and record sandbox, thread, prompt, output, trace, interrupt, and closeout evidence. Do not treat this as approval for unattended execution or runtime authority.
+1. Negative-path POC missions: deliberately seeded recovery, stale-reentry, and fallback/no-go missions in the POC repository. Mission 015 narrowed failed-verification halt only; recovery behavior remains untested.
+2. Separately approved private deployment mission: deployment boundary, secrets policy, rollback, and smoke verification, closing the deployment-evidence limitation.
+3. Final POC eval re-run once deployment and negative-path evidence exist, deciding whether `PASS_NAMED_POC` is supportable, and a separately named decision on the candidate `V3-OP-003` long-running remote-interrupt profile using Mission 012/013 evidence.
+4. Mission-formation live trials: use the initial `factory-mission-formation` and `factory-challenge-mission` skills in real V3/Harmony conversations, recording at least one more-discovery route, one V2/heavier-planning route, and one bounded candidate V3 envelope route before recommending them as intake aids.
+5. Codex SDK/MCP orchestration spike: after live mission-formation skill trials exist, create a bounded research pack for programmatic Codex worker orchestration. Start with read-only discovery/challenge runs and record sandbox, thread, prompt, output, trace, interrupt, and closeout evidence. Do not treat this as approval for unattended execution or runtime authority.
+6. Mission-health research notes: after more checkpointed mission evidence exists, attach advisory health notes to a small set of missions to test whether value, cost, confidence, drift, risk, and continuation recommendation improve human review without implying routing or gate authority.
 
 The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 

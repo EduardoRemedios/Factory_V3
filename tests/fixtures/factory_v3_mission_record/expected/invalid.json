@@ -11,6 +11,7 @@
     "tests/fixtures/factory_v3_mission_record/invalid/missing_allowed_command.json",
     "tests/fixtures/factory_v3_mission_record/invalid/missing_authorized_files.json",
     "tests/fixtures/factory_v3_mission_record/invalid/missing_verification_result.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/poc_nested_unsafe_safety_flags.json",
     "tests/fixtures/factory_v3_mission_record/invalid/thread_local_envelope_without_reference.json",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_approval_scope.json",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_authorized_path.json"
@@ -26,6 +27,7 @@
     "tests/fixtures/factory_v3_mission_record/invalid/missing_allowed_command.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/missing_authorized_files.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/missing_verification_result.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/poc_nested_unsafe_safety_flags.json": "poc_standalone_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/thread_local_envelope_without_reference.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_approval_scope.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_authorized_path.json": "factory_v3_shadow_v0_1"
@@ -125,6 +127,30 @@
       "id": "V3-MR080",
       "message": "blocked records must not mark halt.halted true",
       "path": "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR108",
+      "message": "POC record.live_integrations_used must be false unless separately approved",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/poc_nested_unsafe_safety_flags.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR108",
+      "message": "POC record.new_dependencies_used must be false unless separately approved",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/poc_nested_unsafe_safety_flags.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR108",
+      "message": "POC record.real_data_used must be false unless separately approved",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/poc_nested_unsafe_safety_flags.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR108",
+      "message": "POC record.synthetic_only must be true unless separately approved",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/poc_nested_unsafe_safety_flags.json",
       "severity": "advisory_critical"
     }
   ],

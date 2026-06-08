@@ -43,6 +43,12 @@ POC_DEPENDENCY_MODES = {
     "garmin": {"not_used", "research_only", "official_api", "manual_import", "unofficial_client", "deferred"},
     "hermes": {"not_used", "research_only", "optional_harness", "integration_candidate"},
 }
+POC_SAFETY_FLAGS = {
+    "real_data_used": False,
+    "synthetic_only": True,
+    "live_integrations_used": False,
+    "new_dependencies_used": False,
+}
 
 UNSAFE_APPROVAL_FLAGS = {
     "factory_v3_default_approved",
@@ -271,6 +277,7 @@ def _lint_poc_standalone_record(path: str, data: dict[str, Any], require_amc: bo
         findings.append(_finding("V3-MR106", "advisory_critical", path, "POC record.v3_only must be true"))
     if record.get("factory_v2_used") is not False:
         findings.append(_finding("V3-MR107", "advisory_critical", path, "POC record.factory_v2_used must be false"))
+    findings.extend(_check_poc_safety_flags(path, record))
 
     findings.extend(_check_poc_mission(path, mission))
     findings.extend(_check_poc_authority(path, authority, decision_state))
@@ -286,6 +293,15 @@ def _lint_poc_standalone_record(path: str, data: dict[str, Any], require_amc: bo
     dependency_evidence = data.get("dependency_evidence")
     if dependency_evidence is not None:
         findings.extend(_check_poc_dependency_evidence(path, dependency_evidence))
+    return findings
+
+
+def _check_poc_safety_flags(path: str, record: dict[str, Any]) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    for key, expected in POC_SAFETY_FLAGS.items():
+        if key in record and record.get(key) is not expected:
+            expected_text = str(expected).lower()
+            findings.append(_finding("V3-MR108", "advisory_critical", path, f"POC record.{key} must be {expected_text} unless separately approved"))
     return findings
 
 

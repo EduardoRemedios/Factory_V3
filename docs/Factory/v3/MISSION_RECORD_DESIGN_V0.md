@@ -1,9 +1,10 @@
 # Factory v3 Mission Record Design v0
 
 ## Version
-v0.6
+v0.7
 
 ## Change Log
+- v0.7 (2026-06-08): Added nested standalone POC safety-flag checks for optional real-data, synthetic-only, live-integration, and dependency-use claims, with malformed fixture coverage.
 - v0.6 (2026-06-06): Added optional passive evidence replay mode for mission-record claims, including record-file filtering, evidence-root resolution, file/reference checks, JSON parse checks, checkpoint/interrupt lookup, and external verification evidence checks.
 - v0.5 (2026-06-05): Added advisory schema-version routing for Factory V3 shadow records, standalone POC nested records, standalone POC adaptive mission control records, standalone POC flat records, and legacy flat POC migration warnings.
 - v0.4 (2026-05-25): Added a valid blocked missing-authority shadow fixture, with advisory blocked-state consistency checks.
