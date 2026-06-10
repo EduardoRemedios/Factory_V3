@@ -1,0 +1,149 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_009_claude_code_profile_v02",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_009_claude_code_profile_v02.json",
+    "source_closeout_reference": "Backfilled from Codex thread closeout and git commit dd57f0d Update Claude Code workflow profile",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "9629fef",
+    "commit_after": "dd57f0d",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Update the Claude Code dynamic-workflows research harness profile to v0.2 with a second external-source signal, explicit operator-relayed provenance, and skill verification/authority watchpoints while keeping the evidence band unchanged.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Fable 5 briefing approved by the sponsor in the Codex conversation",
+      "not_created_reason": "The work was executed from a thread-local approval; this shadow mission record was backfilled immediately after review."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/harness_profiles/HP_20260530_001_claude_code_dynamic_workflows_research.md"
+    ],
+    "forbidden_scope": [
+      "no evidence-band change",
+      "no reviewer-decision change",
+      "no harness-profile index edit",
+      "no roadmap or status-doc edit",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the named harness profile",
+      "the evidence band or reviewer decision needs to change",
+      "the profile wording implies approval, promotion, routing, enforcement, runtime authority, or default dynamic-workflow use",
+      "the NL pilot flags autonomous-execution or authority-risk wording that cannot be fixed in the named file"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/harness_profiles/HP_20260530_001_claude_code_dynamic_workflows_research.md"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "All requested advisory checks passed before commit dd57f0d was pushed. The NL pilot returned ADVISORY_PASS despite the profile mentioning operator-relayed skill chains that may fix CI failures, because the same-paragraph limitations and non-authority wording kept the profile advisory and evidence-bounded."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "true_negative"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Single-file docs-only profile update.",
+        "No evidence-band, reviewer-decision, index, status-doc, validator, dependency, or fixture changes.",
+        "Operator-relayed video evidence was labeled in metadata, capability rows, limitations, and rationale."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the named harness profile.",
+        "No promotion, required gate, routing, runtime authority, default-mode, live execution, or V2-removal scope was added."
+      ]
+    },
+    "friction_notes": [
+      "The shadow record was backfilled after commit dd57f0d rather than authored before the profile update.",
+      "The profile update relied on operator-relayed video details; the profile preserved that provenance split instead of treating the video as independently observed evidence."
+    ],
+    "false_positive_notes": [
+      "No advisory false positives observed. The NL pilot did not flag the autonomous-adjacent CI wording after it was bounded by same-paragraph limitations."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed in the final advisory checks."
+    ]
+  },
+  "phase2_design_signals": [
+    "Bounded evidence-profile updates should include a shadow mission record in the same change cycle unless explicitly waived.",
+    "Same-paragraph provenance and non-authority limitations can allow potentially risky external-source observations to remain useful without implying local capability evidence.",
+    "Future Claude Code local evidence still requires a separately approved read-only probe; this profile update does not move the evidence band off insufficient_evidence."
+  ]
+}

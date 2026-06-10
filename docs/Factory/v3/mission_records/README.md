@@ -19,6 +19,7 @@ Use these records to evaluate whether `V3_MISSION_RECORD` improves replayability
 | `MR_20260526_003_white_mouse_app_pre_envelope_fallback.json` | `pre_envelope_fallback` | Current 2026-05-26 thread | Captures a fresh real non-happy-path decision: an app idea rejected before envelope creation as insufficiently bounded and unnecessary for the Phase 2.5 evidence goal. |
 | `MR_20260604_007_amc_v02_update.json` | `completed_with_v3` | Current 2026-06-04 thread | Captures AMC v0.2 timestamped-budget and decision-tier docs/templates update under optional `V3-OP-001`. |
 | `MR_20260610_008_anchor_registry_docs.json` | `completed_with_v3` | `7e35cc0` | Backfills the anchor-registry docs update and records the NL-pilot true positive that caught `standing_authority` approval-adjacent wording before final pass. |
+| `MR_20260610_009_claude_code_profile_v02.json` | `completed_with_v3` | `dd57f0d` | Backfills the Claude Code dynamic-workflows profile v0.2 update and records the clean NL-pilot pass for operator-relayed skills/CI wording. |
 
 ## Evidence Status
 The required fresh non-happy-path adoption record now exists. The next step is a Phase 2.5 adoption decision review.
