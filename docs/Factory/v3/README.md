@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.30
+v1.31
 
 ## Change Log
+- v1.31 (2026-06-10): Added research-only anchor registry as a pointer-first cold-start map for approved profiles, candidate gates, evidence paths, and guardrails.
 - v1.30 (2026-06-05): Added initial research-stage repo skills for mission formation and challenge, with dry-run trial evidence.
 - v1.29 (2026-06-05): Added strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority.
 - v1.28 (2026-06-05): Added strategic mission-formation direction note for discovery, challenge, mission contracts, and long-running autonomy preparation.
@@ -79,6 +80,7 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide `MISSION_FORMATION_DIRECTION.md` as strategic context for discovery, challenge, mission contracts, and the thesis that mission quality determines autonomy quality. This artifact is research-only and does not approve new V3 profiles or non-coding execution.
 - Provide `CODEX_SDK_ORCHESTRATION_DIRECTION.md` as strategic context for possible Codex SDK, Codex MCP, and Agents SDK orchestration research where Codex is a worker runtime and Factory/Harmony remains the authority layer. This artifact is research-only and does not approve unattended execution or new profiles.
 - Provide initial research-stage repo skills `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`, plus dry-run trial evidence under `skill_trials/mission_formation/`. These skills are non-executing and do not approve V3 intake recommendation, new profiles, or autonomous execution.
+- Provide `ANCHOR_REGISTRY.md` as a research-only, pointer-first cold-start map across approved profiles, candidate gates, evidence paths, and guardrails. It does not authorize execution, promotion, routing, required gates, runtime authority, real-data use, deployment, live integrations, or V2 build-support removal.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -118,6 +120,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 
 ## Key Research Artifacts
 - `VISION.md`
+- `ANCHOR_REGISTRY.md`
 - `MISSION_FORMATION_DIRECTION.md`
 - `CODEX_SDK_ORCHESTRATION_DIRECTION.md`
 - `ROADMAP_TO_FULL_VISION.md`

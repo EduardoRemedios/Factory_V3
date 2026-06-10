@@ -30,6 +30,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 research-only mission-formation and challenge direction, initial repo-scoped non-executing skills, and dry-run trial evidence for improving mission quality before long-running execution.
 - V3 research-only Codex SDK/MCP orchestration direction for treating Codex as a governed worker runtime in possible future Factory/Harmony workflows.
 - V3 research-only mission-health and continuation-judgment roadmap lane for future advisory value, cost, confidence, drift, risk, and continuation signals.
+- V3 research-only anchor registry for pointer-first cold-start orientation across approved profiles, candidate gates, evidence paths, and guardrails.
 - External governance-kernel boundary guidance for V3 work.
 - Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, Mission Mode, and helper tooling for building V3 while V3 matures.
 
@@ -56,6 +57,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 ## Key Paths
 
 - `docs/Factory/v3/` - primary V3 docs, templates, trials, and roadmap.
+- `docs/Factory/v3/ANCHOR_REGISTRY.md` - pointer-first map of current V3 anchor points, evidence paths, current status labels, and next named gates.
 - `.agents/skills/factory-mission-formation/` and `.agents/skills/factory-challenge-mission/` - research-stage repo skills for non-executing mission discovery and challenge.
 - `docs/Factory/ARCHITECTURE.md`, `docs/Factory/ORCHESTRATION.md`, `docs/Factory/Spec/`, and `docs/Factory/templates/` - Factory V2 build-support layer for governing V3 work while V3 matures.
 - `docs/Factory/runs/` - V3-related Factory run evidence migrated from `factory-starter-kit`.

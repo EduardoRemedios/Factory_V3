@@ -1,9 +1,10 @@
 # Factory Architecture
 
 ## Version
-v0.4
+v0.5
 
 ## Change Log
+- v0.5 (2026-06-10): Clarified that the generic Factory core language is V2 build-support scaffolding in this dedicated Factory V3 repository.
 - v0.4 (2026-05-25): Removed split-out next-generation boundary content after it moved to its dedicated repository.
 - v0.2 (2026-05-18): Added task memory, Repo Cartographer, and Agent Loop Bridge as optional extension examples.
 - v0.1 (2026-04-26): Initial portable architecture model for Factory Core, harness adapters, validators, extension packs, and project adapters.
@@ -12,7 +13,7 @@ v0.4
 
 Factory is an AI-first SDLC workflow for drift-resistant software delivery. It helps a product or domain owner turn rough intent into a bounded, testable execution contract before an AI coding agent writes code.
 
-This starter kit is the reusable process layer. It should stay generic enough to work across many repositories, domains, and coding harnesses.
+In this dedicated Factory V3 repository, this generic Factory core is temporary V2 build-support scaffolding. It should stay generic enough to govern V3 work while V3 matures, without becoming a V3 product dependency.
 
 ## Layer Model
 
@@ -91,9 +92,9 @@ Project adapters are allowed to be opinionated. Factory Core should remain neutr
 
 ## Source-Of-Truth Rule
 
-Generic Factory improvements should be authored in the starter-kit repository first, then imported into downstream projects.
+Generic Factory improvements should be authored in the canonical V2/core Factory source first, then imported into downstream projects when needed.
 
-Downstream projects may adapt their local project adapter, but they should not silently fork the core stage contracts, templates, or validators. If a downstream project discovers a reusable process improvement, promote it back into this starter kit before copying it elsewhere.
+Downstream projects may adapt their local project adapter, but they should not silently fork the core stage contracts, templates, or validators. If a downstream project discovers a reusable process improvement, promote it back into the canonical V2/core Factory source before copying it elsewhere.
 
 ## Non-Goals
 

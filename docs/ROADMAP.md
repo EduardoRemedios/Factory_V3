@@ -1,6 +1,6 @@
 # ROADMAP.md - Factory V3 Roadmap
 
-> Last updated: 2026-06-09
+> Last updated: 2026-06-10
 
 ## Current State
 
@@ -31,6 +31,7 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 - Use `docs/Factory/v3/ADAPTIVE_MISSION_CONTROL.md` and the standalone checkpoint, mission-state, human-interrupt, and plan-delta templates as research-only guidance for larger V3 missions. The next evidence target is to prove that V3 can continue from explicit artifacts and use Tier 1/2 decisions before asking for Tier 3 human interrupts, without using artificial time or size classes as mission-sizing authority.
 - Initial non-executing mission-formation skills now exist for V3 discovery and challenge work, with dry-run trial evidence. The next evidence target is live use in real V3/Harmony conversations before the skills can become recommended V3 intake aids.
 - Mission Health and Continuation Judgment is now tracked as a research-only Phase 4.6 roadmap lane. It should explore whether value, cost, confidence, drift, risk, and continuation recommendation improve human review of long-running missions; it does not approve schema changes, validators, gates, routing authority, runtime-control power, required checkpoint fields, or default-mode behavior.
+- Use `docs/Factory/v3/ANCHOR_REGISTRY.md` as a pointer-first cold-start map for future model onboarding and decision-pack preparation. Keep it research-only and update it only when it reduces audit cost without becoming a second source of truth.
 - Capture Codex SDK/MCP orchestration as a follow-on research spike: test whether Factory/Harmony can programmatically supervise Codex as a worker runtime while preserving mission records, sandbox discipline, human approval, verification evidence, and halt behavior. Start read-only; do not treat the spike as approval for unattended execution or runtime authority.
 - Keep the Codex Security scan follow-up narrow: advisory validator hardening is acceptable, but it does not create required gates, routing authority, default-mode promotion, or reduced-governance thresholds.
 - Continue Phase 2 structured mission-record use in shadow/advisory mode; valid completed, pre-envelope fallback, halted, stale-reentry, and blocked examples now exist.

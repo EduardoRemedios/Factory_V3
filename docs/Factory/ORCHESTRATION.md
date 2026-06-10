@@ -1,9 +1,10 @@
-# docs/Factory/ORCHESTRATION.md — Factory Pipeline Runner Guide (Starter Kit)
+# docs/Factory/ORCHESTRATION.md - Factory Pipeline Runner Guide (V2 Build-Support)
 
 ## Version
-v1.14
+v1.15
 
 ## Change Log
+- v1.15 (2026-06-10): Clarified that this orchestration guide is V2 build-support scaffolding inside the dedicated Factory V3 repository.
 - v1.14 (2026-05-25): Removed split-out next-generation boundary guidance after it moved to its dedicated repository.
 - v1.13 (2026-05-22): Added SIMPLE-CODE-GATE severity policy reference for implementation work.
 - v1.12 (2026-05-19): Added SIMPLE-CODE-GATE v2 as a mandatory planning and execution guardrail.
@@ -20,7 +21,7 @@ v1.14
 - v1.0 (2026-03-10): Generic starter-kit orchestration guide aligned to the current Factory pipeline, Mission Mode, and derived mission continuity preflight.
 
 ## 0. Purpose
-This document explains how to run the Factory pipeline in a generic repo.
+This document explains how to run the Factory pipeline in a generic repo. In this dedicated Factory V3 repository, it is V2 build-support scaffolding for governing V3 development while V3 matures.
 
 The Factory is planning-first. It produces the pack that governs implementation. It does not replace coding, testing, or review in your project.
 
@@ -86,7 +87,7 @@ For `EXECUTION_ENABLED` and Mission Mode runs, Stage F should produce `pack/veri
 Execution micro-sprints may start with `MS-00 Verification Scaffold`: land or confirm tests, fixtures, no-touch checks, or static validators before feature implementation begins.
 
 ## 0.7 Support Helpers (Optional, Advisory)
-The starter kit includes optional support helpers:
+The V2 build-support layer includes optional support helpers:
 - Task memory: `./scripts/factoryctl memory-init`, `memory-suggest`, `memory-log`, and `memory-review`.
 - Repo Cartographer: `./scripts/cartographer` for advisory repository snapshots.
 - Agent Loop Bridge: `docs/Factory/Harnesses/AGENT_LOOP_BRIDGE.md` and `scripts/agent_loop_bridge_validate.py` for review-only structured handoffs.

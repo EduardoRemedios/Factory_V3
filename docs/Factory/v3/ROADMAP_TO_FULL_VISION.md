@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.41
+v1.42
 
 ## Change Log
+- v1.42 (2026-06-10): Added the research-only anchor registry as a pointer-first orientation aid and refreshed the Phase 4 POC boundary note through Mission 020.
 - v1.41 (2026-06-09): Recorded sponsor approval of final POC eval: `PASS_NAMED_POC`, 20/22, operator-friction score `1`, for the named synthetic-first private POC scope.
 - v1.40 (2026-06-09): Recorded final POC eval re-run recommendation: `PASS_NAMED_POC`, 20/22, pending sponsor approval, after evidence through Mission 020.
 - v1.39 (2026-06-09): Recorded POC Mission 020 private Tailscale deployment smoke completion through Tailscale Serve MagicDNS, with Serve reset and rollback evidence.
@@ -76,6 +77,7 @@ Current state:
 - V3 has a strategic mission-formation direction note plus initial research-stage repo skills for discovery/challenge mission formation. The skills have dry-run trial evidence only; they do not approve new profiles, recommended V3 intake, or non-coding execution.
 - V3 has a strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority. It is roadmap context only and does not approve unattended execution, production actions, runtime authority, or new profiles.
 - V3 has a research-only mission-health roadmap lane for future value-aware continuation judgment. No mission-health schema, validator, router, gate, runtime-control power, or required checkpoint behavior is approved.
+- V3 has a research-only anchor registry for pointer-first orientation across approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, or replacement evidence.
 - Phase 1 real-project trial evidence has reached decision-review readiness: 5 trial records, 2 fallback/pre-envelope trials, 3 completed happy-path trials across Harmony and Temper, and an owner waiver for the non-author user trial requirement in a solo AI-native development context.
 - V3 does not yet have persistent mission state, enforced authority leases, structured telemetry, dynamic governance routing, continuous verification, capability profiling, or replayable execution graphs.
 - This plan does not authorize promotion beyond the already approved optional `V3-OP-001` profile.
@@ -306,7 +308,7 @@ Required evidence:
 - golden fixture expansion, Status: initial synthetic `V3-P4-*` operational-readiness fixtures exist.
 - real-run result corpus, Status: three happy-path docs-only result summaries, two approved negative-case clean non-events with `NO_TELEMETRY`, one clarification-before-edit signal with `NO_TELEMETRY`, one read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and one telemetry-backed verification-halt clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`.
 - false-positive and false-negative rollup, Status: rollup shape is planned; first real adjudication notes exist for the initial NL-pilot wording repair, but evidence remains too narrow and happy-path-heavy for thresholds.
-- negative-case opportunity register, Status: research-only register exists; `P4-NEG-OPP-005` and `P4-NEG-OPP-002` were executed as clean non-events, `P4-NEG-OPP-001` produced a clarification-before-edit signal with `NO_TELEMETRY`, `P4-NEG-OPP-006` produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and a `P4-NEG-OPP-002` follow-up produced a telemetry-backed clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`. Remaining evidence gaps include failed-verification halt, fallback, recovery, stale reentry, and routing-threshold evidence for Factory_V3 real-run corpus work; the separate standalone POC has now narrowed halt, recovery, seeded stale reentry, and seeded fallback/no-go through Missions 015-018.
+- negative-case opportunity register, Status: research-only register exists; `P4-NEG-OPP-005` and `P4-NEG-OPP-002` were executed as clean non-events, `P4-NEG-OPP-001` produced a clarification-before-edit signal with `NO_TELEMETRY`, `P4-NEG-OPP-006` produced a read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, and a `P4-NEG-OPP-002` follow-up produced a telemetry-backed clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`. Remaining evidence gaps include failed-verification halt, fallback, recovery, stale reentry, and routing-threshold evidence for Factory_V3 real-run corpus work; the separate standalone POC has narrowed failed-verification halt, bounded recovery, seeded stale reentry, seeded fallback/no-go, and private deployment smoke through Missions 015-020, but that POC evidence transfers only through a separately approved Factory V3 decision.
 - advisory threshold discussion for later routing study, Status: planning-only and non-operational.
 
 Promotion gate:

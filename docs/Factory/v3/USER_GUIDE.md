@@ -1,9 +1,10 @@
 # Factory V3 User Guide
 
 ## Version
-v1.3
+v1.4
 
 ## Change Log
+- v1.4 (2026-06-10): Updated the Phase 1 trial source from the former starter-kit repository to this dedicated Factory V3 repository and added the anchor registry as an optional orientation aid.
 - v1.3 (2026-05-24): Clarified thread-local mission-envelope use when authorized file scope excludes Factory artifacts.
 - v1.2 (2026-05-24): Clarified that unchanged placeholders in the Phase 1 trial prompt are a pre-envelope fallback trigger.
 - v1.1 (2026-05-24): Added pre-envelope fallback guidance and a Phase 1 trial prompt for ordinary adopting repositories.
@@ -15,6 +16,8 @@ Operational for optional `V3-OP-001 Bounded Code Change` use only.
 Factory v2 remains supported and available as fallback. Factory v3 is not the default Factory mode.
 
 This guide is based on the approved research evidence and remains non-enforcing for required repository gates.
+
+For repo orientation before selecting a profile or preparing a decision pack, use `docs/Factory/v3/ANCHOR_REGISTRY.md` as a pointer-first map. The registry is not approval and does not replace the source docs or evidence paths it references.
 
 ## What V3 Is For
 Use `V3-OP-001` when the work is already bounded enough for Codex to execute with a compact mission envelope.
@@ -97,7 +100,7 @@ Replace every placeholder before submitting this as an execution request. If `<d
 Use Factory V3 profile V3-OP-001 if eligible.
 
 Factory source:
-https://github.com/EduardoRemedios/factory-starter-kit
+https://github.com/EduardoRemedios/Factory_V3
 
 Context:
 I am running a Phase 1 V3 real-project trial. V3 is optional and bounded. Factory V2 remains the fallback. Do not make V3 the default, do not add required CI gates, and do not create broad governance infrastructure.

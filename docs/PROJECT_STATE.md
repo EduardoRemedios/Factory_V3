@@ -1,6 +1,6 @@
 # PROJECT_STATE.md - Factory V3 State
 
-> Last updated: 2026-06-09 (sponsor-approved final POC eval update)
+> Last updated: 2026-06-10 (anchor registry and doc-consistency update)
 
 ## What Exists
 
@@ -8,6 +8,7 @@
 - Factory V2 process docs, templates, scripts, and helper fixtures are present in this repository as temporary build-support scaffolding for V3 development work.
 - Optional operational use is approved only for `V3-OP-001 Bounded Code Change`.
 - V3 docs, templates, trials, evidence, advisory scripts, and deterministic fixtures are present under this repository.
+- The V3 anchor registry now exists at `docs/Factory/v3/ANCHOR_REGISTRY.md` as a research-only, pointer-first orientation aid for approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, promotion evidence, or a replacement for source records.
 - Phase 3 telemetry/replay now has a fixture-first advisory replay validator, deterministic fixtures, three real advisory telemetry pilot logs under `docs/Factory/v3/telemetry/pilots/`, and an evidence review at `docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW.md`.
 - Phase 4 eval expansion has started. `docs/Factory/v3/PHASE4_EVAL_EXPANSION_PLAN.md`, `docs/Factory/v3/templates/V3_HARNESS_CAPABILITY_PROFILE_TEMPLATE.md`, and synthetic `V3-P4-*` operational-readiness fixtures now exist.
 - Phase 4 real-run corpus capture planning artifacts now exist at `docs/Factory/v3/PHASE4_REAL_RUN_CORPUS_CAPTURE_PLAN.md` and `docs/Factory/v3/templates/V3_REAL_RUN_RESULT_SUMMARY_TEMPLATE.md`.
@@ -46,6 +47,7 @@
 - Phase 3 telemetry is conditionally recommended only as optional advisory shadow evidence for selected narrow `V3-OP-001` evidence missions. It is not required or gate-enforced.
 - Phase 4 remains research-only and non-enforcing. Three happy-path docs-only `V3-OP-001` real-run corpus records exist with `NO_TELEMETRY`, plus two approved negative-case candidates that produced clean non-events with `NO_TELEMETRY`, plus one clarification-before-edit signal with `NO_TELEMETRY`, plus one read-only dynamic/parallel summary-export signal with `NO_TELEMETRY`, plus one telemetry-backed verification-halt clean non-event with `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`; they narrow clarification, summary-export, and selected telemetry replay evidence gaps but do not close fallback, recovery, or routing-threshold gaps and do not support routing, reduced governance, required gates, default-mode behavior, dynamic-workflow execution by default, V3 promotion, or V2 build-support removal.
 - Mission Health and Continuation Judgment remains a research-only roadmap lane. It does not approve schema changes, validators, gates, routing authority, runtime-control power, required checkpoint fields, default-mode behavior, or operational mission-health requirements.
+- The anchor registry remains research-only and non-enforcing. It does not approve execution, promotion, required gates, runtime authority, real-data use, live integrations, deployment, or V2 build-support removal.
 
 ## Verification
 

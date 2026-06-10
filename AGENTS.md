@@ -14,10 +14,11 @@ Purpose:
 6. `docs/Factory/Spec/STAGE_CONTRACTS.md`
 7. `docs/Factory/v3/README.md`
 8. `docs/Factory/v3/ROADMAP_TO_FULL_VISION.md`
-9. `docs/Factory/v3/USER_GUIDE.md`
-10. `docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md`
-11. `docs/Factory/EXTERNAL_GOVERNANCE_KERNEL_BOUNDARY.md`
-12. Current V3 evidence under `docs/Factory/runs/` when a task references a run, decision, or profile.
+9. `docs/Factory/v3/ANCHOR_REGISTRY.md`
+10. `docs/Factory/v3/USER_GUIDE.md`
+11. `docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md`
+12. `docs/Factory/EXTERNAL_GOVERNANCE_KERNEL_BOUNDARY.md`
+13. Current V3 evidence under `docs/Factory/runs/` when a task references a run, decision, or profile.
 
 ## 2) Canonical V2 Commands
 - Knowledge lint preflight: `bash scripts/knowledge_lint.sh`
