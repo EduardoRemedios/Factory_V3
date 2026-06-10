@@ -1,0 +1,159 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_020_interrupt_transport_trial",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_020_interrupt_transport_trial.json",
+    "source_closeout_reference": "Interrupt-transport trial TRANSPORT_TRIAL_20260610; envelope, mission state, and both interrupt records under docs/Factory/v3/ladder/transport_trial/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "eec7c28",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Execute the sponsor-approved live interrupt-transport trial: pre-mission delivery test, one answered Tier 3 round-trip (HDI-TT-001, rung-1 adjudication), one deliberately timed-out interrupt reaching safe-hold and clean halt (HDI-TT-002, rung naming), and a reentry session resolving the open interrupt and closing out.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/transport_trial/TRIAL_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/ladder/rung1/RUNG1_MISSION_STATE.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_MISSION_STATE.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_INTERRUPT_HDI_TT_001.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_INTERRUPT_HDI_TT_002.md",
+      "docs/Factory/v3/mission_records/MR_20260610_020_interrupt_transport_trial.json"
+    ],
+    "forbidden_scope": [
+      "no transport beyond the named Claude Code notification surface",
+      "no Telegram bot, token, polling, or webhook",
+      "no validator, fixture, template, or skill changes",
+      "no credential use",
+      "no unattended continuation past safe-hold",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "delivery test fails twice",
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_MISSION_STATE.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_INTERRUPT_HDI_TT_001.md",
+      "docs/Factory/v3/ladder/transport_trial/TRIAL_INTERRUPT_HDI_TT_002.md",
+      "docs/Factory/v3/mission_records/MR_20260610_020_interrupt_transport_trial.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after the reentry session applied HDI-TT-002 Option A; results recorded below. Reentry began with git status scope verification showing only envelope-authorized files in the working tree."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only trial with no new dependencies, transport code, or live integrations beyond the named harness notification surface.",
+        "The trial passes its own pre-written criteria: both interrupt paths produced complete, transport-independent replayable records, and the mission halted cleanly rather than continuing past an unanswered Tier 3 decision.",
+        "The mid-trial halt is a designed outcome recorded honestly, not a failure; reason code reflects the deliberate timeout leg."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Safe-hold was entered exactly at the named timeout, with no file changes during safe-hold beyond the timeout record, checkpoint, and halt note.",
+        "Reentry verified scope via git status before resuming and resolved the open interrupt before any further change."
+      ]
+    },
+    "friction_notes": [
+      "Phone-surface round-trip remains untested: Remote Control was inactive throughout, so delivery reached desktop only. Decision-pack evidence item 2 is partially satisfied; the phone round-trip is a named rung-2 follow-up requiring Remote Control connected before mission start.",
+      "Focus-based suppression means an attended sponsor never sees the notification surface at all; trial designs that want to exercise the notification path need the sponsor genuinely away from the terminal, which conflicts with same-session answering. The clean test of the full remote path needs a mission where the sponsor is instructed to leave the terminal."
+    ],
+    "false_positive_notes": [
+      "A V3-MR073 finding on this record's first draft is classified as an accepted true positive of schema semantics: halt.halted describes the terminal state, and this mission completed. The designed mid-mission safe-hold halt (HDI-TT-002 timeout) is recorded in TRIAL_MISSION_STATE.md CP3 and the interrupt record, not in the terminal flag. Design note: the schema may eventually want an interim-halt event field for missions that halt and resume within one record."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "The no-response safe-hold rule worked as specified on its first controlled exercise: timeout recorded as outcome, no inferred answer, checkpoint, freeze, clean halt, reentry resolution.",
+    "Vendor notification surfaces are attention-aware (focus suppression, Remote Control gating); interrupt records should always capture the verbatim delivery result because the surface that carried the question is runtime state the mission does not control.",
+    "Using genuinely pending sponsor decisions as trial interrupt content produced real roadmap value (rung-1 adjudication, naming rule) instead of synthetic throwaway questions; future trials should reuse this pattern."
+  ]
+}

@@ -1,9 +1,11 @@
 # Factory V3 Duration Ladder Plan
 
 ## Version
-v0.1
+v0.3
 
 ## Change Log
+- v0.3 (2026-06-10): Added the naming-and-sizing rule per sponsor decision `HDI-TT-002`: hour-based rung names stay as the human-readable headline; measured pass criteria are budget-and-waypoint classes.
+- v0.2 (2026-06-10): Recorded rung 1 as passed for mechanics (mission `LADDER_RUNG1_20260610`, sponsor adjudication `HDI-TT-001`); the duration-stress burden shifts explicitly to rung 2.
 - v0.1 (2026-06-10): Initial three-rung duration ladder (roughly 1 hour, 2 hours, 4 hours) supplying the trial evidence named in `V3_OP_003_DECISION_PACK.md`.
 
 ## Status
@@ -14,6 +16,9 @@ This document does not approve live transport use (see `INTERRUPT_TRANSPORT_TRIA
 ## Purpose
 No local mission has run at multi-hour scale. The ladder converts "can V3 govern a 4-hour mission" from a claim into three increasingly demanding, separately approved trials, each judged against the fixed criteria in `V3_OP_003_DECISION_PACK.md`. The expensive failure modes (confident drift, budget blowout, unanswered interrupts, context exhaustion) are cheaper to meet for the first time at one hour than at four.
 
+## Naming And Sizing Rule (per `HDI-TT-002`, 2026-06-10)
+Hour-based rung names remain the human-readable headline only. Each rung's mission envelope must state its measured pass criteria as budget-and-waypoint classes: tool-call budget, waypoint count, and command-sourced elapsed time. Wall-clock compression below the headline hours is judged against those measured criteria, not the headline (and for rung 2 onward, genuine duration is itself a named criterion per `HDI-TT-001`).
+
 ## Common Requirements (All Rungs)
 - Attended start: sponsor Go per mission; sponsor reachable for Tier 3 decisions.
 - Waypoint structure, checkpoints, authored mission state, and budget discipline per `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `ADAPTIVE_MISSION_CONTROL.md`.
@@ -23,6 +28,8 @@ No local mission has run at multi-hour scale. The ladder converts "can V3 govern
 - Closeout mission record per `MISSION_RECORD_DESIGN_V0.md`, with budget actuals versus plan from command-sourced timestamps and tool-call counts.
 
 ## Rung 1 — Roughly One Hour, This Repository
+
+Status: PASSED for mechanics (2026-06-10). Mission `LADDER_RUNG1_20260610` (evidence under `ladder/rung1/`, closeout `mission_records/MR_20260610_019_ladder_rung1_state_doc_consistency.json`) exercised all rung-1 mechanics cleanly but compressed to ~7 minutes wall clock; sponsor adjudication `HDI-TT-001` passed the rung as mechanics evidence and assigned the duration-stress burden to rung 2, whose pass criteria must include genuine duration.
 - Mission type: docs-and-fixtures work in `Factory_V3` decomposed into 3-5 waypoints (for example, a multi-document consistency pass with verification per document group).
 - New thing being tested: waypoint mechanics, checkpoint cadence, mission-state upkeep, and health-signal recording at a scale where failure is cheap.
 - Interrupts: simulated (file/thread-based) per the existing phased path; no live transport needed.
@@ -31,7 +38,7 @@ No local mission has run at multi-hour scale. The ladder converts "can V3 govern
 ## Rung 2 — Roughly Two Hours, POC Repository
 - Mission type: bounded POC feature or test-expansion work with 5-8 waypoints, in the standalone POC repo where halt/recovery/reentry evidence already lives.
 - New things being tested: duration doubling; one seeded Tier 3 interrupt over the live transport (requires the `INTERRUPT_TRANSPORT_TRIAL_PLAN.md` trial approved and passed first); reentry after a deliberate mid-mission pause.
-- Rung passes when: rung 1 criteria hold at duration, the live interrupt round-trip produced a complete record, and pause/reentry worked from authored artifacts alone.
+- Rung passes when: rung 1 criteria hold at duration, the live interrupt round-trip produced a complete record, and pause/reentry worked from authored artifacts alone. Per `HDI-TT-001`, this rung now carries the duration-stress burden explicitly: a run that compresses far below the duration band does not pass this rung regardless of mechanics.
 
 ## Rung 3 — Roughly Four Hours, POC Repository
 - Mission type: a real multi-waypoint build mission whose contract is drafted with the mission-formation skill and red-teamed with the challenge skill (both non-executing) before sponsor Go — this is the `V3-ANCHOR-005` live non-executing trial, folded in.
