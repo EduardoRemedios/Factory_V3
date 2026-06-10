@@ -1,9 +1,10 @@
 # Factory V3 User Guide
 
 ## Version
-v1.4
+v1.5
 
 ## Change Log
+- v1.5 (2026-06-10): Added the governance-boundaries pointer and a caution that the candidate `V3-OP-003` long-running profile is not usable.
 - v1.4 (2026-06-10): Updated the Phase 1 trial source from the former starter-kit repository to this dedicated Factory V3 repository and added the anchor registry as an optional orientation aid.
 - v1.3 (2026-05-24): Clarified thread-local mission-envelope use when authorized file scope excludes Factory artifacts.
 - v1.2 (2026-05-24): Clarified that unchanged placeholders in the Phase 1 trial prompt are a pre-envelope fallback trigger.
@@ -18,6 +19,10 @@ Factory v2 remains supported and available as fallback. Factory v3 is not the de
 This guide is based on the approved research evidence and remains non-enforcing for required repository gates.
 
 For repo orientation before selecting a profile or preparing a decision pack, use `docs/Factory/v3/ANCHOR_REGISTRY.md` as a pointer-first map. The registry is not approval and does not replace the source docs or evidence paths it references.
+
+For the full statement of what is and is not currently approved, read `docs/Factory/v3/GOVERNANCE_BOUNDARIES.md`.
+
+A candidate `V3-OP-003` long-running remote-interrupt profile exists in research form with a decision pack currently at `NO PROMOTION YET`. It is not usable for any mission; `V3-OP-001` remains the only approved optional profile.
 
 ## What V3 Is For
 Use `V3-OP-001` when the work is already bounded enough for Codex to execute with a compact mission envelope.

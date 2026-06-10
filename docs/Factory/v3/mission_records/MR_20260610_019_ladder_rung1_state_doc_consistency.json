@@ -1,0 +1,168 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_019_ladder_rung1_state_doc_consistency",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_019_ladder_rung1_state_doc_consistency.json",
+    "source_closeout_reference": "Duration-ladder rung-1 mission LADDER_RUNG1_20260610; envelope, mission state, checkpoints, and interrupt record under docs/Factory/v3/ladder/rung1/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "3b107ba",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Execute duration-ladder rung 1: bring the five state docs into consistency with the nine 2026-06-10 missions, exercising waypoints, checkpoints with all six mission-health signals, authored mission state, and one thread-based Tier 3 interrupt with full lifecycle.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/rung1/RUNG1_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/USER_GUIDE.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/ladder/rung1/RUNG1_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung1/RUNG1_MISSION_STATE.md",
+      "docs/Factory/v3/ladder/rung1/RUNG1_INTERRUPT_HDI_RUNG1_001.md",
+      "docs/Factory/v3/mission_records/MR_20260610_019_ladder_rung1_state_doc_consistency.json"
+    ],
+    "forbidden_scope": [
+      "no validator, fixture, template, or skill changes",
+      "no top-level README or GOVERNANCE_BOUNDARIES.md changes",
+      "no new approval or promotion language",
+      "no transport use",
+      "no POC-repo changes",
+      "no boundary weakening"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after sponsor-approved closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond authorized files",
+      "boundary or approval language weakened by any edit",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/USER_GUIDE.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/ladder/rung1/RUNG1_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung1/RUNG1_MISSION_STATE.md",
+      "docs/Factory/v3/ladder/rung1/RUNG1_INTERRUPT_HDI_RUNG1_001.md",
+      "docs/Factory/v3/mission_records/MR_20260610_019_ladder_rung1_state_doc_consistency.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Per-waypoint verification ran after WP2 and WP3. The WP2 run surfaced V3-A002 on the new mission-state file (missing research-only posture language); classified as accepted true positive, fixed, and re-verified clean. All closeout checks pass."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass_after_revision",
+        "classification": "accepted_true_positive_then_clean"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only consistency mission with no new dependencies or code paths; conditional ANCHOR_REGISTRY authorization went unused.",
+        "Tier 3 interrupt HDI-RUNG1-001 completed the full asked/answered/applied lifecycle: sponsor chose Option A (V3-OP-003 promotion as the next named operational-readiness decision), applied to three state docs with no plan delta.",
+        "All six mission-health signals were recorded with citations at each of three checkpoints; budget actuals came from date -u timestamps and tool-call counts, not estimates."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the envelope; no fallback trigger fired.",
+        "The pause at CP2 for the interrupt was the envelope-planned behavior, not a halt."
+      ]
+    },
+    "friction_notes": [
+      "Duration honesty: the mission completed in roughly 7 minutes wall clock and ~30 tool calls against a ~90-minute plan. Rung-1 mechanics (waypoints, checkpoints, signals, interrupt lifecycle, mission state) are fully exercised, but the run does not demonstrate behavior at one-hour duration. The sponsor should adjudicate at closeout whether this satisfies rung 1 or whether a genuinely longer mission re-runs the rung; the decision pack's ladder criteria care about mechanics and budget discipline, both of which were met, but elapsed-duration evidence remains thin.",
+      "Health-signal cost was 10-15 lines per checkpoint and acceptable; no signal was redundant at this scale."
+    ],
+    "false_positive_notes": [
+      "The V3-A002 finding on the mission-state file is classified as an accepted true positive.",
+      "Three V3-MR058 findings on this record's first draft are classified as accepted true positives of lint strictness: a directory-prefix authorized_files entry (docs/Factory/v3/ladder/rung1/) does not cover its files under exact matching; the record now lists the three files explicitly. The envelope's directory grant remains the human-readable authority; future records should expand directory grants to explicit paths."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the final advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "The envelope's Decision Plan (pre-naming the Tier 3 question and gating one waypoint on it) made the interrupt cheap and the answer immediately applicable; pre-planted decision points should be standard for ladder missions.",
+    "A structured in-session question surface produced a clean answer-source record; rung 2 should compare this against the live remote transport for record equivalence.",
+    "Harness execution speed compresses wall-clock duration far below human-paced estimates; ladder rung naming should shift from hours to budget-and-waypoint classes, or rung 2-3 missions need genuinely larger scope to produce duration stress."
+  ]
+}

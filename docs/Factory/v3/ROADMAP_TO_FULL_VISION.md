@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.42
+v1.43
 
 ## Change Log
+- v1.43 (2026-06-10): Recorded the governance and long-running-lane expansion (governance-boundaries split, mutable-harness-state principle, skill provenance policy, regulatory crosswalk, standing-authorization candidates, candidate `V3-OP-003` profile with decision pack at `NO PROMOTION YET`, mission-health vocabulary, interrupt-transport trial plan, duration ladder with rung 1 active) and updated the recommended next moves per sponsor decision `HDI-RUNG1-001` naming the `V3-OP-003` promotion decision as the next operational-readiness decision.
 - v1.42 (2026-06-10): Added the research-only anchor registry as a pointer-first orientation aid and refreshed the Phase 4 POC boundary note through Mission 020.
 - v1.41 (2026-06-09): Recorded sponsor approval of final POC eval: `PASS_NAMED_POC`, 20/22, operator-friction score `1`, for the named synthetic-first private POC scope.
 - v1.40 (2026-06-09): Recorded final POC eval re-run recommendation: `PASS_NAMED_POC`, 20/22, pending sponsor approval, after evidence through Mission 020.
@@ -78,6 +79,8 @@ Current state:
 - V3 has a strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority. It is roadmap context only and does not approve unattended execution, production actions, runtime authority, or new profiles.
 - V3 has a research-only mission-health roadmap lane for future value-aware continuation judgment. No mission-health schema, validator, router, gate, runtime-control power, or required checkpoint behavior is approved.
 - V3 has a research-only anchor registry for pointer-first orientation across approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, or replacement evidence.
+- V3 has a binding governance-boundaries statement (`GOVERNANCE_BOUNDARIES.md`), research-only evidence-integrity canon (`MUTABLE_HARNESS_STATE.md`, `SKILL_PROVENANCE_POLICY.md`), an advisory regulatory crosswalk marked for human review, and standing-authorization schema candidates; per-mission human Go remains the only approved authorization shape.
+- V3 has a candidate `V3-OP-003` long-running remote-interrupt profile with a decision pack at `NO PROMOTION YET`, a mission-health vocabulary, an interrupt-transport trial plan gated on separate sponsor approval, and a three-rung duration ladder; rung 1 is active as mission `LADDER_RUNG1_20260610`. The candidate profile is not usable for any mission.
 - Phase 1 real-project trial evidence has reached decision-review readiness: 5 trial records, 2 fallback/pre-envelope trials, 3 completed happy-path trials across Harmony and Temper, and an owner waiver for the non-author user trial requirement in a solo AI-native development context.
 - V3 does not yet have persistent mission state, enforced authority leases, structured telemetry, dynamic governance routing, continuous verification, capability profiling, or replayable execution graphs.
 - This plan does not authorize promotion beyond the already approved optional `V3-OP-001` profile.
@@ -614,9 +617,11 @@ AMC v0.2 status update (2026-06-04): timestamped checkpoint instrumentation is n
 
 Mission-record validator status update (2026-06-08): versioned advisory schema routing now covers the Factory V3 shadow shape, nested standalone POC records, nested standalone POC records with adaptive mission control, flat standalone POC records, and legacy flat POC migration warnings. Nested standalone POC safety-flag checks now reject separately governed real-data, live-integration, dependency-use, and non-synthetic claims when those optional flags appear. This remains advisory-only and does not approve required gates, routing, runtime-control power, default-mode behavior, real-data use, live integrations, dependency use, or profile promotion.
 
+Status update (2026-06-10): per sponsor decision `HDI-RUNG1-001` (rung-1 mission `LADDER_RUNG1_20260610`), the named next operational-readiness decision is now the candidate `V3-OP-003` promotion decision, taken against the pre-written criteria in `V3_OP_003_DECISION_PACK.md` once the duration-ladder and interrupt-transport evidence exists. The named POC scope is recorded as achieved-for-named-scope through Mission 020 and the `PASS_NAMED_POC` eval, with all exclusions intact; real-data boundary, Garmin, and Hermes remain separately governed lanes.
+
 The recommended next moves, in order:
 
-1. Make a separately named decision on the candidate `V3-OP-003` long-running remote-interrupt profile using Mission 012/013 evidence.
+1. Gather the five evidence items in `V3_OP_003_DECISION_PACK.md` through the duration ladder (rung 1 active, sponsor-approved 2026-06-10) and the separately approved interrupt-transport trial, then take the `V3-OP-003` promotion decision against the pre-written criteria.
 2. Real-data boundary mission, only if separately approved: use a safe manual-export or synthetic-to-real boundary exercise with explicit privacy, credential, retention, and rollback evidence.
 3. Mission-formation live trials: use the initial `factory-mission-formation` and `factory-challenge-mission` skills in real V3/Harmony conversations, recording at least one more-discovery route, one V2/heavier-planning route, and one bounded candidate V3 envelope route before recommending them as intake aids.
 4. Codex SDK/MCP orchestration spike: after live mission-formation skill trials exist, create a bounded research pack for programmatic Codex worker orchestration. Start with read-only discovery/challenge runs and record sandbox, thread, prompt, output, trace, interrupt, and closeout evidence. Do not treat this as approval for unattended execution or runtime authority.

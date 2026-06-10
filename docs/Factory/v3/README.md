@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.31
+v1.32
 
 ## Change Log
+- v1.32 (2026-06-10): Recorded the governance-boundaries split, mutable-harness-state principle, skill provenance policy, advisory regulatory crosswalk, standing-authorization schema candidates, candidate `V3-OP-003` profile with decision pack at `NO PROMOTION YET`, mission-health vocabulary, interrupt-transport trial plan, duration-ladder plan, and mission-record design v0.8/v0.9 model-identity and `same_commit` conventions.
 - v1.31 (2026-06-10): Added research-only anchor registry as a pointer-first cold-start map for approved profiles, candidate gates, evidence paths, and guardrails.
 - v1.30 (2026-06-05): Added initial research-stage repo skills for mission formation and challenge, with dry-run trial evidence.
 - v1.29 (2026-06-05): Added strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority.
@@ -81,6 +82,11 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide `CODEX_SDK_ORCHESTRATION_DIRECTION.md` as strategic context for possible Codex SDK, Codex MCP, and Agents SDK orchestration research where Codex is a worker runtime and Factory/Harmony remains the authority layer. This artifact is research-only and does not approve unattended execution or new profiles.
 - Provide initial research-stage repo skills `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`, plus dry-run trial evidence under `skill_trials/mission_formation/`. These skills are non-executing and do not approve V3 intake recommendation, new profiles, or autonomous execution.
 - Provide `ANCHOR_REGISTRY.md` as a research-only, pointer-first cold-start map across approved profiles, candidate gates, evidence paths, and guardrails. It does not authorize execution, promotion, routing, required gates, runtime authority, real-data use, deployment, live integrations, or V2 build-support removal.
+- Provide `GOVERNANCE_BOUNDARIES.md` as the binding statement of current approval boundaries, relocated from the top-level README on 2026-06-10 with no loss of force.
+- Provide `MUTABLE_HARNESS_STATE.md` and `SKILL_PROVENANCE_POLICY.md` as research-only evidence-integrity canon: model identity, skill versions, and credential references are mutable harness-resident state that mission records should pin or record; learned or unknown-provenance skills are quarantined from execution and verification until human promotion.
+- Provide `REGULATORY_CROSSWALK.md` as an advisory mapping from V3 artifacts to EU AI Act human-oversight and logging themes and ISO/IEC 42001 themes, marked for human review and making no compliance claims.
+- Provide standing-authorization schema candidates (`standing_authorization_grant`, `scheduled_wake_record`) in `SHADOW_SCHEMA_CANDIDATES.md` for future scheduled or ambient missions; per-mission human Go remains the only approved authorization shape.
+- Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, and `DURATION_LADDER_PLAN.md` as its evidence-gathering path. The candidate profile is not usable; ladder rungs and the transport trial each require their own sponsor Go.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -121,6 +127,15 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 ## Key Research Artifacts
 - `VISION.md`
 - `ANCHOR_REGISTRY.md`
+- `GOVERNANCE_BOUNDARIES.md`
+- `MUTABLE_HARNESS_STATE.md`
+- `SKILL_PROVENANCE_POLICY.md`
+- `REGULATORY_CROSSWALK.md`
+- `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md`
+- `V3_OP_003_DECISION_PACK.md`
+- `MISSION_HEALTH_VOCABULARY.md`
+- `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`
+- `DURATION_LADDER_PLAN.md`
 - `MISSION_FORMATION_DIRECTION.md`
 - `CODEX_SDK_ORCHESTRATION_DIRECTION.md`
 - `ROADMAP_TO_FULL_VISION.md`
