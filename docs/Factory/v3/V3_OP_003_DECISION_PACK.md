@@ -1,0 +1,61 @@
+# Factory V3 Decision Pack: V3-OP-003 Long-Running Remote-Interrupt Mission
+
+## Version
+v0.1
+
+## Change Log
+- v0.1 (2026-06-10): Initial decision pack with pre-written `PASS`, `CONDITIONAL PASS`, and `NO PROMOTION YET` criteria and a current assessment of `NO PROMOTION YET`.
+
+## Status
+Research-only and non-enforcing decision-preparation artifact. This pack promotes nothing; promotion requires the evidence below plus explicit human release approval per `PROMOTION_CRITERIA.md`. Writing the criteria before gathering the evidence is deliberate, so trial results are judged against fixed goalposts.
+
+## Decision Scope
+Whether `V3-OP-003` (see `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md`) may become an approved optional profile for attended long-running missions, in the same sense that `V3-OP-001` is approved: optional, not default, V2 fallback retained.
+
+Out of scope for this decision: unattended or scheduled operation, live messaging beyond the approved transport trial, credential use, real data, deployment, concurrency.
+
+## Evidence Held Today
+
+| Evidence | Source | What it shows | Limit |
+| --- | --- | --- | --- |
+| Checkpoint, interrupt, plan-delta, mission-state artifacts from POC Missions 012/013 | POC repo mission records | The adaptive-control artifact set works in real missions; tool-call counts beat estimated minutes (6-9x inflation observed) | Sub-hour scale; simulated interrupt surface |
+| Halt, recovery, stale-reentry, fallback/no-go evidence from POC Missions 015-018 | POC repo mission records | Halt and reentry discipline works when seeded | Seeded, not natural; not at duration |
+| Interrupt-transport spike | repo-root `RESEARCH_SPIKE_20260604_interrupt_transport_surfaces.md` | Vendor-native transport exists; V3's job is the governance record | No live transport trial run |
+| Adaptive mission control protocol | `ADAPTIVE_MISSION_CONTROL.md` v0.2 | Loop, tiers, budget discipline, checkpoint shape are defined | Research-only; never exercised at 4-hour scale |
+| Mutable-state and provenance canon | `MUTABLE_HARNESS_STATE.md`; `SKILL_PROVENANCE_POLICY.md` | Long-duration evidence can stay attributable across model swaps and skill use | New; untested in a long mission |
+
+## Evidence Required Before Decision
+
+1. Duration ladder completed per `DURATION_LADDER_PLAN.md`: at least one clean rung at each of roughly 1 hour, 2 hours, and 4 hours, each with full checkpoint series, mission state, budget actuals, and closeout record.
+2. Live interrupt-transport trial completed per `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, including at least one real Tier 3 round-trip and one exercised timeout reaching safe-hold.
+3. Mission-health signals (per `MISSION_HEALTH_VOCABULARY.md`) recorded at checkpoints in at least the 2-hour and 4-hour rungs.
+4. At least one natural (non-seeded) halt, fallback, or clarification event captured at duration — this also closes the long-open Phase 3 negative-case gap.
+5. False-positive and false-negative review over the ladder evidence, per `PROMOTION_CRITERIA.md` minimum inputs.
+
+## Pre-Written Outcome Criteria
+
+### PASS
+All five evidence items complete; the 4-hour rung closed out with zero unresolved authority, scope, or verification findings; safe-hold worked as specified when exercised; budget actuals within the envelope stop threshold; sponsor grants explicit release approval naming exact artifact paths.
+
+### CONDITIONAL PASS
+Evidence items 1-3 complete and the 4-hour rung clean, but item 4 (natural negative case) or item 5 (FP/FN review) outstanding; promotion limited to named mission types (for example docs-and-tests-only), with the outstanding items as written conditions carrying named follow-up missions and an expiry: conditions unmet after two further long-running missions revert the profile to candidate.
+
+### NO PROMOTION YET
+Any rung not yet run, any safe-hold or transport failure unresolved, any unresolved scope or verification finding at duration, or sponsor approval absent.
+
+## Current Assessment
+`NO PROMOTION YET` — none of the five required evidence items exists yet. This is the expected state at pack creation; the pack exists so the ladder runs against fixed criteria.
+
+## Decision Record (to be completed at decision time)
+```text
+Decision: PASS | CONDITIONAL PASS | NO PROMOTION YET
+Promotion level: (per PROMOTION_CRITERIA.md levels)
+Artifacts promoted:
+Evidence paths:
+Conditions (if CONDITIONAL PASS), each with follow-up mission and expiry:
+Known residual risks:
+Separate governance kernel dependency introduced: yes | no
+Runtime-kernel behavior introduced: yes | no
+Human approver:
+Date:
+```

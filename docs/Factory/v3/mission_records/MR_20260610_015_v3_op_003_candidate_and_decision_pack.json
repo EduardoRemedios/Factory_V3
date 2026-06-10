@@ -1,0 +1,162 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_015_v3_op_003_candidate_and_decision_pack",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_015_v3_op_003_candidate_and_decision_pack.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session executing the sponsor-approved long-running-mission gap plan; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "e3be994",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Draft the candidate V3-OP-003 long-running remote-interrupt profile and its decision pack with pre-written PASS, CONDITIONAL PASS, and NO PROMOTION YET criteria assessed at NO PROMOTION YET; add the same_commit convention to the mission-record design; update the V3-ANCHOR-004 row.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor agreement with the five-gap analysis and instruction to address the gaps in sequence starting with the next three or four bounded missions",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md",
+      "docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/mission_records/MR_20260610_015_v3_op_003_candidate_and_decision_pack.json"
+    ],
+    "forbidden_scope": [
+      "no profile approval or promotion",
+      "no live transport, messaging, or unattended execution approval",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the candidate profile, decision pack, design-doc convention, registry row, and README bullet",
+      "any wording implies the candidate profile is approved or usable",
+      "decision criteria are written to fit evidence already held rather than evidence required",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md",
+      "docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/mission_records/MR_20260610_015_v3_op_003_candidate_and_decision_pack.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory lint initially returned ADVISORY_WARN V3-A002 because the decision pack's status line lacked the non-enforcing phrase; the wording was corrected and all checks then passed. NL pilot, knowledge lint, and diff checks passed; mission-record lint run after this record was authored."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass_after_revision",
+        "classification": "accepted_true_positive_then_clean"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only change assembling existing canon (AMC v0.2, V3-OP-001 structure, mutable-state and provenance policies) into a candidate profile rather than inventing new machinery.",
+        "Decision criteria were written before any ladder evidence exists, fixing the goalposts; current assessment is honestly NO PROMOTION YET.",
+        "The no-response safe-hold rule is the only genuinely new mechanism and is specified as evidence discipline, not enforcement."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the named docs.",
+        "No approval, promotion, transport, or unattended-operation scope was added."
+      ]
+    },
+    "friction_notes": [
+      "The decision pack forward-references DURATION_LADDER_PLAN.md, INTERRUPT_TRANSPORT_TRIAL_PLAN.md, and MISSION_HEALTH_VOCABULARY.md, which are created by the companion missions in this same change cycle; if those missions were abandoned the references would dangle.",
+      "The V3-A002 advisory warning was a useful true positive: a decision pack is exactly the artifact where missing non-enforcing language would be most dangerous."
+    ],
+    "false_positive_notes": [
+      "The V3-A002 finding is classified as an accepted true positive, not a false positive."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the final advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Writing PASS/CONDITIONAL PASS/NO PROMOTION YET criteria before gathering evidence prevents goalpost drift and makes the eventual sponsor decision auditable.",
+    "CONDITIONAL PASS conditions need expiry semantics (revert to candidate if unmet) or conditions accumulate indefinitely.",
+    "The same_commit convention removes the hash-stamping follow-up commit; this record is its first use."
+  ]
+}

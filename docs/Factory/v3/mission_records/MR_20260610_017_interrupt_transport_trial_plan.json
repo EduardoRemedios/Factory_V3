@@ -1,0 +1,159 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_017_interrupt_transport_trial_plan",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_017_interrupt_transport_trial_plan.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session executing the sponsor-approved long-running-mission gap plan; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "e3be994",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Plan a narrow live trial of a vendor-native interrupt transport: one answered Tier 3 round-trip and one deliberate timeout exercising the no-response safe-hold rule, fully recorded and transport-independent, with trial execution gated on separate sponsor approval.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor agreement with the five-gap analysis and instruction to address the gaps in sequence starting with the next three or four bounded missions",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/INTERRUPT_TRANSPORT_TRIAL_PLAN.md",
+      "docs/Factory/v3/mission_records/MR_20260610_017_interrupt_transport_trial_plan.json"
+    ],
+    "forbidden_scope": [
+      "no live transport use, bot, token, polling, webhook, or messaging",
+      "no trial execution approval",
+      "no unattended or scheduled operation",
+      "no credential use",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the trial plan, registry read-first path, and README bullet",
+      "any wording implies live transport use is approved by the plan itself",
+      "the plan weakens any spike-era prohibition",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/INTERRUPT_TRANSPORT_TRIAL_PLAN.md",
+      "docs/Factory/v3/mission_records/MR_20260610_017_interrupt_transport_trial_plan.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory lint, NL pilot, knowledge lint, and diff whitespace checks passed on the first run after the edits; mission-record lint run after this record was authored."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only plan with no new dependencies, transport code, or live integration.",
+        "The plan preserves every spike-era prohibition and adds an explicit separate-approval gate naming transport, mission, window, and human.",
+        "Deliberate-timeout design means the safe-hold rule gets exercised under controlled conditions rather than discovered under real failure."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the trial plan, registry path, and README bullet.",
+        "No transport, credential, or unattended scope was added."
+      ]
+    },
+    "friction_notes": [
+      "The trial depends on vendor transport behavior (Remote Control delivery, push notifications) that V3 cannot pin; the plan treats transport failure as valid evidence to keep the trial honest under vendor churn.",
+      "Latency measurement requires command-sourced timestamps on both sides of a human answer; the deliver-to-answer interval includes human response time and must not be read as transport latency."
+    ],
+    "false_positive_notes": [
+      "No advisory findings were raised on this change."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Designing the timeout path as a deliberate trial step turns the scariest long-running failure mode (unanswered human) into rehearsed, recorded behavior.",
+    "Transport-independence of the interrupt record is the testable claim inherited from the spike; the trial operationalizes it as a pass criterion.",
+    "A failed delivery being valid evidence keeps incentives honest: the mission is graded on halting cleanly, not on the vendor behaving."
+  ]
+}

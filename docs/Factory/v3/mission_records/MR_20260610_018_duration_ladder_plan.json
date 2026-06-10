@@ -1,0 +1,159 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_018_duration_ladder_plan",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_018_duration_ladder_plan.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session executing the sponsor-approved long-running-mission gap plan; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "e3be994",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Plan the three-rung duration ladder (roughly 1, 2, and 4 hours) supplying the V3-OP-003 decision-pack evidence, with checkpoint-level telemetry, mission-health signals at every checkpoint, the live-transport prerequisite for rung 2, and the formation/challenge-skill contract drafting folded into rung 3 as the V3-ANCHOR-005 named candidate trial.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor agreement with the five-gap analysis and instruction to address the gaps in sequence starting with the next three or four bounded missions",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/mission_records/MR_20260610_018_duration_ladder_plan.json"
+    ],
+    "forbidden_scope": [
+      "no rung execution approval",
+      "no live transport use",
+      "no unattended or scheduled operation",
+      "no seeding events and relabeling them natural",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the ladder plan, registry rows, and README bullet",
+      "any wording implies a rung is approved or live transport may be used without its own gate",
+      "rung criteria are weakened to fit expected evidence",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/mission_records/MR_20260610_018_duration_ladder_plan.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory lint, NL pilot, knowledge lint, and diff whitespace checks passed on the first run after the edits; mission-record lint run after this record was authored."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only plan with no new dependencies or code paths; each rung requires its own envelope and sponsor Go.",
+        "The do-not-seed-and-relabel rule keeps the natural negative-case evidence honest even if it delays the decision pack.",
+        "Checkpoint-level telemetry is framed as a trial question rather than a settled answer, consistent with Phase 3 overhead findings."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the ladder plan, two registry row updates, and the README bullet.",
+        "No rung execution, transport, or promotion scope was added."
+      ]
+    },
+    "friction_notes": [
+      "Rung 2 has a hard dependency on the interrupt-transport trial passing first; if the transport trial stalls, the ladder stalls at rung 1, which the plan accepts rather than working around.",
+      "Rung 3's natural-interrupt requirement cannot be scheduled; the plan accepts that the negative-case gap may stay open after a clean rung 3."
+    ],
+    "false_positive_notes": [
+      "No advisory findings were raised on this change."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Each rung tests exactly one new hard thing on top of the previous rung (mechanics, then duration plus live interrupt, then full duration plus natural events); this isolation makes failures diagnosable.",
+    "Folding the V3-ANCHOR-005 skill trial into rung 3 contract drafting gives two lanes evidence from one mission without expanding execution authority.",
+    "Failed rungs as first-class evidence with a two-failure design-review rule prevents both rung-skipping and silent retry loops."
+  ]
+}
