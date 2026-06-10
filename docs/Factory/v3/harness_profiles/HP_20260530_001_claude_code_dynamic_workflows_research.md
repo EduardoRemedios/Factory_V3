@@ -1,9 +1,10 @@
 # V3 Harness Capability Profile: HP_20260530_001
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-06-10): Added official skills-based self-verification showcase as a second external-source signal, with operator-relayed video provenance, skill-version-pinning watchpoint, and skill-chain authority watchpoint; evidence band unchanged.
 - v0.1 (2026-05-30): Initial `insufficient_evidence` profile for Claude Code dynamic workflows based on external announcement review only.
 
 ## Status
@@ -23,8 +24,9 @@ Factory V3 is not promoted by this profile. Use this profile only as advisory co
 - Branch or revision: not tied to a local execution revision
 - Mission profile: no local mission; future candidates must be separately scoped, normally under `V3-OP-001 Bounded Code Change` only if eligible
 - Mission or run ID: not applicable
-- Evidence source: external announcement `https://claude.com/blog/introducing-dynamic-workflows-in-claude-code`; local plan `docs/Factory/v3/PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md`
-- Evidence date: 2026-05-30 review of 2026-05-28 announcement
+- Evidence source: external announcement `https://claude.com/blog/introducing-dynamic-workflows-in-claude-code`; official Claude Developers X post `https://x.com/ClaudeDevs/status/2061900434722496604` dated 2026-06-02; local plan `docs/Factory/v3/PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md`
+- Evidence provenance caveat: the 2026-06-02 post text and metadata were reported as fetched directly, but the attached video content was not independently viewed by the reviewing agent and is operator-relayed secondhand evidence from the sponsor.
+- Evidence date: 2026-05-30 review of 2026-05-28 announcement; 2026-06-10 review of 2026-06-02 official skills-based showcase signal.
 
 ## Scope Boundary
 - Work class: prospective Phase 4 harness capability research.
@@ -43,16 +45,18 @@ Factory V3 is not promoted by this profile. Use this profile only as advisory co
 - Network access: not locally observed.
 - External service access: not locally observed.
 - Known harness limitations: this repository has no local run evidence, no command evidence, no file-touch evidence, no interruption/reentry evidence, no token or cost measurement, no verification transcript, and no replayable dynamic-workflow artifact.
+- Skill-encoded verifier watchpoint: operator-relayed video evidence indicates Claude Code can package user-defined manual checks as reusable skills. A skill-encoded verifier is harness-resident mutable state outside the mission record; any future Factory mission using skill-encoded verification would need the skill identity and version pinned in the mission record before replay evidence could be trusted.
+- Skill-chain authority watchpoint: operator-relayed video evidence indicates skills can compose by invoking other skills, including chains that may include outward actions such as opening or subscribing to a PR, watching CI, or fixing CI failures. Under Factory semantics, skill composition must not launder authority; each composed link needs explicit mission scope and any downstream fan-out must be separately approved.
 
 ## Capability Observations
 Record observed behavior only. Do not generalize outside this profile.
 
 | Dimension | Observed Signal | Evidence Path | Limitation |
 | --- | --- | --- | --- |
-| Harness capability | External announcement describes dynamic planning, parallel subagents, result checking, progress persistence, and resume behavior. | `https://claude.com/blog/introducing-dynamic-workflows-in-claude-code`; `docs/Factory/v3/PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Not locally observed; vendor announcement is not Factory execution evidence. |
+| Harness capability | External sources describe dynamic planning, parallel subagents, result checking, progress persistence, resume behavior, skill composition where skills can invoke other skills, and fresh-context parallel review subagents. | `https://claude.com/blog/introducing-dynamic-workflows-in-claude-code`; `https://x.com/ClaudeDevs/status/2061900434722496604`; `docs/Factory/v3/PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Not locally observed; announcement and operator-relayed video summary are not Factory execution evidence. |
 | Execution reliability | No local Factory V3 execution observed. | Not applicable. | Cannot assess completion quality or reliability. |
 | Scope discipline | No local scope-bound mission observed. | Not applicable. | Parallel subagent scope discipline remains unmeasured. |
-| Verification quality | Announcement claims checking before results are folded in. | External announcement only. | No local command, test, or refutation evidence. |
+| Verification quality | Operator-relayed video evidence indicates manual verification steps can be encoded as reusable skills through `/skill-creator` and run after relevant changes before handoff; the relayed UI example included server preview, browser interaction, screenshot, console review, and performance trace checks. | `https://x.com/ClaudeDevs/status/2061900434722496604` | Not locally observed; video details are operator-relayed secondhand evidence, and no local command, test, or refutation evidence exists. |
 | Interruption recovery | Announcement claims progress can resume after interruption. | External announcement only. | No local pause/resume pilot. |
 | Evidence quality | Factory evidence requirements are proposed in the local research plan. | `docs/Factory/v3/PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | Proposed requirements are not yet tested against actual workflow outputs. |
 | False-positive behavior | No local finding stream observed. | Not applicable. | Cannot classify reviewer/refutation false positives. |
@@ -101,7 +105,7 @@ Allowed adjudication values:
 ## Advisory Evidence Band
 Chosen evidence band: `insufficient_evidence`
 
-Evidence band rationale: this profile is based on an external product announcement and a local research plan, not on a local Factory V3 run.
+Evidence band rationale: this profile is based on an external product announcement, a second official social-post signal with operator-relayed video details, and a local research plan, not on a local Factory V3 run.
 
 Limitations: no local command, diff, verification, interruption, resume, evidence-export, token, or cost behavior has been observed.
 
