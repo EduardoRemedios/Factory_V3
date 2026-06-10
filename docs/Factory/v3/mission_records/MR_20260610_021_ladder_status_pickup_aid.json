@@ -1,0 +1,143 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_021_ladder_status_pickup_aid",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_021_ladder_status_pickup_aid.json",
+    "source_closeout_reference": "End-of-day pickup aid authored at sponsor request; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "39d1633",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Write the ladder pickup aid (key steps, scoreboard, remaining gates) so work resumes cleanly tomorrow, and update the V3-ANCHOR-004 registry row with the day's local evidence per the same-cycle closeout rule.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor instruction in the Claude Code session: write key steps and remaining gates to a file for tomorrow, commit and push",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/mission_records/MR_20260610_021_ladder_status_pickup_aid.json"
+    ],
+    "forbidden_scope": [
+      "no new approvals, gates, or promotion language",
+      "no evidence duplication that replaces source records",
+      "no validator, fixture, template, or skill changes"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push (sponsor-approved)"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the pickup aid and registry row",
+      "the pickup aid becomes a second source of truth instead of pointer-first",
+      "unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/mission_records/MR_20260610_021_ladder_status_pickup_aid.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout; results recorded in the commit that carries this record."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only pointer-first pickup aid; evidence stays in source records.",
+        "Registry row updated in the same change cycle as the anchor status change, per the registry closeout rule."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the pickup aid, one registry row, and this record."
+      ]
+    },
+    "friction_notes": [
+      "The scoreboard duplicates pack-item status one level above the decision pack; acceptable for pickup cost, but the decision pack remains the source of truth and the scoreboard must be updated or deleted when the pack changes."
+    ],
+    "false_positive_notes": [
+      "No advisory findings were raised on this change."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "A per-lane pickup aid (status, scoreboard, gates-in-order, parked follow-ups, read-first) is a cheap session-boundary artifact that complements the registry's repo-wide orientation."
+  ]
+}
