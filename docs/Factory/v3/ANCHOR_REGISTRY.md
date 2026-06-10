@@ -1,9 +1,13 @@
 # Factory V3 Anchor Registry
 
 ## Version
-v0.2
+v0.6
 
 ## Change Log
+- v0.6 (2026-06-10): Added `V3-ANCHOR-010` for the advisory regulatory-crosswalk lane.
+- v0.5 (2026-06-10): Added `SKILL_PROVENANCE_POLICY.md` to the `V3-ANCHOR-008` read-first paths.
+- v0.4 (2026-06-10): Added `V3-ANCHOR-009` for the standing-authorization research lane.
+- v0.3 (2026-06-10): Added `V3-ANCHOR-008` for the evidence-integrity-under-mutable-harness-state lane.
 - v0.2 (2026-06-10): Replaced the mission-health placeholder evidence prose with `none_yet` and clarified that anchors without evidence artifacts must use an explicit placeholder marker.
 - v0.1 (2026-06-10): Initial pointer-first registry for V3 anchor points, promotion load ratings, read-first paths, and next named gates.
 
@@ -41,6 +45,9 @@ Use this file as a cold-start routing aid:
 | `V3-ANCHOR-005` | Mission formation and challenge skills | Level 0 research; possible future advisory intake aid | `research-only` | `MISSION_FORMATION_DIRECTION.md`; `.agents/skills/factory-mission-formation/SKILL.md`; `.agents/skills/factory-challenge-mission/SKILL.md` | `skill_trials/mission_formation/` | Run live non-executing trials before any recommendation | `PROMOTION_CRITERIA.md`; `NON_GOALS_AND_BOUNDARIES.md` | Execution authority, default intake, non-coding autonomous work, treating conversation as approval |
 | `V3-ANCHOR-006` | Codex SDK/MCP orchestration as governed worker runtime | Level 0 research | `research-only` | `CODEX_SDK_ORCHESTRATION_DIRECTION.md`; `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | `harness_profiles/HP_20260530_002_codex_subagent_workflows_research.md`; `harness_profiles/HP_20260601_004_codex_phase4_dynamic_evidence_export_candidate.md` | Start with read-only orchestration discovery/challenge evidence | `NON_GOALS_AND_BOUNDARIES.md`; `PROMOTION_CRITERIA.md` | Unattended execution, production actions, credential use, runtime-control power, hidden governance replacement |
 | `V3-ANCHOR-007` | Mission health and continuation judgment | Level 0 research lane | `research-only` | `ROADMAP_TO_FULL_VISION.md`; `PROMOTION_CRITERIA.md` | `none_yet` | Define advisory vocabulary before schema, validator, or gate proposals | `NON_GOALS_AND_BOUNDARIES.md`; `PROMOTION_CRITERIA.md` | Required checkpoint fields, routing authority, runtime-control power, schema promotion without evidence |
+| `V3-ANCHOR-008` | Evidence integrity under mutable harness state | Level 0 research principle | `research-only` | `MUTABLE_HARNESS_STATE.md`; `SKILL_PROVENANCE_POLICY.md`; `MISSION_RECORD_DESIGN_V0.md` | `harness_profiles/HP_20260530_001_claude_code_dynamic_workflows_research.md`; `mission_records/MR_20260610_010_readme_governance_boundaries_split.json` | Propose advisory validator and fixture support for model-identity and routing fields as a separately approved change | `NON_GOALS_AND_BOUNDARIES.md`; `PROMOTION_CRITERIA.md` | Required record fields without approval, validator enforcement, vendor-claim promotion without local evidence |
+| `V3-ANCHOR-009` | Standing authorization for future scheduled or ambient missions | Level 0 research lane | `research-only` | `SHADOW_SCHEMA_CANDIDATES.md`; `ADAPTIVE_MISSION_CONTROL.md`; repo-root `RESEARCH_SPIKE_20260604_interrupt_transport_surfaces.md` | `none_yet` | Refine grant and wake-record vocabulary and async-escalation semantics before any scheduled-execution proposal | `NON_GOALS_AND_BOUNDARIES.md`; `PROMOTION_CRITERIA.md` | Scheduled or unattended execution, live messaging automation, credential use, cron or scheduler wiring, runtime-control power |
+| `V3-ANCHOR-010` | Advisory regulatory crosswalk (EU AI Act / ISO 42001 themes) | Level 0 advisory orientation document | `research-only`; marked for human review | `REGULATORY_CROSSWALK.md` | `none_yet` | Human/legal review of crosswalk rows before any external use | `NON_GOALS_AND_BOUNDARIES.md`; `docs/Factory/ProductOwner/PO_ROLE_DEFINITION.md` | Compliance or certification claims, conformity assertions, external publication without human review, regulated-action scope |
 
 ## Closeout Rule
 When evidence changes an anchor's status, update this registry in the same change cycle as the source state docs or explicitly record why no registry update was needed.

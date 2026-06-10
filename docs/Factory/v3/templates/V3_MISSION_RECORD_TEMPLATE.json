@@ -25,6 +25,10 @@
     "user_or_reviewer": "",
     "coding_harness": "",
     "model": "not_recorded",
+    "model_routing": {
+      "router_enabled": "yes | no | unknown",
+      "observed_models": []
+    },
     "objective": "",
     "envelope": {
       "mode": "not_created_pre_envelope_fallback | thread_local | file_artifact",

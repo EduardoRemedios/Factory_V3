@@ -1,9 +1,10 @@
 # Factory v3 Shadow Schema Candidates
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-06-10): Added `standing_authorization_grant` and `scheduled_wake_record` candidate shapes for future scheduled or ambient missions, and added `grant_id` to `revocation_request`; per-mission human Go remains the only approved authorization shape.
 - v0.1 (2026-05-18): Initial prose-only shadow schema candidates for Factory v3 research.
 
 ## Status
@@ -57,8 +58,20 @@ They must not be placed under `docs/Factory/Spec/` until promoted by explicit re
 - Enforcement status: not enforced.
 
 ### revocation_request
-- Candidate fields: `request_id`, `mission_id`, `lease_id`, `revoked_scope`, `reason`, `effective_at`, `approval_ref`.
+- Candidate fields: `request_id`, `mission_id`, `lease_id`, `grant_id`, `revoked_scope`, `reason`, `effective_at`, `approval_ref`.
 - Required boundary: repository authority withdrawal only; no runtime lease revocation.
+- Enforcement status: not enforced.
+
+### standing_authorization_grant
+- Candidate fields: `grant_id`, `sponsor`, `granted_mission_classes`, `allowed_paths`, `allowed_commands`, `verification_requirements`, `issued_at`, `expires_at`, `renewal_conditions`, `suspension_conditions`, `revocation_ref`, `per_wake_checkpoint_rules`, `async_escalation_path`, `evidence_path`.
+- Motivation: vendor harnesses now offer scheduled agent runs where no human is present at mission start; a per-mission envelope cannot describe authorization that is granted before the mission exists. A standing grant names bounded, expiring, revocable authorization given in advance, with escalation that reaches a human asynchronously.
+- Required boundary: research vocabulary only. Per-mission human Go remains the only approved authorization shape; no scheduled, unattended, or ambient execution is approved by this candidate, and any future use requires its own profile, evidence, and explicit human release approval.
+- Enforcement status: not enforced.
+
+### scheduled_wake_record
+- Candidate fields: `wake_id`, `grant_id`, `schedule_ref`, `wake_time`, `mission_envelope_ref`, `decision_state`, `escalation_event_refs`, `halt_or_completion_ref`, `evidence_path`.
+- Motivation: each unattended wake of a future scheduled worker would need its own replayable evidence record tying the wake back to the standing grant that authorized it.
+- Required boundary: research vocabulary only; no scheduler, cron wiring, live messaging, or unattended execution is approved by this candidate.
 - Enforcement status: not enforced.
 
 ### rollback_request

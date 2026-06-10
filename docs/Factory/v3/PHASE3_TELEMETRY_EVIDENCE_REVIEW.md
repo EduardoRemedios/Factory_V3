@@ -1,9 +1,10 @@
 # Factory v3 Phase 3 Telemetry Evidence Review
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-06-10): Retired the v0.1 acceptability of missing model identity for new records, following `MUTABLE_HARNESS_STATE.md`; existing pilot records remain valid historical evidence with the gap explicit.
 - v0.1 (2026-05-26): Initial review after three real advisory telemetry pilots.
 
 ## Status
@@ -69,7 +70,8 @@ The logs store summaries, labels, exit codes, and evidence references. They do n
 
 Assessment:
 - The summary-only payload pattern is suitable for continued advisory pilots.
-- Missing timestamps and model identity are acceptable for current research evidence.
+- Missing timestamps remain acceptable for current research evidence.
+- The v0.1 acceptability of missing model identity is retired as of 2026-06-10: new mission records should record model identity per `MISSION_RECORD_DESIGN_V0.md` v0.8 and `MUTABLE_HARNESS_STATE.md`. The three Phase 3 pilot records keep their `not_recorded` values as valid historical evidence with the gap explicit.
 - If later phases need elapsed-time measurement or harness profiling, those fields require separate approval and minimization review.
 
 ## False-Positive And False-Negative Classification

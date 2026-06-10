@@ -1,0 +1,159 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_013_skill_provenance_policy",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_013_skill_provenance_policy.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session executing the sponsor-approved four-mission strengthening plan; commit hash to be recorded at commit time",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "d2c534d",
+    "commit_after": "pending_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Promote the HP_20260530_001 skill watchpoints into a research-only skill provenance policy with authored/vendor_supplied/learned/unknown classes and pinning, quarantine-until-promoted, and non-laundering review rules, registered under V3-ANCHOR-008.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor instruction in the Claude Code conversation approving execution of steps 1-4 of the strengthening plan, with step 4 covering learned-skill provenance",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/SKILL_PROVENANCE_POLICY.md",
+      "docs/Factory/v3/mission_records/MR_20260610_013_skill_provenance_policy.json"
+    ],
+    "forbidden_scope": [
+      "no skill execution approval",
+      "no changes to the .agents/skills/ skill files",
+      "no required record fields or enforcement",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the policy doc, registry read-first paths, and README scope bullet",
+      "any wording implies skill execution, enforcement, promotion, or routing is approved",
+      "the policy text contradicts the HP_20260530_001 watchpoints it promotes",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/SKILL_PROVENANCE_POLICY.md",
+      "docs/Factory/v3/mission_records/MR_20260610_013_skill_provenance_policy.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory lint, NL pilot, knowledge lint, and diff whitespace checks passed on the first run after the edits; mission-record lint run after this record was authored."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only policy with no new dependencies, code paths, or skill-file changes.",
+        "The policy restates existing observed watchpoints as review rules instead of inventing untested controls; quarantine is named as review discipline, not a technical control.",
+        "skills_relied_on template support is listed as a named follow-up rather than silently added, keeping this mission's template surface untouched."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the policy doc, one registry read-first addition, and one README scope bullet.",
+        "No skill execution, enforcement, or promotion scope was added."
+      ]
+    },
+    "friction_notes": [
+      "The policy's evidence base is operator-relayed external video evidence plus vendor documentation; no local skill-encoded verification trial exists yet, so rules 2 and 3 are untested against real skill behavior.",
+      "Provenance class unknown defaulting to learned is conservative and may overweight quarantine for benign vendor skills with poor metadata."
+    ],
+    "false_positive_notes": [
+      "No advisory findings were raised on this change."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Promoting harness-profile watchpoints into named policy is a cheap reusable pattern: observe in a profile first, generalize only after the observation is recorded.",
+    "Provenance classes plus a quarantine rule give the sponsor a vocabulary for refusing unreviewed capability without needing any enforcement machinery.",
+    "A local bounded trial of skill-encoded verification is the natural first evidence mission for this lane."
+  ]
+}

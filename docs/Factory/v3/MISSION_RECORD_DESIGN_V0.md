@@ -1,9 +1,10 @@
 # Factory v3 Mission Record Design v0
 
 ## Version
-v0.7
+v0.8
 
 ## Change Log
+- v0.8 (2026-06-10): Added model-identity recording guidance and an optional `model_routing` template field under the mutable-harness-state principle; new records should record model identity when the harness exposes it, retiring reliance on the Phase 3 missing-model-identity acceptability note.
 - v0.7 (2026-06-08): Added nested standalone POC safety-flag checks for optional real-data, synthetic-only, live-integration, and dependency-use claims, with malformed fixture coverage.
 - v0.6 (2026-06-06): Added optional passive evidence replay mode for mission-record claims, including record-file filtering, evidence-root resolution, file/reference checks, JSON parse checks, checkpoint/interrupt lookup, and external verification evidence checks.
 - v0.5 (2026-06-05): Added advisory schema-version routing for Factory V3 shadow records, standalone POC nested records, standalone POC adaptive mission control records, standalone POC flat records, and legacy flat POC migration warnings.
@@ -94,6 +95,20 @@ Phase 1 produced `pre_envelope_fallback` and `completed_with_v3` records. Phase 
 - A mission record must not expand authorized files during execution.
 - A mission record must identify missing evidence with explicit `not_recorded` or `not_run` values.
 - A mission record must preserve whether V2 fallback was used or retained.
+- A mission record should record model identity when the harness exposes it; `not_recorded` remains valid only where the harness does not expose model identity, and the gap stays explicit.
+
+## Model Identity And Mutable Harness State
+
+`MUTABLE_HARNESS_STATE.md` names model identity, skill state, and credential state as harness-resident state that can mutate independently of the mission record.
+
+For records, the advisory guidance is:
+
+- Record the `model` value when the harness exposes it (for example a model ID string).
+- When vendor model routing or automatic model selection is enabled, use the optional `model_routing` template object to mark routing as enabled and list the observed model set when known.
+- Records authored before v0.8, and records from harnesses that hide model identity, remain valid with `not_recorded`; nothing here invalidates existing evidence.
+- Any skill relied on for verification should have its identity and version named in the record, per the `HP_20260530_001` watchpoints.
+
+Advisory validator support for these fields is a named follow-up requiring a separately approved change; this section adds no validator behavior.
 
 ## Advisory Validator
 

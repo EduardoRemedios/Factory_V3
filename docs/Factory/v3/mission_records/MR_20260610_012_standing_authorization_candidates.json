@@ -1,0 +1,160 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_012_standing_authorization_candidates",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_012_standing_authorization_candidates.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session executing the sponsor-approved four-mission strengthening plan; commit hash to be recorded at commit time",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "d2c534d",
+    "commit_after": "pending_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Add research-only standing_authorization_grant and scheduled_wake_record candidate shapes to the shadow schema candidates, extend revocation_request with grant_id, and register the standing-authorization lane as V3-ANCHOR-009, without approving any scheduled, unattended, or ambient execution.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor instruction in the Claude Code conversation approving execution of steps 1-4 of the strengthening plan, with step 2 covering standing-authorization schema candidates",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/SHADOW_SCHEMA_CANDIDATES.md",
+      "docs/Factory/v3/mission_records/MR_20260610_012_standing_authorization_candidates.json"
+    ],
+    "forbidden_scope": [
+      "no scheduled, unattended, or ambient execution approval",
+      "no scheduler, cron, or live-messaging wiring",
+      "no machine-readable schema files",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no credential-use approval",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond prose candidate shapes and the registry row",
+      "any wording implies scheduled execution, unattended work, or live integration is approved",
+      "a candidate shape becomes a machine-readable schema file",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/SHADOW_SCHEMA_CANDIDATES.md",
+      "docs/Factory/v3/mission_records/MR_20260610_012_standing_authorization_candidates.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory lint, NL pilot, knowledge lint, and diff whitespace checks passed on the first run after the edits; mission-record lint run after this record was authored."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only prose candidates with no new dependencies, schema files, or code paths.",
+        "Both new candidate shapes carry explicit research-vocabulary-only boundaries and state that per-mission human Go remains the only approved authorization shape.",
+        "The anchor row uses none_yet evidence paths because no standing-grant evidence exists."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the shadow schema doc, registry row, and README scope bullet.",
+        "No scheduled execution, scheduler wiring, credential, or live-integration scope was added."
+      ]
+    },
+    "friction_notes": [
+      "The naming deliberately uses standing_authorization rather than standing_authority, following the MR_20260610_008 lesson where authority-flavored wording drew an accepted NL-pilot finding.",
+      "Vendor scheduled-run capability is announcement-grade external signal; the lane has no local evidence and the anchor row records that honestly with none_yet."
+    ],
+    "false_positive_notes": [
+      "No advisory findings were raised on this change."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "A standing grant differs from a mission envelope mainly by expiry, renewal, suspension, and async escalation; modeling it as a separate shape avoids overloading the envelope.",
+    "Tying each unattended wake to a wake record that references its grant keeps the one-mission-one-record replay property under future scheduled operation.",
+    "Extending revocation_request with grant_id was cheaper than inventing a separate grant-revocation shape."
+  ]
+}

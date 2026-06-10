@@ -1,0 +1,160 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_010_readme_governance_boundaries_split",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_010_readme_governance_boundaries_split.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session that performed the README restructure; commit hash to be recorded at commit time",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "d2c534d",
+    "commit_after": "pending_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "objective": "Restructure the repository README so vision and architecture lead, and move the Important Boundaries section unchanged in substance into a dedicated docs/Factory/v3/GOVERNANCE_BOUNDARIES.md that the README links once, without weakening or removing any boundary.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor instruction in the Claude Code conversation: split the README, vision and architecture up top, boundaries into a GOVERNANCE_BOUNDARIES.md that the README links once",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission rather than backfilled."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/GOVERNANCE_BOUNDARIES.md",
+      "docs/Factory/v3/mission_records/MR_20260610_010_readme_governance_boundaries_split.json"
+    ],
+    "forbidden_scope": [
+      "no boundary weakening, removal, or reinterpretation",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no real-data approval",
+      "no live integration approval",
+      "no deployment approval",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the README restructure and boundary relocation",
+      "any boundary statement loses force, scope, or precision in the move",
+      "a wording change implies approval, promotion, routing, enforcement, or runtime authority",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/GOVERNANCE_BOUNDARIES.md",
+      "docs/Factory/v3/mission_records/MR_20260610_010_readme_governance_boundaries_split.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Moving the boundary list under docs/Factory/v3 brought it inside the NL-pilot lint target for the first time; the pilot flagged V3-G009 on the runtime-authority bullet, which was corrected to `remain outside current approval and separately governed` with no loss of force, after which advisory lint, readiness eval, NL pilot, mission-record lint, knowledge lint, and diff whitespace checks all passed."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass_after_revision",
+        "classification": "accepted_true_positive_then_clean"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only change with no new dependencies or code paths.",
+        "All nineteen boundary bullets were relocated verbatim except the single V3-G009 wording correction, which strengthens rather than weakens the statement.",
+        "The README retains a one-paragraph approval-status summary and a single link to the relocated boundaries, so the front door still states that only V3-OP-001 is approved."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the README restructure and boundary relocation.",
+        "No promotion, required gate, routing, runtime authority, live integration, real-data, deployment, or V2-removal scope was added."
+      ]
+    },
+    "friction_notes": [
+      "Boundary language drafted in the README was never covered by the docs/Factory/v3 advisory lints; relocating it immediately surfaced a V3-G009 finding, which suggests other approval-adjacent prose living outside the lint target may carry unchecked wording risk.",
+      "This record was authored during the mission, addressing the backfill-quality friction noted in MR_20260610_008."
+    ],
+    "false_positive_notes": [
+      "The V3-G009 NL-pilot finding on the relocated runtime-authority bullet is classified as an accepted true positive, not a false positive."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the final advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Relocating governance prose into the linted docs/Factory/v3 tree gives boundary language advisory coverage it lacked in the README; future governance prose should default to living inside the lint target.",
+    "The model field is recorded as claude-fable-5 in this record, the first mission record to move off the not_recorded convention following the 2026-06-10 review of model-identity gaps under vendor model routing.",
+    "A single README link to a dedicated boundaries document keeps the front door vision-first while preserving one authoritative boundary source instead of two competing copies."
+  ]
+}

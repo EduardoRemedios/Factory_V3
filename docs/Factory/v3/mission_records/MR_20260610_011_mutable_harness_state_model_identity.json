@@ -1,0 +1,173 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_011_mutable_harness_state_model_identity",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_011_mutable_harness_state_model_identity.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session executing the sponsor-approved four-mission strengthening plan; commit hash to be recorded at commit time",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "d2c534d",
+    "commit_after": "pending_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Create the research-only mutable-harness-state principle naming model identity, skill state, and credential state as state that replay evidence must pin or record; add advisory model-identity recording guidance and an optional model_routing template field to the mission-record design; retire the Phase 3 acceptability of missing model identity for new records; register the lane as V3-ANCHOR-008.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor instruction in the Claude Code conversation approving execution of steps 1-4 of the strengthening plan, with step 1 covering mutable harness state and model identity",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md",
+      "docs/Factory/v3/MUTABLE_HARNESS_STATE.md",
+      "docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW.md",
+      "docs/Factory/v3/mission_records/MR_20260610_011_mutable_harness_state_model_identity.json",
+      "docs/Factory/v3/templates/V3_MISSION_RECORD_TEMPLATE.json"
+    ],
+    "forbidden_scope": [
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required record fields or enforcement",
+      "no invalidation of existing mission records or pilot evidence",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no credential-use approval",
+      "no real-data approval",
+      "no live integration approval",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the named docs and template",
+      "any wording implies required fields, enforcement, promotion, routing, or runtime authority",
+      "an external vendor claim is presented as local Factory evidence",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md",
+      "docs/Factory/v3/MUTABLE_HARNESS_STATE.md",
+      "docs/Factory/v3/PHASE3_TELEMETRY_EVIDENCE_REVIEW.md",
+      "docs/Factory/v3/mission_records/MR_20260610_011_mutable_harness_state_model_identity.json",
+      "docs/Factory/v3/templates/V3_MISSION_RECORD_TEMPLATE.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory lint, readiness eval, NL pilot, knowledge lint, and diff whitespace checks passed on the first run after the edits; mission-record lint run after this record was authored to confirm the optional model_routing field is accepted by the advisory schema route."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-and-template-only change with no new dependencies, validators, or code paths.",
+        "All new guidance is advisory; existing records and pilot evidence stay valid with gaps explicit rather than retroactively invalidated.",
+        "External vendor signals (model routing, vaults, skill systems) are labeled announcement-grade and explicitly excluded from counting as local Factory evidence."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the named principle doc, design doc, template, Phase 3 note, registry row, and README scope bullet.",
+        "No required fields, enforcement, promotion, routing, credential-use, or runtime scope was added."
+      ]
+    },
+    "friction_notes": [
+      "The optional model_routing template object has no advisory validator support yet; until the named follow-up lands, the field is recorded but unchecked.",
+      "Vendor routing means the model field may need to hold a set rather than a single value for routed harnesses; the template models this with observed_models but no local routed-harness evidence exists to test the shape."
+    ],
+    "false_positive_notes": [
+      "No advisory findings were raised on this change."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass; absence of validator coverage for model_routing is named as a follow-up rather than treated as a pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Pinning-or-recording mutable harness state is a single principle that covers model identity, skill versions, and credential references; naming it once avoided three disconnected field debates.",
+    "Retiring an earlier acceptability note by versioned change-log entry preserves the historical record while changing forward guidance, and is cheaper than schema migration.",
+    "The model_routing shape should be validated against a real routed-harness mission before any validator work hardens it."
+  ]
+}

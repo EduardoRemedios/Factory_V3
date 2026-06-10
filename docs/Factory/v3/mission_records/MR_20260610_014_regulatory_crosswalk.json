@@ -1,0 +1,160 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_014_regulatory_crosswalk",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_014_regulatory_crosswalk.json",
+    "source_closeout_reference": "Authored during the mission in the Claude Code session executing the sponsor-approved four-mission strengthening plan; commit hash to be recorded at commit time",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "d2c534d",
+    "commit_after": "pending_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Create an advisory regulatory crosswalk mapping V3 artifacts to EU AI Act Article 14/26 and ISO/IEC 42001 themes, with explicit no-compliance-claim status, every row marked for human review per the PO role definition, and the Article 26 six-month log-retention duty named as a design consideration; register the lane as V3-ANCHOR-010.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Sponsor instruction in the Claude Code conversation approving execution of steps 1-4 of the strengthening plan, with step 3 covering the regulatory crosswalk",
+      "not_created_reason": "Bounded docs-only change executed from a direct thread-local sponsor instruction; this shadow record was authored during the mission."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/REGULATORY_CROSSWALK.md",
+      "docs/Factory/v3/mission_records/MR_20260610_014_regulatory_crosswalk.json"
+    ],
+    "forbidden_scope": [
+      "no compliance, conformity, or certification claims",
+      "no high-risk classification opinion",
+      "no external publication approval",
+      "no regulated-action scope",
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond the crosswalk doc, registry row, and README scope bullet",
+      "any wording reads as a compliance, conformity, or certification claim",
+      "an assertion loses its marked-for-human-review status",
+      "verification reports an unresolved advisory finding"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "README.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/REGULATORY_CROSSWALK.md",
+      "docs/Factory/v3/mission_records/MR_20260610_014_regulatory_crosswalk.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory lint, NL pilot, knowledge lint, and diff whitespace checks passed on the first run after the edits; mission-record lint run after this record was authored."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only advisory crosswalk with no new dependencies or code paths.",
+        "Every correspondence row is marked for human review and the document names what it does not establish, satisfying the PO role constraint on regulatory assertions.",
+        "Regulatory dates (2026-08-02 application, six-month log retention) were verified against current EU AI Act sources during the planning conversation that preceded this mission."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside the crosswalk doc, registry row, and README scope bullet.",
+        "No compliance claim, classification opinion, or external-use approval was added."
+      ]
+    },
+    "friction_notes": [
+      "The crosswalk cites regulation themes from secondary research rather than clause-by-clause legal text review; the named human/legal review follow-up is load-bearing before any external use.",
+      "Several correspondence rows depend on artifacts created earlier the same day (mutable harness state, skill provenance), so the mapping is fresher than the evidence behind those artifacts."
+    ],
+    "false_positive_notes": [
+      "No advisory findings were raised on this change."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass; the advisory lints do not check regulatory accuracy, which is why the human-review marker is required."
+    ]
+  },
+  "phase2_design_signals": [
+    "A crosswalk that maps artifact to regulatory theme while explicitly refusing classification and compliance claims converts governance discipline into reviewable external-facing material at near-zero risk.",
+    "The Article 26 six-month retention duty was the only concrete schema-adjacent obligation surfaced; it belongs in the mission-record design as a retention statement.",
+    "Regulatory mapping rows age with both the regulation and the artifacts; the periodic re-check follow-up should ride on existing doc-consistency missions rather than a new process."
+  ]
+}
