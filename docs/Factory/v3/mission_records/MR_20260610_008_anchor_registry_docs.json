@@ -1,0 +1,167 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-10",
+    "source_trial_id": "MR_20260610_008_anchor_registry_docs",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260610_008_anchor_registry_docs.json",
+    "source_closeout_reference": "Backfilled from Codex thread closeout and git commit 7e35cc0 Add V3 anchor registry",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "bc0952e",
+    "commit_after": "7e35cc0",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Add a research-only pointer-first Factory V3 anchor registry and refresh stale onboarding, roadmap, and V2 build-support wording without creating new authority.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "Codex conversation approval to proceed with the anchor-registry and doc-consistency recommendation",
+      "not_created_reason": "The work was executed from a thread-local approval before this shadow mission record was backfilled."
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "AGENTS.md",
+      "README.md",
+      "docs/Factory/ARCHITECTURE.md",
+      "docs/Factory/ORCHESTRATION.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/USER_GUIDE.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md"
+    ],
+    "forbidden_scope": [
+      "no validator implementation changes",
+      "no deterministic fixture changes",
+      "no required-gate integration",
+      "no default-mode promotion",
+      "no governance routing",
+      "no runtime authority",
+      "no real-data approval",
+      "no live integration approval",
+      "no deployment approval",
+      "no Factory V2 build-support removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push after approval"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands beyond docs-only orientation and consistency updates",
+      "a wording change implies approval, promotion, routing, enforcement, or runtime authority",
+      "verification reports an unresolved advisory finding",
+      "the registry becomes a replacement source of truth instead of a pointer-first orientation aid"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "AGENTS.md",
+      "README.md",
+      "docs/Factory/ARCHITECTURE.md",
+      "docs/Factory/ORCHESTRATION.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/USER_GUIDE.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Initial NL pilot run flagged `docs/Factory/v3/ANCHOR_REGISTRY.md` for V3-G009 after the registry used `standing_authority`; the wording was corrected to `current_status`, and the advisory lint, readiness eval, NL pilot, knowledge lint, and diff whitespace checks then passed before commit 7e35cc0 was pushed."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass_after_revision",
+        "classification": "accepted_true_positive_then_clean"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only change with no new dependencies or code paths.",
+        "The anchor registry points to source artifacts instead of replacing evidence.",
+        "The first NL pilot finding caused a small wording correction rather than a validator or scope change."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "Scope stayed inside docs-only orientation and consistency updates.",
+        "No promotion, required gate, routing, runtime authority, live integration, real-data, deployment, or V2-removal scope was added."
+      ]
+    },
+    "friction_notes": [
+      "The shadow record was backfilled after commit 7e35cc0, which is lower quality than authoring it during the mission.",
+      "The registry reduced future onboarding audit cost but adds a closeout duty: update the registry in the same change cycle when an anchor status changes."
+    ],
+    "false_positive_notes": [
+      "The initial V3-G009 NL-pilot finding on `standing_authority` is classified as an accepted true positive, not a false positive."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the final advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Backfilling a shadow record for bounded docs-only work is cheap and improves replayability, but authoring during the mission would have produced stronger evidence.",
+    "The NL-pilot true positive is useful FP/FN rollup evidence because it caught approval-adjacent language before commit.",
+    "The safer `current_status` field should remain the registry convention for future anchor rows.",
+    "Registry anchors should use source paths or explicit placeholder markers such as `none_yet`, not prose that looks like replacement evidence."
+  ]
+}

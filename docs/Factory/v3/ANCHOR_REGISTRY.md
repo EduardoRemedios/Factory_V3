@@ -1,9 +1,10 @@
 # Factory V3 Anchor Registry
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-06-10): Replaced the mission-health placeholder evidence prose with `none_yet` and clarified that anchors without evidence artifacts must use an explicit placeholder marker.
 - v0.1 (2026-06-10): Initial pointer-first registry for V3 anchor points, promotion load ratings, read-first paths, and next named gates.
 
 ## Status
@@ -25,7 +26,7 @@ Use this file as a cold-start routing aid:
 
 ## Field Rules
 - `current_status` must not be a bare yes/no approval flag.
-- `evidence_paths` must point to source artifacts, not summarize them as replacement evidence.
+- `evidence_paths` must point to source artifacts, not summarize them as replacement evidence; use `none_yet` only when no evidence artifact exists.
 - `guardrail_refs` should point to existing boundary docs instead of restating all boundaries here.
 - `excluded_uses` is advisory language for orientation only; the source boundary docs remain authoritative.
 
@@ -39,7 +40,7 @@ Use this file as a cold-start routing aid:
 | `V3-ANCHOR-004` | Candidate `V3-OP-003` long-running remote-interrupt profile | Candidate; not promoted | `research-only` | `ADAPTIVE_MISSION_CONTROL.md`; `ROADMAP_TO_FULL_VISION.md`; POC Mission 012/013 records in the POC repo | POC Mission 012 and 013 closeout, checkpoint, human-decision-interrupt, and mission-state artifacts | Draft a decision pack with `PASS`, `CONDITIONAL PASS`, and `NO PROMOTION YET` outcomes | `PROMOTION_CRITERIA.md`; `NON_GOALS_AND_BOUNDARIES.md` | Promotion from POC evidence alone, live messaging automation, default long-running missions, runtime-control power |
 | `V3-ANCHOR-005` | Mission formation and challenge skills | Level 0 research; possible future advisory intake aid | `research-only` | `MISSION_FORMATION_DIRECTION.md`; `.agents/skills/factory-mission-formation/SKILL.md`; `.agents/skills/factory-challenge-mission/SKILL.md` | `skill_trials/mission_formation/` | Run live non-executing trials before any recommendation | `PROMOTION_CRITERIA.md`; `NON_GOALS_AND_BOUNDARIES.md` | Execution authority, default intake, non-coding autonomous work, treating conversation as approval |
 | `V3-ANCHOR-006` | Codex SDK/MCP orchestration as governed worker runtime | Level 0 research | `research-only` | `CODEX_SDK_ORCHESTRATION_DIRECTION.md`; `PHASE4_DYNAMIC_WORKFLOWS_HARNESS_RESEARCH_PLAN.md` | `harness_profiles/HP_20260530_002_codex_subagent_workflows_research.md`; `harness_profiles/HP_20260601_004_codex_phase4_dynamic_evidence_export_candidate.md` | Start with read-only orchestration discovery/challenge evidence | `NON_GOALS_AND_BOUNDARIES.md`; `PROMOTION_CRITERIA.md` | Unattended execution, production actions, credential use, runtime-control power, hidden governance replacement |
-| `V3-ANCHOR-007` | Mission health and continuation judgment | Level 0 research lane | `research-only` | `ROADMAP_TO_FULL_VISION.md`; `PROMOTION_CRITERIA.md` | Later mission-health notes or decision packs when approved | Define advisory vocabulary before schema, validator, or gate proposals | `NON_GOALS_AND_BOUNDARIES.md`; `PROMOTION_CRITERIA.md` | Required checkpoint fields, routing authority, runtime-control power, schema promotion without evidence |
+| `V3-ANCHOR-007` | Mission health and continuation judgment | Level 0 research lane | `research-only` | `ROADMAP_TO_FULL_VISION.md`; `PROMOTION_CRITERIA.md` | `none_yet` | Define advisory vocabulary before schema, validator, or gate proposals | `NON_GOALS_AND_BOUNDARIES.md`; `PROMOTION_CRITERIA.md` | Required checkpoint fields, routing authority, runtime-control power, schema promotion without evidence |
 
 ## Closeout Rule
 When evidence changes an anchor's status, update this registry in the same change cycle as the source state docs or explicitly record why no registry update was needed.
