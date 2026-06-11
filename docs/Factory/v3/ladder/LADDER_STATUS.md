@@ -1,9 +1,10 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v0.5
+v0.6
 
 ## Change Log
+- v0.6 (2026-06-11): Rerun-path gate resolved — sponsor decision `HDI-RUNG2-003` selected Option A: rerun rung 2 with genuinely larger scope (roughly 550-900 calls, stop threshold 1100) under the unchanged wall-clock band; a second duration failure routes to the Option B design review.
 - v0.5 (2026-06-11): Rung-2 attempt 1 (POC Mission 021, `LADDER_RUNG2_20260611`) adjudicated FAIL on duration per sponsor decision `HDI-RUNG2-002` (mechanics 7/8; honest 24m11s vs 90-180 min band). Decision-pack item 2 (live transport) now satisfied by the phone-answered round-trip. Rerun path (bigger scope vs ladder design review) is the new open sponsor decision.
 - v0.4 (2026-06-11): Backlog research spike landed: `mission_waypoint` shadow candidate, mission-economics vocabulary, fresh-worker reentry trial plan, and rung-2 friction counters (`DURATION_LADDER_PLAN.md` v0.4); rung-2 gate now includes the waypoint-table trial and friction counters.
 - v0.3 (2026-06-11): Gate 1 resolved — sponsor decision `HDI-RUNG2-001` selected option (b): rung 2 runs under the Codex harness with Codex mobile as the transport (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`). Fixed the duplicate numbering in the remaining-gates list.
@@ -36,12 +37,13 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 
 - Rung-2 attempt 1: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-002` (`rung2/RUNG2_ADJUDICATION_HDI_RUNG2_002.md`) — POC Mission 021 closed honestly at 24m11s against the 90-180 min band; mechanics passed 7 of 8 including the live phone interrupt, pause/reentry, waypoint-table trial, and friction counters. The failed rung does not unlock rung 3.
 
+- Rerun path: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-003` (`rung2/RUNG2_RERUN_PATH_HDI_RUNG2_003.md`) — Option A: genuinely larger scope under the unchanged wall-clock band, stop threshold raised to 1100; second duration failure routes to the design review.
+
 ## Remaining Gates (in order; each needs envelope + sponsor Go)
-1. Rung-2 rerun path (open sponsor decision, 2026-06-11): Option A — rerun with genuinely larger scope (~550-750 objective tool calls per measured throughput) keeping the wall-clock band; Option B — ladder design review first, re-basing rung classes on budget-and-waypoint classes with wall clock as a recorded observation (the `HDI-RUNG2-002` findings, the stop-threshold contradiction, and the harness-speed-setting observation are the review inputs). No option is selected by this file. A second consecutive rung-2 failure routes to design review regardless, per `DURATION_LADDER_PLAN.md` failure handling.
-2. Rung 2 rerun — per the path chosen in gate 1; before any rerun, fix the standalone-canon defect (vendor `MISSION_HEALTH_VOCABULARY.md` and ladder references into the POC repo or inline them in the envelope).
-3. Rung 3 — 4-hour class; mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only. Locked until rung 2 passes.
-4. False-positive/false-negative review over the full ladder corpus.
-5. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
+1. Rung 2 rerun (POC Mission 022) — genuinely larger scope (~550-900 calls), wall-clock band 90-180 min unchanged, all rung-2 criteria afresh (new live phone interrupt with sponsor away, new pause/reentry, health signals, friction counters, waypoint table); pre-rerun fixes applied: vendored/inlined canon, harness speed/effort setting recorded at start and on change.
+2. Rung 3 — 4-hour class; mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only. Locked until rung 2 passes.
+3. False-positive/false-negative review over the full ladder corpus.
+4. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
 
 ## Parked Named Follow-ups (not gates, not approved)
 - Standalone-canon fix: vendor the Factory_V3 canon referenced by POC envelopes (health vocabulary, ladder artifacts) into the POC repo, or inline it (rung-2 attempt 1 finding, POC DD-001).

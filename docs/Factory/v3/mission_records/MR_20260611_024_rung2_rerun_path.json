@@ -1,0 +1,154 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_024_rung2_rerun_path",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_024_rung2_rerun_path.json",
+    "source_closeout_reference": "Rung-2 rerun-path recording mission RUNG2_RERUN_PREP_20260611; envelope and decision record under docs/Factory/v3/ladder/rung2/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "affb5e4",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Record sponsor decision HDI-RUNG2-003 (rung-2 rerun path = Option A: genuinely larger scope under the unchanged wall-clock band, stop threshold raised to 1100) and update the ladder status and anchor registry.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_PREP_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_PREP_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_PATH_HDI_RUNG2_003.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_024_rung2_rerun_path.json"
+    ],
+    "forbidden_scope": [
+      "no pack-criteria amendment",
+      "no rerun execution or design-review execution",
+      "no validator, fixture, template, or skill changes",
+      "no transport use",
+      "no POC-repo changes within this mission",
+      "no new approval or promotion language",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_PREP_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_PATH_HDI_RUNG2_003.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_024_rung2_rerun_path.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only recording mission; the decision record keeps the wall-clock pass criterion unchanged and raises only the budget class, resolving the attempt-1 stop-threshold contradiction without touching the pack criteria.",
+        "The record names the mandatory Option B routing on a second duration failure, so the rerun cannot silently become a third attempt under unchanged assumptions.",
+        "Pre-rerun fixes are named as rerun-envelope obligations (vendored canon, harness speed/effort recording), not as separate unbounded work."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the five authorized files."
+      ]
+    },
+    "friction_notes": [
+      "Third recording mission of the day with near-identical envelope boilerplate; a lightweight recording-mission template (envelope + decision record + record skeleton) would cut the per-decision recording cost meaningfully and is a natural candidate once the friction-note rollup mission runs."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "The failure-handling rule gives Option A a built-in escape: choosing the more conservative rerun path is cheap to honor because a second duration failure routes to the design review automatically — sponsors can prefer goalpost stability knowing the criteria question cannot be dodged twice.",
+    "Sizing the rerun from measured throughput (calls per minute) rather than estimated minutes is the first time a ladder envelope's budget class is derived from same-lane measured data end to end."
+  ]
+}
