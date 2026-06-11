@@ -1,9 +1,10 @@
 # Factory V3 Duration Ladder Plan
 
 ## Version
-v0.6
+v0.7
 
 ## Change Log
+- v0.7 (2026-06-11): Applied sponsor decision `HDI-RUNG2-005` adopting the ladder design review (`ladder/design_review/LADDER_DESIGN_REVIEW_20260611.md`), Option A: the duration band stays a pass criterion, guarded by a bottom-up measured sizing rule and a scope-sufficiency precondition; rung classes restated from the two measured calibration points (rung 2: floor 540 calls, ~12-20 waypoints, stop 1300; rung 3: floor 1100, ~20-30 waypoints, stop 2000); interrupt-record field set v2 (safe-hold trigger) specified for all future rung envelopes. Failure handling unchanged.
 - v0.6 (2026-06-11): Recorded rung-2 attempt 2 as FAILED on duration per sponsor adjudication `HDI-RUNG2-004` (POC Mission 022; mechanics 8/8; honest 40m06s active vs the 90-180 min band; 160 calls vs 550-900 forecast). Two consecutive failures invoke the failure-handling route: the lane goes to the design review before any further attempt. The same record adopts the sponsor's safe-hold-trigger principle for interrupt timeouts: an answer is never "late"; the named timeout governs only the agent's wait posture; latency is neutral telemetry.
 - v0.5 (2026-06-11): Recorded rung-2 attempt 1 as FAILED on duration per sponsor adjudication `HDI-RUNG2-002` (mechanics 7/8; honest compression to 24m11s); rerun path is an open sponsor decision (larger scope vs design review re-basing rung classes).
 - v0.4 (2026-06-11): Added friction-measurement counters for rung 2 onward (advisory observations, never targets) and named the rung-2 structured-waypoint-table trial, from the backlog research spike.
@@ -21,6 +22,22 @@ No local mission has run at multi-hour scale. The ladder converts "can V3 govern
 
 ## Naming And Sizing Rule (per `HDI-TT-002`, 2026-06-10)
 Hour-based rung names remain the human-readable headline only. Each rung's mission envelope must state its measured pass criteria as budget-and-waypoint classes: tool-call budget, waypoint count, and command-sourced elapsed time. Wall-clock compression below the headline hours is judged against those measured criteria, not the headline (and for rung 2 onward, genuine duration is itself a named criterion per `HDI-TT-001`).
+
+## Bottom-Up Sizing And Scope Sufficiency (per `HDI-RUNG2-005`, 2026-06-11)
+Adopted after two rung-2 duration failures whose diagnosis was envelope-design failure, not throughput failure (`ladder/design_review/LADDER_DESIGN_REVIEW_20260611.md`):
+
+1. Bottom-up sizing rule: every rung envelope derives its budget forecast from measured per-deliverable costs, citing the source missions for the coefficients. Initial coefficients (Missions 021/022): ~14 objective calls per build waypoint with tests; ~10 calls per evidence artifact; 5-13 calls per checkpoint; ~56% governance share of total calls; ~6 calls/min working throughput. Each completed rung updates the coefficients from its measured actuals. Time-derived forecasts (band minutes multiplied by throughput) are no longer acceptable as the sizing method — they are the documented cause of both failures.
+2. Scope-sufficiency precondition: a rung envelope is not eligible for sponsor Go unless its bottom-up forecast reaches the rung's budget-class floor, with the derivation shown in the envelope. An under-scoped envelope is rejected at design time, converting duration failure from a run outcome into a reviewable envelope defect.
+3. Adopted rung classes (headlines remain labels per `HDI-TT-002`): rung 2 re-attempt — budget floor 540 observed calls, forecast band 540-1080, ~12-20 waypoints, stop threshold 1300, wall-clock band 90-180 min as criterion; rung 3 — budget floor 1100, forecast band 1100-1700, ~20-30 waypoints, stop threshold 2000, wall-clock band 200-300 min as criterion. Stop thresholds sit ~20% above the budget-class ceiling so a compliant maximum-duration run never brushes its own stop rule.
+
+## Interrupt-Record Field Set v2 (per `HDI-RUNG2-004` and `HDI-RUNG2-005`)
+For all future rung envelopes and interrupt records in this lane, applying the adopted safe-hold-trigger principle (a sponsor answer is never "late"):
+
+- `safe_hold_trigger_seconds` replaces the named-timeout concept: when it fires, the agent parks safely (checkpoint, commit, halt with reentry instruction) and the question remains open; an answer is valid whenever it arrives and is applied on reentry if the mission parked. Inferring an answer remains forbidden.
+- `answer_latency_seconds`: neutral telemetry, never a criterion.
+- `safe_hold_entered`: boolean; records what the agent actually did.
+- Timestamps command-sourced where the harness exposes them; honest `unexposed` entries otherwise.
+- Transport pass criteria measure delivery and integrity only: ask reached the sponsor's device, no inferred answer, clean park if the trigger fired, answer applied in-session or on reentry. Sponsor response speed is never a criterion.
 
 ## Common Requirements (All Rungs)
 - Attended start: sponsor Go per mission; sponsor reachable for Tier 3 decisions.
@@ -53,11 +70,16 @@ Status: PASSED for mechanics (2026-06-10). Mission `LADDER_RUNG1_20260610` (evid
 
 Status: attempts 1 and 2 both FAILED on duration (2026-06-11); the lane is routed to the mandatory design review per the failure-handling rule below. Attempt 2 (POC Mission 022, `LADDER_RUNG2R_20260611`, envelope commit `e043b37`, closeout `9d0c463`, adjudication `HDI-RUNG2-004`) carried genuinely larger scope per `HDI-RUNG2-003` Option A and passed all 8 mechanics criteria — including a clean live phone interrupt whose 734s answer latency is recorded as neutral telemetry under the adopted safe-hold-trigger principle — but closed honestly at 47m40s elapsed (40m06s active) with 160 observed calls against the 550-900 forecast. Two calibration points now show budget forecasts 3.5-5x high and scope size, not throughput, as the duration gap; the sponsor's design-review guidance is that genuine 90-min/2-hour durations likely require significantly larger, more ambitious, longer-ranging scope. Attempt 1: POC Mission 021 (`LADDER_RUNG2_20260611`, envelope commit `a5c2c9a`, closeout `63a0a99`) passed 7 of 8 measured criteria — including the live phone-answered Tier 3 interrupt (96s), pause/fresh-session reentry, full health-signal series with recording costs, friction counters, and the waypoint-table trial — but closed honestly at 24m11s against the 90-180 minute band with no padding. Sponsor adjudication `HDI-RUNG2-002` (Factory_V3 `ladder/rung2/`): FAIL per the pre-written criteria. Findings include a latent envelope contradiction (measured throughput ~6.2 calls/min puts the 120-minute headline at ~745 calls, above the 700-call stop threshold) and a standalone-canon reference defect. The failed rung does not unlock rung 3; the rerun path (genuinely larger scope versus a design review re-basing rung classes on budget-and-waypoint classes) is an open sponsor decision recorded in the adjudication.
 
-- Mission type: bounded POC feature or test-expansion work with 5-8 waypoints, in the standalone POC repo where halt/recovery/reentry evidence already lives.
-- New things being tested: duration doubling; one seeded Tier 3 interrupt over the live transport (requires the `INTERRUPT_TRANSPORT_TRIAL_PLAN.md` trial approved and passed first); reentry after a deliberate mid-mission pause.
-- Rung passes when: rung 1 criteria hold at duration, the live interrupt round-trip produced a complete record, and pause/reentry worked from authored artifacts alone. Per `HDI-TT-001`, this rung now carries the duration-stress burden explicitly: a run that compresses far below the duration band does not pass this rung regardless of mechanics.
+Re-attempt class (adopted via `HDI-RUNG2-005`): multi-epic POC build sized bottom-up at roughly 3.5x Mission 022's deliverables — budget floor 540 observed calls (forecast band 540-1080), ~12-20 waypoints, stop threshold 1300, wall-clock band 90-180 min as criterion, scope-sufficiency derivation shown in the envelope before Go is asked.
+
+- Mission type: multi-epic POC build work (~12-20 waypoints), in the standalone POC repo where halt/recovery/reentry evidence already lives, sized per the bottom-up rule above.
+- New things being tested: genuine duration via sufficient measured scope; one seeded Tier 3 interrupt over the live transport using the interrupt-record field set v2; reentry after a deliberate mid-mission pause.
+- Rung passes when: rung 1 criteria hold at duration, the live interrupt round-trip produced a complete record (delivery and integrity; latency is neutral telemetry), and pause/reentry worked from authored artifacts alone. Per `HDI-TT-001`, this rung carries the duration-stress burden explicitly: a run that compresses far below the duration band does not pass this rung regardless of mechanics — and per the scope-sufficiency precondition, an envelope that cannot show band-floor scope is rejected before the run.
 
 ## Rung 3 — Roughly Four Hours, POC Repository
+
+Class (adopted via `HDI-RUNG2-005`): budget floor 1100 observed calls (forecast band 1100-1700), ~20-30 waypoints, stop threshold 2000, wall-clock band 200-300 min as criterion, scope-sufficiency derivation shown in the envelope using coefficients updated from the rung-2 re-attempt.
+
 - Mission type: a real multi-waypoint build mission whose contract is drafted with the mission-formation skill and red-teamed with the challenge skill (both non-executing) before sponsor Go — this is the `V3-ANCHOR-005` live non-executing trial, folded in.
 - New things being tested: full target duration inside the roughly 5-hour plan window; natural Tier 3 interrupts (not seeded); budget discipline near the stop threshold; context management across a long session.
 - Hoped-for side evidence: at least one natural (non-seeded) halt, fallback, or clarification event at duration — decision-pack evidence item 4 and the long-open Phase 3 negative-case gap. If none occurs naturally, the gap stays honestly open; do not seed and relabel.
