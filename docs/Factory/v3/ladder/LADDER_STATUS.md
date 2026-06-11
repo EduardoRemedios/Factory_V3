@@ -1,9 +1,10 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v0.9
+v1.0
 
 ## Change Log
+- v1.0 (2026-06-11): Rung-2 attempt 3 (POC Mission 023, `LADDER_RUNG2R2_20260611`) adjudicated FAIL on duration and budget floor per sponsor decision `HDI-RUNG2-006` (mechanics clean; honest 54m03s active and ~333 calls vs the 90-min/540-call floors; work quality acknowledged). First live use of the interrupt field set v2 passed. New sponsor-named finding: browser tooling was unexposed in the Codex session, shortening the run and weakening verification depth — enablement directed for future runs. Third duration failure routes the lane to design review round 2 (mandatory).
 - v0.9 (2026-06-11): Design-review output ADOPTED per sponsor decision `HDI-RUNG2-005` ("i agree with option A", `design_review/LADDER_DESIGN_ADOPTION_HDI_RUNG2_005.md`): duration band stays a rung-2 criterion, guarded by the bottom-up sizing rule and scope-sufficiency precondition; `DURATION_LADDER_PLAN.md` amended to v0.7 with the adopted rung classes and interrupt field set v2. Next gate: the rung-2 re-attempt envelope (~3.5x Mission 022 scope, multi-epic, derivation shown) plus sponsor Go.
 - v0.8 (2026-06-11): Ladder design review executed with sponsor GO (`design_review/LADDER_DESIGN_REVIEW_20260611.md`): diagnosis = duration failures are envelope-design failures (scope-to-calls conversion, not throughput); proposes a bottom-up measured sizing rule, a scope-sufficiency precondition, restated rung classes (rung 2 floor 540 calls / ~12-20 waypoints / stop 1300), and the interrupt field set v2. Adoption is the open sponsor decision `HDI-RUNG2-005` (Option A recommended: duration band stays a criterion, guarded by the sizing rule).
 - v0.7 (2026-06-11): Rung-2 attempt 2 (POC Mission 022, `LADDER_RUNG2R_20260611`) adjudicated FAIL on duration per sponsor decision `HDI-RUNG2-004` (mechanics 8/8; honest 47m40s elapsed / 40m06s active vs 90-180 min band; actual 160 calls vs 550-900 forecast). Second consecutive duration failure routes the lane to the mandatory design review per the pre-written failure-handling rule. The sponsor's safe-hold-trigger principle (an answer is never "late"; the timeout governs agent wait posture only) is adopted as a named design decision in the same record.
@@ -29,7 +30,7 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 
 | Pack item | Status |
 | --- | --- |
-| 1. Duration ladder (3 rungs) | Rung 1 passed (mechanics); rung-2 attempts 1 and 2 both FAILED on duration (attempt 2: mechanics 8/8, honest 40m06s active, `HDI-RUNG2-004`); lane routed to the mandatory design review; rung 3 locked |
+| 1. Duration ladder (3 rungs) | Rung 1 passed (mechanics); rung-2 attempts 1, 2, and 3 all FAILED on duration (attempt 3: mechanics clean at 3.5x scope, honest 54m03s active / ~333 calls, `HDI-RUNG2-006`); lane routed to design review round 2; rung 3 locked |
 | 2. Live transport trial | SATISFIED: phone-answered round-trip with sponsor away (96s deliver-to-answer, Codex mobile, POC Mission 021) plus timeout-to-safe-hold (MR_020) |
 | 3. Health signals at checkpoints | Recorded at rung 1 and both rung-2 attempts (six signals + recording cost per checkpoint), but not yet at genuine 2h/4h duration |
 | 4. Natural negative case at duration | Open; do not seed and relabel |
@@ -42,15 +43,18 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 
 - Rerun path: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-003` (`rung2/RUNG2_RERUN_PATH_HDI_RUNG2_003.md`) — Option A: genuinely larger scope under the unchanged wall-clock band, stop threshold raised to 1100; second duration failure routes to the design review.
 
+- Rung-2 attempt 3: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-006` (`rung2/RUNG2_ATTEMPT3_ADJUDICATION_HDI_RUNG2_006.md`) — POC Mission 023 (three epics, 16 build waypoints, 247 tests) closed honestly at 59m55s gross / 54m03s active with ~333 calls against the 90-min/540-call floors; mechanics clean including the first live field-set-v2 interrupt (86s, neutral) and pause/reentry. Calibration verdict: throughput calibrated (~6.2 calls/min, three runs), per-waypoint cost coefficient too high. Sponsor findings: browser tooling unexposed in the session shortened the run (enablement directed); a further ~2x scope jump is the only remaining Option A variant.
+
 - Design-review adoption: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-005` (`design_review/LADDER_DESIGN_ADOPTION_HDI_RUNG2_005.md`) — Option A: the duration band remains a rung-2 pass criterion, guarded by the bottom-up measured sizing rule and the scope-sufficiency precondition; rung classes restated (rung 2: floor 540 calls/stop 1300; rung 3: floor 1100/stop 2000); interrupt field set v2 operative for all future lane envelopes. `DURATION_LADDER_PLAN.md` amended to v0.7.
 
 - Rung-2 attempt 2: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-004` (`rung2/RUNG2_RERUN_ADJUDICATION_HDI_RUNG2_004.md`) — POC Mission 022 closed honestly at 47m40s elapsed (40m06s active) against the 90-180 min band with mechanics 8/8, including a clean live phone interrupt (734s answer latency recorded as neutral telemetry per the adopted safe-hold-trigger principle), pause/fresh-session reentry, friction counters, and the waypoint-table second trial. Two consecutive duration failures trigger the pre-written design-review routing.
 
 ## Remaining Gates (in order; each needs envelope + sponsor Go)
-1. Rung-2 re-attempt (attempt 3) under the adopted `HDI-RUNG2-005` criteria — scope ~3.5x Mission 022's deliverables sized bottom-up from measured coefficients with the derivation shown in the envelope (~12-20 waypoints, forecast 540-1080 calls, budget floor 540, stop threshold 1300, wall-clock band 90-180 min), new live phone interrupt using the interrupt field set v2, new deliberate pause/reentry. The envelope is rejected before Go if the scope-sufficiency derivation falls short of the floor.
-2. Rung 3 — 4-hour class per the adopted `HDI-RUNG2-005` class (floor 1100 calls, ~20-30 waypoints, stop 2000, band 200-300 min); mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only. Locked until rung 2 passes.
-3. False-positive/false-negative review over the full ladder corpus.
-4. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
+1. Design review round 2 (mandatory after the third rung-2 duration failure) — named inputs per `HDI-RUNG2-006`: three-point calibration evidence at stable throughput; the sponsor's acknowledgment that a further ~2x scope jump (~27+ build waypoints) is the only remaining Option A variant; the browser-enablement direction (restore the browser-QA workload before any further duration attempt); the Mission 023 recommendation to revise rung classes or remove the 90-minute floor; and the standing decision-pack purpose (health-signal, context-management, budget-discipline evidence at genuine duration) that any redefinition must still serve.
+2. Rung-2 resolution under the round-2 output: either attempt 4 at ~2x further scope with browser tooling enabled, or adjudication against a redefined rung-2 class, per the review's adopted option.
+3. Rung 3 — 4-hour class (class parameters to be confirmed or revised by design review round 2); mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only. Locked until rung 2 resolves.
+4. False-positive/false-negative review over the full ladder corpus.
+5. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
 
 ## Parked Named Follow-ups (not gates, not approved)
 - Standalone-canon fix: vendor the Factory_V3 canon referenced by POC envelopes (health vocabulary, ladder artifacts) into the POC repo, or inline it (rung-2 attempt 1 finding, POC DD-001).
