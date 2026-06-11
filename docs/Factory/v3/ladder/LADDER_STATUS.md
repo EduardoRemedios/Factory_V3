@@ -1,9 +1,10 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v0.7
+v0.8
 
 ## Change Log
+- v0.8 (2026-06-11): Ladder design review executed with sponsor GO (`design_review/LADDER_DESIGN_REVIEW_20260611.md`): diagnosis = duration failures are envelope-design failures (scope-to-calls conversion, not throughput); proposes a bottom-up measured sizing rule, a scope-sufficiency precondition, restated rung classes (rung 2 floor 540 calls / ~12-20 waypoints / stop 1300), and the interrupt field set v2. Adoption is the open sponsor decision `HDI-RUNG2-005` (Option A recommended: duration band stays a criterion, guarded by the sizing rule).
 - v0.7 (2026-06-11): Rung-2 attempt 2 (POC Mission 022, `LADDER_RUNG2R_20260611`) adjudicated FAIL on duration per sponsor decision `HDI-RUNG2-004` (mechanics 8/8; honest 47m40s elapsed / 40m06s active vs 90-180 min band; actual 160 calls vs 550-900 forecast). Second consecutive duration failure routes the lane to the mandatory design review per the pre-written failure-handling rule. The sponsor's safe-hold-trigger principle (an answer is never "late"; the timeout governs agent wait posture only) is adopted as a named design decision in the same record.
 - v0.6 (2026-06-11): Rerun-path gate resolved — sponsor decision `HDI-RUNG2-003` selected Option A: rerun rung 2 with genuinely larger scope (roughly 550-900 calls, stop threshold 1100) under the unchanged wall-clock band; a second duration failure routes to the Option B design review.
 - v0.5 (2026-06-11): Rung-2 attempt 1 (POC Mission 021, `LADDER_RUNG2_20260611`) adjudicated FAIL on duration per sponsor decision `HDI-RUNG2-002` (mechanics 7/8; honest 24m11s vs 90-180 min band). Decision-pack item 2 (live transport) now satisfied by the phone-answered round-trip. Rerun path (bigger scope vs ladder design review) is the new open sponsor decision.
@@ -43,8 +44,8 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 - Rung-2 attempt 2: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-004` (`rung2/RUNG2_RERUN_ADJUDICATION_HDI_RUNG2_004.md`) — POC Mission 022 closed honestly at 47m40s elapsed (40m06s active) against the 90-180 min band with mechanics 8/8, including a clean live phone interrupt (734s answer latency recorded as neutral telemetry per the adopted safe-hold-trigger principle), pause/fresh-session reentry, friction counters, and the waypoint-table second trial. Two consecutive duration failures trigger the pre-written design-review routing.
 
 ## Remaining Gates (in order; each needs envelope + sponsor Go)
-1. Ladder design review — re-base rung classes on measured budget-and-waypoint evidence (two calibration points: 150 calls/24m11s and 160 calls/40m06s active against 3.5-5x higher forecasts), incorporating the sponsor's named guidance that genuine 90-min/2-hour durations likely require significantly larger, more ambitious, longer-ranging mission scope, and the adopted safe-hold-trigger redesign of the interrupt-record field set (`answer_latency_seconds`, `safe_hold_entered`; no "late answer" concept).
-2. Rung-2 re-attempt (or its redesigned equivalent) under the design-review output criteria.
+1. Adoption decision `HDI-RUNG2-005` over the design-review output (`design_review/LADDER_DESIGN_REVIEW_20260611.md`): Option A (duration band stays a criterion, guarded by the bottom-up sizing rule and scope-sufficiency precondition — recommended) versus Option B (wall-clock demoted to recorded observation). Asked in-thread; recorded with a `DURATION_LADDER_PLAN.md` v0.7 amendment on adoption.
+2. Rung-2 re-attempt under the adopted criteria — scope ~3.5x Mission 022's deliverables sized bottom-up from measured coefficients (~12-20 waypoints, forecast 540-1080 calls, stop threshold 1300), new live phone interrupt using the interrupt field set v2, new deliberate pause/reentry.
 3. Rung 3 — 4-hour class; mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only. Locked until rung 2 passes.
 4. False-positive/false-negative review over the full ladder corpus.
 5. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.

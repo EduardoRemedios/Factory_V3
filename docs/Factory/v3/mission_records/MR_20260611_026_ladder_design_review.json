@@ -1,0 +1,157 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_026_ladder_design_review",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_026_ladder_design_review.json",
+    "source_closeout_reference": "Ladder design-review mission LADDER_DESIGN_REVIEW_20260611; envelope and review document under docs/Factory/v3/ladder/design_review/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "559e41c",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Execute the mandatory ladder design review after two consecutive rung-2 duration failures: diagnose the failures from the two measured calibration points, propose a bottom-up scope-sizing rule, a scope-sufficiency precondition, restated rung classes, and the interrupt-record field set v2 per the adopted safe-hold-trigger principle; name adoption as open sponsor decision HDI-RUNG2-005 with options.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/design_review/DESIGN_REVIEW_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/design_review/DESIGN_REVIEW_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/design_review/LADDER_DESIGN_REVIEW_20260611.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_026_ladder_design_review.json"
+    ],
+    "forbidden_scope": [
+      "no amendment of DURATION_LADDER_PLAN.md or V3_OP_003_DECISION_PACK.md before adoption",
+      "no adoption of the review's own proposals",
+      "no rung envelope or rung execution",
+      "no validator, fixture, template, or skill changes",
+      "no transport use",
+      "no POC-repo changes within this mission",
+      "no new approval or promotion language",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ladder/design_review/DESIGN_REVIEW_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/design_review/LADDER_DESIGN_REVIEW_20260611.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_026_ladder_design_review.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "The review proposes and adopts nothing: DURATION_LADDER_PLAN.md and the decision pack are untouched, and the adoption decision is named open with options rather than resolved, so the mandated review cannot silently become a criteria change.",
+        "All numeric proposals are derived from the two measured calibration points with the derivation shown (throughput, governance share, per-deliverable costs), so the sponsor can check the arithmetic against the cited closeouts.",
+        "The recommendation (Option A) follows the sponsor's recorded guidance rather than the cheaper-to-pass alternative; Option B's weakness against the decision pack's purpose is stated explicitly."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the five authorized files."
+      ]
+    },
+    "friction_notes": [
+      "The measured coefficients (calls per build waypoint, per evidence artifact, per checkpoint) are exactly the dataset MISSION_ECONOMICS_VOCABULARY.md anticipated; the economics lane decision now has its first usable inputs one rung earlier than planned.",
+      "Recording-mission boilerplate observation continues to accrue (fifth near-identical envelope); the template candidate remains parked."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Re-basing a pass criterion on measured evidence required only two calibration runs because the governance discipline made both runs fully instrumented by default — the cost of honest instrumentation was repaid at the first design review.",
+    "The scope-sufficiency precondition moves a failure mode from run time to envelope-review time, which is the cheapest place to catch it; this pattern (preconditions derived from measured coefficients) may generalize to other envelope classes.",
+    "Both failed runs improved mechanics scores while failing the same criterion, which is the signature of a mis-specified criterion rather than a flaky system; design reviews should look for that signature explicitly."
+  ]
+}
