@@ -1,9 +1,10 @@
 # Factory v3 Shadow Schema Candidates
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-06-11): Added the `mission_waypoint` candidate shape from the backlog research spike; waypoints remain envelope prose until ladder evidence justifies structure.
 - v0.2 (2026-06-10): Added `standing_authorization_grant` and `scheduled_wake_record` candidate shapes for future scheduled or ambient missions, and added `grant_id` to `revocation_request`; per-mission human Go remains the only approved authorization shape.
 - v0.1 (2026-05-18): Initial prose-only shadow schema candidates for Factory v3 research.
 
@@ -72,6 +73,14 @@ They must not be placed under `docs/Factory/Spec/` until promoted by explicit re
 - Candidate fields: `wake_id`, `grant_id`, `schedule_ref`, `wake_time`, `mission_envelope_ref`, `decision_state`, `escalation_event_refs`, `halt_or_completion_ref`, `evidence_path`.
 - Motivation: each unattended wake of a future scheduled worker would need its own replayable evidence record tying the wake back to the standing grant that authorized it.
 - Required boundary: research vocabulary only; no scheduler, cron wiring, live messaging, or unattended execution is approved by this candidate.
+- Enforcement status: not enforced.
+
+### mission_waypoint
+- Candidate fields (essential): `waypoint_id`, `mission_id`, `objective`, `named_scope` (authorized files and command classes, always a subset of the envelope's), `verification` (command or evidence check), `expected_artifacts`.
+- Candidate fields (optional, trial-only): `type` (provisional labels such as discovery, build, verification, decision, recovery, closeout), `budget_slice` (forecast-labeled allocation, never a stop threshold), `continuation_rule_delta` (exception to checkpoint-level continuation judgment only), `depends_on`.
+- Motivation: `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` already requires per-waypoint named scope, individual `V3-OP-001` eligibility, and per-waypoint verification as prose; this shape formalizes existing obligations and would let the `drift` health signal ground against the active waypoint's scope instead of the whole envelope.
+- Required boundary: the mission envelope is the sole authority grant; a waypoint's `named_scope` is a restriction projection of envelope authority and never widens it — a waypoint needing more authority is a Tier 3 interrupt or plan delta, not a waypoint field edit. Waypoint completion is recorded in checkpoints, not a new artifact type. The mission-level stop threshold remains the only stop authority; `budget_slice` grounds marginal-burn comparison only.
+- Evidence gate: structured waypoint table to be trialed in the rung-2 envelope per `DURATION_LADDER_PLAN.md`; a `type` label earns canon status only when ladder evidence shows a type-specific behavior rule in use (the recovery type's separate-authorization rule, from POC Mission 016, is the only one with evidence today).
 - Enforcement status: not enforced.
 
 ### rollback_request

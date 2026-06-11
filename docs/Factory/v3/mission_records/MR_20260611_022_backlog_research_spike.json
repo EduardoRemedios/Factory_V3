@@ -1,0 +1,162 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_022_backlog_research_spike",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_022_backlog_research_spike.json",
+    "source_closeout_reference": "Backlog research spike BACKLOG_RESEARCH_SPIKE_20260611; envelope at docs/Factory/v3/missions/MISSION_V3OP001_20260611_BACKLOG_RESEARCH_SPIKE.md; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "1408913",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Convert the sponsor's reviewed improvement ideas into evidence-first research artifacts that instrument the duration ladder before rung 2: a mission_waypoint shadow-schema candidate, a mission-economics vocabulary, a fresh-worker reentry trial plan, and rung-2-onward friction counters.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/missions/MISSION_V3OP001_20260611_BACKLOG_RESEARCH_SPIKE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/missions/MISSION_V3OP001_20260611_BACKLOG_RESEARCH_SPIKE.md",
+      "docs/Factory/v3/SHADOW_SCHEMA_CANDIDATES.md",
+      "docs/Factory/v3/MISSION_ECONOMICS_VOCABULARY.md",
+      "docs/Factory/v3/FRESH_WORKER_REENTRY_TRIAL_PLAN.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/mission_records/MR_20260611_022_backlog_research_spike.json"
+    ],
+    "forbidden_scope": [
+      "no validator, fixture, template, schema-file, or skill changes",
+      "no anchor-registry rows",
+      "no trial execution",
+      "no transport use",
+      "no POC-repo changes",
+      "no rung-2 envelope content",
+      "no economics recording",
+      "no new approval or promotion language",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/missions/MISSION_V3OP001_20260611_BACKLOG_RESEARCH_SPIKE.md",
+      "docs/Factory/v3/SHADOW_SCHEMA_CANDIDATES.md",
+      "docs/Factory/v3/MISSION_ECONOMICS_VOCABULARY.md",
+      "docs/Factory/v3/FRESH_WORKER_REENTRY_TRIAL_PLAN.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/mission_records/MR_20260611_022_backlog_research_spike.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only research spike with no new dependencies, no executable change, no validators, no schema files, and no anchor rows.",
+        "Every new artifact carries research-only and non-enforcing posture language and an explicit statement of what it does not approve.",
+        "The spike's sequencing verdicts were sponsor-agreed in-thread (red-team review delivered 2026-06-11) before the envelope was written; the envelope records them as Tier 1 pre-resolved inputs."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the seven authorized files."
+      ]
+    },
+    "friction_notes": [
+      "The friction counters this spike adds to the ladder plan were themselves designed from accumulated friction notes (MR_008 through MR_021) plus the Phase 3 per-event-telemetry finding; the friction-note corpus is now large enough that a periodic rollup mission classifying notes into actionable, accepted-cost, and retired would convert them from anecdotes into a worklist."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Vocabulary-before-schema is now an explicit repeating pattern: mission health (V3-ANCHOR-007) and mission economics both define terms with anti-theater grounding rules and defer schema, lane, and threshold decisions to ladder evidence.",
+    "The mission_waypoint candidate's restriction-projection rule (waypoint scope is always a subset of envelope authority and never widens it) keeps the envelope as the sole authority grant while enabling finer-grained drift detection; this division should hold for any future sub-mission structure.",
+    "The fresh-worker trial's sealed answer-key protocol converts artifact sufficiency from an asserted property into a falsifiable one; the same brief-before-key pattern could later score any reentry, not just trials.",
+    "With no sponsor time pressure, the spike deliberately instruments rung 2 before it runs (waypoint table, friction counters) so the single 2-hour run yields evidence for three open questions at once instead of one."
+  ]
+}

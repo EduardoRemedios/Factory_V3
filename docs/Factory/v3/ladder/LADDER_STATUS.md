@@ -1,9 +1,10 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v0.3
+v0.4
 
 ## Change Log
+- v0.4 (2026-06-11): Backlog research spike landed: `mission_waypoint` shadow candidate, mission-economics vocabulary, fresh-worker reentry trial plan, and rung-2 friction counters (`DURATION_LADDER_PLAN.md` v0.4); rung-2 gate now includes the waypoint-table trial and friction counters.
 - v0.3 (2026-06-11): Gate 1 resolved — sponsor decision `HDI-RUNG2-001` selected option (b): rung 2 runs under the Codex harness with Codex mobile as the transport (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`). Fixed the duplicate numbering in the remaining-gates list.
 - v0.2 (2026-06-10): Recorded that Claude Code Remote Control is disabled by the sponsor's organization policy; rung-2 transport choice is an open sponsor decision with named options.
 - v0.1 (2026-06-10): End-of-day pickup aid after rung 1 and the interrupt-transport trial.
@@ -33,12 +34,15 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 - Rung-2 transport choice: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-001` (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`) — option (b): rung 2 runs under the Codex harness with Codex mobile as the transport, the trial plan's secondary candidate, already proven by POC Mission 013's two phone-answered interrupts. Background: Claude Code Remote Control returned "disabled by your organization's policy" when the sponsor tried to enable it (2026-06-10) — transport availability is itself org-policy-gated runtime state (an observation in the `MUTABLE_HARNESS_STATE.md` spirit); option (a) may be renamed in a future trial if the org policy changes.
 
 ## Remaining Gates (in order; each needs envelope + sponsor Go)
-1. Rung 2 — POC repo, 2-hour class measured by budget-and-waypoint criteria with genuine duration required (a compressed run does not pass, per `HDI-TT-001`); one live Tier 3 interrupt answered from the sponsor's phone via Codex mobile per `HDI-RUNG2-001`; sponsor genuinely away from the terminal when the interrupt fires (focus suppression finding); rung-2 envelope drafted in the POC repo; rung runs under the Codex harness, with harness and model identity recorded per `MUTABLE_HARNESS_STATE.md`.
+1. Rung 2 — POC repo, 2-hour class measured by budget-and-waypoint criteria with genuine duration required (a compressed run does not pass, per `HDI-TT-001`); one live Tier 3 interrupt answered from the sponsor's phone via Codex mobile per `HDI-RUNG2-001`; sponsor genuinely away from the terminal when the interrupt fires (focus suppression finding); rung-2 envelope drafted in the POC repo; rung runs under the Codex harness, with harness and model identity recorded per `MUTABLE_HARNESS_STATE.md`. The envelope also carries the structured-waypoint-table trial and the friction counters per `DURATION_LADDER_PLAN.md` v0.4.
 2. Rung 3 — 4-hour class; mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only.
 3. False-positive/false-negative review over the full ladder corpus.
 4. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
 
 ## Parked Named Follow-ups (not gates, not approved)
+- Fresh-worker reentry trial (`FRESH_WORKER_REENTRY_TRIAL_PLAN.md`): cross-harness, sealed answer key; runs after rung 2 with its own envelope and Go.
+- Mission-economics research-lane decision (`MISSION_ECONOMICS_VOCABULARY.md`): gated on rung-2 friction-counter evidence; first economics recording targeted at rung 3.
+- `mission_waypoint` shadow-candidate refinement after the rung-2 waypoint-table trial.
 - Advisory validator + fixture support for `model_routing` and a future `skills_relied_on` field.
 - Retention statement in `MISSION_RECORD_DESIGN_V0.md` (Art. 26 six-month note in the crosswalk).
 - Human/legal review of `REGULATORY_CROSSWALK.md` rows before any external use.

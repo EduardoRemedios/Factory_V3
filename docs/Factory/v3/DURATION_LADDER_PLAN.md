@@ -1,9 +1,10 @@
 # Factory V3 Duration Ladder Plan
 
 ## Version
-v0.3
+v0.4
 
 ## Change Log
+- v0.4 (2026-06-11): Added friction-measurement counters for rung 2 onward (advisory observations, never targets) and named the rung-2 structured-waypoint-table trial, from the backlog research spike.
 - v0.3 (2026-06-10): Added the naming-and-sizing rule per sponsor decision `HDI-TT-002`: hour-based rung names stay as the human-readable headline; measured pass criteria are budget-and-waypoint classes.
 - v0.2 (2026-06-10): Recorded rung 1 as passed for mechanics (mission `LADDER_RUNG1_20260610`, sponsor adjudication `HDI-TT-001`); the duration-stress burden shifts explicitly to rung 2.
 - v0.1 (2026-06-10): Initial three-rung duration ladder (roughly 1 hour, 2 hours, 4 hours) supplying the trial evidence named in `V3_OP_003_DECISION_PACK.md`.
@@ -26,6 +27,17 @@ Hour-based rung names remain the human-readable headline only. Each rung's missi
 - Model identity recorded at every checkpoint per `MUTABLE_HARNESS_STATE.md`; any skill use follows `SKILL_PROVENANCE_POLICY.md`.
 - Telemetry at checkpoint level, not per-event level: the Phase 3 review found per-event overhead disproportionate for routine work, and at duration that disproportion compounds. Checkpoint-level telemetry is itself trial evidence for the telemetry-mode question.
 - Closeout mission record per `MISSION_RECORD_DESIGN_V0.md`, with budget actuals versus plan from command-sourced timestamps and tool-call counts.
+
+## Friction Measurement (Rung 2 Onward)
+Governance that measures missions must also measure itself. From rung 2 onward, each rung records three counters, all derivable from the budget discipline already required:
+
+1. Governance-overhead ratio at closeout: tool calls spent on governance artifacts (envelope authoring, checkpoint writes, mission-record authoring, advisory-suite runs) versus tool calls spent on objective work.
+2. Per-artifact authoring cost: the per-checkpoint recording-cost note already required above, extended to envelope authoring and closeout-record authoring.
+3. Go-to-first-edit count: tool calls from sponsor Go to the first objective edit, measuring envelope ceremony directly.
+
+These counters are advisory observations, never targets or gates: setting a target ratio would invite under-recording, which is the failure the counters exist to detect. The counters also supply the affordability evidence for the `MISSION_ECONOMICS_VOCABULARY.md` lane decision.
+
+Rung 2 additionally trials the structured waypoint table per the `mission_waypoint` candidate shape in `SHADOW_SCHEMA_CANDIDATES.md`: the rung-2 envelope states its waypoints as a table with the candidate's essential fields and provisional type labels, so the ladder produces evidence on whether structured waypoints earn their cost. This trials a documentation shape only; it adds no required fields, validators, or gates.
 
 ## Rung 1 — Roughly One Hour, This Repository
 
