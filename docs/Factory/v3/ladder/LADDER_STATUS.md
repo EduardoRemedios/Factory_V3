@@ -1,9 +1,10 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v0.4
+v0.5
 
 ## Change Log
+- v0.5 (2026-06-11): Rung-2 attempt 1 (POC Mission 021, `LADDER_RUNG2_20260611`) adjudicated FAIL on duration per sponsor decision `HDI-RUNG2-002` (mechanics 7/8; honest 24m11s vs 90-180 min band). Decision-pack item 2 (live transport) now satisfied by the phone-answered round-trip. Rerun path (bigger scope vs ladder design review) is the new open sponsor decision.
 - v0.4 (2026-06-11): Backlog research spike landed: `mission_waypoint` shadow candidate, mission-economics vocabulary, fresh-worker reentry trial plan, and rung-2 friction counters (`DURATION_LADDER_PLAN.md` v0.4); rung-2 gate now includes the waypoint-table trial and friction counters.
 - v0.3 (2026-06-11): Gate 1 resolved — sponsor decision `HDI-RUNG2-001` selected option (b): rung 2 runs under the Codex harness with Codex mobile as the transport (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`). Fixed the duplicate numbering in the remaining-gates list.
 - v0.2 (2026-06-10): Recorded that Claude Code Remote Control is disabled by the sponsor's organization policy; rung-2 transport choice is an open sponsor decision with named options.
@@ -24,22 +25,27 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 
 | Pack item | Status |
 | --- | --- |
-| 1. Duration ladder (3 rungs) | Rung 1 of 3 passed (mechanics); rungs 2-3 not started |
-| 2. Live transport trial | Partially satisfied: answered round-trip and timeout-to-safe-hold both proven, but on the desktop/in-session surface; phone round-trip outstanding (rung-2 requirement) |
-| 3. Health signals at checkpoints | First real data at rung 1 (six signals, 10-15 lines/checkpoint); pack requires 2h and 4h rungs |
+| 1. Duration ladder (3 rungs) | Rung 1 passed (mechanics); rung-2 attempt 1 FAILED on duration (mechanics 7/8, honest compression to 24m11s, `HDI-RUNG2-002`); rung 2 open, rung 3 locked |
+| 2. Live transport trial | SATISFIED: phone-answered round-trip with sponsor away (96s deliver-to-answer, Codex mobile, POC Mission 021) plus timeout-to-safe-hold (MR_020) |
+| 3. Health signals at checkpoints | Recorded at rung 1 and at the rung-2 attempt (six signals + recording cost per checkpoint), but not yet at genuine 2h/4h duration |
 | 4. Natural negative case at duration | Open; do not seed and relabel |
 | 5. FP/FN review over ladder evidence | Open; runs after rung 3 |
 
 ## Resolved Gates
 - Rung-2 transport choice: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-001` (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`) — option (b): rung 2 runs under the Codex harness with Codex mobile as the transport, the trial plan's secondary candidate, already proven by POC Mission 013's two phone-answered interrupts. Background: Claude Code Remote Control returned "disabled by your organization's policy" when the sponsor tried to enable it (2026-06-10) — transport availability is itself org-policy-gated runtime state (an observation in the `MUTABLE_HARNESS_STATE.md` spirit); option (a) may be renamed in a future trial if the org policy changes.
 
+- Rung-2 attempt 1: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-002` (`rung2/RUNG2_ADJUDICATION_HDI_RUNG2_002.md`) — POC Mission 021 closed honestly at 24m11s against the 90-180 min band; mechanics passed 7 of 8 including the live phone interrupt, pause/reentry, waypoint-table trial, and friction counters. The failed rung does not unlock rung 3.
+
 ## Remaining Gates (in order; each needs envelope + sponsor Go)
-1. Rung 2 — POC repo, 2-hour class measured by budget-and-waypoint criteria with genuine duration required (a compressed run does not pass, per `HDI-TT-001`); one live Tier 3 interrupt answered from the sponsor's phone via Codex mobile per `HDI-RUNG2-001`; sponsor genuinely away from the terminal when the interrupt fires (focus suppression finding); rung-2 envelope drafted in the POC repo; rung runs under the Codex harness, with harness and model identity recorded per `MUTABLE_HARNESS_STATE.md`. The envelope also carries the structured-waypoint-table trial and the friction counters per `DURATION_LADDER_PLAN.md` v0.4.
-2. Rung 3 — 4-hour class; mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only.
-3. False-positive/false-negative review over the full ladder corpus.
-4. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
+1. Rung-2 rerun path (open sponsor decision, 2026-06-11): Option A — rerun with genuinely larger scope (~550-750 objective tool calls per measured throughput) keeping the wall-clock band; Option B — ladder design review first, re-basing rung classes on budget-and-waypoint classes with wall clock as a recorded observation (the `HDI-RUNG2-002` findings, the stop-threshold contradiction, and the harness-speed-setting observation are the review inputs). No option is selected by this file. A second consecutive rung-2 failure routes to design review regardless, per `DURATION_LADDER_PLAN.md` failure handling.
+2. Rung 2 rerun — per the path chosen in gate 1; before any rerun, fix the standalone-canon defect (vendor `MISSION_HEALTH_VOCABULARY.md` and ladder references into the POC repo or inline them in the envelope).
+3. Rung 3 — 4-hour class; mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only. Locked until rung 2 passes.
+4. False-positive/false-negative review over the full ladder corpus.
+5. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
 
 ## Parked Named Follow-ups (not gates, not approved)
+- Standalone-canon fix: vendor the Factory_V3 canon referenced by POC envelopes (health vocabulary, ladder artifacts) into the POC repo, or inline it (rung-2 attempt 1 finding, POC DD-001).
+- Harness speed/effort setting recorded at mission start and on change, as mutable harness state (`HDI-RUNG2-002` finding 5); required context for any cross-mission economics burn comparison.
 - Fresh-worker reentry trial (`FRESH_WORKER_REENTRY_TRIAL_PLAN.md`): cross-harness, sealed answer key; runs after rung 2 with its own envelope and Go.
 - Mission-economics research-lane decision (`MISSION_ECONOMICS_VOCABULARY.md`): gated on rung-2 friction-counter evidence; first economics recording targeted at rung 3.
 - `mission_waypoint` shadow-candidate refinement after the rung-2 waypoint-table trial.

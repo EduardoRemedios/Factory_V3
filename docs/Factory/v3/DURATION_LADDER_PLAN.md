@@ -1,9 +1,10 @@
 # Factory V3 Duration Ladder Plan
 
 ## Version
-v0.4
+v0.5
 
 ## Change Log
+- v0.5 (2026-06-11): Recorded rung-2 attempt 1 as FAILED on duration per sponsor adjudication `HDI-RUNG2-002` (mechanics 7/8; honest compression to 24m11s); rerun path is an open sponsor decision (larger scope vs design review re-basing rung classes).
 - v0.4 (2026-06-11): Added friction-measurement counters for rung 2 onward (advisory observations, never targets) and named the rung-2 structured-waypoint-table trial, from the backlog research spike.
 - v0.3 (2026-06-10): Added the naming-and-sizing rule per sponsor decision `HDI-TT-002`: hour-based rung names stay as the human-readable headline; measured pass criteria are budget-and-waypoint classes.
 - v0.2 (2026-06-10): Recorded rung 1 as passed for mechanics (mission `LADDER_RUNG1_20260610`, sponsor adjudication `HDI-TT-001`); the duration-stress burden shifts explicitly to rung 2.
@@ -48,6 +49,9 @@ Status: PASSED for mechanics (2026-06-10). Mission `LADDER_RUNG1_20260610` (evid
 - Rung passes when: all waypoints closed with per-waypoint verification, checkpoint series complete with grounded health signals, budget actuals within plan, no scope drift findings.
 
 ## Rung 2 — Roughly Two Hours, POC Repository
+
+Status: attempt 1 FAILED on duration (2026-06-11). POC Mission 021 (`LADDER_RUNG2_20260611`, envelope commit `a5c2c9a`, closeout `63a0a99`) passed 7 of 8 measured criteria — including the live phone-answered Tier 3 interrupt (96s), pause/fresh-session reentry, full health-signal series with recording costs, friction counters, and the waypoint-table trial — but closed honestly at 24m11s against the 90-180 minute band with no padding. Sponsor adjudication `HDI-RUNG2-002` (Factory_V3 `ladder/rung2/`): FAIL per the pre-written criteria. Findings include a latent envelope contradiction (measured throughput ~6.2 calls/min puts the 120-minute headline at ~745 calls, above the 700-call stop threshold) and a standalone-canon reference defect. The failed rung does not unlock rung 3; the rerun path (genuinely larger scope versus a design review re-basing rung classes on budget-and-waypoint classes) is an open sponsor decision recorded in the adjudication.
+
 - Mission type: bounded POC feature or test-expansion work with 5-8 waypoints, in the standalone POC repo where halt/recovery/reentry evidence already lives.
 - New things being tested: duration doubling; one seeded Tier 3 interrupt over the live transport (requires the `INTERRUPT_TRANSPORT_TRIAL_PLAN.md` trial approved and passed first); reentry after a deliberate mid-mission pause.
 - Rung passes when: rung 1 criteria hold at duration, the live interrupt round-trip produced a complete record, and pause/reentry worked from authored artifacts alone. Per `HDI-TT-001`, this rung now carries the duration-stress burden explicitly: a run that compresses far below the duration band does not pass this rung regardless of mechanics.

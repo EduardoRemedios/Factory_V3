@@ -1,9 +1,10 @@
 # Factory V3 Decision Pack: V3-OP-003 Long-Running Remote-Interrupt Mission
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-06-11): Evidence item 2 satisfied (phone-answered round-trip, POC Mission 021, plus the MR_020 timeout leg); rung-2 attempt 1 recorded as FAILED on duration (`HDI-RUNG2-002`). Pre-written criteria unchanged; assessment remains `NO PROMOTION YET`.
 - v0.1 (2026-06-10): Initial decision pack with pre-written `PASS`, `CONDITIONAL PASS`, and `NO PROMOTION YET` criteria and a current assessment of `NO PROMOTION YET`.
 
 ## Status
@@ -43,8 +44,14 @@ Evidence items 1-3 complete and the 4-hour rung clean, but item 4 (natural negat
 ### NO PROMOTION YET
 Any rung not yet run, any safe-hold or transport failure unresolved, any unresolved scope or verification finding at duration, or sponsor approval absent.
 
+## Evidence Progress (2026-06-11)
+- Item 1 (duration ladder): rung 1 passed for mechanics (`HDI-TT-001`); rung-2 attempt 1 FAILED on duration with mechanics 7/8 (`HDI-RUNG2-002`); rung 2 open, rung 3 locked.
+- Item 2 (live transport trial): SATISFIED — one real Tier 3 round-trip answered from the sponsor's phone with the sponsor away from the terminal (POC Mission 021, Codex mobile, deliver-to-answer 96s, full interrupt record at `.factory-v3/evidence/MISSION_021_INTERRUPT_HDI001.json` in the POC repo), and one exercised timeout reaching safe-hold (MR_020).
+- Item 3 (health signals): recorded with citations and per-checkpoint cost at rung 1 and the rung-2 attempt; not yet at genuine 2h/4h duration.
+- Items 4 and 5: open.
+
 ## Current Assessment
-`NO PROMOTION YET` — none of the five required evidence items exists yet. This is the expected state at pack creation; the pack exists so the ladder runs against fixed criteria.
+`NO PROMOTION YET` — evidence item 2 is satisfied, but the ladder (item 1) has no passed rung at duration, and items 3-5 remain open. The pre-written criteria are unchanged.
 
 ## Decision Record (to be completed at decision time)
 ```text

@@ -1,0 +1,162 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_023_rung2_adjudication",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_023_rung2_adjudication.json",
+    "source_closeout_reference": "Rung-2 adjudication recording mission RUNG2_ADJUDICATION_20260611; envelope and adjudication record under docs/Factory/v3/ladder/rung2/; committed with the mission changes per the same_commit convention. Adjudicated mission evidence lives in the POC repo (V3_POC_App_Creation commits a5c2c9a through 63a0a99).",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "5345bd5",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Record sponsor adjudication HDI-RUNG2-002 (duration-ladder rung-2 attempt 1 = FAIL on the duration criterion per the pre-written envelope criteria; mechanics 7 of 8), classify the run's findings, update the decision-pack scoreboard with evidence item 2 now satisfied, and name the rerun-path options as the next open sponsor decision.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/rung2/RUNG2_ADJUDICATION_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_ADJUDICATION_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_ADJUDICATION_HDI_RUNG2_002.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_023_rung2_adjudication.json"
+    ],
+    "forbidden_scope": [
+      "no amendment of pre-written pack criteria",
+      "no rung-2 rerun envelope or design-review execution",
+      "no validator, fixture, template, or skill changes",
+      "no transport use",
+      "no POC-repo changes",
+      "no new approval or promotion language",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_ADJUDICATION_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_ADJUDICATION_HDI_RUNG2_002.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_023_rung2_adjudication.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only adjudication recording with no executable change; the pre-written pack criteria were not amended, and the FAIL adjudication is recorded exactly as the sponsor gave it.",
+        "The failed rung is recorded as evidence per the ladder plan's failure-handling rule: findings classified, follow-ups named, rung 3 stays locked.",
+        "Evidence item 2 is marked satisfied only because both required legs now exist: the phone-answered round-trip (POC Mission 021) and the exercised timeout to safe-hold (MR_020)."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the seven authorized files."
+      ]
+    },
+    "friction_notes": [
+      "The rung-2 envelope referenced Factory_V3 canon files that do not exist in the standalone POC repo (health vocabulary, ladder plan); the worker handled it correctly by treating the envelope as stricter authority, but envelopes drafted from this repo for the standalone repo must vendor or inline every referenced canon. Named as a parked follow-up before any rerun.",
+      "The first friction counters show governance consumed 56 percent of all tool calls at a 150-call mission; small missions do not amortize governance overhead. This is the first affordability datum for the economics-lane decision and suggests economics recording only pays at genuinely larger scale.",
+      "Duration forecasting failed high for the third consecutive time even when derived from measured actuals (forecast 400-600 calls vs 150 actual); per-waypoint budget_slice forecasts were directionally useful but consistently overestimated."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "The ladder's wall-clock duration bands are in tension with the ADAPTIVE_MISSION_CONTROL.md core principle that time is an operational guardrail, not a sizing primitive: two consecutive honest rungs compressed 5-9x, and measured throughput (~6.2 calls/min) puts the rung-2 duration headline above the rung-2 stop threshold — a latent envelope contradiction only measurement could expose.",
+    "Harness speed/effort settings (Codex fast mode, vendor-stated 1.5x with higher token use) are mutable harness state in the MUTABLE_HARNESS_STATE.md sense: they scale wall clock and token burn, must be recorded at mission start and on change, and throttling them to satisfy a wall-clock criterion would be padding by another name.",
+    "The waypoint-table trial returned its first field verdicts from live use: named_scope earned its place by surfacing in-envelope but out-of-waypoint drift as a clean observation; budget_slice and type did not yet earn theirs.",
+    "Pre-written criteria did their job: the sponsor adjudicated FAIL against fixed goalposts despite 7 of 8 criteria passing, and the rerun-path question (fix the mission or fix the criterion) is now an explicit recorded decision instead of a silent re-interpretation."
+  ]
+}
