@@ -1,9 +1,10 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-06-11): Gate 1 resolved — sponsor decision `HDI-RUNG2-001` selected option (b): rung 2 runs under the Codex harness with Codex mobile as the transport (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`). Fixed the duplicate numbering in the remaining-gates list.
 - v0.2 (2026-06-10): Recorded that Claude Code Remote Control is disabled by the sponsor's organization policy; rung-2 transport choice is an open sponsor decision with named options.
 - v0.1 (2026-06-10): End-of-day pickup aid after rung 1 and the interrupt-transport trial.
 
@@ -28,9 +29,11 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 | 4. Natural negative case at duration | Open; do not seed and relabel |
 | 5. FP/FN review over ladder evidence | Open; runs after rung 3 |
 
+## Resolved Gates
+- Rung-2 transport choice: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-001` (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`) — option (b): rung 2 runs under the Codex harness with Codex mobile as the transport, the trial plan's secondary candidate, already proven by POC Mission 013's two phone-answered interrupts. Background: Claude Code Remote Control returned "disabled by your organization's policy" when the sponsor tried to enable it (2026-06-10) — transport availability is itself org-policy-gated runtime state (an observation in the `MUTABLE_HARNESS_STATE.md` spirit); option (a) may be renamed in a future trial if the org policy changes.
+
 ## Remaining Gates (in order; each needs envelope + sponsor Go)
-1. Rung-2 transport choice (open sponsor decision, 2026-06-10): Claude Code Remote Control returned "disabled by your organization's policy" when the sponsor tried to enable it — transport availability is itself org-policy-gated runtime state (an observation in the `MUTABLE_HARNESS_STATE.md` spirit). Named options: (a) sponsor's org admin enables Remote Control in the claude.ai admin settings for Claude Code; (b) run rung 2 under the Codex harness with Codex mobile as the transport — the trial plan's secondary candidate, already proven by POC Mission 013's two phone-answered interrupts; (c) any other transport would need its own naming and approval (live Telegram remains unapproved). No option is selected by this file.
-2. Rung 2 — POC repo, 2-hour class measured by budget-and-waypoint criteria with genuine duration required (a compressed run does not pass, per `HDI-TT-001`); one live Tier 3 interrupt answered from the sponsor's phone over the transport chosen in gate 1; sponsor genuinely away from the terminal when the interrupt fires (focus suppression finding); rung-2 envelope drafted in the POC repo.
+1. Rung 2 — POC repo, 2-hour class measured by budget-and-waypoint criteria with genuine duration required (a compressed run does not pass, per `HDI-TT-001`); one live Tier 3 interrupt answered from the sponsor's phone via Codex mobile per `HDI-RUNG2-001`; sponsor genuinely away from the terminal when the interrupt fires (focus suppression finding); rung-2 envelope drafted in the POC repo; rung runs under the Codex harness, with harness and model identity recorded per `MUTABLE_HARNESS_STATE.md`.
 2. Rung 3 — 4-hour class; mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only.
 3. False-positive/false-negative review over the full ladder corpus.
 4. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.

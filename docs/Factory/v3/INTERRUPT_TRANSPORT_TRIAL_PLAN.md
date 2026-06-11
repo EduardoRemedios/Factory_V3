@@ -1,9 +1,10 @@
 # Factory V3 Interrupt-Transport Live Trial Plan
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-06-11): Recorded the rung-2 transport selection: sponsor decision `HDI-RUNG2-001` chose the secondary candidate (Codex mobile under the Codex harness) for the rung-2 live interrupt, after Remote Control proved org-policy-disabled (see `ladder/rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`).
 - v0.1 (2026-06-10): Initial plan for a narrow live trial of a vendor-native human-interrupt transport, building on the 2026-06-04 interrupt-transport spike.
 
 ## Status
@@ -26,6 +27,8 @@ Per the spike's recommendation order:
 3. Telegram bridge remains fallback-only with no build, per the spike decision.
 
 The trial uses one transport. Comparing transports is out of scope; a second transport would be a second trial.
+
+Selection note (2026-06-11): the completed 2026-06-10 trial ran on the Claude Code notification surface with Remote Control inactive (org-policy-disabled). For the rung-2 live interrupt, sponsor decision `HDI-RUNG2-001` selected the secondary candidate: Codex mobile under the Codex harness. This note records the selection; it does not approve the rung-2 run.
 
 ## Trial Mission Shape
 - One synthetic, docs-only mission in this repository under `V3-OP-001` (the trial mission itself is bounded and short; long duration is the ladder's job, not this trial's).

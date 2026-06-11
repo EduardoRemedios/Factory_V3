@@ -1,0 +1,157 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_021_rung2_transport_decision",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_021_rung2_transport_decision.json",
+    "source_closeout_reference": "Rung-2 preparation mission RUNG2_PREP_20260611; envelope and sponsor-decision record under docs/Factory/v3/ladder/rung2/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "8299317",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Record sponsor decision HDI-RUNG2-001 (rung-2 transport = Codex harness with Codex mobile, option b from the LADDER_STATUS.md gate-1 options) as a structured decision record, and bring the ladder status, anchor registry, and transport trial plan into consistency with it.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/rung2/RUNG2_PREP_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_PREP_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/INTERRUPT_TRANSPORT_TRIAL_PLAN.md",
+      "docs/Factory/v3/mission_records/MR_20260611_021_rung2_transport_decision.json"
+    ],
+    "forbidden_scope": [
+      "no transport use in this mission",
+      "no validator, fixture, template, or skill changes",
+      "no POC-repo changes",
+      "no rung-2 envelope content",
+      "no new approval or promotion language beyond recording the named sponsor decision",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_PREP_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/INTERRUPT_TRANSPORT_TRIAL_PLAN.md",
+      "docs/Factory/v3/mission_records/MR_20260611_021_rung2_transport_decision.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only recording mission with no new dependencies, no transport use, and no executable change.",
+        "The decision record approves the transport selection only; rung 2 itself still requires its own envelope and explicit sponsor Go, stated in every touched file.",
+        "The transport decision was taken by the sponsor in-thread via a structured option prompt before the envelope was written; the envelope records this as a Tier 1 pre-resolved input rather than re-opening it."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the six authorized files."
+      ]
+    },
+    "friction_notes": [
+      "The gate-1 decision was raised at end-of-day 2026-06-10 inside LADDER_STATUS.md rather than as a standing structured interrupt record, so this mission had to construct the HDI record one day after the question was named; raising future cross-session sponsor decisions as structured records at raise time would remove that backfill step.",
+      "LADDER_STATUS.md v0.2 carried a duplicate-numbering defect in its remaining-gates list (two gates numbered 2), introduced under end-of-day pressure and fixed here; pickup aids written at day end may deserve a one-pass reread before commit."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Transport availability proved to be org-policy-gated runtime state exactly as MUTABLE_HARNESS_STATE.md frames harness capability: the rung-2 envelope must record the transport's observed working state at mission start, not assume the plan-time selection still holds.",
+    "Recording a sponsor decision taken in-thread at session start (before any envelope existed) fit cleanly into the envelope-first discipline by classifying it as a Tier 1 pre-resolved input to the recording mission.",
+    "The session surfaced a sponsor design question about waypoints as first-class record objects (typed waypoints with id, scope, budget slice, verification, continuation rule); current canon treats waypoints as envelope prose with checkpoints as the recorded structure, and the rung-2 envelope is the natural place to trial a structured waypoint table before any schema proposal."
+  ]
+}
