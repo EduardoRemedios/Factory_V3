@@ -1,0 +1,159 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_029_ladder_design_review_round2",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_029_ladder_design_review_round2.json",
+    "source_closeout_reference": "Ladder design review round 2 mission LADDER_DESIGN_REVIEW2_20260611; envelope and combined review/decision record under docs/Factory/v3/ladder/design_review/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "14c6a77",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Execute the mandatory second ladder design review over the three-point calibration evidence and record sponsor decision HDI-RUNG2-007 (Option A-final: rung-2 attempt 4 at ~27 build waypoints with browser tooling enabled and verified at pre-flight; hybrid rung-3-class contract as named contingent follow-on), applying the attempt-4 class with Mission 023-recalibrated coefficients to DURATION_LADDER_PLAN.md v0.9.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/design_review/DESIGN_REVIEW_ROUND2_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/design_review/DESIGN_REVIEW_ROUND2_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/design_review/LADDER_DESIGN_REVIEW_ROUND2_HDI_RUNG2_007.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_029_ladder_design_review_round2.json"
+    ],
+    "forbidden_scope": [
+      "no V3_OP_003_DECISION_PACK.md changes or pack-criteria amendment",
+      "no Mission 024 envelope inside this mission",
+      "no rung execution",
+      "no validator, fixture, template, or skill changes",
+      "no transport use",
+      "no POC-repo changes within this mission",
+      "no new approval or promotion language",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ladder/design_review/DESIGN_REVIEW_ROUND2_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/design_review/LADDER_DESIGN_REVIEW_ROUND2_HDI_RUNG2_007.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_029_ladder_design_review_round2.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "The sponsor's path direction arrived with the GO, so review and adoption are one mission; the verbatim answer is recorded and the un-adopted Option B is preserved as available rather than silently discarded.",
+        "The falling-coefficient risk is stated honestly in both the review and the plan: attempt 4 may land at the floor, and the named next move in that case is the hybrid, not a fifth scope inflation.",
+        "Browser availability becomes a Go-blocking pre-flight check rather than a post-hoc excuse, converting the Mission 023 F2 finding into an enforceable envelope obligation."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the six authorized files."
+      ]
+    },
+    "friction_notes": [
+      "Combining review and adoption in one mission (sponsor direction arrived with GO) saved a full recording-mission cycle versus round 1; worth noting as the lane's cheapest decision pattern when the sponsor pre-decides in-thread.",
+      "Recording-mission template candidate continues to accrue evidence (eighth envelope of the day)."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "A coefficient proven non-stationary is itself a design asset: the lane now updates per-deliverable costs from the latest run by rule, making each envelope's forecast a falsifiable prediction rather than a hope.",
+    "The sponsor's 'we might learn something' framing makes the contingent hybrid an experiment design, not a fallback — the ladder now has a named path that converts a fourth duration failure into a richer trial instead of a repeat.",
+    "Harness capability checks (browser availability) entering pre-flight as Go-blocking state is the first time a tool-availability fact gates a mission rather than merely being observed."
+  ]
+}
