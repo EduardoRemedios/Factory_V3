@@ -1,0 +1,161 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_030_rung2_attempt4_adjudication",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_030_rung2_attempt4_adjudication.json",
+    "source_closeout_reference": "Rung-2 attempt-4 PASS adjudication recording mission RUNG2A4_ADJUDICATION_20260611; envelope and decision record under docs/Factory/v3/ladder/rung2/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "c1b404f",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Record sponsor decision HDI-RUNG2-008 (rung-2 attempt 4, POC Mission 024 = PASS on all eight measured criteria; rung 2 closed after four attempts), classify the findings (validated browser hypothesis, vendor session-limit absorption, fourth calibration point, governance amortization), unlock rung 3 as the HDI-RUNG2-007 hybrid, and update the ladder status, duration-ladder plan, decision pack, and anchor registry including the pickup note for the next session.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/rung2/RUNG2_ATTEMPT4_ADJUDICATION_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_ATTEMPT4_ADJUDICATION_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_ATTEMPT4_ADJUDICATION_HDI_RUNG2_008.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_030_rung2_attempt4_adjudication.json"
+    ],
+    "forbidden_scope": [
+      "no pack-criteria amendment",
+      "no promotion decision",
+      "no rung-3 contract drafting inside this mission",
+      "no rung execution",
+      "no validator, fixture, template, or skill changes",
+      "no transport use",
+      "no POC-repo changes within this mission",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_ATTEMPT4_ADJUDICATION_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_ATTEMPT4_ADJUDICATION_HDI_RUNG2_008.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_030_rung2_attempt4_adjudication.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below. Sponsor-side independent verification of the adjudicated mission (POC full suite, 315 tests OK; verify_mission_024.py 12/12 checks; 15 browser screenshots confirmed on disk) was run before adjudication and passed."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "The PASS is recorded against the pre-written criteria with the enforced session-limit wait explicitly examined and excluded from active duration, so the first rung pass carries no asterisk.",
+        "The pass unlocks rung-3 FORMATION only: every doc updated here names the formation missions, envelope, and sponsor Go still required before any rung-3 execution.",
+        "Assessment stays NO PROMOTION YET with the evidence-progress lines updated honestly: items 4-5 open, 2h/4h health-signal evidence still outstanding."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the seven authorized files."
+      ]
+    },
+    "friction_notes": [
+      "The rung-2 arc consumed eight sponsor decisions (HDI-RUNG2-001 through -008), four POC missions, and two design reviews to convert one criterion from claim to evidence; the decision chain is fully reconstructible from the records, which is the lane's product.",
+      "Pickup note for the next session embedded in LADDER_STATUS.md per sponsor request (next work may resume tomorrow or Saturday)."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "The criterion that survived two design reviews was ultimately met by restoring genuine workload rather than relaxing the bar — evidence that failure-handling rules which route to design review (instead of quiet criterion drift) preserve goalpost integrity under repeated failure.",
+    "A governance mechanism built for deliberate pauses absorbed a vendor rate limit unmodified on first contact; mechanisms designed around authored-artifact reentry generalize to interruptions their designers did not anticipate.",
+    "Four calibration points turned mission sizing from guesswork into floor control: forecasts still run high, but the floor/threshold pair now reliably brackets honest work — the practical end-state for budget classes."
+  ]
+}

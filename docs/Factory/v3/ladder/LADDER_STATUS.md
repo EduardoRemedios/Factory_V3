@@ -1,9 +1,10 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v1.1
+v1.2
 
 ## Change Log
+- v1.2 (2026-06-11): RUNG 2 PASSED — attempt 4 (POC Mission 024, `LADDER_RUNG2A4_20260611`) adjudicated PASS on all eight measured criteria per sponsor decision `HDI-RUNG2-008`: 95.25 active minutes, ~548 calls, four feature epics, restored browser QA with real defect-fix loops (the validated `HDI-RUNG2-006` browser hypothesis), clean field-set-v2 interrupt (117s), pause/reentry that also absorbed a ~30-minute vendor session-limit wait (new harness-state finding). Rung 3 UNLOCKED as the `HDI-RUNG2-007` hybrid (`V3-ANCHOR-005` trial). Hybrid compression contingency not triggered.
 - v1.1 (2026-06-11): Design review round 2 executed and adopted in one pass per sponsor decision `HDI-RUNG2-007` ("GO and then lets try option A and based on what we see we could do another one using the hybrid approach"): rung-2 attempt 4 at ~27 build waypoints with browser tooling enabled (Go-blocking pre-flight check), coefficients recalibrated from Mission 023 (~21 calls/build waypoint), forecast ~700-1050 calls; hybrid rung-3-class contract named as contingent follow-on either way. `DURATION_LADDER_PLAN.md` amended to v0.9. Next gate: Mission 024 envelope plus sponsor Go.
 - v1.0 (2026-06-11): Rung-2 attempt 3 (POC Mission 023, `LADDER_RUNG2R2_20260611`) adjudicated FAIL on duration and budget floor per sponsor decision `HDI-RUNG2-006` (mechanics clean; honest 54m03s active and ~333 calls vs the 90-min/540-call floors; work quality acknowledged). First live use of the interrupt field set v2 passed. New sponsor-named finding: browser tooling was unexposed in the Codex session, shortening the run and weakening verification depth — enablement directed for future runs. Third duration failure routes the lane to design review round 2 (mandatory).
 - v0.9 (2026-06-11): Design-review output ADOPTED per sponsor decision `HDI-RUNG2-005` ("i agree with option A", `design_review/LADDER_DESIGN_ADOPTION_HDI_RUNG2_005.md`): duration band stays a rung-2 criterion, guarded by the bottom-up sizing rule and scope-sufficiency precondition; `DURATION_LADDER_PLAN.md` amended to v0.7 with the adopted rung classes and interrupt field set v2. Next gate: the rung-2 re-attempt envelope (~3.5x Mission 022 scope, multi-epic, derivation shown) plus sponsor Go.
@@ -31,9 +32,9 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 
 | Pack item | Status |
 | --- | --- |
-| 1. Duration ladder (3 rungs) | Rung 1 passed (mechanics); rung-2 attempts 1, 2, and 3 all FAILED on duration (attempt 3: mechanics clean at 3.5x scope, honest 54m03s active / ~333 calls, `HDI-RUNG2-006`); lane routed to design review round 2; rung 3 locked |
+| 1. Duration ladder (3 rungs) | Rung 1 passed (mechanics); RUNG 2 PASSED at attempt 4 (`HDI-RUNG2-008`: 95.25 active min, ~548 calls, all 8 criteria) after three honest compression failures and two design reviews; rung 3 UNLOCKED (formation pending) |
 | 2. Live transport trial | SATISFIED: phone-answered round-trip with sponsor away (96s deliver-to-answer, Codex mobile, POC Mission 021) plus timeout-to-safe-hold (MR_020) |
-| 3. Health signals at checkpoints | Recorded at rung 1 and both rung-2 attempts (six signals + recording cost per checkpoint), but not yet at genuine 2h/4h duration |
+| 3. Health signals at checkpoints | Recorded at rung 1 and all four rung-2 attempts; Mission 024 supplies the first complete series at genuine ~95-minute duration; 2h/4h evidence is rung 3's burden |
 | 4. Natural negative case at duration | Open; do not seed and relabel |
 | 5. FP/FN review over ladder evidence | Open; runs after rung 3 |
 
@@ -44,6 +45,8 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 
 - Rerun path: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-003` (`rung2/RUNG2_RERUN_PATH_HDI_RUNG2_003.md`) — Option A: genuinely larger scope under the unchanged wall-clock band, stop threshold raised to 1100; second duration failure routes to the design review.
 
+- Rung-2 attempt 4: ADJUDICATED PASS 2026-06-11 by sponsor decision `HDI-RUNG2-008` (`rung2/RUNG2_ATTEMPT4_ADJUDICATION_HDI_RUNG2_008.md`) — POC Mission 024 (governance suite: import/export, replay/simulation, access, digests; 31 waypoints, 315 tests) passed all eight criteria: 95.25 active minutes, ~548 calls, restored browser QA with one real UI defect and three QA-script defects found and fixed, clean field-set-v2 interrupt, pause/reentry absorbing a vendor session-limit wait. RUNG 2 CLOSED; rung 3 unlocked as the hybrid.
+
 - Design review round 2: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-007` (`design_review/LADDER_DESIGN_REVIEW_ROUND2_HDI_RUNG2_007.md`) — Option A-final: attempt 4 at ~27 build waypoints with browser tooling enabled and verified at pre-flight; coefficients recalibrated from Mission 023 actuals; hybrid rung-3-class contract named as the contingent follow-on either way; Option B not adopted but remains available with four calibration points if attempt 4 compresses.
 
 - Rung-2 attempt 3: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-006` (`rung2/RUNG2_ATTEMPT3_ADJUDICATION_HDI_RUNG2_006.md`) — POC Mission 023 (three epics, 16 build waypoints, 247 tests) closed honestly at 59m55s gross / 54m03s active with ~333 calls against the 90-min/540-call floors; mechanics clean including the first live field-set-v2 interrupt (86s, neutral) and pause/reentry. Calibration verdict: throughput calibrated (~6.2 calls/min, three runs), per-waypoint cost coefficient too high. Sponsor findings: browser tooling unexposed in the session shortened the run (enablement directed); a further ~2x scope jump is the only remaining Option A variant.
@@ -53,11 +56,10 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 - Rung-2 attempt 2: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-004` (`rung2/RUNG2_RERUN_ADJUDICATION_HDI_RUNG2_004.md`) — POC Mission 022 closed honestly at 47m40s elapsed (40m06s active) against the 90-180 min band with mechanics 8/8, including a clean live phone interrupt (734s answer latency recorded as neutral telemetry per the adopted safe-hold-trigger principle), pause/fresh-session reentry, friction counters, and the waypoint-table second trial. Two consecutive duration failures trigger the pre-written design-review routing.
 
 ## Remaining Gates (in order; each needs envelope + sponsor Go)
-1. Rung-2 attempt 4 (POC Mission 024) under the adopted `HDI-RUNG2-007` class — ~27 build waypoints (~3 of them browser-QA), forecast ~700-1050 calls bottom-up from Mission 023-recalibrated coefficients, floor 540, stop 1300, band 90-180 min, interrupt field set v2, new live phone interrupt and pause/reentry; pre-flight must verify browser-tool availability (Go-blocking) — the sponsor enables the browser plugin at Codex session start.
-2. Contingent hybrid follow-on per `HDI-RUNG2-007` (either way, for learning value): a rung-3-class contract drafted with the mission-formation skill and red-teamed with the challenge skill (the `V3-ANCHOR-005` trial); if attempt 4 compresses again, this absorbs the duration burden and the wall-clock criterion is re-presented with four calibration points.
-3. Rung 3 — 4-hour class (class parameters to be confirmed or revised by design review round 2); mission contract drafted with the mission-formation skill and red-teamed with the challenge skill (the named `V3-ANCHOR-005` live trial); natural interrupts only. Locked until rung 2 resolves.
-4. False-positive/false-negative review over the full ladder corpus.
-5. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
+1. Rung-3 contract formation (the `HDI-RUNG2-007` hybrid and the named `V3-ANCHOR-005` live trial): draft the ~4-hour-class mission contract with the mission-formation skill, then red-team it with the challenge skill (both non-executing), recalibrating the rung-3 class parameters (`HDI-RUNG2-005` baseline: floor 1100, stop 2000, band 200-300 min) from the four-point dataset. Formation inherits: browser pre-flight as Go-blocking, interrupt field set v2, and planned allowance for vendor session-limit pauses (`HDI-RUNG2-008` F2).
+2. Rung-3 execution — natural Tier 3 interrupts (not seeded), budget discipline near threshold, context management across the long session, first formal mission-economics recording, hoped-for natural negative case (pack item 4; do not seed and relabel).
+3. False-positive/false-negative review over the full ladder corpus.
+4. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
 
 ## Parked Named Follow-ups (not gates, not approved)
 - Standalone-canon fix: vendor the Factory_V3 canon referenced by POC envelopes (health vocabulary, ladder artifacts) into the POC repo, or inline it (rung-2 attempt 1 finding, POC DD-001).
@@ -71,5 +73,7 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 - Interim-halt event field design note (MR_020 false-positive note) for missions that halt and resume within one record.
 - Harness capability profile observation for the Claude Code notification surface (delivery gating + focus suppression, from MR_020).
 
-## Read First Tomorrow
-`ANCHOR_REGISTRY.md` (row `V3-ANCHOR-004`) → `V3_OP_003_DECISION_PACK.md` → `DURATION_LADDER_PLAN.md` → this file's scoreboard. Mission records MR_010 through MR_020 are the day's evidence chain.
+## Read First Next Session (pickup note, written end of 2026-06-11)
+`ANCHOR_REGISTRY.md` (row `V3-ANCHOR-004`) → this file's scoreboard and remaining gates → `DURATION_LADDER_PLAN.md` (v0.10) → `rung2/RUNG2_ATTEMPT4_ADJUDICATION_HDI_RUNG2_008.md` (the rung-2 PASS and its findings).
+
+Where things stand: RUNG 2 PASSED 2026-06-11 at attempt 4 after three honest compression failures and two design reviews; rung 3 is unlocked but NOT formed — the next action is gate 1 above (rung-3 contract formation with the mission-formation skill, red-teamed with the challenge skill), which needs its own envelope and explicit sponsor Go. Nothing about the pass authorizes rung-3 execution. The day's evidence chain is mission records MR_010 through MR_030 in Factory_V3 plus POC Missions 021-024 (`a5c2c9a`..`1ae7542` in V3_POC_App_Creation; POC repo is NOT pushed — sponsor pushes). Decision chain for the rung-2 arc: `HDI-RUNG2-001` (transport) → 002 (attempt-1 FAIL) → 003 (rerun path) → 004 (attempt-2 FAIL + safe-hold-trigger principle) → 005 (design review 1 adoption) → 006 (attempt-3 FAIL + browser finding) → 007 (design review 2: attempt 4 + hybrid) → 008 (attempt-4 PASS, rung 3 unlocked).

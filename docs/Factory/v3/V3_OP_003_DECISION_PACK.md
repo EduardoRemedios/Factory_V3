@@ -1,9 +1,10 @@
 # Factory V3 Decision Pack: V3-OP-003 Long-Running Remote-Interrupt Mission
 
 ## Version
-v0.4
+v0.5
 
 ## Change Log
+- v0.5 (2026-06-11): Rung 2 PASSED at attempt 4 (`HDI-RUNG2-008`: all eight criteria, 95.25 active minutes, ~548 calls, restored browser QA). Item 1 gains its first duration-class rung pass; item 3 gains a complete health-signal series at genuine ~95-minute duration. Rung 3 unlocked (formation pending). Pre-written criteria unchanged; assessment remains `NO PROMOTION YET` (items 4-5 open; 2h/4h evidence outstanding).
 - v0.4 (2026-06-11): Rung-2 attempt 3 recorded as FAILED on duration and budget floor (`HDI-RUNG2-006`; mechanics clean at 3.5x scope; honest 54m03s active, ~333 calls). Third consecutive duration failure routes the ladder to design review round 2. Item 3 now has checkpoint-series evidence from all three rung-2 attempts. Pre-written criteria unchanged; assessment remains `NO PROMOTION YET`.
 - v0.3 (2026-06-11): Rung-2 attempt 2 recorded as FAILED on duration (`HDI-RUNG2-004`; mechanics 8/8; honest 40m06s active vs the 90-180 min band). Second consecutive duration failure routes the ladder to the mandatory design review. Item 3 now has checkpoint-series evidence from both rung-2 attempts. Pre-written criteria unchanged; assessment remains `NO PROMOTION YET`.
 - v0.2 (2026-06-11): Evidence item 2 satisfied (phone-answered round-trip, POC Mission 021, plus the MR_020 timeout leg); rung-2 attempt 1 recorded as FAILED on duration (`HDI-RUNG2-002`). Pre-written criteria unchanged; assessment remains `NO PROMOTION YET`.
@@ -47,13 +48,13 @@ Evidence items 1-3 complete and the 4-hour rung clean, but item 4 (natural negat
 Any rung not yet run, any safe-hold or transport failure unresolved, any unresolved scope or verification finding at duration, or sponsor approval absent.
 
 ## Evidence Progress (2026-06-11)
-- Item 1 (duration ladder): rung 1 passed for mechanics (`HDI-TT-001`); rung-2 attempts 1, 2, and 3 all FAILED on duration (`HDI-RUNG2-002` mechanics 7/8; `HDI-RUNG2-004` mechanics 8/8; `HDI-RUNG2-006` mechanics clean at 3.5x scope, 54m03s active, ~333 calls vs the adopted 540-call floor); the lane is routed to design review round 2 before any further attempt; rung 3 locked.
+- Item 1 (duration ladder): rung 1 passed for mechanics (`HDI-TT-001`); RUNG 2 PASSED at attempt 4 (`HDI-RUNG2-008`: 95.25 active minutes, ~548 calls, all eight criteria) after three honest compression failures (`HDI-RUNG2-002`, `-004`, `-006`) and two design reviews (`-005`, `-007`); rung 3 unlocked, formation pending (the `HDI-RUNG2-007` hybrid, `V3-ANCHOR-005` trial).
 - Item 2 (live transport trial): SATISFIED — one real Tier 3 round-trip answered from the sponsor's phone with the sponsor away from the terminal (POC Mission 021, Codex mobile, deliver-to-answer 96s, full interrupt record at `.factory-v3/evidence/MISSION_021_INTERRUPT_HDI001.json` in the POC repo), and one exercised timeout reaching safe-hold (MR_020).
-- Item 3 (health signals): recorded with citations and per-checkpoint cost at rung 1 and all three rung-2 attempts; not yet at genuine 2h/4h duration.
+- Item 3 (health signals): recorded with citations and per-checkpoint cost at rung 1 and all four rung-2 attempts; Mission 024 supplies the first complete series at genuine ~95-minute duration; 2h/4h evidence remains rung 3's burden.
 - Items 4 and 5: open.
 
 ## Current Assessment
-`NO PROMOTION YET` — evidence item 2 is satisfied, but the ladder (item 1) has no passed rung at duration, and items 3-5 remain open. The pre-written criteria are unchanged.
+`NO PROMOTION YET` — evidence item 2 is satisfied and item 1 now holds a passed duration-class rung (rung 2 at attempt 4), but rung 3 (the 4-hour class) has not run, and items 4-5 remain open. The pre-written criteria are unchanged.
 
 ## Decision Record (to be completed at decision time)
 ```text
