@@ -1,0 +1,160 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-11",
+    "source_trial_id": "MR_20260611_025_rung2_rerun_adjudication",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260611_025_rung2_rerun_adjudication.json",
+    "source_closeout_reference": "Rung-2 rerun adjudication recording mission RUNG2R_ADJUDICATION_20260611; envelope and decision record under docs/Factory/v3/ladder/rung2/; committed with the mission changes per the same_commit convention",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "7adff22",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Claude Code",
+    "model": "claude-fable-5",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["claude-fable-5"]
+    },
+    "objective": "Record sponsor decision HDI-RUNG2-004 (rung-2 attempt 2, POC Mission 022 = FAIL on duration with mechanics 8/8), record the sponsor-adopted safe-hold-trigger principle as a named design decision in the same record, and update the ladder status, duration-ladder plan, decision pack, and anchor registry; the mandatory design review becomes the next named gate.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_ADJUDICATION_MISSION_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_ADJUDICATION_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_ADJUDICATION_HDI_RUNG2_004.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_025_rung2_rerun_adjudication.json"
+    ],
+    "forbidden_scope": [
+      "no pack-criteria amendment",
+      "no design-review execution or new rung envelope",
+      "no validator, fixture, template, or skill changes",
+      "no transport use",
+      "no POC-repo changes within this mission",
+      "no new approval or promotion language",
+      "no files outside the envelope list"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "scoped git add, commit, and push at closeout"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond envelope files",
+      "unresolved advisory finding",
+      "contradiction inside the envelope"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_ADJUDICATION_MISSION_ENVELOPE.md",
+      "docs/Factory/v3/ladder/rung2/RUNG2_RERUN_ADJUDICATION_HDI_RUNG2_004.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/mission_records/MR_20260611_025_rung2_rerun_adjudication.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Advisory suite run at closeout after all authorized-file edits; results recorded below. Sponsor-side independent verification of the adjudicated mission (POC full suite, 197 tests, and verify_mission_022.py) was run before adjudication and passed."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "Docs-only recording mission; the verdict applies the pre-written criteria unchanged and the design-review routing was pre-written in HDI-RUNG2-003 and the ladder failure-handling rule, so no new judgment authority is exercised here.",
+        "The safe-hold-trigger decision removes a service-level expectation on the sponsor without weakening any agent obligation: safe-hold parking, no-inference, and full interrupt records all remain mandatory.",
+        "The sponsor's larger-scope guidance is recorded as a named design-review input rather than as a new rung attempt, so the mandatory design-review routing cannot be bypassed by enthusiasm to rerun."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired; all edits stayed inside the seven authorized files."
+      ]
+    },
+    "friction_notes": [
+      "Fourth recording mission of the lane with near-identical envelope boilerplate; the previously noted recording-mission template candidate keeps accruing evidence.",
+      "The adjudicated mission's friction counters (governance ratio ~1.29:1, ~10 calls per evidence artifact) are now two-mission data for the mission-economics lane decision."
+    ],
+    "false_positive_notes": [
+      "None observed in this mission's advisory pass."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after the advisory pass."
+    ]
+  },
+  "phase2_design_signals": [
+    "Two honest rung-2 duration failures with clean mechanics are stronger design-review input than one pass would have been: they isolate the variable (scope sizing) because throughput, governance overhead, and interrupt mechanics replicated across both attempts.",
+    "The safe-hold-trigger principle emerged from sponsor experience of being measured ('the answer should take however long it takes'), not from agent-side failure — evidence that interrupt-protocol design needs the human's lived experience, not only transport telemetry.",
+    "Mission 022's agent kept waiting past the named timeout and correctly applied the answer that arrived at T+734s; the rule as written was violated while the behavior was right, which is the clearest possible signal the rule encoded the wrong concept."
+  ]
+}
