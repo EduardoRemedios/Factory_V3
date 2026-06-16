@@ -1,0 +1,160 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-06-16",
+    "source_trial_id": "MR_20260616_031_doc_sync_after_rung2_pass",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260616_031_doc_sync_after_rung2_pass.json",
+    "source_closeout_reference": "Thread-local sponsor-approved docs sync after reviewing recent commits and canonical docs; updated early read-order summaries to match rung-2 PASS and rung-3 unlock evidence.",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "d8ba3d3",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Codex",
+    "model": "gpt-5-codex",
+    "model_routing": {
+      "router_enabled": "no",
+      "observed_models": ["gpt-5-codex"]
+    },
+    "objective": "Synchronize early canonical summary docs so they no longer say ladder rung 1 is active after rung 2 passed and rung 3 was unlocked; preserve advisory-only and NO PROMOTION YET boundaries.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "User approved step 1 after the canonical-doc review: update stale summary docs before rung-3 formation.",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/mission_records/MR_20260616_031_doc_sync_after_rung2_pass.json"
+    ],
+    "forbidden_scope": [
+      "no profile promotion",
+      "no rung-3 contract formation",
+      "no rung execution",
+      "no validator behavior changes",
+      "no required-gate integration",
+      "no runtime authority or governance routing",
+      "no POC repository changes",
+      "no V2 scaffolding removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "date -u +%Y-%m-%dT%H:%M:%SZ",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+      "bash scripts/knowledge_lint.sh",
+      "git diff --check",
+      "git status --short --branch"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expansion beyond the authorized docs",
+      "advisory lint finding that cannot be resolved by wording-only sync",
+      "any wording that implies V3-OP-003 promotion or rung-3 execution approval"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/mission_records/MR_20260616_031_doc_sync_after_rung2_pass.json"
+    ],
+    "verification": {
+      "commands": [
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+        "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json",
+        "bash scripts/knowledge_lint.sh",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "All scoped V3 advisory, operational-readiness, natural-language pilot, mission-record, knowledge-lint, and whitespace checks passed after the docs sync."
+    },
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py --nl-pilot",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_mission_record_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "knowledge_lint.sh",
+        "result": "pass",
+        "classification": "PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "The change is a bounded summary sync against already-recorded evidence, with no validator, profile, template, or runtime behavior changes.",
+        "All updated wording keeps V3-OP-003 at NO PROMOTION YET and names rung-3 formation as the next gate, not execution."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No halt or fallback trigger fired during the scoped doc sync."
+      ]
+    },
+    "friction_notes": [
+      "Early read-order docs had drifted behind later pointer and ladder docs; this sync reduces cold-start confusion for future workers.",
+      "The change was cheap enough to record with a shadow mission record, matching Phase 2.5 optional-shadow-use guidance."
+    ],
+    "false_positive_notes": [
+      "None observed after closeout verification."
+    ],
+    "false_negative_notes": [
+      "No false negatives observed after closeout verification."
+    ]
+  },
+  "phase2_design_signals": [
+    "Summary docs that sit early in the read order can become stale even when pointer registries and decision packs are correct; shadow records are useful for documenting why a purely editorial sync happened.",
+    "The most important wording boundary for this lane remains separating rung unlock and contract formation from execution or profile promotion."
+  ]
+}
