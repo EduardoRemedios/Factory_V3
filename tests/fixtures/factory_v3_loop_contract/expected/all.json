@@ -1,0 +1,226 @@
+{
+  "blocking_effect": "none",
+  "checked_contracts": [
+    "tests/fixtures/factory_v3_loop_contract/invalid/ambiguous_no_safe_hold.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/blind_action_not_checked.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/contradictory_memory_missing_evidence.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/feature_work_no_staged_evidence.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/invalidated_branch_no_safe_hold.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/missing_terminal_states.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/missing_tool_authority.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/omitted_tool_no_rationale.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/stale_memory_allows_reentry.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/stale_reentry_gap.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/tool_failure_no_safe_hold.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/unsafe_approval_scope.json",
+    "tests/fixtures/factory_v3_loop_contract/invalid/wrong_tool_no_evidence.json",
+    "tests/fixtures/factory_v3_loop_contract/valid_loop_contract.json",
+    "tests/fixtures/factory_v3_loop_contract/valid_rich_scenarios.json"
+  ],
+  "findings": [
+    {
+      "id": "V3-LC001",
+      "message": "missing object: state_policy",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC003",
+      "message": "terminal_states missing required states: ambiguous, approval_required, exhausted, failed_verification, infeasible, insufficient_context, no_op, stagnated, stale_reentry, unsafe",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_terminal_states.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC015",
+      "message": "unsafe approval flag must be false: runtime_authority_approved",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/unsafe_approval_scope.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC016",
+      "message": "factory_v2_fallback_retained must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/unsafe_approval_scope.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC040",
+      "message": "state_policy.state_sources must be a non-empty list",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC041",
+      "message": "state_policy.contradiction_handling is missing",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC041",
+      "message": "state_policy.deletion_forgetting_policy is missing",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC041",
+      "message": "state_policy.write_policy is missing",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC042",
+      "message": "state_policy.checkpoint_lineage_required must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC042",
+      "message": "state_policy.stale_state_check_required must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC043",
+      "message": "state_policy.reentry_read_order must be a non-empty list",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_state_policy.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC050",
+      "message": "tool_policy.allowed_tools must be a non-empty list",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_tool_authority.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC054",
+      "message": "tool_policy.tool_call_evidence_required must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/missing_tool_authority.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC061",
+      "message": "act_or_ask_gate.checked_before_action must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/ambiguous_no_safe_hold.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC062",
+      "message": "act_or_ask_gate.halt_conditions missing: ambiguous, approval_required, infeasible, insufficient_context",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/ambiguous_no_safe_hold.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC063",
+      "message": "act_or_ask_gate.safe_hold_evidence_required missing: blocked_action, human_decision_needed, last_safe_checkpoint, reentry_instructions",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/ambiguous_no_safe_hold.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC111",
+      "message": "reentry_protocol.last_safe_checkpoint_required must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/stale_reentry_gap.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC111",
+      "message": "reentry_protocol.stale_check_required must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/stale_reentry_gap.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC112",
+      "message": "reentry_protocol.worker_reentry_instruction is missing",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/stale_reentry_gap.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC125",
+      "message": "memory reentry case state_evidence_required must be a non-empty list",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/contradictory_memory_missing_evidence.json:fixture_scenarios.memory_reentry_cases[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC128",
+      "message": "risky memory reentry cases must require safe-hold",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/invalidated_branch_no_safe_hold.json:fixture_scenarios.memory_reentry_cases[3]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC128",
+      "message": "risky memory reentry cases must require safe-hold",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/stale_memory_allows_reentry.json:fixture_scenarios.memory_reentry_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC129",
+      "message": "risky memory reentry cases must not allow direct re-entry",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/stale_memory_allows_reentry.json:fixture_scenarios.memory_reentry_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC135",
+      "message": "tool use case tool_evidence_required must be a non-empty list",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/wrong_tool_no_evidence.json:fixture_scenarios.tool_use_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC137",
+      "message": "omitted-tool cases must require omitted-tool rationale",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/omitted_tool_no_rationale.json:fixture_scenarios.tool_use_cases[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC138",
+      "message": "wrong-tool and tool-failure cases must require safe-hold",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/tool_failure_no_safe_hold.json:fixture_scenarios.tool_use_cases[3]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC145",
+      "message": "act-or-ask case must be checked before action",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/blind_action_not_checked.json:fixture_scenarios.act_or_ask_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC146",
+      "message": "act-or-ask case must require safe-hold",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/blind_action_not_checked.json:fixture_scenarios.act_or_ask_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC154",
+      "message": "feature work case required_stages must be a non-empty list",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/feature_work_no_staged_evidence.json:fixture_scenarios.feature_work_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC155",
+      "message": "feature work case regression_evidence_required must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/feature_work_no_staged_evidence.json:fixture_scenarios.feature_work_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC156",
+      "message": "feature work case claim_to_proof_required must be true",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/feature_work_no_staged_evidence.json:fixture_scenarios.feature_work_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-LC157",
+      "message": "feature staged-verification cases must require independent review",
+      "path": "tests/fixtures/factory_v3_loop_contract/invalid/feature_work_no_staged_evidence.json:fixture_scenarios.feature_work_cases[1]",
+      "severity": "advisory_critical"
+    }
+  ],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "Review loop-contract findings manually; this report is advisory and non-blocking.",
+    "Fix missing authority, state, tool, act-or-ask, control, evidence, or re-entry fields before using the contract as mission guidance.",
+    "Do not wire loop-contract checks into required gates without explicit Factory governance approval."
+  ],
+  "record_scope": "loop_contract_advisory",
+  "report_id": "factory-v3-loop-contract-lint",
+  "status": "ADVISORY_FAIL_NON_BLOCKING",
+  "target": "tests/fixtures/factory_v3_loop_contract",
+  "warnings": []
+}

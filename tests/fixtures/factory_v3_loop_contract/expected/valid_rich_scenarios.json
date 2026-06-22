@@ -1,0 +1,16 @@
+{
+  "blocking_effect": "none",
+  "checked_contracts": [
+    "tests/fixtures/factory_v3_loop_contract/valid_rich_scenarios.json"
+  ],
+  "findings": [],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "No loop-contract findings. Keep loop contracts advisory until a promotion pack approves otherwise."
+  ],
+  "record_scope": "loop_contract_advisory",
+  "report_id": "factory-v3-loop-contract-lint",
+  "status": "ADVISORY_PASS",
+  "target": "tests/fixtures/factory_v3_loop_contract/valid_rich_scenarios.json",
+  "warnings": []
+}

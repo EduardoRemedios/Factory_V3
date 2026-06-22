@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.44
+v1.45
 
 ## Change Log
+- v1.45 (2026-06-22): Added the research-only loop-governance lane with loop contract template, terminal-state/safe-hold vocabulary, advisory loop-contract lint, and deterministic fixtures; next work is mission-state/re-entry examples and claim-to-proof audits, not runtime orchestration.
 - v1.44 (2026-06-16): Synced early roadmap summaries with current ladder evidence: rung 1 passed for mechanics, interrupt transport satisfied, RUNG 2 PASSED at attempt 4 (`HDI-RUNG2-008`, 2026-06-11), rung 3 unlocked but not formed, and `V3-OP-003` still at `NO PROMOTION YET`; next gate is rung-3 contract formation with its own envelope and sponsor Go.
 - v1.43 (2026-06-10): Recorded the governance and long-running-lane expansion (governance-boundaries split, mutable-harness-state principle, skill provenance policy, regulatory crosswalk, standing-authorization candidates, candidate `V3-OP-003` profile with decision pack at `NO PROMOTION YET`, mission-health vocabulary, interrupt-transport trial plan, and duration ladder at the initial rung-1 stage) and updated the recommended next moves per sponsor decision `HDI-RUNG1-001` naming the `V3-OP-003` promotion decision as the next operational-readiness decision.
 - v1.42 (2026-06-10): Added the research-only anchor registry as a pointer-first orientation aid and refreshed the Phase 4 POC boundary note through Mission 020.
@@ -79,6 +80,7 @@ Current state:
 - V3 has a strategic mission-formation direction note plus initial research-stage repo skills for discovery/challenge mission formation. The skills have dry-run trial evidence only; they do not approve new profiles, recommended V3 intake, or non-coding execution.
 - V3 has a strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority. It is roadmap context only and does not approve unattended execution, production actions, runtime authority, or new profiles.
 - V3 has a research-only mission-health roadmap lane for future value-aware continuation judgment. No mission-health schema, validator, router, gate, runtime-control power, or required checkpoint behavior is approved.
+- V3 has a research-only loop-governance lane with a loop contract template, terminal-state/safe-hold vocabulary, advisory loop-contract validator, and deterministic fixtures for state, tool, act-or-ask, control-profile, evidence, terminal-state, and re-entry coverage. No runtime orchestration, scheduled loop execution, routing, required gate, or reduced-governance behavior is approved.
 - V3 has a research-only anchor registry for pointer-first orientation across approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, or replacement evidence.
 - V3 has a binding governance-boundaries statement (`GOVERNANCE_BOUNDARIES.md`), research-only evidence-integrity canon (`MUTABLE_HARNESS_STATE.md`, `SKILL_PROVENANCE_POLICY.md`), an advisory regulatory crosswalk marked for human review, and standing-authorization schema candidates; per-mission human Go remains the only approved authorization shape.
 - V3 has a candidate `V3-OP-003` long-running remote-interrupt profile with a decision pack at `NO PROMOTION YET`, a mission-health vocabulary, an interrupt-transport trial plan gated on separate sponsor approval, and a three-rung duration ladder. Rung 1 passed for mechanics; interrupt transport is satisfied; RUNG 2 PASSED at attempt 4 on 2026-06-11 (`HDI-RUNG2-008`, POC Mission 024, 95.25 active minutes, ~548 calls, all eight criteria); rung 3 is unlocked but not formed. The candidate profile is not usable for any mission.

@@ -1,9 +1,12 @@
 # Factory v3
 
 ## Version
-v1.32
+v1.35
 
 ## Change Log
+- v1.35 (2026-06-22): Added `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md` as a research-only loop-governance vocabulary and linked it from the V3 artifact index.
+- v1.34 (2026-06-22): Expanded loop-contract advisory fixture coverage with optional scenario checks for stale/contradictory memory, invalidated branches, wrong or omitted tool use, blind-action safe-hold, and feature-work staged verification gaps.
+- v1.33 (2026-06-22): Added the research-only loop contract template and standalone advisory loop-contract lint fixture corpus for state/tool/act-or-ask/control-profile checks. This adds no required gate or runtime authority.
 - v1.32 (2026-06-10): Recorded the governance-boundaries split, mutable-harness-state principle, skill provenance policy, advisory regulatory crosswalk, standing-authorization schema candidates, candidate `V3-OP-003` profile with decision pack at `NO PROMOTION YET`, mission-health vocabulary, interrupt-transport trial plan, duration-ladder plan, and mission-record design v0.8/v0.9 model-identity and `same_commit` conventions.
 - v1.31 (2026-06-10): Added research-only anchor registry as a pointer-first cold-start map for approved profiles, candidate gates, evidence paths, and guardrails.
 - v1.30 (2026-06-05): Added initial research-stage repo skills for mission formation and challenge, with dry-run trial evidence.
@@ -86,6 +89,7 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide `MUTABLE_HARNESS_STATE.md` and `SKILL_PROVENANCE_POLICY.md` as research-only evidence-integrity canon: model identity, skill versions, and credential references are mutable harness-resident state that mission records should pin or record; learned or unknown-provenance skills are quarantined from execution and verification until human promotion.
 - Provide `REGULATORY_CROSSWALK.md` as an advisory mapping from V3 artifacts to EU AI Act human-oversight and logging themes and ISO/IEC 42001 themes, marked for human review and making no compliance claims.
 - Provide standing-authorization schema candidates (`standing_authorization_grant`, `scheduled_wake_record`) in `SHADOW_SCHEMA_CANDIDATES.md` for future scheduled or ambient missions; per-mission human Go remains the only approved authorization shape.
+- Provide `templates/V3_LOOP_CONTRACT_TEMPLATE.json`, `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`, and `scripts/factory_v3_loop_contract_lint.py` as research-only advisory loop-admission artifacts for state policy, tool policy, act-or-ask gates, control-profile response, terminal states, evidence policy, and re-entry protocol. These artifacts are not required gates and do not approve runtime authority.
 - Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, and `DURATION_LADDER_PLAN.md` as its evidence-gathering path. The candidate profile is not usable; ladder rungs and the transport trial each require their own sponsor Go.
 - Continue research for any future V3 profile before promotion.
 
@@ -131,6 +135,8 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `MUTABLE_HARNESS_STATE.md`
 - `SKILL_PROVENANCE_POLICY.md`
 - `REGULATORY_CROSSWALK.md`
+- `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`
+- `templates/V3_LOOP_CONTRACT_TEMPLATE.json`
 - `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md`
 - `V3_OP_003_DECISION_PACK.md`
 - `MISSION_HEALTH_VOCABULARY.md`
@@ -262,4 +268,19 @@ The capture plan does not authorize live mission execution, telemetry collection
 - `scripts/factory_v3_operational_readiness_eval.py` checks standalone operational-readiness fixture scenarios, including Phase 4 synthetic fixture triggers, and emits advisory-only reports.
 - `scripts/factory_v3_mission_record_lint.py` checks shadow V3 mission-record JSON files and malformed-record fixtures in advisory mode.
 - `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic telemetry replay JSONL fixtures in advisory mode.
+- `scripts/factory_v3_loop_contract_lint.py` checks research-only loop-contract JSON files and fixtures for authority, state, tool, act-or-ask, control-profile, evidence, terminal-state, and re-entry coverage.
 - These tools are not wired into required Factory v2 gates and do not authorize broader V3 promotion.
+
+## Loop Contract Research
+
+The loop contract template is a research-only admission artifact for future loop governance. It records bounded authority, state policy, tool policy, act-or-ask safe-hold gates, control-profile detection/prevention/response/escalation fields, verification policy, evidence policy, terminal states, and re-entry protocol.
+
+The fixture corpus also includes optional scenario checks for stale state, contradictory state, invalidated branches, safe checkpoint resume, wrong-tool selection, omitted-tool rationale, tool failure, ambiguous/infeasible/unsafe action, and feature-work staged verification.
+
+Use the standalone advisory validator:
+
+```bash
+python3 scripts/factory_v3_loop_contract_lint.py --target tests/fixtures/factory_v3_loop_contract --expect tests/fixtures/factory_v3_loop_contract/expected/all.json --json
+```
+
+The validator emits `blocking_effect: none`. It is not wired into `factoryctl`, CI, merge preflight, `knowledge_lint.sh`, `stage-lint`, `pack-lint`, mission lint, or any required Factory gate.

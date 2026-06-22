@@ -1,0 +1,191 @@
+{
+  "act_or_ask_gate": {
+    "checked_before_action": true,
+    "halt_conditions": [
+      "ambiguous",
+      "infeasible",
+      "unsafe",
+      "insufficient_context",
+      "approval_required"
+    ],
+    "required": true,
+    "safe_hold_evidence_required": [
+      "reason",
+      "blocked_action",
+      "last_safe_checkpoint",
+      "human_decision_needed",
+      "reentry_instructions"
+    ]
+  },
+  "authority_envelope": {
+    "allowed_commands": [
+      "python3 scripts/factory_v3_loop_contract_lint.py --target tests/fixtures/factory_v3_loop_contract --json"
+    ],
+    "approval_required_for": [
+      "scope expansion",
+      "new dependency",
+      "destructive command",
+      "external write",
+      "unsafe or ambiguous action"
+    ],
+    "authorized_files": [
+      "docs/Factory/v3/templates/V3_LOOP_CONTRACT_TEMPLATE.json"
+    ],
+    "external_effects_allowed": false,
+    "forbidden_scope": [
+      "payment",
+      "authentication",
+      "production deployment",
+      "runtime authority",
+      "required gate wiring"
+    ]
+  },
+  "checkpoint_policy": {
+    "cadence": "before and after each material action block",
+    "required_fields": [
+      "objective_status",
+      "authority_status",
+      "state_status",
+      "tool_status",
+      "verification_status",
+      "open_decisions"
+    ]
+  },
+  "control_profile": {
+    "coverage_expectation": "All consequential actions must be represented in evidence.",
+    "detection_mode": "asynchronous",
+    "escalation_path": [
+      "safe_hold",
+      "human_decision",
+      "fallback_to_v2"
+    ],
+    "prevention_gates": [
+      "authority_envelope",
+      "act_or_ask_gate",
+      "verification_policy"
+    ],
+    "recall_eval_method": "Fixture or review checks for stale state, wrong tool selection, blind action, and missing escalation.",
+    "response_owner": "human_sponsor",
+    "synchronous_required_for": [
+      "external write",
+      "destructive command",
+      "unsafe action",
+      "missing authority"
+    ],
+    "time_to_response_expectation": "Before next consequential action for synchronous gates; during closeout for asynchronous review."
+  },
+  "evidence_policy": {
+    "claim_to_proof_required": true,
+    "required_artifacts": [
+      "contract",
+      "checkpoint evidence",
+      "tool-call evidence",
+      "verification evidence",
+      "closeout"
+    ]
+  },
+  "mission": {
+    "admission_rationale": "Feedback from each iteration changes the next action; otherwise use a one-shot task.",
+    "loop_type": "coding_loop",
+    "non_goals": [
+      "Do not create runtime authority.",
+      "Do not wire this advisory contract into required gates."
+    ],
+    "objective": "Validate a bounded coding loop contract as an advisory fixture."
+  },
+  "record": {
+    "approval_scope": {
+      "factory_v2_fallback_retained": true,
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "scheduled_or_unattended_execution_approved": false
+    },
+    "contract_id": "V3-LC-FIXTURE-STALE-REENTRY-GAP",
+    "created_at": "2026-06-22",
+    "profile_id": "research_only",
+    "record_type": "factory_v3_loop_contract",
+    "schema_version": "v0.1-loop-contract",
+    "source_evidence": [
+      "factory_v3_loop_engineering_recon.md",
+      "factory_v3_agent_infrastructure_paper_review.md"
+    ],
+    "status": "research_only_non_enforcing"
+  },
+  "reentry_protocol": {
+    "last_safe_checkpoint_required": false,
+    "protected_surface_check_required": true,
+    "stale_check_required": false,
+    "state_read_order": [
+      "contract",
+      "mission envelope",
+      "latest checkpoint",
+      "mission state",
+      "verification evidence"
+    ],
+    "worker_reentry_instruction": ""
+  },
+  "state_policy": {
+    "checkpoint_lineage_required": true,
+    "contradiction_handling": "Halt or safe-hold when state conflicts with current repository evidence.",
+    "deletion_forgetting_policy": "Do not retain obsolete state as active; preserve invalidated branches as evidence.",
+    "reentry_read_order": [
+      "mission envelope",
+      "latest checkpoint",
+      "mission state",
+      "verification evidence",
+      "open human decisions"
+    ],
+    "stale_state_check_required": true,
+    "state_sources": [
+      "docs/Factory/v3/templates/V3_MISSION_STATE_TEMPLATE.md"
+    ],
+    "write_policy": "Only write mission-owned state artifacts inside authorized scope."
+  },
+  "terminal_states": [
+    "success",
+    "no_op",
+    "blocked",
+    "approval_required",
+    "failed_verification",
+    "exhausted",
+    "stagnated",
+    "unsafe",
+    "stale_reentry",
+    "ambiguous",
+    "infeasible",
+    "insufficient_context"
+  ],
+  "tool_policy": {
+    "allowed_tools": [
+      {
+        "authority_scope": "allowed_commands only",
+        "class": "local_command",
+        "name": "shell"
+      }
+    ],
+    "expected_tool_classes": [
+      "local_command",
+      "file_read",
+      "file_edit"
+    ],
+    "omitted_tool_rationale_required": true,
+    "oversized_tool_menu_allowed": false,
+    "tool_call_evidence_required": true,
+    "tool_failure_behavior": "Halt, retry within budget, or safe-hold with evidence; do not silently switch to a broader tool."
+  },
+  "verification_policy": {
+    "independent_review_required": false,
+    "required_evidence": [
+      "diff or artifact summary",
+      "commands run",
+      "test or lint output",
+      "failed checks preserved",
+      "review notes"
+    ],
+    "verification_commands": [
+      "python3 scripts/factory_v3_loop_contract_lint.py --target tests/fixtures/factory_v3_loop_contract --json"
+    ]
+  }
+}

@@ -38,6 +38,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 research-only mission-formation and challenge direction, initial repo-scoped non-executing skills, and dry-run trial evidence for improving mission quality before long-running execution.
 - V3 research-only Codex SDK/MCP orchestration direction for treating Codex as a governed worker runtime in possible future Factory/Harmony workflows.
 - V3 research-only mission-health and continuation-judgment roadmap lane for future advisory value, cost, confidence, drift, risk, and continuation signals.
+- V3 research-only loop-governance artifacts: loop contract template, terminal-state and safe-hold vocabulary, advisory loop-contract lint, and deterministic fixtures for memory/re-entry, tool-use, blind-action, and feature-verification gaps.
 - V3 research-only anchor registry for pointer-first cold-start orientation across approved profiles, candidate gates, evidence paths, and guardrails.
 - V3 research-only mutable-harness-state principle for pinning or recording model identity, skill versions, and credential references in replay evidence.
 - V3 research-only standing-authorization schema candidates for future scheduled or ambient missions, with per-mission human Go remaining the only approved authorization shape.
@@ -69,4 +70,5 @@ python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v
 python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --json
 python3 scripts/factory_v3_mission_record_lint.py --target docs/Factory/v3/mission_records --json
 python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json
+python3 scripts/factory_v3_loop_contract_lint.py --target tests/fixtures/factory_v3_loop_contract --expect tests/fixtures/factory_v3_loop_contract/expected/all.json --json
 ```

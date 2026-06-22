@@ -1,0 +1,191 @@
+{
+  "record": {
+    "record_type": "factory_v3_loop_contract",
+    "schema_version": "v0.1-loop-contract",
+    "status": "research_only_non_enforcing",
+    "contract_id": "V3-LC-YYYYMMDD-001",
+    "profile_id": "research_only",
+    "created_at": "YYYY-MM-DD",
+    "source_evidence": [
+      "factory_v3_loop_engineering_recon.md",
+      "factory_v3_agent_infrastructure_paper_review.md"
+    ],
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "scheduled_or_unattended_execution_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "objective": "<bounded loop objective>",
+    "loop_type": "coding_loop",
+    "admission_rationale": "Feedback from each iteration changes the next action; otherwise use a one-shot task.",
+    "non_goals": [
+      "Do not create runtime authority.",
+      "Do not wire this advisory contract into required gates."
+    ]
+  },
+  "authority_envelope": {
+    "authorized_files": [
+      "path/inside/repo"
+    ],
+    "forbidden_scope": [
+      "payment",
+      "authentication",
+      "production deployment",
+      "runtime authority",
+      "required gate wiring"
+    ],
+    "allowed_commands": [
+      "python3 scripts/example_check.py --json"
+    ],
+    "external_effects_allowed": false,
+    "approval_required_for": [
+      "scope expansion",
+      "new dependency",
+      "destructive command",
+      "external write",
+      "unsafe or ambiguous action"
+    ]
+  },
+  "state_policy": {
+    "state_sources": [
+      "docs/Factory/v3/templates/V3_MISSION_STATE_TEMPLATE.md"
+    ],
+    "write_policy": "Only write mission-owned state artifacts inside authorized scope.",
+    "stale_state_check_required": true,
+    "contradiction_handling": "Halt or safe-hold when state conflicts with current repository evidence.",
+    "deletion_forgetting_policy": "Do not retain obsolete state as active; preserve invalidated branches as evidence.",
+    "checkpoint_lineage_required": true,
+    "reentry_read_order": [
+      "mission envelope",
+      "latest checkpoint",
+      "mission state",
+      "verification evidence",
+      "open human decisions"
+    ]
+  },
+  "tool_policy": {
+    "allowed_tools": [
+      {
+        "name": "shell",
+        "class": "local_command",
+        "authority_scope": "allowed_commands only"
+      }
+    ],
+    "expected_tool_classes": [
+      "local_command",
+      "file_read",
+      "file_edit"
+    ],
+    "tool_call_evidence_required": true,
+    "tool_failure_behavior": "Halt, retry within budget, or safe-hold with evidence; do not silently switch to a broader tool.",
+    "omitted_tool_rationale_required": true,
+    "oversized_tool_menu_allowed": false
+  },
+  "act_or_ask_gate": {
+    "required": true,
+    "checked_before_action": true,
+    "halt_conditions": [
+      "ambiguous",
+      "infeasible",
+      "unsafe",
+      "insufficient_context",
+      "approval_required"
+    ],
+    "safe_hold_evidence_required": [
+      "reason",
+      "blocked_action",
+      "last_safe_checkpoint",
+      "human_decision_needed",
+      "reentry_instructions"
+    ]
+  },
+  "control_profile": {
+    "detection_mode": "asynchronous",
+    "prevention_gates": [
+      "authority_envelope",
+      "act_or_ask_gate",
+      "verification_policy"
+    ],
+    "response_owner": "human_sponsor",
+    "escalation_path": [
+      "safe_hold",
+      "human_decision",
+      "fallback_to_v2"
+    ],
+    "coverage_expectation": "All consequential actions must be represented in evidence.",
+    "recall_eval_method": "Fixture or review checks for stale state, wrong tool selection, blind action, and missing escalation.",
+    "time_to_response_expectation": "Before next consequential action for synchronous gates; during closeout for asynchronous review.",
+    "synchronous_required_for": [
+      "external write",
+      "destructive command",
+      "unsafe action",
+      "missing authority"
+    ]
+  },
+  "checkpoint_policy": {
+    "cadence": "before and after each material action block",
+    "required_fields": [
+      "objective_status",
+      "authority_status",
+      "state_status",
+      "tool_status",
+      "verification_status",
+      "open_decisions"
+    ]
+  },
+  "verification_policy": {
+    "required_evidence": [
+      "diff or artifact summary",
+      "commands run",
+      "test or lint output",
+      "failed checks preserved",
+      "review notes"
+    ],
+    "independent_review_required": false,
+    "verification_commands": [
+      "python3 scripts/example_check.py --json"
+    ]
+  },
+  "evidence_policy": {
+    "required_artifacts": [
+      "contract",
+      "checkpoint evidence",
+      "tool-call evidence",
+      "verification evidence",
+      "closeout"
+    ],
+    "claim_to_proof_required": true
+  },
+  "terminal_states": [
+    "success",
+    "no_op",
+    "blocked",
+    "approval_required",
+    "failed_verification",
+    "exhausted",
+    "stagnated",
+    "unsafe",
+    "stale_reentry",
+    "ambiguous",
+    "infeasible",
+    "insufficient_context"
+  ],
+  "reentry_protocol": {
+    "state_read_order": [
+      "contract",
+      "mission envelope",
+      "latest checkpoint",
+      "mission state",
+      "verification evidence"
+    ],
+    "stale_check_required": true,
+    "protected_surface_check_required": true,
+    "last_safe_checkpoint_required": true,
+    "worker_reentry_instruction": "Resume only from authored state and current repository evidence; safe-hold if state is stale, contradictory, or insufficient."
+  }
+}
