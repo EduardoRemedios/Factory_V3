@@ -1,0 +1,301 @@
+{
+  "record": {
+    "record_type": "factory_v3_loop_contract",
+    "schema_version": "v0.1-loop-contract",
+    "status": "research_only_non_enforcing",
+    "contract_id": "V3-LC-20260702-RUNG3-FORMATION",
+    "profile_id": "candidate-v3-op-003",
+    "created_at": "2026-07-02",
+    "source_evidence": [
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/DURATION_LADDER_PLAN.md",
+      "docs/Factory/v3/V3_OP_003_DECISION_PACK.md",
+      "docs/Factory/v3/LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md"
+    ],
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "scheduled_or_unattended_execution_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "objective": "Advisory loop contract for forming a future rung-3 execution envelope; no rung-3 execution is authorized by this contract.",
+    "loop_type": "mission_formation_loop",
+    "admission_rationale": "Feedback from formation, challenge, loop-contract review, and sponsor decisions changes whether a future rung-3 envelope is ready; without that feedback, execution would require guessing.",
+    "non_goals": [
+      "Do not execute rung 3.",
+      "Do not promote V3-OP-003.",
+      "Do not approve runtime authority, scheduled work, real data, deployment, required gates, or V2 removal."
+    ]
+  },
+  "authority_envelope": {
+    "authorized_files": [
+      "docs/Factory/v3/ladder/rung3/README.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CONTRACT_FORMATION_20260702.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CHALLENGE_REVIEW_20260702.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_LOOP_CONTRACT_CANDIDATE_20260702.json"
+    ],
+    "forbidden_scope": [
+      "POC repo edits",
+      "rung-3 execution",
+      "V3-OP-003 promotion",
+      "real data",
+      "live Garmin",
+      "live Telegram",
+      "credential use",
+      "deployment",
+      "runtime authority",
+      "required gate wiring",
+      "Factory V2 removal"
+    ],
+    "allowed_commands": [
+      "python3 scripts/factory_v3_loop_contract_lint.py --target docs/Factory/v3/ladder/rung3/RUNG3_LOOP_CONTRACT_CANDIDATE_20260702.json --json",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "bash scripts/knowledge_lint.sh"
+    ],
+    "external_effects_allowed": false,
+    "approval_required_for": [
+      "rung-3 execution envelope",
+      "POC repository writes",
+      "scope expansion",
+      "new dependency",
+      "destructive command",
+      "external write",
+      "real-data or live-integration scope",
+      "unsafe or ambiguous action"
+    ]
+  },
+  "state_policy": {
+    "state_sources": [
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CONTRACT_FORMATION_20260702.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CHALLENGE_REVIEW_20260702.md"
+    ],
+    "write_policy": "Only write formation-owned artifacts under docs/Factory/v3/ladder/rung3 unless a separate approval names broader scope.",
+    "stale_state_check_required": true,
+    "contradiction_handling": "Safe-hold if ladder status, decision pack, or current repo state contradicts the formation artifact.",
+    "deletion_forgetting_policy": "Do not treat superseded rung evidence as active approval; preserve invalidated or superseded branches as evidence.",
+    "checkpoint_lineage_required": true,
+    "reentry_read_order": [
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CONTRACT_FORMATION_20260702.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CHALLENGE_REVIEW_20260702.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_LOOP_CONTRACT_CANDIDATE_20260702.json"
+    ]
+  },
+  "tool_policy": {
+    "allowed_tools": [
+      {
+        "name": "shell",
+        "class": "local_command",
+        "authority_scope": "read-only inspection and advisory validators only"
+      },
+      {
+        "name": "apply_patch",
+        "class": "file_edit",
+        "authority_scope": "formation-owned docs under docs/Factory/v3/ladder/rung3 and separately approved canon pointer updates"
+      }
+    ],
+    "expected_tool_classes": [
+      "file_read",
+      "file_edit",
+      "local_command"
+    ],
+    "tool_call_evidence_required": true,
+    "tool_failure_behavior": "Halt, retry within advisory scope, or safe-hold with evidence; do not silently switch to broader tools or POC execution.",
+    "omitted_tool_rationale_required": true,
+    "oversized_tool_menu_allowed": false
+  },
+  "act_or_ask_gate": {
+    "required": true,
+    "checked_before_action": true,
+    "halt_conditions": [
+      "ambiguous",
+      "infeasible",
+      "unsafe",
+      "insufficient_context",
+      "approval_required"
+    ],
+    "safe_hold_evidence_required": [
+      "reason",
+      "blocked_action",
+      "last_safe_checkpoint",
+      "human_decision_needed",
+      "reentry_instructions"
+    ]
+  },
+  "control_profile": {
+    "detection_mode": "hybrid",
+    "prevention_gates": [
+      "authority_envelope",
+      "act_or_ask_gate",
+      "challenge_review",
+      "verification_policy"
+    ],
+    "response_owner": "human_sponsor",
+    "escalation_path": [
+      "safe_hold",
+      "human_decision",
+      "V2_OR_HEAVY_PLANNING"
+    ],
+    "coverage_expectation": "All future rung-3 consequential actions must be represented in a later execution envelope and evidence; this contract covers formation only.",
+    "recall_eval_method": "Manual challenge review plus advisory loop-contract lint for stale state, blind action, wrong tool selection, feature evidence gaps, and missing escalation.",
+    "time_to_response_expectation": "Before any future execution envelope is treated as ready for sponsor Go.",
+    "synchronous_required_for": [
+      "POC repository write",
+      "external write",
+      "destructive command",
+      "unsafe action",
+      "missing authority",
+      "rung-3 execution"
+    ]
+  },
+  "checkpoint_policy": {
+    "cadence": "Record formation output, challenge result, sponsor scope decision, and any later envelope-authoring revision as separate authored artifacts.",
+    "required_fields": [
+      "objective_status",
+      "authority_status",
+      "state_status",
+      "tool_status",
+      "verification_status",
+      "open_decisions",
+      "safe_hold_status"
+    ]
+  },
+  "verification_policy": {
+    "required_evidence": [
+      "formation output",
+      "challenge review",
+      "loop-contract lint report",
+      "advisory lint report",
+      "knowledge lint report",
+      "claim-to-proof notes for any readiness claim"
+    ],
+    "independent_review_required": true,
+    "verification_commands": [
+      "python3 scripts/factory_v3_loop_contract_lint.py --target docs/Factory/v3/ladder/rung3/RUNG3_LOOP_CONTRACT_CANDIDATE_20260702.json --json",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "bash scripts/knowledge_lint.sh"
+    ]
+  },
+  "evidence_policy": {
+    "required_artifacts": [
+      "contract",
+      "formation output",
+      "challenge review",
+      "loop-contract lint output",
+      "canon pointer update if adopted",
+      "closeout"
+    ],
+    "claim_to_proof_required": true
+  },
+  "terminal_states": [
+    "success",
+    "no_op",
+    "blocked",
+    "approval_required",
+    "failed_verification",
+    "exhausted",
+    "stagnated",
+    "unsafe",
+    "stale_reentry",
+    "ambiguous",
+    "infeasible",
+    "insufficient_context"
+  ],
+  "reentry_protocol": {
+    "state_read_order": [
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/ladder/LADDER_STATUS.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CONTRACT_FORMATION_20260702.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_CHALLENGE_REVIEW_20260702.md",
+      "docs/Factory/v3/ladder/rung3/RUNG3_LOOP_CONTRACT_CANDIDATE_20260702.json"
+    ],
+    "stale_check_required": true,
+    "protected_surface_check_required": true,
+    "last_safe_checkpoint_required": true,
+    "worker_reentry_instruction": "Resume only from authored formation artifacts and current repository evidence; safe-hold if the sponsor has not selected concrete rung-3 scope or if state is stale, contradictory, or insufficient."
+  },
+  "fixture_scenarios": {
+    "memory_reentry_cases": [
+      {
+        "scenario_type": "stale_state",
+        "expected_terminal_state": "stale_reentry",
+        "state_evidence_required": [
+          "latest ladder status",
+          "current git head",
+          "sponsor scope decision"
+        ],
+        "safe_hold_required": true,
+        "reentry_allowed": false
+      },
+      {
+        "scenario_type": "safe_checkpoint_resume",
+        "expected_terminal_state": "success",
+        "state_evidence_required": [
+          "formation output",
+          "challenge review",
+          "sponsor decision"
+        ],
+        "safe_hold_required": false,
+        "reentry_allowed": true
+      }
+    ],
+    "tool_use_cases": [
+      {
+        "scenario_type": "omitted_tool",
+        "expected_terminal_state": "blocked",
+        "tool_evidence_required": [
+          "omitted browser pre-flight rationale",
+          "impact on execution readiness"
+        ],
+        "safe_hold_required": false,
+        "omitted_tool_rationale_required": true
+      },
+      {
+        "scenario_type": "tool_failure",
+        "expected_terminal_state": "blocked",
+        "tool_evidence_required": [
+          "failed advisory validator output",
+          "repair or safe-hold decision"
+        ],
+        "safe_hold_required": true
+      }
+    ],
+    "act_or_ask_cases": [
+      {
+        "scenario_type": "approval_required",
+        "expected_terminal_state": "approval_required",
+        "checked_before_action": true,
+        "safe_hold_required": true
+      },
+      {
+        "scenario_type": "ambiguous_goal",
+        "expected_terminal_state": "ambiguous",
+        "checked_before_action": true,
+        "safe_hold_required": true
+      }
+    ],
+    "feature_work_cases": [
+      {
+        "scenario_type": "feature_staged_verification",
+        "required_stages": [
+          "design checkpoint",
+          "implementation evidence",
+          "focused tests",
+          "browser QA",
+          "regression checks",
+          "claim-to-proof table"
+        ],
+        "regression_evidence_required": true,
+        "claim_to_proof_required": true,
+        "independent_review_required": true
+      }
+    ]
+  }
+}
+

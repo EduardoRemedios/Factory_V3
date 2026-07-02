@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.35
+v1.36
 
 ## Change Log
+- v1.36 (2026-07-02): Added the non-executing rung-3 formation pack under `ladder/rung3/` as the first live mission-formation/challenge trial; execution readiness remains `MORE DISCOVERY` and no rung-3 execution or `V3-OP-003` promotion is approved.
 - v1.35 (2026-06-22): Added `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md` as a research-only loop-governance vocabulary and linked it from the V3 artifact index.
 - v1.34 (2026-06-22): Expanded loop-contract advisory fixture coverage with optional scenario checks for stale/contradictory memory, invalidated branches, wrong or omitted tool use, blind-action safe-hold, and feature-work staged verification gaps.
 - v1.33 (2026-06-22): Added the research-only loop contract template and standalone advisory loop-contract lint fixture corpus for state/tool/act-or-ask/control-profile checks. This adds no required gate or runtime authority.
@@ -83,14 +84,14 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide `ADAPTIVE_MISSION_CONTROL.md` and templates for larger V3 missions that need checkpoints, authored mission state, human decision interrupts, plan deltas, read-only verification discipline, and explicit git authority. These artifacts are research-only and do not approve live Telegram automation or required gates.
 - Provide `MISSION_FORMATION_DIRECTION.md` as strategic context for discovery, challenge, mission contracts, and the thesis that mission quality determines autonomy quality. This artifact is research-only and does not approve new V3 profiles or non-coding execution.
 - Provide `CODEX_SDK_ORCHESTRATION_DIRECTION.md` as strategic context for possible Codex SDK, Codex MCP, and Agents SDK orchestration research where Codex is a worker runtime and Factory/Harmony remains the authority layer. This artifact is research-only and does not approve unattended execution or new profiles.
-- Provide initial research-stage repo skills `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`, plus dry-run trial evidence under `skill_trials/mission_formation/`. These skills are non-executing and do not approve V3 intake recommendation, new profiles, or autonomous execution.
+- Provide initial research-stage repo skills `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`, dry-run trial evidence under `skill_trials/mission_formation/`, and the first live non-executing rung-3 formation pack under `ladder/rung3/`. These skills are non-executing and do not approve V3 intake recommendation, new profiles, or autonomous execution.
 - Provide `ANCHOR_REGISTRY.md` as a research-only, pointer-first cold-start map across approved profiles, candidate gates, evidence paths, and guardrails. It does not authorize execution, promotion, routing, required gates, runtime authority, real-data use, deployment, live integrations, or V2 build-support removal.
 - Provide `GOVERNANCE_BOUNDARIES.md` as the binding statement of current approval boundaries, relocated from the top-level README on 2026-06-10 with no loss of force.
 - Provide `MUTABLE_HARNESS_STATE.md` and `SKILL_PROVENANCE_POLICY.md` as research-only evidence-integrity canon: model identity, skill versions, and credential references are mutable harness-resident state that mission records should pin or record; learned or unknown-provenance skills are quarantined from execution and verification until human promotion.
 - Provide `REGULATORY_CROSSWALK.md` as an advisory mapping from V3 artifacts to EU AI Act human-oversight and logging themes and ISO/IEC 42001 themes, marked for human review and making no compliance claims.
 - Provide standing-authorization schema candidates (`standing_authorization_grant`, `scheduled_wake_record`) in `SHADOW_SCHEMA_CANDIDATES.md` for future scheduled or ambient missions; per-mission human Go remains the only approved authorization shape.
 - Provide `templates/V3_LOOP_CONTRACT_TEMPLATE.json`, `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`, and `scripts/factory_v3_loop_contract_lint.py` as research-only advisory loop-admission artifacts for state policy, tool policy, act-or-ask gates, control-profile response, terminal states, evidence policy, and re-entry protocol. These artifacts are not required gates and do not approve runtime authority.
-- Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, and `DURATION_LADDER_PLAN.md` as its evidence-gathering path. The candidate profile is not usable; ladder rungs and the transport trial each require their own sponsor Go.
+- Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, `DURATION_LADDER_PLAN.md`, and `ladder/rung3/` as its evidence-gathering path. The candidate profile is not usable; rung 3 has a non-executing formation pack but still needs sponsor scope selection, a concrete execution envelope, challenge review, and separate sponsor Go before any execution.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -142,6 +143,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `MISSION_HEALTH_VOCABULARY.md`
 - `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`
 - `DURATION_LADDER_PLAN.md`
+- `ladder/rung3/`
 - `MISSION_FORMATION_DIRECTION.md`
 - `CODEX_SDK_ORCHESTRATION_DIRECTION.md`
 - `ROADMAP_TO_FULL_VISION.md`
