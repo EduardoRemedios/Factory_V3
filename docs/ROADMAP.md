@@ -1,6 +1,6 @@
 # ROADMAP.md - Factory V3 Roadmap
 
-> Last updated: 2026-06-22
+> Last updated: 2026-07-02
 
 ## Current State
 
@@ -9,6 +9,17 @@ Factory V3 now has a dedicated repository. The migrated roadmap source of truth 
 Factory V2 process tooling is available in this repository as temporary build-support scaffolding so V3 can be built using V2 planning, stage, pack, verification, and SIMPLE-CODE-GATE discipline while V3 matures.
 
 The intended future state is V3 as a separate product with no V2 dependency in this repository. V2 deprecation/removal from this repository requires explicit V3 confidence evidence and release approval; the separate V2-only repository remains the preservation home for V2.
+
+## Current Decision Queue
+
+This queue is sequencing guidance only. It does not approve execution, promotion, required gates, runtime authority, real-data use, scheduled work, or V2 removal.
+
+1. Form the rung-3 contract as a non-executing gate for candidate `V3-OP-003`: draft with `factory-mission-formation`, red-team with `factory-challenge-mission`, recalibrate from the four-point ladder dataset, and review against the loop-governance safe-hold vocabulary. Rung-3 execution still requires a later separate envelope and sponsor Go.
+2. Record a POC evidence-transfer decision naming which standalone POC evidence transfers into Factory_V3 design, which evidence is contextual only, and which evidence must be repeated in Factory_V3 before promotion or routing use.
+3. Close Factory_V3-native negative-case gaps with separately approved fallback, recovery, stale-reentry, failed-verification, and routing-threshold captures.
+4. Harden loop-governance proof with concrete mission-state/re-entry examples and a claim-to-proof audit over the new loop-governance claims.
+5. Start Codex SDK/MCP orchestration only as a later read-only discovery spike, after intake/formation evidence improves.
+6. Attach mission-health notes to checkpointed missions opportunistically; do not promote mission-health schema, thresholds, routing, or gates yet.
 
 ## Near-Term Work
 
@@ -40,3 +51,4 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 - Preserve current V2 fallback language and non-deprecation guarantees until explicit V3 confidence evidence approves the repository transition.
 - Do not add required-gate integration, default-mode promotion, telemetry enforcement, runtime authority, or governance routing without explicit approval.
 - Do not remove V2 build-support scaffolding from this repository until the final V3 product-independence decision explicitly approves exact removal scope.
+- Do not start runtime loop orchestration, loop runners, background workers, scheduled loops, standing-authorization execution, workspace-write Codex SDK/MCP orchestration, real-data ingestion, live Garmin, live Telegram, public deployment, production infrastructure, or credential-bearing work without separate approval naming exact scope and evidence requirements.

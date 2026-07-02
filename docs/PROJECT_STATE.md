@@ -1,6 +1,6 @@
 # PROJECT_STATE.md - Factory V3 State
 
-> Last updated: 2026-06-22 (loop-governance research artifacts and advisory fixtures)
+> Last updated: 2026-07-02 (roadmap sequencing and current decision queue)
 
 ## What Exists
 
@@ -8,7 +8,7 @@
 - Factory V2 process docs, templates, scripts, and helper fixtures are present in this repository as temporary build-support scaffolding for V3 development work.
 - Optional operational use is approved only for `V3-OP-001 Bounded Code Change`.
 - V3 docs, templates, trials, evidence, advisory scripts, and deterministic fixtures are present under this repository.
-- The V3 anchor registry now exists at `docs/Factory/v3/ANCHOR_REGISTRY.md` (v0.20) as a research-only, pointer-first orientation aid for approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, promotion evidence, or a replacement for source records.
+- The V3 anchor registry now exists at `docs/Factory/v3/ANCHOR_REGISTRY.md` (v0.21) as a research-only, pointer-first orientation aid for approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, promotion evidence, or a replacement for source records.
 - The binding approval-boundary statement now lives at `docs/Factory/v3/GOVERNANCE_BOUNDARIES.md`, relocated from the top-level README on 2026-06-10 with no loss of force; the README now leads with vision and links the boundaries once.
 - Research-only evidence-integrity canon now exists: `docs/Factory/v3/MUTABLE_HARNESS_STATE.md` (model identity, skill versions, and credential references are mutable harness-resident state that records must pin or record) and `docs/Factory/v3/SKILL_PROVENANCE_POLICY.md` (authored/vendor/learned provenance classes; learned or unknown skills quarantined from execution and verification until human promotion). Mission records from `MR_20260610_010` onward record model identity; mission-record design v0.8/v0.9 adds the optional `model_routing` field and the `same_commit` convention.
 - An advisory regulatory crosswalk now exists at `docs/Factory/v3/REGULATORY_CROSSWALK.md`, mapping V3 artifacts to EU AI Act human-oversight/logging themes and ISO/IEC 42001 themes; it is marked for human review and makes no compliance claims.
@@ -44,6 +44,7 @@
 - This repository does not make Factory V3 the default for all work.
 - This repository does not currently deprecate Factory V2.
 - The next operational-readiness decision is the candidate `V3-OP-003` promotion decision, taken against the pre-written criteria in `docs/Factory/v3/V3_OP_003_DECISION_PACK.md` once the required evidence exists. Current evidence: interrupt transport is satisfied, rung 1 passed for mechanics, and RUNG 2 PASSED at attempt 4; the decision pack remains `NO PROMOTION YET` because rung 3 has not run and FP/FN and natural negative-case evidence remain open. The immediate next gate is rung-3 contract formation, with a separate envelope and sponsor Go required before execution. The previous named scope — using V3 with Codex to design, build, test, and deploy an application standalone — is recorded as achieved for the named synthetic-first private POC through Mission 020 and the `PASS_NAMED_POC` eval, with all exclusions intact. Any further POC work keeps the V3-only rule: V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application. Production-action, infrastructure, CI, required-gate, runtime-authority, and V2-removal scope remain unapproved unless separately named.
+- The current decision queue is: rung-3 contract formation first; POC evidence-transfer decision second; Factory_V3-native negative-case gap closure third; loop-governance mission-state/re-entry examples plus claim-to-proof audit fourth; read-only Codex SDK/MCP orchestration discovery later; mission-health notes opportunistically on checkpointed missions. This sequencing does not approve execution, promotion, runtime authority, routing, required gates, real-data use, scheduled work, or V2 removal.
 - The POC (an internal/private personal health and fitness tracker) is in standalone execution with sponsor approval and holds an interim `PASS_WITH_LIMITATIONS` eval through Mission 011 plus a sponsor-approved final `PASS_NAMED_POC` eval through Mission 020. The final pass does not approve real-data use, live Telegram/ambient runtime, public deployment, production infrastructure, runtime authority, or V2 fallback; those remain separately governed. Synthetic data may be used to accelerate design and build. Garmin Connect/API data paths and Hermes Agent surfaces require research spikes before any dependency or execution decision.
 - Factory V2 remains available as the planning/governance process for building V3 when Factory-controlled planning is needed while V3 is still maturing.
 - The intended future state is V3 as a separate product with no V2 dependency in this repository, after explicit confidence evidence and release approval. V2 remains preserved in the separate V2-only repository.
@@ -56,6 +57,7 @@
 - Loop contract and safe-hold artifacts remain research-only and non-enforcing. They do not approve runtime orchestration, scheduled loops, background workers, reduced governance, required gates, or default-mode V3 behavior.
 - The 2026-06-10 governance canon (mutable harness state, skill provenance, regulatory crosswalk, standing-authorization candidates) is research-only or advisory; the regulatory crosswalk makes no compliance claims and requires human review before any external use, and the candidate `V3-OP-003` profile is not usable for any mission.
 - The anchor registry remains research-only and non-enforcing. It does not approve execution, promotion, required gates, runtime authority, real-data use, live integrations, deployment, or V2 build-support removal.
+- Do not start runtime loop orchestration, loop runners, background workers, scheduled loops, standing-authorization execution, workspace-write Codex SDK/MCP orchestration, real-data ingestion, live Garmin, live Telegram, public deployment, production infrastructure, or credential-bearing work without separate approval naming exact scope and evidence requirements.
 
 ## Verification
 

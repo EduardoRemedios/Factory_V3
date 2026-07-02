@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.45
+v1.46
 
 ## Change Log
+- v1.46 (2026-07-02): Added a compact current decision queue, POC evidence-transfer rule, do-not-start list, and refreshed the recommended next move so rung-3 contract formation is clearly first. This is sequencing clarity only and approves no new profile, gate, runtime authority, or V2 removal.
 - v1.45 (2026-06-22): Added the research-only loop-governance lane with loop contract template, terminal-state/safe-hold vocabulary, advisory loop-contract lint, and deterministic fixtures; next work is mission-state/re-entry examples and claim-to-proof audits, not runtime orchestration.
 - v1.44 (2026-06-16): Synced early roadmap summaries with current ladder evidence: rung 1 passed for mechanics, interrupt transport satisfied, RUNG 2 PASSED at attempt 4 (`HDI-RUNG2-008`, 2026-06-11), rung 3 unlocked but not formed, and `V3-OP-003` still at `NO PROMOTION YET`; next gate is rung-3 contract formation with its own envelope and sponsor Go.
 - v1.43 (2026-06-10): Recorded the governance and long-running-lane expansion (governance-boundaries split, mutable-harness-state principle, skill provenance policy, regulatory crosswalk, standing-authorization candidates, candidate `V3-OP-003` profile with decision pack at `NO PROMOTION YET`, mission-health vocabulary, interrupt-transport trial plan, and duration ladder at the initial rung-1 stage) and updated the recommended next moves per sponsor decision `HDI-RUNG1-001` naming the `V3-OP-003` promotion decision as the next operational-readiness decision.
@@ -91,6 +92,41 @@ Current state:
 Interpretation:
 
 Factory v3 has achieved an operational bridgehead, not the full platform.
+
+## Current Decision Queue
+
+This queue is the near-term sequencing order as of 2026-07-02. It is an orientation aid, not approval to execute any mission.
+
+| Rank | Decision or artifact | Why it is next | Required artifact | Approval needed | Explicit non-approval |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Rung-3 contract formation for candidate `V3-OP-003` | Rung 2 has passed, rung 3 is unlocked, and the next useful work is formation rather than execution | Non-executing rung-3 contract pack drafted with `factory-mission-formation`, challenged with `factory-challenge-mission`, and cross-checked against the loop contract vocabulary | Sponsor Go for the formation work; a separate later Go before any rung-3 execution | No `V3-OP-003` promotion, no long-running default, no unattended/scheduled execution |
+| 2 | POC evidence-transfer decision | The standalone POC evidence is strong but lives outside this repo and must not silently promote Factory_V3 behavior | Transfer table naming evidence that is transferable, contextual only, or must be repeated in Factory_V3 | Human decision naming exact transferred claims | No real-data approval, no production action, no V2 removal |
+| 3 | Factory_V3-native negative-case gap closure | The Factory_V3 real-run corpus still lacks enough natural fallback, recovery, stale-reentry, failed-verification, and routing-threshold evidence | Separately approved negative-case capture records and FP/FN rollup | Per-candidate approval before execution | No routing thresholds, no reduced governance, no required gates |
+| 4 | Loop-governance proof hardening | The loop contract is now present, but examples and claim-to-proof checks are still thin | Mission-state/re-entry examples plus a promise-to-proof or Groundtruth-style audit over loop-governance claims | Approval only for advisory docs/fixtures unless separately scoped | No runtime loop orchestration, scheduled loops, background workers, or loop runner |
+| 5 | Read-only Codex SDK/MCP orchestration discovery | Programmatic worker supervision is strategically relevant but must follow better intake evidence and stay read-only first | Research pack recording sandbox, thread, prompt, output, trace, interrupt, and closeout behavior | Separate research approval | No workspace-write orchestration trial, credential use, unattended execution, or runtime authority |
+| 6 | Mission-health notes on checkpointed missions | Mission-health vocabulary exists, but it needs real checkpoint use before schema, thresholds, or routing | Advisory notes attached to real checkpointed mission evidence with forecast-vs-actual review | None beyond the underlying mission approval | No schema promotion, routing input, gate, or continuation threshold |
+
+## POC Evidence Transfer Rule
+
+The standalone POC may inform Factory V3 decisions only through an explicit transfer decision. Evidence from the POC should be classified before it affects roadmap state:
+
+| Evidence class | Default treatment | Examples |
+| --- | --- | --- |
+| Directly transferable pattern | May support Factory_V3 design if the behavior is harness- and repo-independent | Asked/answered/applied interrupt lifecycle, authored-artifact resume, command-sourced timing, safe-hold wording |
+| Contextual evidence only | May guide design but cannot prove Factory_V3 readiness by itself | Private Tailscale smoke, app-specific Garmin-shaped synthetic workflows, POC-specific operator friction |
+| Must be repeated in Factory_V3 | Cannot be counted toward promotion until repeated or mapped through an approved decision | Factory_V3 real-run negative cases, routing-threshold evidence, required-gate behavior, profile promotion evidence |
+| Non-transferable approval | Must remain excluded unless separately approved | Real data, live Garmin, live Telegram, ambient runtime, public deployment, production infrastructure, V2 removal |
+
+## Do Not Start Yet
+
+Do not begin these lanes without a separate approval that names exact scope and evidence requirements:
+
+- Runtime loop orchestration, loop runners, background workers, or scheduled loops.
+- Standing-authorization execution, ambient wakeups, cron integration, or live messaging automation.
+- Required-gate integration, CI enforcement, telemetry enforcement, governance routing, or reduced-governance thresholds.
+- Workspace-write Codex SDK/MCP orchestration.
+- Real-data ingestion, live Garmin integration, live Telegram behavior, public deployment, production infrastructure, or credential-bearing work.
+- Factory V2 scaffolding removal from this repository.
 
 ## Target End State
 Factory v3 becomes the normal way to govern suitable autonomous coding missions when:
@@ -612,7 +648,7 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Consolidate the standalone POC evidence and close its named limitations.
+Form the rung-3 contract as a non-executing gate.
 
 Status update (2026-06-09): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-013 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. Mission 012 (commit `8667e96`) produced the first real adaptive-mission-control evidence: a genuine interrupt completing the asked/answered/applied lifecycle, a fresh-session resume from authored artifacts only, scoped checkpoint-commit git authority, and filled budget fields. Mission 013 (commit `a74efbd`) added the first remote-interrupt evidence: two genuine interrupts answered from the sponsor's phone via Codex in the ChatGPT mobile app, the mission steered from Android end to end, and a second fresh-session resume that recovered a stale checkpoint hash from git log. Mission 015 (commit `c48dd02`) added the first deliberately seeded failed-verification halt evidence: baseline synthetic tests passed, an intentional local read-only verification command failed with exit code 17, and the mission halted without recovery or app edits. Mission 016 (commit `425766f`) added the first recovery-after-failed-verification evidence: a mission-owned synthetic verifier failed as intended, a separately authorized recovery corrected only the mission-owned fixture, the verifier passed, and the full 170-test suite passed after recovery. Mission 017 (commit `ffb4e92`) added the first seeded stale-reentry halt evidence: a mission-owned fixture intentionally expected stale Mission 015 head `c48dd02`, the verifier observed actual Mission 016 head `425766f`, failed with a stale mismatch, and the mission halted without reconciliation. Mission 018 (commit `feb05ea`) added the first seeded fallback/no-go evidence: a synthetic request for real Garmin account use, live ingestion, new dependency, Telegram live alerts, deployment, and V2 fallback was classified as `no_go` with execution and V2 fallback both disallowed. Mission 019 (commit `6c7fac6`) added partial private-deployment evidence: localhost smoke passed against the repo-run stdlib server and synthetic temp DB, rollback passed, and Tailscale private smoke was blocked because `tailscale-app` installation requires interactive macOS admin/sudo approval. Mission 020 (commit `7d87ed2`) completed private Tailscale deployment smoke after user-installed/authenticated Tailscale: baseline tests passed, localhost smoke passed, Tailscale Serve advertised a tailnet-only MagicDNS route proxying the localhost server, private MagicDNS smoke passed, Serve was reset, and rollback removed the listener and synthetic temp DB. A sponsor-approved final POC eval now exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260609.json`, commit `e6f2d29`): `PASS_NAMED_POC`, 20 of 22, operator-friction score `1`. Mission timing finding: checkpoint-estimated minutes proved 6-9x inflated versus git commit timestamps (Mission 012 real ~17m38s vs estimated ~115m; Mission 013 real ~34m46s vs estimated ~328m); tool-call counts were the more reliable size metric. The hard standalone criterion has held through Mission 020. The sponsor-approved final eval does not approve real-data use, live Telegram/ambient runtime, public deployment, production infrastructure, required gates, governance routing, runtime authority, production action, V2 scaffolding removal, or the candidate `V3-OP-003` remote-interrupt profile.
 
@@ -623,6 +659,8 @@ Mission-record validator status update (2026-06-08): versioned advisory schema r
 Status update (2026-06-10): per sponsor decision `HDI-RUNG1-001` (rung-1 mission `LADDER_RUNG1_20260610`), the named next operational-readiness decision is now the candidate `V3-OP-003` promotion decision, taken against the pre-written criteria in `V3_OP_003_DECISION_PACK.md` once the duration-ladder and interrupt-transport evidence exists. The named POC scope is recorded as achieved-for-named-scope through Mission 020 and the `PASS_NAMED_POC` eval, with all exclusions intact; real-data boundary, Garmin, and Hermes remain separately governed lanes.
 
 Status update (2026-06-16): the early-roadmap summaries now reflect the current ladder state recorded in `ladder/LADDER_STATUS.md`, `ANCHOR_REGISTRY.md`, and `V3_OP_003_DECISION_PACK.md`: rung 1 passed for mechanics, interrupt transport is satisfied, RUNG 2 PASSED at attempt 4 on 2026-06-11, and rung 3 is unlocked but not formed. The `V3-OP-003` decision pack remains `NO PROMOTION YET`; Rung 3 formation is the next gate and requires its own envelope and explicit sponsor Go before any execution.
+
+Status update (2026-07-02): roadmap sequencing has been clarified without changing approval status. The current first move is still non-executing rung-3 contract formation. The loop-governance contract and safe-hold vocabulary should be used as advisory review material for that formation pack, but they do not authorize a runtime loop runner, scheduled execution, background worker, required gate, governance router, or `V3-OP-003` promotion.
 
 The recommended next moves, in order:
 
