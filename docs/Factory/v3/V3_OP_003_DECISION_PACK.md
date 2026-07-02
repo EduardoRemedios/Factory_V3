@@ -1,9 +1,10 @@
 # Factory V3 Decision Pack: V3-OP-003 Long-Running Remote-Interrupt Mission
 
 ## Version
-v0.6
+v0.7
 
 ## Change Log
+- v0.7 (2026-07-02): Recorded POC Mission 025 transfer classification and concrete non-executing Option A rung-3 envelope plus challenge review under `ladder/rung3/`. The envelope is `CONDITIONAL PASS` for sponsor-Go review only; assessment remains `NO PROMOTION YET`.
 - v0.6 (2026-07-02): Added non-executing rung-3 formation pack status. Formation output, challenge review, and advisory loop contract exist under `ladder/rung3/`; formation quality is `CONDITIONAL PASS`, execution readiness remains `MORE DISCOVERY`, and the next gate is sponsor scope selection plus concrete execution-envelope authoring. Pre-written criteria unchanged; assessment remains `NO PROMOTION YET`.
 - v0.5 (2026-06-11): Rung 2 PASSED at attempt 4 (`HDI-RUNG2-008`: all eight criteria, 95.25 active minutes, ~548 calls, restored browser QA). Item 1 gains its first duration-class rung pass; item 3 gains a complete health-signal series at genuine ~95-minute duration. Rung 3 unlocked (formation pending). Pre-written criteria unchanged; assessment remains `NO PROMOTION YET` (items 4-5 open; 2h/4h evidence outstanding).
 - v0.4 (2026-06-11): Rung-2 attempt 3 recorded as FAILED on duration and budget floor (`HDI-RUNG2-006`; mechanics clean at 3.5x scope; honest 54m03s active, ~333 calls). Third consecutive duration failure routes the ladder to design review round 2. Item 3 now has checkpoint-series evidence from all three rung-2 attempts. Pre-written criteria unchanged; assessment remains `NO PROMOTION YET`.
@@ -28,7 +29,7 @@ Out of scope for this decision: unattended or scheduled operation, live messagin
 | Interrupt-transport spike | repo-root `RESEARCH_SPIKE_20260604_interrupt_transport_surfaces.md` | Vendor-native transport exists; V3's job is the governance record | No live transport trial run |
 | Adaptive mission control protocol | `ADAPTIVE_MISSION_CONTROL.md` v0.2 | Loop, tiers, budget discipline, checkpoint shape are defined | Research-only; never exercised at 4-hour scale |
 | Mutable-state and provenance canon | `MUTABLE_HARNESS_STATE.md`; `SKILL_PROVENANCE_POLICY.md` | Long-duration evidence can stay attributable across model swaps and skill use | New; untested in a long mission |
-| Rung-3 formation pack | `ladder/rung3/` | Mission-formation and challenge skills can produce a non-executing contract and correctly block execution readiness when concrete scope is missing | Formation evidence only; no rung-3 execution envelope or sponsor Go |
+| Rung-3 formation and Option A envelope pack | `ladder/rung3/` | Mission-formation and challenge skills can produce a non-executing contract, classify POC transfer evidence, and author a concrete Option A envelope with sponsor-Go review readiness | No rung-3 execution or sponsor Go yet |
 
 ## Evidence Required Before Decision
 
@@ -50,13 +51,13 @@ Evidence items 1-3 complete and the 4-hour rung clean, but item 4 (natural negat
 Any rung not yet run, any safe-hold or transport failure unresolved, any unresolved scope or verification finding at duration, or sponsor approval absent.
 
 ## Evidence Progress (2026-06-11)
-- Item 1 (duration ladder): rung 1 passed for mechanics (`HDI-TT-001`); RUNG 2 PASSED at attempt 4 (`HDI-RUNG2-008`: 95.25 active minutes, ~548 calls, all eight criteria) after three honest compression failures (`HDI-RUNG2-002`, `-004`, `-006`) and two design reviews (`-005`, `-007`); rung 3 unlocked; non-executing formation pack drafted 2026-07-02 under `ladder/rung3/` with formation quality `CONDITIONAL PASS` and execution readiness `MORE DISCOVERY`.
+- Item 1 (duration ladder): rung 1 passed for mechanics (`HDI-TT-001`); RUNG 2 PASSED at attempt 4 (`HDI-RUNG2-008`: 95.25 active minutes, ~548 calls, all eight criteria) after three honest compression failures (`HDI-RUNG2-002`, `-004`, `-006`) and two design reviews (`-005`, `-007`); rung 3 unlocked; non-executing formation pack drafted 2026-07-02 under `ladder/rung3/`; POC Mission 025 (`8f25437`) classified as narrow transfer evidence; concrete Option A envelope exists with `CONDITIONAL PASS` for sponsor-Go review. Rung 3 has not run.
 - Item 2 (live transport trial): SATISFIED — one real Tier 3 round-trip answered from the sponsor's phone with the sponsor away from the terminal (POC Mission 021, Codex mobile, deliver-to-answer 96s, full interrupt record at `.factory-v3/evidence/MISSION_021_INTERRUPT_HDI001.json` in the POC repo), and one exercised timeout reaching safe-hold (MR_020).
 - Item 3 (health signals): recorded with citations and per-checkpoint cost at rung 1 and all four rung-2 attempts; Mission 024 supplies the first complete series at genuine ~95-minute duration; 2h/4h evidence remains rung 3's burden.
 - Items 4 and 5: open.
 
 ## Current Assessment
-`NO PROMOTION YET` — evidence item 2 is satisfied and item 1 now holds a passed duration-class rung (rung 2 at attempt 4) plus a non-executing rung-3 formation pack, but rung 3 (the 4-hour class) has not run, and items 4-5 remain open. The pre-written criteria are unchanged.
+`NO PROMOTION YET` — evidence item 2 is satisfied and item 1 now holds a passed duration-class rung (rung 2 at attempt 4) plus a concrete non-executing Option A envelope for rung 3, but rung 3 (the 4-hour class) has not run, and items 4-5 remain open. The pre-written criteria are unchanged.
 
 ## Decision Record (to be completed at decision time)
 ```text
