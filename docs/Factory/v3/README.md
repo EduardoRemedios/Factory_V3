@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.37
+v1.38
 
 ## Change Log
+- v1.38 (2026-07-02): Recorded POC Mission 026 post-run evidence review and added `MISSION_CONTROL_CONTRACT.md` as research-only mission-control canon. `V3-OP-003` remains `NO PROMOTION YET`; next work is advisory templates, claim-to-proof audit, and post-run adjudication, not runtime orchestration.
 - v1.37 (2026-07-02): Added POC Mission 025 evidence-transfer classification plus the concrete non-executing Option A rung-3 execution envelope and challenge review. The next gate is sponsor Go/no-go against that exact envelope; execution and `V3-OP-003` promotion remain unapproved.
 - v1.36 (2026-07-02): Added the non-executing rung-3 formation pack under `ladder/rung3/` as the first live mission-formation/challenge trial; execution readiness remains `MORE DISCOVERY` and no rung-3 execution or `V3-OP-003` promotion is approved.
 - v1.35 (2026-06-22): Added `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md` as a research-only loop-governance vocabulary and linked it from the V3 artifact index.
@@ -79,20 +80,21 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide a shadow `V3_MISSION_RECORD` design and standalone advisory validator for Phase 2 replay and evidence-shape testing, including regression coverage for unsafe path shapes in self-attested scope evidence.
 - Provide an advisory telemetry replay validator with regression coverage for duplicate telemetry event IDs, missing terminal replay events, unsafe path shapes in self-attested scope evidence, and excluded-data markers.
 - Track research-only dynamic/parallel workflow harness planning with `insufficient_evidence` status until local Factory V3 evidence exists; Claude Code is an external-announcement signal and Codex is an official-docs source signal.
-- Prepare the next operational-readiness decision around a proof-of-concept application built with Codex under V3. The current candidate concept is an internal/private personal health and fitness tracker for the sponsor. App construction is not approved until a separate project brief and V3-only plan name exact scope, data path, commands, tests, and deployment authority. Operational approval for this scope requires standalone V3 operation; V2 must not help design, build, test, deploy, govern, lint, stage, pack, recover, or validate the POC application.
+- Preserve POC evidence from the internal/private personal health and fitness tracker built with Codex under standalone V3. The named synthetic-first private POC has `PASS_NAMED_POC` evidence through Mission 020, and Mission 026 now adds mission-control design-transfer evidence. This does not approve real data, live integrations, scheduler/ambient runtime, production infrastructure, runtime authority, or V2 removal.
 - Research Garmin Connect/API data paths and Hermes Agent surfaces before any POC dependency decision. Synthetic data may accelerate design and build, but Garmin-backed evidence and Hermes-assisted evidence must be labeled separately and cannot be inferred from synthetic-only or research-only work.
 - Provide `standalone_bootstrap/` as a copyable V3-only seed package for a clean POC project. The package includes starter canons, mission templates, closeout and mission-record templates, and a POC eval rubric; it does not authorize the POC build or depend on V2.
 - Provide `ADAPTIVE_MISSION_CONTROL.md` and templates for larger V3 missions that need checkpoints, authored mission state, human decision interrupts, plan deltas, read-only verification discipline, and explicit git authority. These artifacts are research-only and do not approve live Telegram automation or required gates.
 - Provide `MISSION_FORMATION_DIRECTION.md` as strategic context for discovery, challenge, mission contracts, and the thesis that mission quality determines autonomy quality. This artifact is research-only and does not approve new V3 profiles or non-coding execution.
 - Provide `CODEX_SDK_ORCHESTRATION_DIRECTION.md` as strategic context for possible Codex SDK, Codex MCP, and Agents SDK orchestration research where Codex is a worker runtime and Factory/Harmony remains the authority layer. This artifact is research-only and does not approve unattended execution or new profiles.
-- Provide initial research-stage repo skills `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`, dry-run trial evidence under `skill_trials/mission_formation/`, the first live non-executing rung-3 formation pack under `ladder/rung3/`, and a concrete non-executing Option A rung-3 execution envelope for sponsor-Go review. These skills and artifacts are non-executing and do not approve V3 intake recommendation, new profiles, or autonomous execution.
+- Provide initial research-stage repo skills `.agents/skills/factory-mission-formation/SKILL.md` and `.agents/skills/factory-challenge-mission/SKILL.md`, dry-run trial evidence under `skill_trials/mission_formation/`, the first live non-executing rung-3 formation pack under `ladder/rung3/`, and the post-run review of the approved Option A POC Mission 026 execution. These skills and artifacts do not approve V3 intake recommendation, new profiles, or autonomous execution.
 - Provide `ANCHOR_REGISTRY.md` as a research-only, pointer-first cold-start map across approved profiles, candidate gates, evidence paths, and guardrails. It does not authorize execution, promotion, routing, required gates, runtime authority, real-data use, deployment, live integrations, or V2 build-support removal.
 - Provide `GOVERNANCE_BOUNDARIES.md` as the binding statement of current approval boundaries, relocated from the top-level README on 2026-06-10 with no loss of force.
 - Provide `MUTABLE_HARNESS_STATE.md` and `SKILL_PROVENANCE_POLICY.md` as research-only evidence-integrity canon: model identity, skill versions, and credential references are mutable harness-resident state that mission records should pin or record; learned or unknown-provenance skills are quarantined from execution and verification until human promotion.
 - Provide `REGULATORY_CROSSWALK.md` as an advisory mapping from V3 artifacts to EU AI Act human-oversight and logging themes and ISO/IEC 42001 themes, marked for human review and making no compliance claims.
 - Provide standing-authorization schema candidates (`standing_authorization_grant`, `scheduled_wake_record`) in `SHADOW_SCHEMA_CANDIDATES.md` for future scheduled or ambient missions; per-mission human Go remains the only approved authorization shape.
 - Provide `templates/V3_LOOP_CONTRACT_TEMPLATE.json`, `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`, and `scripts/factory_v3_loop_contract_lint.py` as research-only advisory loop-admission artifacts for state policy, tool policy, act-or-ask gates, control-profile response, terminal states, evidence policy, and re-entry protocol. These artifacts are not required gates and do not approve runtime authority.
-- Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, `DURATION_LADDER_PLAN.md`, and `ladder/rung3/` as its evidence-gathering path. The candidate profile is not usable; rung 3 now has a concrete non-executing Option A envelope and challenge review, but execution still needs separate sponsor Go against that exact envelope.
+- Provide `MISSION_CONTROL_CONTRACT.md` as research-only canon for what Factory V3 should own above tactical AI workers: loop admission, authority envelopes, checkpoint policy, verification policy, evidence/proof, safe-hold/re-entry, escalation, and worker interface.
+- Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, `DURATION_LADDER_PLAN.md`, and `ladder/rung3/` as its evidence-gathering path. The candidate profile is not usable; POC Mission 026 completed the approved Option A envelope and produced mission-control design-transfer evidence, but promotion evidence remains incomplete.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -137,6 +139,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `MUTABLE_HARNESS_STATE.md`
 - `SKILL_PROVENANCE_POLICY.md`
 - `REGULATORY_CROSSWALK.md`
+- `MISSION_CONTROL_CONTRACT.md`
 - `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`
 - `templates/V3_LOOP_CONTRACT_TEMPLATE.json`
 - `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md`

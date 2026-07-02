@@ -39,6 +39,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 research-only Codex SDK/MCP orchestration direction for treating Codex as a governed worker runtime in possible future Factory/Harmony workflows.
 - V3 research-only mission-health and continuation-judgment roadmap lane for future advisory value, cost, confidence, drift, risk, and continuation signals.
 - V3 research-only loop-governance artifacts: loop contract template, terminal-state and safe-hold vocabulary, advisory loop-contract lint, and deterministic fixtures for memory/re-entry, tool-use, blind-action, and feature-verification gaps.
+- V3 research-only mission-control contract distilling POC Mission 026 evidence into Factory-owned loop admission, checkpoint, safe-hold/re-entry, proof, and worker-interface responsibilities.
 - V3 research-only anchor registry for pointer-first cold-start orientation across approved profiles, candidate gates, evidence paths, and guardrails.
 - V3 research-only mutable-harness-state principle for pinning or recording model identity, skill versions, and credential references in replay evidence.
 - V3 research-only standing-authorization schema candidates for future scheduled or ambient missions, with per-mission human Go remaining the only approved authorization shape.
@@ -52,6 +53,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 
 - `docs/Factory/v3/` - primary V3 docs, templates, trials, and roadmap.
 - `docs/Factory/v3/ANCHOR_REGISTRY.md` - pointer-first map of current V3 anchor points, evidence paths, current status labels, and next named gates.
+- `docs/Factory/v3/MISSION_CONTROL_CONTRACT.md` - research-only contract for what Factory V3 should own above tactical AI workers.
 - `.agents/skills/factory-mission-formation/` and `.agents/skills/factory-challenge-mission/` - research-stage repo skills for non-executing mission discovery and challenge.
 - `docs/Factory/ARCHITECTURE.md`, `docs/Factory/ORCHESTRATION.md`, `docs/Factory/Spec/`, and `docs/Factory/templates/` - Factory V2 build-support layer for governing V3 work while V3 matures.
 - `docs/Factory/runs/` - V3-related Factory run evidence migrated from `factory-starter-kit`.

@@ -1,9 +1,10 @@
 # Mission Formation Skill Trials
 
 ## Version
-v0.3
+v0.4
 
 ## Change Log
+- v0.4 (2026-07-02): Added post-run Mission 026 evidence review and mission-control contract extraction as follow-on evidence from the live rung-3 formation path.
 - v0.3 (2026-07-02): Added concrete Option A envelope and challenge review as the next live non-executing mission-formation outputs for rung 3; sponsor-Go review readiness is `CONDITIONAL PASS`.
 - v0.2 (2026-07-02): Added the first live non-executing trial reference: rung-3 contract formation under `../../ladder/rung3/`, with formation quality `CONDITIONAL PASS` and execution readiness `MORE DISCOVERY`.
 - v0.1 (2026-06-05): Initial dry-run trial index for Factory V3 mission-formation skills.
@@ -25,6 +26,8 @@ Research-only and non-enforcing skill trial evidence. These records do not appro
 | `../../ladder/rung3/RUNG3_CHALLENGE_REVIEW_20260702.md` | `MORE_DISCOVERY_BEFORE_EXECUTION` | Challenge result: `CONDITIONAL PASS` for formation quality, not execution readiness. |
 | `../../ladder/rung3/RUNG3_OPTION_A_EXECUTION_ENVELOPE_20260702.md` | `CANDIDATE_V3_ENVELOPE` | Concrete non-executing Option A rung-3 envelope for sponsor-Go review. |
 | `../../ladder/rung3/RUNG3_OPTION_A_CHALLENGE_REVIEW_20260702.md` | `CONDITIONAL_PASS_FOR_SPONSOR_GO_REVIEW` | Challenge result: ready to present for human execution decision, not execution by default. |
+| `../../ladder/rung3/RUNG3_OPTION_A_POST_RUN_EVIDENCE_REVIEW_20260702.md` | `POST_RUN_EVIDENCE_CLASSIFICATION` | Classifies POC Mission 026 as mission-control design-transfer evidence, not profile-promotion evidence. |
+| `../../MISSION_CONTROL_CONTRACT.md` | `MISSION_CONTROL_CONTRACT_EXTRACTION` | Distills the Factory/worker split and next advisory template/fixture work from Mission 026 and loop-governance evidence. |
 
 ## Review
 - `SKILL_EVIDENCE_REVIEW_20260605.md`
