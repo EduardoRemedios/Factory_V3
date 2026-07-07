@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-07-07): Added the initial advisory mission-control contract template, standalone advisory lint, and deterministic fixtures for next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, and session-memory-only re-entry.
 - v0.2 (2026-07-07): Added loop-library-derived governance primitives to the advisory roadmap backlog: next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, loop auditability, direct-source audit, mission formation, and claim-to-proof mapping. This is primitive absorption, not named loop adoption.
 - v0.1 (2026-07-02): Initial research-only contract distilled from loop-engineering reconnaissance, Factory V3 loop-governance artifacts, and POC Mission 026 evidence.
 
@@ -111,6 +112,22 @@ Workers should continue to own tactical execution. Factory V3 should own the con
 | `terminal_states` | success, no-op, blocked, approval-required, failed-verification, exhausted, stagnated, unsafe, stale-reentry, ambiguous, infeasible, insufficient-context |
 | `worker_interface` | worker role, allowed tactical autonomy, evidence emission obligations, prohibited self-authorization |
 
+## Advisory Template And Fixture Status
+
+Initial advisory coverage now exists:
+
+- `docs/Factory/v3/templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`
+- `scripts/factory_v3_mission_control_contract_lint.py`
+- `tests/fixtures/factory_v3_mission_control_contract/`
+
+Use the standalone advisory validator:
+
+```bash
+python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json
+```
+
+The validator emits `blocking_effect: none`. It is not wired into `factoryctl`, CI, merge preflight, `knowledge_lint.sh`, `stage-lint`, `pack-lint`, mission lint, or any required Factory gate.
+
 ## Loop-Library Primitive Absorption
 
 Factory V3 should absorb the shared primitives from high-quality loop patterns, not add a catalog of named loops to the runtime.
@@ -147,7 +164,7 @@ Non-transferable or insufficient:
 ## Design Backlog
 
 1. Mission-control contract template:
-   - Create `templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`.
+   - Status: initial advisory implementation exists at `templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`.
    - Acceptance: covers mission envelope, authority envelope, loop admission, next-action gate, checkpoints, interrupts, safe-hold, re-entry, evidence, independent verification, and worker interface.
 
 2. Mission-record schema candidate:
@@ -155,7 +172,8 @@ Non-transferable or insufficient:
    - Acceptance: existing records remain valid; new fields are optional and advisory.
 
 3. Advisory fixtures:
-   - Add deterministic fixtures for admitted mission, rejected mission, next-action not authorized, safe-hold, stale re-entry, failed verification, weak evidence, contradicted evidence, builder/verifier conflict, and worker self-authorization attempt.
+   - Status: initial deterministic fixtures exist under `tests/fixtures/factory_v3_mission_control_contract/`.
+   - Add or extend deterministic fixtures for admitted mission, rejected mission, next-action not authorized, safe-hold, stale re-entry, failed verification, weak evidence, contradicted evidence, builder/verifier conflict, and worker self-authorization attempt.
    - Acceptance: fixture expected outputs are stable and non-blocking.
 
 4. Claim-to-proof audit:

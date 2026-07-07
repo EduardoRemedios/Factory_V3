@@ -36,6 +36,7 @@ Purpose:
 - V3 operational-readiness eval: `python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json`
 - V3 natural-language pilot eval: `python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json`
 - V3 mission-record lint: `python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --json`
+- V3 mission-control contract lint: `python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json`
 
 ## 4) Hard Guardrails
 - Use Factory V2 planning, lint, pack, and SIMPLE-CODE-GATE semantics to govern V3 repository changes when Factory-controlled planning is needed while V3 is still maturing.

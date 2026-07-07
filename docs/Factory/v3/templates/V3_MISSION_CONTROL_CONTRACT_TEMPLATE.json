@@ -1,0 +1,228 @@
+{
+  "record": {
+    "record_type": "factory_v3_mission_control_contract",
+    "schema_version": "v0.1-mission-control-contract",
+    "status": "research_only_non_enforcing",
+    "contract_id": "V3-MC-YYYYMMDD-001",
+    "profile_id": "research_only",
+    "created_at": "YYYY-MM-DD",
+    "source_evidence": [
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md"
+    ],
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "scheduled_or_unattended_execution_approved": false,
+      "governance_routing_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission_envelope": {
+    "objective": "<bounded mission objective>",
+    "success_criteria": [
+      "<measurable success criterion>"
+    ],
+    "non_goals": [
+      "Do not create runtime authority.",
+      "Do not wire advisory checks into required gates."
+    ],
+    "sponsor_approval_source": "<approval source or research-only note>",
+    "execution_mode": "advisory_template"
+  },
+  "authority_envelope": {
+    "authorized_paths": [
+      "path/inside/repo"
+    ],
+    "forbidden_paths": [
+      "production secrets",
+      "runtime authority",
+      "required gate wiring"
+    ],
+    "allowed_commands": [
+      "python3 scripts/example_check.py --json"
+    ],
+    "external_effects_allowed": false,
+    "approval_gates": [
+      "scope expansion",
+      "new dependency",
+      "destructive command",
+      "external write",
+      "runtime authority",
+      "required gate integration"
+    ]
+  },
+  "loop_admission": {
+    "route": "research_only",
+    "admission_rationale": "The mission needs checkpointed governance over worker execution; otherwise use a smaller one-shot task.",
+    "rejection_conditions": [
+      "authority is missing",
+      "verification is undefined",
+      "external effects are implied"
+    ],
+    "safe_hold_conditions": [
+      "state is stale",
+      "evidence contradicts the proposed action",
+      "next action lacks authority"
+    ]
+  },
+  "checkpoint_policy": {
+    "cadence": "before and after each material action block",
+    "required_fields": [
+      "objective_status",
+      "authority_status",
+      "verification_status",
+      "next_action_gate",
+      "open_decisions",
+      "claim_to_proof_status"
+    ]
+  },
+  "next_action_gate": {
+    "proposed_next_action": "<one bounded next action>",
+    "authority_basis": "<contract section or approval source authorizing the action>",
+    "confidence": "medium",
+    "authorized_to_continue": false,
+    "gate_result": "ask",
+    "required_verification_before_continue": [
+      "fresh repo state check",
+      "evidence refs still current"
+    ],
+    "stop_or_safe_hold_triggers": [
+      "missing authority",
+      "insufficient confidence",
+      "failed verification",
+      "stale state",
+      "external effect implied"
+    ]
+  },
+  "verification_policy": {
+    "required_commands": [
+      "python3 scripts/example_check.py --json"
+    ],
+    "verification_tiers": [
+      "self-check",
+      "independent review",
+      "closeout audit"
+    ],
+    "failure_handling": [
+      "preserve failed output",
+      "safe-hold if recovery authority is missing",
+      "do not claim completion from partial evidence"
+    ]
+  },
+  "independent_verification": {
+    "builder_actor": "implementation_worker",
+    "verifier_actor": "verification_worker",
+    "acceptance_criteria": [
+      "all required commands pass",
+      "claim-to-proof map has no unsupported PROVED entries"
+    ],
+    "verification_result": "not_run",
+    "unresolved_gaps": []
+  },
+  "evidence_policy": {
+    "required_artifacts": [
+      "mission-control contract",
+      "checkpoint evidence",
+      "verification output",
+      "claim-to-proof map",
+      "closeout"
+    ],
+    "claim_to_proof_required": true,
+    "requirement_to_evidence": [
+      {
+        "requirement": "<requirement or claim>",
+        "status": "MISSING",
+        "evidence_refs": [],
+        "unresolved_gap": "Evidence has not been produced yet."
+      }
+    ]
+  },
+  "interrupt_policy": {
+    "decision_tiers": [
+      "tier_1_pre_resolved",
+      "tier_2_resolve_and_log",
+      "tier_3_human_decision"
+    ],
+    "approval_gates": [
+      "missing authority",
+      "scope expansion",
+      "unsafe action",
+      "external effect",
+      "failed verification recovery"
+    ],
+    "timeout_behavior": "safe_hold_until_human_decision"
+  },
+  "safe_hold_policy": {
+    "required_for_missing_authority": true,
+    "safe_hold_reasons": [
+      "missing authority",
+      "stale state",
+      "failed verification",
+      "contradictory evidence",
+      "insufficient context"
+    ],
+    "required_fields": [
+      "reason",
+      "blocked_action",
+      "last_safe_checkpoint",
+      "human_decision_needed",
+      "reentry_instructions"
+    ]
+  },
+  "reentry_protocol": {
+    "read_order": [
+      "mission-control contract",
+      "latest checkpoint",
+      "mission state",
+      "verification evidence",
+      "open decisions"
+    ],
+    "stale_state_checks": [
+      "current git head",
+      "current file state",
+      "current verification outputs"
+    ],
+    "last_safe_checkpoint": "<checkpoint id>",
+    "one_safe_next_action": "<one action authorized after re-entry>",
+    "session_memory_sufficient": false
+  },
+  "terminal_states": [
+    "success",
+    "no_op",
+    "blocked",
+    "approval_required",
+    "failed_verification",
+    "exhausted",
+    "stagnated",
+    "unsafe",
+    "stale_reentry",
+    "ambiguous",
+    "infeasible",
+    "insufficient_context"
+  ],
+  "worker_interface": {
+    "worker_role": "bounded_tactical_executor",
+    "allowed_tactical_autonomy": [
+      "local repo navigation",
+      "implementation inside authorized paths",
+      "test/fix cycles inside authority envelope"
+    ],
+    "prohibited_self_authorization": [
+      "scope expansion",
+      "new dependency",
+      "external write",
+      "runtime authority",
+      "required gate integration"
+    ],
+    "evidence_obligations": [
+      "commands run",
+      "files changed",
+      "verification outputs",
+      "unresolved gaps",
+      "next action gate result"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "blocking_effect": "none",
+  "checked_contracts": [
+    "tests/fixtures/factory_v3_mission_control_contract/invalid/evidence_and_verifier_gaps.json",
+    "tests/fixtures/factory_v3_mission_control_contract/invalid/next_action_continue_without_authority.json",
+    "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+    "tests/fixtures/factory_v3_mission_control_contract/valid_mission_control_contract.json"
+  ],
+  "findings": [
+    {
+      "id": "V3-MC015",
+      "message": "unsafe approval flag must be false: factory_v3_default_approved",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC015",
+      "message": "unsafe approval flag must be false: governance_routing_approved",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC015",
+      "message": "unsafe approval flag must be false: required_gate_integration_approved",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC015",
+      "message": "unsafe approval flag must be false: runtime_authority_approved",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC015",
+      "message": "unsafe approval flag must be false: scheduled_or_unattended_execution_approved",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC064",
+      "message": "continue gate requires authorized_to_continue=true",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/next_action_continue_without_authority.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC082",
+      "message": "builder_actor and verifier_actor must be different",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/evidence_and_verifier_gaps.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC097",
+      "message": "WEAK requirements must include unresolved_gap",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/evidence_and_verifier_gaps.json:evidence_policy.requirement_to_evidence[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC122",
+      "message": "reentry_protocol.session_memory_sufficient must be false",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+      "severity": "advisory_critical"
+    }
+  ],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "Review mission-control contract findings manually; this report is advisory and non-blocking.",
+    "Fix missing authority, next-action, evidence, verifier, safe-hold, or re-entry fields before using the contract as mission guidance.",
+    "Do not wire mission-control checks into required gates without explicit Factory governance approval."
+  ],
+  "record_scope": "mission_control_contract_advisory",
+  "report_id": "factory-v3-mission-control-contract-lint",
+  "status": "ADVISORY_FAIL_NON_BLOCKING",
+  "target": "tests/fixtures/factory_v3_mission_control_contract",
+  "warnings": []
+}

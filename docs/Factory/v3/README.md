@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.38
+v1.39
 
 ## Change Log
+- v1.39 (2026-07-07): Added the initial advisory mission-control contract template, standalone advisory lint, and deterministic fixture corpus for next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, and session-memory-only re-entry. These remain research-only and non-enforcing.
 - v1.38 (2026-07-02): Recorded POC Mission 026 post-run evidence review and added `MISSION_CONTROL_CONTRACT.md` as research-only mission-control canon. `V3-OP-003` remains `NO PROMOTION YET`; next work is advisory templates, claim-to-proof audit, and post-run adjudication, not runtime orchestration.
 - v1.37 (2026-07-02): Added POC Mission 025 evidence-transfer classification plus the concrete non-executing Option A rung-3 execution envelope and challenge review. The next gate is sponsor Go/no-go against that exact envelope; execution and `V3-OP-003` promotion remain unapproved.
 - v1.36 (2026-07-02): Added the non-executing rung-3 formation pack under `ladder/rung3/` as the first live mission-formation/challenge trial; execution readiness remains `MORE DISCOVERY` and no rung-3 execution or `V3-OP-003` promotion is approved.
@@ -93,7 +94,7 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide `REGULATORY_CROSSWALK.md` as an advisory mapping from V3 artifacts to EU AI Act human-oversight and logging themes and ISO/IEC 42001 themes, marked for human review and making no compliance claims.
 - Provide standing-authorization schema candidates (`standing_authorization_grant`, `scheduled_wake_record`) in `SHADOW_SCHEMA_CANDIDATES.md` for future scheduled or ambient missions; per-mission human Go remains the only approved authorization shape.
 - Provide `templates/V3_LOOP_CONTRACT_TEMPLATE.json`, `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`, and `scripts/factory_v3_loop_contract_lint.py` as research-only advisory loop-admission artifacts for state policy, tool policy, act-or-ask gates, control-profile response, terminal states, evidence policy, and re-entry protocol. These artifacts are not required gates and do not approve runtime authority.
-- Provide `MISSION_CONTROL_CONTRACT.md` as research-only canon for what Factory V3 should own above tactical AI workers: loop admission, authority envelopes, checkpoint policy, verification policy, evidence/proof, safe-hold/re-entry, escalation, and worker interface.
+- Provide `MISSION_CONTROL_CONTRACT.md`, `templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`, `scripts/factory_v3_mission_control_contract_lint.py`, and deterministic fixtures under `tests/fixtures/factory_v3_mission_control_contract/` as research-only canon for what Factory V3 should own above tactical AI workers: loop admission, authority envelopes, next-action authorization, requirement-to-evidence status, independent verification, checkpoint policy, verification policy, evidence/proof, safe-hold/re-entry, escalation, and worker interface.
 - Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, `DURATION_LADDER_PLAN.md`, and `ladder/rung3/` as its evidence-gathering path. The candidate profile is not usable; POC Mission 026 completed the approved Option A envelope and produced mission-control design-transfer evidence, but promotion evidence remains incomplete.
 - Continue research for any future V3 profile before promotion.
 
@@ -275,6 +276,7 @@ The capture plan does not authorize live mission execution, telemetry collection
 - `scripts/factory_v3_mission_record_lint.py` checks shadow V3 mission-record JSON files and malformed-record fixtures in advisory mode.
 - `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic telemetry replay JSONL fixtures in advisory mode.
 - `scripts/factory_v3_loop_contract_lint.py` checks research-only loop-contract JSON files and fixtures for authority, state, tool, act-or-ask, control-profile, evidence, terminal-state, and re-entry coverage.
+- `scripts/factory_v3_mission_control_contract_lint.py` checks research-only mission-control contract JSON files and fixtures for mission envelope, authority envelope, loop admission, next-action authorization, requirement-to-evidence status, independent verification, safe-hold, re-entry, and worker-interface coverage.
 - These tools are not wired into required Factory v2 gates and do not authorize broader V3 promotion.
 
 ## Loop Contract Research
@@ -287,6 +289,20 @@ Use the standalone advisory validator:
 
 ```bash
 python3 scripts/factory_v3_loop_contract_lint.py --target tests/fixtures/factory_v3_loop_contract --expect tests/fixtures/factory_v3_loop_contract/expected/all.json --json
+```
+
+The validator emits `blocking_effect: none`. It is not wired into `factoryctl`, CI, merge preflight, `knowledge_lint.sh`, `stage-lint`, `pack-lint`, mission lint, or any required Factory gate.
+
+## Mission-Control Contract Research
+
+The mission-control contract template is a research-only advisory artifact for future Factory-owned governance above AI workers. It records mission envelope, authority envelope, loop admission, next-action gates, requirement-to-evidence status, independent verification, interrupts, safe-hold, restartable handoff, terminal states, and worker-interface boundaries.
+
+The fixture corpus includes targeted checks for unsafe approval flags, unauthorized continuation, same-actor builder/verifier review, weak evidence without an unresolved gap, and session-memory-only re-entry.
+
+Use the standalone advisory validator:
+
+```bash
+python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json
 ```
 
 The validator emits `blocking_effect: none`. It is not wired into `factoryctl`, CI, merge preflight, `knowledge_lint.sh`, `stage-lint`, `pack-lint`, mission lint, or any required Factory gate.
