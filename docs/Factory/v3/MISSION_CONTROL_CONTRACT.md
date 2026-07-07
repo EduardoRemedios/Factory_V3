@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-07-07): Added loop-library-derived governance primitives to the advisory roadmap backlog: next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, loop auditability, direct-source audit, mission formation, and claim-to-proof mapping. This is primitive absorption, not named loop adoption.
 - v0.1 (2026-07-02): Initial research-only contract distilled from loop-engineering reconnaissance, Factory V3 loop-governance artifacts, and POC Mission 026 evidence.
 
 ## Status
@@ -34,6 +35,14 @@ Workers should continue to own tactical execution. Factory V3 should own the con
 - POC Mission 026 audit summary: `.factory-v3/evidence/MISSION_026_AUDIT_SUMMARY.json`
 - Repo-root `factory_v3_loop_engineering_recon.md`
 - Repo-root `factory_v3_loop_engineering_summary.md`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/next-action-confidence-check/`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/loop-harness-verification-loop/`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/codex-completion-contract-loop/`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/restartable-handoff-loop/`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/loop-auditor-loop/`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/groundtruth-audit-loop/`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/goal-forge-loop/`
+- Loop-library source: `https://signals.forwardfuture.com/loop-library/loops/promise-to-proof-loop/`
 
 ## Ownership Split
 
@@ -43,10 +52,12 @@ Workers should continue to own tactical execution. Factory V3 should own the con
 | Authority | Authorized files, commands, tools, dependency policy, external-effect limits | Staying inside the granted authority while executing |
 | Loop admission | Whether a loop is allowed, should route to V2, should safe-hold, or should be rejected | No self-admission outside the envelope |
 | Checkpoints | Required cadence, required fields, mission-health signals, state persistence | Emitting accurate checkpoint evidence |
+| Next action | Authorization to continue, stop, safe-hold, ask, verify, or close | Proposing the next tactical action without self-authorizing expanded scope |
 | Verification | Verification policy, required tiers, no-touch checks, evidence freshness expectations | Running checks and preserving outputs |
+| Independent verification | Builder/verifier separation policy and acceptance criteria | Serving as builder or verifier only inside the assigned role |
 | Interrupts | Decision tiers, approval gates, timeout behavior, safe-hold semantics | Asking only when Tier 1 or Tier 2 cannot resolve safely |
 | Re-entry | Read order, stale-state checks, last-safe-checkpoint rule | Resuming only from authored state and current repo evidence |
-| Evidence | Claim-to-proof requirements, audit summary, closeout record, proof gaps | Producing command, diff, screenshot, test, and artifact evidence |
+| Evidence | Requirement-to-evidence status, claim-to-proof requirements, audit summary, closeout record, proof gaps | Producing command, diff, screenshot, test, and artifact evidence |
 | Escalation | Terminal-state vocabulary, halt/fallback rules, recovery authorization | Halting when the contract says halt |
 | Product implementation | Boundary and review policy | Coding, local navigation, tactical reasoning, test/fix cycles |
 
@@ -90,13 +101,30 @@ Workers should continue to own tactical execution. Factory V3 should own the con
 | `authority_envelope` | authorized paths, forbidden paths, allowed commands, allowed tools, dependency policy, git policy, external-effect policy |
 | `loop_admission` | admission rationale, route, rejection/safe-hold conditions, V2 fallback trigger |
 | `checkpoint_policy` | cadence, required fields, mission-health signals, budget state, commit/checkpoint relationship |
+| `next_action_gate` | proposed next action, authority basis, confidence, required verification before continuing, stop/ask/safe-hold trigger |
 | `verification_policy` | required commands, verification tiers, no-touch checks, browser/external proof if needed, failure handling |
-| `evidence_policy` | required artifacts, claim-to-proof mapping, screenshots or logs where relevant, JSON parse rules for records |
+| `independent_verification` | builder actor, verifier actor, acceptance criteria, verification result, unresolved gaps, conflict handling |
+| `evidence_policy` | required artifacts, requirement-to-evidence status, claim-to-proof mapping, screenshots or logs where relevant, JSON parse rules for records |
 | `interrupt_policy` | decision tiers, approval gates, timeout behavior, answer interpretation, plan-delta rule |
 | `safe_hold_policy` | safe-hold reasons, blocked action, last safe checkpoint, human decision needed, re-entry instructions |
-| `reentry_protocol` | read order, stale-state checks, protected-surface checks, current repo-state verification |
+| `reentry_protocol` | read order, stale-state checks, protected-surface checks, current repo-state verification, one safe next action |
 | `terminal_states` | success, no-op, blocked, approval-required, failed-verification, exhausted, stagnated, unsafe, stale-reentry, ambiguous, infeasible, insufficient-context |
 | `worker_interface` | worker role, allowed tactical autonomy, evidence emission obligations, prohibited self-authorization |
+
+## Loop-Library Primitive Absorption
+
+Factory V3 should absorb the shared primitives from high-quality loop patterns, not add a catalog of named loops to the runtime.
+
+| Source pattern | Absorb into Factory V3 | Do not absorb |
+| --- | --- | --- |
+| Next-Action Confidence Check | `next_action_gate`: continue/ask/safe-hold/verify/close authorization after each meaningful checkpoint | Worker self-authorization to continue outside the mission envelope |
+| Loop Harness Verification Loop | Builder/verifier role separation, acceptance criteria, independent verification result, unresolved-gap recording | Scheduled harnesses, unattended execution, or automatic shipping |
+| Codex Completion-Contract Loop | Requirement-to-evidence status before closeout: `PROVED`, `WEAK`, `MISSING`, `CONTRADICTED` | Treating completion prose as evidence |
+| Restartable Handoff Loop | `restartable_handoff`: last safe checkpoint, stale-state checks, read order, one safe next action | Session memory as sufficient re-entry proof |
+| Loop Auditor Loop | Later audit of Factory's own reusable loop-governance primitives for purpose, evidence, budget, kill conditions, and fitness | A loop registry or governance router before primitives have evidence |
+| Groundtruth Loop | Direct-source audit and health-inspection pattern for repo claims and context recall repair | Generic repo scoring without source-backed claims |
+| Goal Forge Loop | Mission-formation support for converting vague intent into measurable mission specs | Runtime execution authority from a formed goal alone |
+| Promise-to-Proof Loop | Passive claim-to-proof audits over roadmap, profile, and closeout claims | Product or governance claims that outrun proof |
 
 ## Mission 026 Transfer Lessons
 
@@ -120,14 +148,14 @@ Non-transferable or insufficient:
 
 1. Mission-control contract template:
    - Create `templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`.
-   - Acceptance: covers mission envelope, authority envelope, loop admission, checkpoints, interrupts, safe-hold, re-entry, evidence, verification, and worker interface.
+   - Acceptance: covers mission envelope, authority envelope, loop admission, next-action gate, checkpoints, interrupts, safe-hold, re-entry, evidence, independent verification, and worker interface.
 
 2. Mission-record schema candidate:
-   - Add advisory fields for `mission_control`, `loop_admission`, `safe_hold_events`, `worker_reentry`, and `claim_to_proof`.
+   - Add advisory fields for `mission_control`, `loop_admission`, `next_action_gate`, `requirement_to_evidence`, `independent_verification`, `safe_hold_events`, `worker_reentry`, `restartable_handoff`, and `claim_to_proof`.
    - Acceptance: existing records remain valid; new fields are optional and advisory.
 
 3. Advisory fixtures:
-   - Add deterministic fixtures for admitted mission, rejected mission, safe-hold, stale re-entry, failed verification, and worker self-authorization attempt.
+   - Add deterministic fixtures for admitted mission, rejected mission, next-action not authorized, safe-hold, stale re-entry, failed verification, weak evidence, contradicted evidence, builder/verifier conflict, and worker self-authorization attempt.
    - Acceptance: fixture expected outputs are stable and non-blocking.
 
 4. Claim-to-proof audit:
@@ -136,11 +164,15 @@ Non-transferable or insufficient:
 
 5. Worker handoff protocol:
    - Define the minimum handoff from Factory to Codex/Claude/sub-agent worker.
-   - Acceptance: handoff states what the worker may decide tactically and what it may not self-authorize.
+   - Acceptance: handoff states what the worker may decide tactically, what it may not self-authorize, the last safe checkpoint, stale-state checks, and one safe next action.
 
 6. Post-run adjudication pack:
    - Produce a short `NO PROMOTION YET` adjudication over Mission 026 against `V3_OP_003_DECISION_PACK.md`.
    - Acceptance: clearly separates useful design evidence from missing promotion evidence.
+
+7. Loop auditability backlog:
+   - Define later, after advisory templates and fixtures exist, how Factory reviews its own reusable loop-governance primitives for purpose, evidence, budget, kill conditions, and retirement criteria.
+   - Acceptance: records KEEP/PIVOT/RETIRE/KILL-style audit outcomes without creating routing authority or required gates.
 
 ## Non-Goals
 - No loop runner.

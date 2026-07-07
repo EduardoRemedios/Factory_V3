@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.49
+v1.50
 
 ## Change Log
+- v1.50 (2026-07-07): Added loop-library-derived governance primitives to the roadmap as advisory mission-control inputs, not named loop adoption: next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, loop auditability, direct-source audit, mission formation, and claim-to-proof mapping. Runtime orchestration, scheduled loops, required gates, and profile promotion remain unapproved.
 - v1.49 (2026-07-02): Recorded POC Mission 026 post-run evidence review and added the research-only mission-control contract. The next useful work is advisory mission-control templates, passive claim-to-proof audit, and explicit `NO PROMOTION YET` adjudication; runtime orchestration, required gates, routing, and `V3-OP-003` promotion remain unapproved.
 - v1.48 (2026-07-02): Recorded POC Mission 025 evidence-transfer classification and concrete Option A rung-3 execution-envelope authoring under `ladder/rung3/`. The envelope has `CONDITIONAL PASS` for sponsor-Go review, but execution, `V3-OP-003` promotion, real data, live integrations, scheduler/background behavior, deployment, runtime authority, required gates, and V2 removal remain unapproved.
 - v1.47 (2026-07-02): Recorded the non-executing rung-3 formation pack under `ladder/rung3/`; formation quality is `CONDITIONAL PASS`, execution readiness remains `MORE DISCOVERY`, and the next move is sponsor scope selection plus concrete execution-envelope authoring.
@@ -84,7 +85,7 @@ Current state:
 - V3 has a strategic mission-formation direction note plus initial research-stage repo skills for discovery/challenge mission formation. The skills have dry-run trial evidence only; they do not approve new profiles, recommended V3 intake, or non-coding execution.
 - V3 has a strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority. It is roadmap context only and does not approve unattended execution, production actions, runtime authority, or new profiles.
 - V3 has a research-only mission-health roadmap lane for future value-aware continuation judgment. No mission-health schema, validator, router, gate, runtime-control power, or required checkpoint behavior is approved.
-- V3 has a research-only loop-governance and mission-control lane with a loop contract template, terminal-state/safe-hold vocabulary, advisory loop-contract validator, mission-control contract, and deterministic fixtures for state, tool, act-or-ask, control-profile, evidence, terminal-state, and re-entry coverage. No runtime orchestration, scheduled loop execution, routing, required gate, or reduced-governance behavior is approved.
+- V3 has a research-only loop-governance and mission-control lane with a loop contract template, terminal-state/safe-hold vocabulary, advisory loop-contract validator, mission-control contract, and deterministic fixtures for state, tool, act-or-ask, control-profile, evidence, terminal-state, and re-entry coverage. Loop-library review now adds a roadmap input to absorb governance primitives rather than named loops: next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, loop auditability, direct-source audit, mission formation, and claim-to-proof mapping. No runtime orchestration, scheduled loop execution, routing, required gate, or reduced-governance behavior is approved.
 - V3 has a research-only anchor registry for pointer-first orientation across approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, or replacement evidence.
 - V3 has a binding governance-boundaries statement (`GOVERNANCE_BOUNDARIES.md`), research-only evidence-integrity canon (`MUTABLE_HARNESS_STATE.md`, `SKILL_PROVENANCE_POLICY.md`), an advisory regulatory crosswalk marked for human review, and standing-authorization schema candidates; per-mission human Go remains the only approved authorization shape.
 - V3 has a candidate `V3-OP-003` long-running remote-interrupt profile with a decision pack at `NO PROMOTION YET`, a mission-health vocabulary, an interrupt-transport trial plan gated on separate sponsor approval, and a three-rung duration ladder. Rung 1 passed for mechanics; interrupt transport is satisfied; RUNG 2 PASSED at attempt 4 on 2026-06-11 (`HDI-RUNG2-008`, POC Mission 024, 95.25 active minutes, ~548 calls, all eight criteria); POC Mission 026 completed the approved Option A envelope at commit `404a32a` and produced mission-control design-transfer evidence. The candidate profile is not usable for any mission.
@@ -98,17 +99,32 @@ Factory v3 has achieved an operational bridgehead, not the full platform.
 
 ## Current Decision Queue
 
-This queue is the near-term sequencing order as of 2026-07-02. It is an orientation aid, not approval to execute any mission.
+This queue is the near-term sequencing order as of 2026-07-07. It is an orientation aid, not approval to execute any mission.
 
 | Rank | Decision or artifact | Why it is next | Required artifact | Approval needed | Explicit non-approval |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Mission-control templates and advisory record-shape candidates | Mission 026 showed useful design patterns, and `MISSION_CONTROL_CONTRACT.md` now defines the Factory/worker split | Advisory template/fixture proposal for mission-control fields and claim-to-proof evidence | Approval only for advisory docs/fixtures unless separately scoped | No runtime loop orchestration, required gates, routing, or new profile |
+| 1 | Mission-control templates and advisory record-shape candidates | Mission 026 showed useful design patterns, `MISSION_CONTROL_CONTRACT.md` defines the Factory/worker split, and loop-library review identifies missing governance primitives | Advisory template/fixture proposal for mission-control fields: next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, loop admission, safe-hold/re-entry, and claim-to-proof evidence | Approval only for advisory docs/fixtures unless separately scoped | No runtime loop orchestration, required gates, routing, scheduled loops, or new profile |
 | 2 | Passive claim-to-proof audit over POC Mission 026 | The post-run review classifies evidence, but the claims should be mapped to proof before schema work hardens | Claim-to-proof audit citing record, closeout, QA, browser notes, screenshots, commands, and gaps | None beyond docs-only audit approval | No promotion from audit alone |
 | 3 | Explicit `NO PROMOTION YET` adjudication and FP/FN review | Decision-pack items 4 and 5 remain open, and Mission 026 must be judged against fixed criteria | FP/FN rollup and `V3_OP_003` decision-pack mapping | Human decision after evidence review | No routing thresholds, no reduced governance, no required gates |
 | 4 | Factory_V3-native negative-case gap closure | The Factory_V3 real-run corpus still lacks enough natural fallback, recovery, stale-reentry, failed-verification, and routing-threshold evidence | Separately approved negative-case capture records and FP/FN rollup | Per-candidate approval before execution | No routing thresholds, no reduced governance, no required gates |
 | 5 | Loop-governance proof hardening | The loop contract and mission-control contract are now present, but examples are still thin | Mission-state/re-entry examples plus audit over loop-governance claims | Approval only for advisory docs/fixtures unless separately scoped | No runtime loop orchestration, scheduled loops, background workers, or loop runner |
 | 6 | Read-only Codex SDK/MCP orchestration discovery | Programmatic worker supervision is strategically relevant but must follow better intake/mission-control evidence and stay read-only first | Research pack recording sandbox, thread, prompt, output, trace, interrupt, and closeout behavior | Separate research approval | No workspace-write orchestration trial, credential use, unattended execution, or runtime authority |
 | 7 | Mission-health notes on checkpointed missions | Mission-health vocabulary exists, but it needs real checkpoint use before schema, thresholds, or routing | Advisory notes attached to real checkpointed mission evidence with forecast-vs-actual review | None beyond the underlying mission approval | No schema promotion, routing input, gate, or continuation threshold |
+
+## Loop-Governance Primitives From Loop-Library Review
+
+Factory V3 should not adopt these as named worker loops. The roadmap value is to absorb their shared primitives into advisory mission-control templates, records, fixtures, and audits.
+
+| Source loop | Primitive Factory V3 should absorb | Roadmap use |
+| --- | --- | --- |
+| [Next-Action Confidence Check](https://signals.forwardfuture.com/loop-library/loops/next-action-confidence-check/) | Separate completed-state confidence from authority to continue | Add `next_action_gate` to mission-control templates and checkpoint records |
+| [Loop Harness Verification Loop](https://signals.forwardfuture.com/loop-library/loops/loop-harness-verification-loop/) | Separate builder and verifier roles with explicit acceptance criteria | Add advisory `builder_actor`, `verifier_actor`, `acceptance_criteria`, `verification_result`, and unresolved-gap fields |
+| [Codex Completion-Contract Loop](https://signals.forwardfuture.com/loop-library/loops/codex-completion-contract-loop/) | Map requirements to proof before declaring completion | Add requirement-to-evidence status values: `PROVED`, `WEAK`, `MISSING`, and `CONTRADICTED` |
+| [Restartable Handoff Loop](https://signals.forwardfuture.com/loop-library/loops/restartable-handoff-loop/) | Preserve one safe next action and current state for fresh-session or worker re-entry | Add advisory `restartable_handoff`, `last_safe_checkpoint`, `stale_state_checks`, and `next_safe_action` fields |
+| [Loop Auditor Loop](https://signals.forwardfuture.com/loop-library/loops/loop-auditor-loop/) | Audit governance loops themselves for purpose, evidence, budget, kill conditions, and fitness | Keep as later roadmap item after Factory has several reusable loop-governance primitives |
+| [Groundtruth Loop](https://signals.forwardfuture.com/loop-library/loops/groundtruth-audit-loop/) | Direct-source audit of repo claims | Use as supporting pattern for health inspection and direct-source recall repair evidence |
+| [Goal Forge Loop](https://signals.forwardfuture.com/loop-library/loops/goal-forge-loop/) | Convert vague intent into measurable mission specifications before worker execution | Fold into mission-formation/challenge guidance |
+| [Promise-to-Proof Loop](https://signals.forwardfuture.com/loop-library/loops/promise-to-proof-loop/) | Every product or governance claim maps to evidence or is narrowed | Use for passive claim-to-proof audits over Mission 026 and V3 roadmap claims |
 
 ## POC Evidence Transfer Rule
 
