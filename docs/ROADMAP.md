@@ -1,6 +1,6 @@
 # ROADMAP.md - Factory V3 Roadmap
 
-> Last updated: 2026-07-07
+> Last updated: 2026-07-12
 
 ## Current State
 
@@ -14,12 +14,13 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 
 This queue is sequencing guidance only. It does not approve execution, promotion, required gates, runtime authority, real-data use, scheduled work, or V2 removal.
 
-1. Use the new `docs/Factory/v3/templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`, `scripts/factory_v3_mission_control_contract_lint.py`, and `tests/fixtures/factory_v3_mission_control_contract/` to propose optional advisory record-shape candidates for mission-control state.
-2. Run a passive claim-to-proof audit over POC Mission 026 and record a `NO PROMOTION YET` adjudication against `docs/Factory/v3/V3_OP_003_DECISION_PACK.md`.
-3. Close Factory_V3-native negative-case gaps with separately approved fallback, recovery, stale-reentry, failed-verification, and routing-threshold captures.
-4. Harden loop-governance proof with concrete mission-state/re-entry examples that use the mission-control contract.
-5. Start Codex SDK/MCP orchestration only as a later read-only discovery spike, after intake/formation and mission-control evidence improves.
-6. Attach mission-health notes to checkpointed missions opportunistically; do not promote mission-health schema, thresholds, routing, or gates yet.
+1. Prepare a separately scoped, backward-compatible advisory mission-record shape proposal from the completed Mission 026 claim-to-proof and FP/FN findings; keep existing records valid and all checks non-blocking.
+2. Use separately approved, useful Factory_V3 work to capture natural fallback, recovery, stale-reentry, failed-verification, and endurance-continuity signals opportunistically; do not manufacture failures, duration, calls, waypoints, or scope.
+3. Harden loop-governance proof with concrete mission-state/re-entry examples that use the mission-control contract.
+4. Start Codex SDK/MCP orchestration only as a later read-only discovery spike, after intake/formation and mission-control evidence improves.
+5. Attach mission-health notes to checkpointed missions opportunistically; do not promote mission-health schema, thresholds, routing, or gates yet.
+
+Endurance rule: the candidate long-running profile is intended to preserve objective, authority, checkpoint, re-entry, verification, evidence, and output quality for missions that naturally require up to roughly four hours. Mission completion is not duration based. A correct two- or three-hour finish passes the mission and must stop; it may leave only the unobserved upper endurance range insufficiently evidenced.
 
 ## Near-Term Work
 
@@ -43,7 +44,7 @@ This queue is sequencing guidance only. It does not approve execution, promotion
 - Use `docs/Factory/v3/ADAPTIVE_MISSION_CONTROL.md` and the standalone checkpoint, mission-state, human-interrupt, and plan-delta templates as research-only guidance for larger V3 missions. The next evidence target is to prove that V3 can continue from explicit artifacts and use Tier 1/2 decisions before asking for Tier 3 human interrupts, without using artificial time or size classes as mission-sizing authority.
 - Initial non-executing mission-formation skills now exist for V3 discovery and challenge work, with dry-run trial evidence. The next evidence target is live use in real V3/Harmony conversations before the skills can become recommended V3 intake aids.
 - Mission Health and Continuation Judgment is now tracked as a research-only Phase 4.6 roadmap lane with a defined advisory vocabulary at `docs/Factory/v3/MISSION_HEALTH_VOCABULARY.md` (six citation-grounded signals recorded at checkpoints). It does not approve schema changes, validators, gates, routing authority, runtime-control power, required checkpoint fields, or default-mode behavior.
-- Loop Governance is now tracked as a research-only loop-admission lane with a template, terminal-state/safe-hold vocabulary, advisory lint, deterministic fixtures, and the mission-control contract. Mission-control template/fixture coverage now exists for next-action authorization, requirement-to-evidence status, independent verifier separation, restartable handoff, claim-to-proof mapping, direct-source audit, mission formation, and later loop auditability. The next useful work is optional advisory record-shape candidates, concrete mission-state/re-entry examples, and claim-to-proof audits, not runtime orchestration or scheduled loop execution.
+- Loop Governance is now tracked as a research-only loop-admission lane with a template, terminal-state/safe-hold vocabulary, advisory lint, deterministic fixtures, and the mission-control contract. Mission 026 claim-to-proof and current-corpus FP/FN audits are complete. The next useful work is an optional backward-compatible advisory record-shape proposal and concrete mission-state/re-entry examples, not runtime orchestration or scheduled loop execution.
 - Use `docs/Factory/v3/ANCHOR_REGISTRY.md` as a pointer-first cold-start map for future model onboarding and decision-pack preparation. Keep it research-only and update it only when it reduces audit cost without becoming a second source of truth.
 - Capture Codex SDK/MCP orchestration as a follow-on research spike: test whether Factory/Harmony can programmatically supervise Codex as a worker runtime while preserving mission records, sandbox discipline, human approval, verification evidence, and halt behavior. Start read-only; do not treat the spike as approval for unattended execution or runtime authority.
 - Keep the Codex Security scan follow-up narrow: advisory validator hardening is acceptable, but it does not create required gates, routing authority, default-mode promotion, or reduced-governance thresholds.

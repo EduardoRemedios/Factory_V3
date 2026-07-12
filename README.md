@@ -45,9 +45,9 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 - V3 research-only standing-authorization schema candidates for future scheduled or ambient missions, with per-mission human Go remaining the only approved authorization shape.
 - V3 research-only skill provenance policy classifying authored, vendor-supplied, and learned skills, with pinning, quarantine-until-promoted, and non-laundering review rules.
 - V3 advisory regulatory crosswalk mapping V3 artifacts to EU AI Act human-oversight and logging themes and ISO/IEC 42001 themes, marked for human review and making no compliance claims.
-- V3 research-only long-running mission lane: candidate `V3-OP-003` profile, a decision pack with pre-written promotion criteria currently at `NO PROMOTION YET`, an advisory mission-health vocabulary for checkpoint-time continuation judgment, an interrupt-transport live trial plan whose execution requires separate sponsor approval, a three-rung duration-ladder plan toward roughly 4-hour attended missions, and a concrete non-executing Option A rung-3 envelope that still requires explicit sponsor Go before any rung-3 run.
+- V3 research-only long-running mission lane: candidate `V3-OP-003` profile, a decision pack currently at `NO PROMOTION YET`, an advisory mission-health vocabulary, satisfied interrupt-transport evidence, and an endurance-evidence ladder for missions that may naturally last up to roughly four hours. POC Mission 026 executed the approved Option A envelope and transferred mission-control design patterns. Mission success is based on objective completion and evidence quality, never on consuming a duration, call, waypoint, or scope floor; upper-envelope continuity remains insufficiently evidenced.
 - External governance-kernel boundary guidance for V3 work.
-- Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, Mission Mode, and helper tooling for building V3 while V3 matures.
+- Factory V2 build-support layer, including orchestration docs, stage contracts, templates, lint scripts, direct-source repair for generated `WEAK` Stage A recall, Mission Mode, and helper tooling for building V3 while V3 matures.
 
 ## Key Paths
 
@@ -64,6 +64,7 @@ This does not make V3 dependent on V2 as a product. The intended direction is fo
 ## Basic Verification
 
 ```bash
+python3 -m unittest discover -s tests
 bash scripts/knowledge_lint.sh
 ./scripts/factoryctl context-index
 python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json

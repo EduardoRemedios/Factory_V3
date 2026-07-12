@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.3
+v0.4
 
 ## Change Log
+- v0.4 (2026-07-12): Reordered advisory backlog work so Mission 026 claim-to-proof evidence informs optional mission-record fields; removed completed template/fixture work from the active next-step sequence.
 - v0.3 (2026-07-07): Added the initial advisory mission-control contract template, standalone advisory lint, and deterministic fixtures for next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, and session-memory-only re-entry.
 - v0.2 (2026-07-07): Added loop-library-derived governance primitives to the advisory roadmap backlog: next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, loop auditability, direct-source audit, mission formation, and claim-to-proof mapping. This is primitive absorption, not named loop adoption.
 - v0.1 (2026-07-02): Initial research-only contract distilled from loop-engineering reconnaissance, Factory V3 loop-governance artifacts, and POC Mission 026 evidence.
@@ -203,12 +204,12 @@ Non-transferable or insufficient:
 - No replacement for Factory V2 build-support until explicitly approved.
 
 ## Next Recommended Step
-Implement the design backlog in advisory order:
+Continue the design backlog in evidence-first advisory order:
 
-1. template,
-2. fixtures,
-3. passive claim-to-proof audit,
-4. optional validator support,
+1. passive claim-to-proof audit over Mission 026,
+2. explicit `NO PROMOTION YET` adjudication and FP/FN review,
+3. optional mission-record shape candidates informed by the audit,
+4. optional validator support with backward-compatible fixtures,
 5. then only later consider read-only Codex SDK/MCP orchestration discovery.
 
 Do not start runtime orchestration or scheduled execution from this document.

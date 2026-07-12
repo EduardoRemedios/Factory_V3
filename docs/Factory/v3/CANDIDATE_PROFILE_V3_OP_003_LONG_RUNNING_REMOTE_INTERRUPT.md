@@ -1,9 +1,10 @@
 # Factory V3 Candidate Profile: V3-OP-003 Long-Running Remote-Interrupt Mission
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-07-12): Clarified that roughly four hours is an endurance ceiling the candidate profile should tolerate, not a minimum duration or workload target; mission completion remains objective-and-evidence based.
 - v0.1 (2026-06-10): Initial candidate profile drafted from POC Mission 012/013 checkpoint and interrupt evidence, `ADAPTIVE_MISSION_CONTROL.md` v0.2, and the 2026-06-04 interrupt-transport spike.
 
 ## Status
@@ -14,7 +15,7 @@ This profile has no release approval and may not govern any mission. Promotion r
 This document does not approve live messaging automation, unattended execution, scheduled wakes, credential use, deployment scope, required gates, governance routing, or runtime-control power.
 
 ## Purpose
-Define the profile shape for a single attended long-running mission — on the order of four hours — so that duration-ladder trials can be judged against a concrete profile instead of abstract ambition, mirroring how `V3-OP-001` anchored bounded-change readiness.
+Define the profile shape for a single attended long-running mission that may naturally require up to roughly four hours, so endurance evidence can be judged against a concrete profile instead of abstract ambition. The capability target is continuity of objective, authority, checkpoint, re-entry, verification, evidence, and output quality across that envelope. Four hours is not a minimum run duration.
 
 "Attended" means a human sponsor launches the mission with per-mission Go and remains asynchronously reachable through an approved interrupt transport. This profile is not for unattended or scheduled operation; that is the separate standing-authorization research lane (`V3-ANCHOR-009`).
 
@@ -34,7 +35,7 @@ Work may be eligible for this profile only when all conditions are true:
 - The sponsor has pre-resolved foreseeable decisions (Tier 1) and stated decision principles for Tier 2 in the envelope.
 - An approved interrupt transport is available and named in the envelope, with tested delivery before mission start.
 - Explicit halt, safe-hold, reentry, and V2 fallback rules exist before execution.
-- The mission fits the interim budget target: roughly a 4-hour run inside a roughly 5-hour plan window, measured per `ADAPTIVE_MISSION_CONTROL.md` budget discipline.
+- The mission fits an envelope that can safely accommodate up to roughly four hours inside a roughly five-hour plan window, measured per `ADAPTIVE_MISSION_CONTROL.md` budget discipline. The mission stops as soon as its objective and verification are complete; time, calls, waypoints, tests, files, and scope must never be added to consume the envelope.
 
 ## Excluded Work
 - Anything `V3-OP-001` excludes (production deployment, regulated action paths, payment, authentication policy, data migration, security boundaries, infrastructure authority) unless a future heavier profile exists.
