@@ -224,5 +224,27 @@
       "unresolved gaps",
       "next action gate result"
     ]
+  },
+  "fixture_scenarios": {
+    "reentry_cases": [
+      {
+        "scenario_type": "clean_fresh_session_reentry",
+        "fresh_session": true,
+        "repo_state_matches_checkpoint": true,
+        "authority_matches_checkpoint": true,
+        "verification_status": "pass",
+        "recovery_authority_present": false,
+        "expected_gate_result": "continue",
+        "expected_terminal_state": "success",
+        "one_safe_next_action": "<one bounded action>",
+        "authority_basis": "<current envelope or approval reference>",
+        "required_evidence": [
+          "current repository state",
+          "current authority envelope",
+          "passing verification evidence"
+        ],
+        "safe_hold_or_interrupt_required": false
+      }
+    ]
   }
 }

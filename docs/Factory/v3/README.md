@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.42
+v1.43
 
 ## Change Log
+- v1.43 (2026-07-12): Added deterministic advisory mission-control re-entry decisions for clean continuation, stale repository state, changed authority, failed verification without recovery authority, and one bounded recovery verification action. These fixtures do not prove a live fresh-session handoff; `V3-OP-003` remains `NO PROMOTION YET`.
 - v1.42 (2026-07-12): Added backward-compatible optional mission-record evidence-integrity structures and advisory validation for observation provenance, verifier provenance, visual artifacts, bounded boundary claims, and completed-record commit consistency. Existing records remain valid, endurance/exposure fields remain deferred, and `V3-OP-003` remains `NO PROMOTION YET`.
 - v1.41 (2026-07-12): Added the Mission 026 claim-to-proof audit and current-corpus FP/FN adjudication. Item 5 is satisfied, but `V3-OP-003` remains `NO PROMOTION YET`; next work is a separately scoped advisory record-shape decision.
 - v1.40 (2026-07-12): Corrected the long-running profile evidence model: roughly four hours is an endurance ceiling to support without drift or quality degradation, not a mission-duration floor. Shorter correct missions pass and stop; upper-envelope continuity remains a separate evidence gap. Reordered next work to claim-to-proof audit before optional record-shape hardening.

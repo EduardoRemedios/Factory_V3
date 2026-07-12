@@ -1,0 +1,204 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-07-12",
+    "source_trial_id": "RUN_20260712_1309_v3_mission_reentry_proof_impl",
+    "source_trial_path": "docs/Factory/runs/RUN_20260712_1309_v3_mission_reentry_proof_impl/raw_brief.md",
+    "source_closeout_reference": "docs/Factory/runs/RUN_20260712_1309_v3_mission_reentry_proof_impl/IMPLEMENTATION_CLOSEOUT.md",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "8933bd6",
+    "commit_after": "not_recorded",
+    "user_or_reviewer": "project_owner",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Add deterministic advisory mission re-entry decision proof without runtime authority.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "docs/Factory/runs/RUN_20260712_1309_v3_mission_reentry_proof_impl/pack/SPRINT_20260712_1309_V3_MISSION_REENTRY_PROOF_IMPL_ENVELOPE.md",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md",
+      "docs/Factory/v3/templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json",
+      "scripts/factory_v3_mission_control_contract_lint.py",
+      "tests/fixtures/factory_v3_mission_control_contract/README.md",
+      "tests/fixtures/factory_v3_mission_control_contract/valid_reentry_decisions.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_stale_state_continues.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_changed_authority_continues.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_failed_verification_without_recovery_continues.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_clean_missing_safe_action.json",
+      "tests/fixtures/factory_v3_mission_control_contract/expected/all.json",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/CHANGELOG.md",
+      "docs/Factory/v3/FRESH_WORKER_REENTRY_TRIAL_PLAN.md"
+    ],
+    "forbidden_scope": [
+      "runtime orchestration",
+      "required gates",
+      "governance routing",
+      "profile promotion",
+      "live fresh-worker proof",
+      "endurance schema"
+    ],
+    "allowed_commands": [
+      "python3 advisory validators and unit tests",
+      "bash scripts/knowledge_lint.sh",
+      "./scripts/factoryctl context-index",
+      "./scripts/factoryctl stage-lint and pack-lint",
+      "read-only git inspection"
+    ],
+    "dependency_policy": "No new dependencies.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "historical expected-output mismatch",
+      "scope expansion",
+      "runtime or required-gate implication"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md",
+      "docs/Factory/v3/templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json",
+      "scripts/factory_v3_mission_control_contract_lint.py",
+      "tests/fixtures/factory_v3_mission_control_contract/README.md",
+      "tests/fixtures/factory_v3_mission_control_contract/valid_reentry_decisions.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_stale_state_continues.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_changed_authority_continues.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_failed_verification_without_recovery_continues.json",
+      "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_clean_missing_safe_action.json",
+      "tests/fixtures/factory_v3_mission_control_contract/expected/all.json",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/CHANGELOG.md",
+      "docs/Factory/v3/FRESH_WORKER_REENTRY_TRIAL_PLAN.md"
+    ],
+    "verification": {
+      "commands": [
+        "python3 -m unittest discover -s tests",
+        "python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json",
+        "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json",
+        "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+        "bash scripts/knowledge_lint.sh"
+      ],
+      "result": "pass",
+      "summary": "All focused, historical, cross-validator, readiness, and repository checks passed.",
+      "observations": [
+        {
+          "source_kind": "original_run",
+          "captured_date": "2026-07-12",
+          "actor_ref": "implementation_actor",
+          "session_ref": "execution_session",
+          "command_or_check_ref": "verification_manifest.yaml and verification_plan.md",
+          "result": "pass",
+          "evidence_refs": [
+            "docs/Factory/runs/RUN_20260712_1309_v3_mission_reentry_proof_impl/IMPLEMENTATION_CLOSEOUT.md"
+          ],
+          "supersedes_original": false
+        },
+        {
+          "source_kind": "post_run_audit",
+          "captured_date": "2026-07-12",
+          "actor_ref": "implementation_actor",
+          "session_ref": "execution_session",
+          "command_or_check_ref": "final scope and deterministic replay audit",
+          "result": "pass",
+          "evidence_refs": [
+            "docs/Factory/runs/RUN_20260712_1309_v3_mission_reentry_proof_impl/IMPLEMENTATION_CLOSEOUT.md"
+          ],
+          "supersedes_original": false
+        }
+      ]
+    },
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "One direct optional helper was added; no dependency or generic rule engine was introduced."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": []
+    },
+    "verifier_provenance": {
+      "builder_actor_ref": "implementation_actor",
+      "verifier_actor_ref": "implementation_actor",
+      "actor_relationship": "same_actor",
+      "session_relationship": "same_session",
+      "independence_status": "not_independent",
+      "evidence_refs": [
+        "docs/Factory/runs/RUN_20260712_1309_v3_mission_reentry_proof_impl/IMPLEMENTATION_CLOSEOUT.md"
+      ],
+      "unresolved_gap": "No distinct verifier actor or separate verification session was used."
+    },
+    "boundary_claims": [
+      {
+        "claim": "The implementation changed only the 18 authorized product paths.",
+        "proof_status": "PROVED",
+        "proof_scope": "change_range",
+        "evidence_refs": [
+          "exact authorized-path comparison recorded in IMPLEMENTATION_CLOSEOUT.md"
+        ],
+        "limit": "This proves only the current uncommitted change range and excludes run-root evidence artifacts from the product cap."
+      },
+      {
+        "claim": "The fixtures prove a live fresh-session or cross-harness handoff.",
+        "proof_status": "CONTRADICTED",
+        "proof_scope": "change_range",
+        "evidence_refs": [
+          "docs/Factory/v3/FRESH_WORKER_REENTRY_TRIAL_PLAN.md"
+        ],
+        "limit": "The fixtures validate decision semantics only; the live trial remains unexecuted."
+      }
+    ],
+    "friction_notes": [
+      "The optional observation, provenance, and boundary-claim blocks were straightforward but added a verbose manual path/evidence inventory.",
+      "Visual evidence was omitted because the mission changed no visual surface."
+    ],
+    "false_positive_notes": [
+      "No false positive was observed in this single authoring sample; this is not enough to estimate a rate."
+    ],
+    "false_negative_notes": [
+      "No false negative was observed in deterministic fixtures; live artifact-sufficiency behavior remains untested."
+    ]
+  },
+  "phase2_design_signals": [
+    "One bounded optional-field authoring sample completed without schema ambiguity.",
+    "Two further natural mission samples remain necessary before any adoption decision."
+  ]
+}

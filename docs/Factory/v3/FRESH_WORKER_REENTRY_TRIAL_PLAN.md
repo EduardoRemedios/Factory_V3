@@ -1,13 +1,16 @@
 # Factory V3 Fresh-Worker Reentry Trial Plan
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-07-12): Distinguished deterministic mission-control re-entry decision fixtures from this unexecuted live artifact-sufficiency trial. Fixture `fresh_session` inputs are not operational proof.
 - v0.1 (2026-06-11): Initial trial plan from the backlog research spike: make artifact sufficiency falsifiable via a sealed answer key and a cross-harness fresh worker.
 
 ## Status
 Research-only and non-enforcing plan. Executing this trial is not approved by this document.
+
+The deterministic re-entry cases under `tests/fixtures/factory_v3_mission_control_contract/` validate decision semantics only. They do not prove that a real worker lacked prior-session memory, reconstructed the mission from authored artifacts, or completed a safe continuation. This trial remains necessary for those operational claims.
 
 The trial runs only after the duration-ladder rung 2 completes, under its own mission envelope and explicit sponsor Go naming the mission, both harnesses, and the date window. This document does not approve unattended operation, scheduled wakes, concurrent multi-worker execution, credential use, live transport use, required gates, governance routing, or runtime-control power.
 
