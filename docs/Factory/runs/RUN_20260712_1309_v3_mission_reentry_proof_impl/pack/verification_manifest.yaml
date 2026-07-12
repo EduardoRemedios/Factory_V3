@@ -1,0 +1,55 @@
+schema_version: 1
+run_id: RUN_20260712_1309_v3_mission_reentry_proof_impl
+sprint_id: SPRINT_20260712_1309_V3_MISSION_REENTRY_PROOF_IMPL
+execution_mode: EXECUTION_ENABLED
+
+checks:
+  - id: VM-001
+    tier: V3
+    type: test
+    constraint_ids: [R-001, R-002, R-003, R-005, R-006]
+    description: Verify the full deterministic mission-control fixture corpus.
+    command: python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json
+    expected: Exact expected output match with blocking_effect none.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/mission_control_all.txt
+
+  - id: VM-002
+    tier: V1
+    type: command
+    constraint_ids: [R-003, R-007, R-008]
+    description: Compile the mission-control validator.
+    command: python3 -m py_compile scripts/factory_v3_mission_control_contract_lint.py
+    expected: PASS.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/mission_control_compile.txt
+
+  - id: VM-003
+    tier: V3
+    type: test
+    constraint_ids: [R-007]
+    description: Verify mission-record deterministic behavior remains exact.
+    command: python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json
+    expected: Exact expected output match.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/mission_record_regression.txt
+
+  - id: VM-004
+    tier: V1
+    type: command
+    constraint_ids: [R-004, R-007]
+    description: Run V3 advisory posture checks.
+    command: python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json
+    expected: No new enforcement, runtime, routing, or promotion finding.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/v3_advisory.txt
+
+  - id: VM-005
+    tier: V3
+    type: command
+    constraint_ids: [R-007]
+    description: Run repository knowledge lint.
+    command: bash scripts/knowledge_lint.sh
+    expected: PASS.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/knowledge_lint.txt

@@ -1,0 +1,368 @@
+{
+  "authority_envelope": {
+    "allowed_commands": [
+      "python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --json"
+    ],
+    "approval_gates": [
+      "scope expansion",
+      "new dependency",
+      "destructive command",
+      "external write",
+      "runtime authority",
+      "required gate integration"
+    ],
+    "authorized_paths": [
+      "docs/Factory/v3/templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json",
+      "tests/fixtures/factory_v3_mission_control_contract"
+    ],
+    "external_effects_allowed": false,
+    "forbidden_paths": [
+      "production secrets",
+      "runtime authority",
+      "required gate wiring"
+    ]
+  },
+  "checkpoint_policy": {
+    "cadence": "before and after each material action block",
+    "required_fields": [
+      "objective_status",
+      "authority_status",
+      "verification_status",
+      "next_action_gate",
+      "open_decisions",
+      "claim_to_proof_status"
+    ]
+  },
+  "evidence_policy": {
+    "claim_to_proof_required": true,
+    "required_artifacts": [
+      "mission-control contract",
+      "checkpoint evidence",
+      "verification output",
+      "claim-to-proof map",
+      "closeout"
+    ],
+    "requirement_to_evidence": [
+      {
+        "evidence_refs": [
+          "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+          "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md"
+        ],
+        "requirement": "Mission-control primitives are advisory and non-enforcing.",
+        "status": "PROVED"
+      },
+      {
+        "evidence_refs": [],
+        "requirement": "Runtime orchestration is approved.",
+        "status": "CONTRADICTED",
+        "unresolved_gap": "Boundary docs explicitly exclude runtime orchestration approval."
+      }
+    ]
+  },
+  "fixture_scenarios": {
+    "mission_control_cases": [
+      {
+        "expected_gate_result": "continue",
+        "expected_terminal_state": "success",
+        "required_evidence": [
+          "authority basis",
+          "verification pass",
+          "claim-to-proof map"
+        ],
+        "safe_hold_or_interrupt_required": false,
+        "scenario_type": "authorized_next_action"
+      },
+      {
+        "expected_gate_result": "safe_hold",
+        "expected_terminal_state": "approval_required",
+        "required_evidence": [
+          "blocked action",
+          "missing authority",
+          "human decision needed"
+        ],
+        "safe_hold_or_interrupt_required": true,
+        "scenario_type": "missing_authority_next_action"
+      },
+      {
+        "expected_gate_result": "ask",
+        "expected_terminal_state": "insufficient_context",
+        "required_evidence": [
+          "insufficient context reason",
+          "question for sponsor"
+        ],
+        "safe_hold_or_interrupt_required": true,
+        "scenario_type": "insufficient_confidence"
+      }
+    ],
+    "reentry_cases": [
+      {
+        "scenario_type": "clean_fresh_session_reentry",
+        "fresh_session": true,
+        "repo_state_matches_checkpoint": true,
+        "authority_matches_checkpoint": true,
+        "verification_status": "pass",
+        "recovery_authority_present": false,
+        "expected_gate_result": "continue",
+        "expected_terminal_state": "success",
+        "one_safe_next_action": "Run the deterministic mission-control fixture check.",
+        "authority_basis": "The current envelope authorizes this read-only verification command.",
+        "required_evidence": [
+          "current repository state",
+          "current authority envelope",
+          "passing verification evidence"
+        ],
+        "safe_hold_or_interrupt_required": false
+      },
+      {
+        "scenario_type": "stale_repository_state",
+        "fresh_session": true,
+        "repo_state_matches_checkpoint": false,
+        "authority_matches_checkpoint": true,
+        "verification_status": "pass",
+        "recovery_authority_present": false,
+        "expected_gate_result": "continue",
+        "expected_terminal_state": "success",
+        "one_safe_next_action": "Record the stale-state safe-hold without editing product files.",
+        "authority_basis": "The safe-hold policy authorizes preserving evidence when repository state is stale.",
+        "required_evidence": [
+          "checkpoint repository identity",
+          "current repository identity",
+          "stale-state difference"
+        ],
+        "safe_hold_or_interrupt_required": false
+      },
+      {
+        "scenario_type": "changed_authority_envelope",
+        "fresh_session": true,
+        "repo_state_matches_checkpoint": true,
+        "authority_matches_checkpoint": false,
+        "verification_status": "pass",
+        "recovery_authority_present": false,
+        "expected_gate_result": "safe_hold",
+        "expected_terminal_state": "approval_required",
+        "one_safe_next_action": "Record the authority mismatch and request a bounded sponsor decision.",
+        "authority_basis": "The safe-hold policy permits asking for missing or changed authority.",
+        "required_evidence": [
+          "checkpoint authority envelope",
+          "current authority envelope",
+          "changed-authority difference"
+        ],
+        "safe_hold_or_interrupt_required": true
+      },
+      {
+        "scenario_type": "failed_verification_without_recovery_authority",
+        "fresh_session": true,
+        "repo_state_matches_checkpoint": true,
+        "authority_matches_checkpoint": true,
+        "verification_status": "fail",
+        "recovery_authority_present": false,
+        "expected_gate_result": "safe_hold",
+        "expected_terminal_state": "failed_verification",
+        "one_safe_next_action": "Preserve the failed output and request explicit recovery authority.",
+        "authority_basis": "The failure policy authorizes safe-hold but no recovery action.",
+        "required_evidence": [
+          "failed verification output",
+          "absence of recovery authority",
+          "blocked recovery action"
+        ],
+        "safe_hold_or_interrupt_required": true
+      },
+      {
+        "scenario_type": "failed_verification_with_bounded_recovery",
+        "fresh_session": true,
+        "repo_state_matches_checkpoint": true,
+        "authority_matches_checkpoint": true,
+        "verification_status": "fail",
+        "recovery_authority_present": true,
+        "expected_gate_result": "verify",
+        "expected_terminal_state": "failed_verification",
+        "one_safe_next_action": "Run the one explicitly authorized recovery verification command.",
+        "authority_basis": "The current envelope explicitly authorizes this one recovery verification command.",
+        "required_evidence": [
+          "failed verification output",
+          "explicit recovery authority",
+          "bounded recovery command"
+        ],
+        "safe_hold_or_interrupt_required": false
+      }
+    ]
+  },
+  "independent_verification": {
+    "acceptance_criteria": [
+      "all required commands pass",
+      "claim-to-proof map has no unsupported PROVED entries"
+    ],
+    "builder_actor": "implementation_worker",
+    "unresolved_gaps": [],
+    "verification_result": "advisory_pass",
+    "verifier_actor": "verification_worker"
+  },
+  "interrupt_policy": {
+    "approval_gates": [
+      "missing authority",
+      "scope expansion",
+      "unsafe action",
+      "external effect",
+      "failed verification recovery"
+    ],
+    "decision_tiers": [
+      "tier_1_pre_resolved",
+      "tier_2_resolve_and_log",
+      "tier_3_human_decision"
+    ],
+    "timeout_behavior": "safe_hold_until_human_decision"
+  },
+  "loop_admission": {
+    "admission_rationale": "The fixture models mission-control governance primitives that guide worker execution without creating runtime authority.",
+    "rejection_conditions": [
+      "authority is missing",
+      "verification is undefined",
+      "external effects are implied"
+    ],
+    "route": "research_only",
+    "safe_hold_conditions": [
+      "state is stale",
+      "evidence contradicts the proposed action",
+      "next action lacks authority"
+    ]
+  },
+  "mission_envelope": {
+    "execution_mode": "advisory_fixture",
+    "non_goals": [
+      "Do not create runtime authority.",
+      "Do not wire advisory checks into required gates."
+    ],
+    "objective": "Validate advisory mission-control contract primitives.",
+    "sponsor_approval_source": "User approval to proceed with advisory template and fixture work.",
+    "success_criteria": [
+      "next-action gate is represented",
+      "requirement-to-evidence status is represented",
+      "independent verification is represented",
+      "restartable handoff is represented"
+    ]
+  },
+  "next_action_gate": {
+    "authority_basis": "User approved advisory template and fixture work; no runtime authority requested.",
+    "authorized_to_continue": true,
+    "confidence": "high",
+    "gate_result": "continue",
+    "proposed_next_action": "Run advisory mission-control contract lint over the fixture corpus.",
+    "required_verification_before_continue": [
+      "fresh repo state check",
+      "fixture expected-output check"
+    ],
+    "stop_or_safe_hold_triggers": [
+      "missing authority",
+      "insufficient confidence",
+      "failed verification",
+      "stale state",
+      "external effect implied"
+    ]
+  },
+  "record": {
+    "approval_scope": {
+      "factory_v2_fallback_retained": true,
+      "factory_v3_default_approved": false,
+      "governance_routing_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "scheduled_or_unattended_execution_approved": false
+    },
+    "contract_id": "V3-MC-FIXTURE-INVALID-REENTRY-STALE-001",
+    "created_at": "2026-07-12",
+    "profile_id": "research_only",
+    "record_type": "factory_v3_mission_control_contract",
+    "schema_version": "v0.1-mission-control-contract",
+    "source_evidence": [
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md"
+    ],
+    "status": "research_only_non_enforcing"
+  },
+  "reentry_protocol": {
+    "last_safe_checkpoint": "MC-FIXTURE-CP001",
+    "one_safe_next_action": "Read this contract, verify current git state, then run the advisory fixture check.",
+    "read_order": [
+      "mission-control contract",
+      "latest checkpoint",
+      "mission state",
+      "verification evidence",
+      "open decisions"
+    ],
+    "session_memory_sufficient": false,
+    "stale_state_checks": [
+      "current git head",
+      "current file state",
+      "current verification outputs"
+    ]
+  },
+  "safe_hold_policy": {
+    "required_fields": [
+      "reason",
+      "blocked_action",
+      "last_safe_checkpoint",
+      "human_decision_needed",
+      "reentry_instructions"
+    ],
+    "required_for_missing_authority": true,
+    "safe_hold_reasons": [
+      "missing authority",
+      "stale state",
+      "failed verification",
+      "contradictory evidence",
+      "insufficient context"
+    ]
+  },
+  "terminal_states": [
+    "success",
+    "no_op",
+    "blocked",
+    "approval_required",
+    "failed_verification",
+    "exhausted",
+    "stagnated",
+    "unsafe",
+    "stale_reentry",
+    "ambiguous",
+    "infeasible",
+    "insufficient_context"
+  ],
+  "verification_policy": {
+    "failure_handling": [
+      "preserve failed output",
+      "safe-hold if recovery authority is missing",
+      "do not claim completion from partial evidence"
+    ],
+    "required_commands": [
+      "python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --json"
+    ],
+    "verification_tiers": [
+      "self-check",
+      "independent review",
+      "closeout audit"
+    ]
+  },
+  "worker_interface": {
+    "allowed_tactical_autonomy": [
+      "local repo navigation",
+      "implementation inside authorized paths",
+      "test/fix cycles inside authority envelope"
+    ],
+    "evidence_obligations": [
+      "commands run",
+      "files changed",
+      "verification outputs",
+      "unresolved gaps",
+      "next action gate result"
+    ],
+    "prohibited_self_authorization": [
+      "scope expansion",
+      "new dependency",
+      "external write",
+      "runtime authority",
+      "required gate integration"
+    ],
+    "worker_role": "bounded_tactical_executor"
+  }
+}

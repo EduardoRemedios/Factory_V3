@@ -4,7 +4,12 @@
     "tests/fixtures/factory_v3_mission_control_contract/invalid/evidence_and_verifier_gaps.json",
     "tests/fixtures/factory_v3_mission_control_contract/invalid/next_action_continue_without_authority.json",
     "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
-    "tests/fixtures/factory_v3_mission_control_contract/valid_mission_control_contract.json"
+    "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_changed_authority_continues.json",
+    "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_clean_missing_safe_action.json",
+    "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_failed_verification_without_recovery_continues.json",
+    "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_stale_state_continues.json",
+    "tests/fixtures/factory_v3_mission_control_contract/valid_mission_control_contract.json",
+    "tests/fixtures/factory_v3_mission_control_contract/valid_reentry_decisions.json"
   ],
   "findings": [
     {
@@ -59,6 +64,30 @@
       "id": "V3-MC122",
       "message": "reentry_protocol.session_memory_sufficient must be false",
       "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_and_approval_scope_unsafe.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC150",
+      "message": "clean re-entry decision is invalid",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_clean_missing_safe_action.json:fixture_scenarios.reentry_cases[1]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC151",
+      "message": "stale repository state must safe-hold as stale_reentry",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_stale_state_continues.json:fixture_scenarios.reentry_cases[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC152",
+      "message": "changed authority must safe-hold as approval_required",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_changed_authority_continues.json:fixture_scenarios.reentry_cases[3]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MC153",
+      "message": "failed verification without recovery authority must safe-hold or halt",
+      "path": "tests/fixtures/factory_v3_mission_control_contract/invalid/reentry_failed_verification_without_recovery_continues.json:fixture_scenarios.reentry_cases[4]",
       "severity": "advisory_critical"
     }
   ],

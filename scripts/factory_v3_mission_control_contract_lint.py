@@ -60,6 +60,13 @@ NEXT_ACTION_RESULTS = {"continue", "verify", "ask", "safe_hold", "close", "halt"
 REQUIREMENT_STATUSES = {"PROVED", "WEAK", "MISSING", "CONTRADICTED"}
 VERIFICATION_RESULTS = {"pass", "fail", "not_run", "blocked", "advisory_pass", "advisory_fail"}
 LOOP_ADMISSION_ROUTES = {"admit", "reject", "safe_hold", "route_to_v2", "research_only"}
+REENTRY_SCENARIO_TYPES = {
+    "clean_fresh_session_reentry",
+    "stale_repository_state",
+    "changed_authority_envelope",
+    "failed_verification_without_recovery_authority",
+    "failed_verification_with_bounded_recovery",
+}
 
 
 def main() -> int:
@@ -375,25 +382,121 @@ def _check_fixture_scenarios(path: str, scenarios: Any) -> list[dict[str, str]]:
         return [_finding("V3-MC140", "advisory_critical", path, "fixture_scenarios must be an object when present")]
     findings: list[dict[str, str]] = []
     cases = scenarios.get("mission_control_cases")
+    if cases is not None:
+        if not isinstance(cases, list):
+            return [_finding("V3-MC141", "advisory_critical", path, "fixture_scenarios.mission_control_cases must be a list")]
+        for index, case in enumerate(cases, start=1):
+            case_path = f"{path}:fixture_scenarios.mission_control_cases[{index}]"
+            if not isinstance(case, dict):
+                findings.append(_finding("V3-MC142", "advisory_critical", case_path, "mission-control case must be an object"))
+                continue
+            if not _nonempty_string(case.get("scenario_type")):
+                findings.append(_finding("V3-MC143", "advisory_critical", case_path, "mission-control case scenario_type is missing"))
+            if case.get("expected_gate_result") not in NEXT_ACTION_RESULTS:
+                findings.append(_finding("V3-MC144", "advisory_critical", case_path, "mission-control case expected_gate_result is invalid"))
+            if case.get("expected_terminal_state") not in REQUIRED_TERMINAL_STATES:
+                findings.append(_finding("V3-MC145", "advisory_critical", case_path, "mission-control case expected_terminal_state is invalid"))
+            if not isinstance(case.get("required_evidence"), list) or not case.get("required_evidence"):
+                findings.append(_finding("V3-MC146", "advisory_critical", case_path, "mission-control case required_evidence must be a non-empty list"))
+            if case.get("expected_gate_result") in {"ask", "safe_hold", "halt"} and case.get("safe_hold_or_interrupt_required") is not True:
+                findings.append(_finding("V3-MC147", "advisory_critical", case_path, "ask/safe-hold/halt cases must require safe-hold or interrupt"))
+    findings.extend(_check_reentry_cases(path, scenarios.get("reentry_cases")))
+    return findings
+
+
+def _check_reentry_cases(path: str, cases: Any) -> list[dict[str, str]]:
     if cases is None:
-        return findings
+        return []
     if not isinstance(cases, list):
-        return [_finding("V3-MC141", "advisory_critical", path, "fixture_scenarios.mission_control_cases must be a list")]
+        return [_finding("V3-MC148", "advisory_critical", path, "fixture_scenarios.reentry_cases must be a list")]
+
+    findings: list[dict[str, str]] = []
+    boolean_fields = {
+        "fresh_session",
+        "repo_state_matches_checkpoint",
+        "authority_matches_checkpoint",
+        "recovery_authority_present",
+        "safe_hold_or_interrupt_required",
+    }
     for index, case in enumerate(cases, start=1):
-        case_path = f"{path}:fixture_scenarios.mission_control_cases[{index}]"
+        case_path = f"{path}:fixture_scenarios.reentry_cases[{index}]"
         if not isinstance(case, dict):
-            findings.append(_finding("V3-MC142", "advisory_critical", case_path, "mission-control case must be an object"))
+            findings.append(_finding("V3-MC149", "advisory_critical", case_path, "re-entry case is malformed"))
             continue
-        if not _nonempty_string(case.get("scenario_type")):
-            findings.append(_finding("V3-MC143", "advisory_critical", case_path, "mission-control case scenario_type is missing"))
-        if case.get("expected_gate_result") not in NEXT_ACTION_RESULTS:
-            findings.append(_finding("V3-MC144", "advisory_critical", case_path, "mission-control case expected_gate_result is invalid"))
-        if case.get("expected_terminal_state") not in REQUIRED_TERMINAL_STATES:
-            findings.append(_finding("V3-MC145", "advisory_critical", case_path, "mission-control case expected_terminal_state is invalid"))
-        if not isinstance(case.get("required_evidence"), list) or not case.get("required_evidence"):
-            findings.append(_finding("V3-MC146", "advisory_critical", case_path, "mission-control case required_evidence must be a non-empty list"))
-        if case.get("expected_gate_result") in {"ask", "safe_hold", "halt"} and case.get("safe_hold_or_interrupt_required") is not True:
-            findings.append(_finding("V3-MC147", "advisory_critical", case_path, "ask/safe-hold/halt cases must require safe-hold or interrupt"))
+
+        common_shape_valid = (
+            case.get("scenario_type") in REENTRY_SCENARIO_TYPES
+            and all(isinstance(case.get(key), bool) for key in boolean_fields)
+            and case.get("verification_status") in VERIFICATION_RESULTS
+            and case.get("expected_gate_result") in NEXT_ACTION_RESULTS
+            and case.get("expected_terminal_state") in REQUIRED_TERMINAL_STATES
+            and isinstance(case.get("one_safe_next_action"), str)
+            and isinstance(case.get("authority_basis"), str)
+            and isinstance(case.get("required_evidence"), list)
+            and bool(case.get("required_evidence"))
+        )
+        if not common_shape_valid:
+            findings.append(_finding("V3-MC149", "advisory_critical", case_path, "re-entry case is malformed"))
+            continue
+
+        scenario = case["scenario_type"]
+        action_is_bounded = _nonempty_string(case["one_safe_next_action"]) and _nonempty_string(case["authority_basis"])
+        if scenario == "clean_fresh_session_reentry":
+            valid = (
+                action_is_bounded
+                and case["fresh_session"] is True
+                and case["repo_state_matches_checkpoint"] is True
+                and case["authority_matches_checkpoint"] is True
+                and case["verification_status"] == "pass"
+                and case["recovery_authority_present"] is False
+                and case["expected_gate_result"] == "continue"
+                and case["expected_terminal_state"] == "success"
+                and case["safe_hold_or_interrupt_required"] is False
+            )
+            if not valid:
+                findings.append(_finding("V3-MC150", "advisory_critical", case_path, "clean re-entry decision is invalid"))
+        elif scenario == "stale_repository_state":
+            valid = (
+                action_is_bounded
+                and case["repo_state_matches_checkpoint"] is False
+                and case["expected_gate_result"] == "safe_hold"
+                and case["expected_terminal_state"] == "stale_reentry"
+                and case["safe_hold_or_interrupt_required"] is True
+            )
+            if not valid:
+                findings.append(_finding("V3-MC151", "advisory_critical", case_path, "stale repository state must safe-hold as stale_reentry"))
+        elif scenario == "changed_authority_envelope":
+            valid = (
+                action_is_bounded
+                and case["authority_matches_checkpoint"] is False
+                and case["expected_gate_result"] == "safe_hold"
+                and case["expected_terminal_state"] == "approval_required"
+                and case["safe_hold_or_interrupt_required"] is True
+            )
+            if not valid:
+                findings.append(_finding("V3-MC152", "advisory_critical", case_path, "changed authority must safe-hold as approval_required"))
+        elif scenario == "failed_verification_without_recovery_authority":
+            valid = (
+                action_is_bounded
+                and case["verification_status"] == "fail"
+                and case["recovery_authority_present"] is False
+                and case["expected_gate_result"] in {"safe_hold", "halt"}
+                and case["expected_terminal_state"] == "failed_verification"
+                and case["safe_hold_or_interrupt_required"] is True
+            )
+            if not valid:
+                findings.append(_finding("V3-MC153", "advisory_critical", case_path, "failed verification without recovery authority must safe-hold or halt"))
+        else:
+            valid = (
+                action_is_bounded
+                and case["verification_status"] == "fail"
+                and case["recovery_authority_present"] is True
+                and case["expected_gate_result"] == "verify"
+                and case["expected_terminal_state"] == "failed_verification"
+                and case["safe_hold_or_interrupt_required"] is False
+            )
+            if not valid:
+                findings.append(_finding("V3-MC153", "advisory_critical", case_path, "bounded recovery authority permits only a verify action"))
     return findings
 
 

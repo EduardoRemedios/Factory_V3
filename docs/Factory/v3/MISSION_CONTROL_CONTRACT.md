@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.5
+v0.6
 
 ## Change Log
+- v0.6 (2026-07-12): Added optional advisory re-entry decision cases for clean continuation, stale repository state, changed authority, failed verification without recovery authority, and one bounded recovery verification action. These are deterministic semantic examples, not live fresh-session proof or runtime behavior.
 - v0.5 (2026-07-12): Implemented the narrow optional mission-record evidence-integrity shape for observation provenance, verifier provenance, per-artifact visual evidence, bounded boundary claims, and completed-record commit consistency. All support remains advisory, backward-compatible, and non-blocking; endurance/exposure fields remain deferred.
 - v0.4 (2026-07-12): Reordered advisory backlog work so Mission 026 claim-to-proof evidence informs optional mission-record fields; removed completed template/fixture work from the active next-step sequence.
 - v0.3 (2026-07-07): Added the initial advisory mission-control contract template, standalone advisory lint, and deterministic fixtures for next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, and session-memory-only re-entry.
@@ -129,6 +130,24 @@ python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtu
 ```
 
 The validator emits `blocking_effect: none`. It is not wired into `factoryctl`, CI, merge preflight, `knowledge_lint.sh`, `stage-lint`, `pack-lint`, mission lint, or any required Factory gate.
+
+## Re-entry Decision Cases
+
+The optional `fixture_scenarios.reentry_cases` list makes the re-entry policy falsifiable without creating a runtime state model. `reentry_protocol` remains reusable policy; each re-entry case is an observed or synthetic decision input used only for advisory evaluation.
+
+Controlled case types:
+
+| Scenario type | Required decision |
+| --- | --- |
+| `clean_fresh_session_reentry` | `continue` only when repository and authority state match, verification is current and passing, and one safe next action has an explicit authority basis |
+| `stale_repository_state` | `safe_hold` with terminal state `stale_reentry` |
+| `changed_authority_envelope` | `safe_hold` with terminal state `approval_required` |
+| `failed_verification_without_recovery_authority` | `safe_hold` or `halt` with terminal state `failed_verification` |
+| `failed_verification_with_bounded_recovery` | `verify` for one bounded action with an explicit authority basis; prior verification remains failed until that action actually passes |
+
+Each case records whether it represents a fresh session, but that value is a scenario input, not proof that a live fresh-session or cross-harness handoff occurred. Operational proof still requires the separately governed fresh-worker trial and source artifacts. Session memory is never sufficient authority or evidence.
+
+The case list is optional. Existing mission-control contracts without it remain valid. The advisory validator checks supplied cases for malformed or contradictory decisions and retains `blocking_effect: none`.
 
 ## Loop-Library Primitive Absorption
 

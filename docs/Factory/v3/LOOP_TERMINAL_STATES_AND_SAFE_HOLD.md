@@ -1,9 +1,10 @@
 # Factory V3 Loop Terminal States And Safe-Hold
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-07-12): Added the advisory re-entry decision matrix and bounded recovery rule used by deterministic mission-control fixtures. Fixture inputs do not prove a live fresh-session handoff.
 - v0.1 (2026-06-22): Initial research-only vocabulary for loop terminal states, safe-hold evidence, and loop-contract fixture alignment.
 
 ## Status
@@ -97,6 +98,18 @@ Valid re-entry requires:
 - verification evidence,
 - open human decisions,
 - stale-state and protected-surface checks.
+
+### Re-entry Decision Matrix
+
+| Observed condition | Gate result | Terminal state | Material action allowed |
+| --- | --- | --- | --- |
+| Repository and authority match; verification is current and passing | `continue` | `success` | One action named by the current authority basis |
+| Repository state differs from the last safe checkpoint | `safe_hold` | `stale_reentry` | No implementation; preserve evidence and reconcile state |
+| Authority envelope differs from the last safe checkpoint | `safe_hold` | `approval_required` | No implementation; obtain explicit authority decision |
+| Verification failed and recovery authority is absent | `safe_hold` or `halt` | `failed_verification` | No recovery or implementation action |
+| Verification failed and one bounded recovery check is explicitly authorized | `verify` | `failed_verification` until verification passes | Only the named recovery or verification action |
+
+Deterministic fixtures can test this matrix, but they do not establish that a real worker started in a fresh session, lacked prior memory, or reconstructed state correctly. Those claims require live trial evidence.
 
 ## Tool-Use Evidence
 
