@@ -1,9 +1,11 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.55
+v1.57
 
 ## Change Log
+- v1.57 (2026-07-12): Added `MR_20260712_032_serial_mission_graph_contract.json` as the second natural optional evidence-integrity sample, including same-actor verification, uncommitted final state, authoring friction, FP/FN notes, and missing live-pilot proof. One further natural sample remains before recurring-friction review.
+- v1.56 (2026-07-12): Added the research-only serial mission-graph contract, template, advisory validator, deterministic fixtures, and focused tests. Introduced a Phase 4.7 advisory serial-epic lane whose next gate is deterministic authored-state transition design, not worker dispatch, concurrency, runtime authority, required gates, or profile promotion.
 - v1.55 (2026-07-12): Added concrete deterministic re-entry decision examples and advisory validation while preserving absent-case compatibility. One bounded evidence-integrity authoring sample now exists; two further natural samples and a separately approved live fresh-worker artifact-sufficiency trial remain before orchestration discovery.
 - v1.54 (2026-07-12): Implemented the approved narrow optional mission-record evidence-integrity shape and deterministic advisory fixtures. The next evidence step is limited shadow use on two or three suitable missions plus concrete mission-state/re-entry examples; endurance fields, runtime orchestration, gates, routing, and `V3-OP-003` promotion remain deferred or unapproved.
 - v1.53 (2026-07-12): Completed the commit-pinned Mission 026 claim-to-proof audit and current-corpus FP/FN adjudication. Item 5 is satisfied; `V3-OP-003` remains `NO PROMOTION YET`. The next gate is a separately scoped backward-compatible advisory record-shape proposal informed by the audit.
@@ -91,6 +93,7 @@ Current state:
 - V3 has a strategic Codex SDK/MCP orchestration direction note for treating Codex as a governed worker runtime under Factory/Harmony authority. It is roadmap context only and does not approve unattended execution, production actions, runtime authority, or new profiles.
 - V3 has a research-only mission-health roadmap lane for future value-aware continuation judgment. No mission-health schema, validator, router, gate, runtime-control power, or required checkpoint behavior is approved.
 - V3 has a research-only loop-governance and mission-control lane with a loop contract template, terminal-state/safe-hold vocabulary, advisory loop-contract validator, mission-control contract, mission-control contract template, advisory mission-control validator, and deterministic fixtures for state, tool, act-or-ask, control-profile, evidence, terminal-state, next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, session-memory-only re-entry, and worker-interface coverage. Loop-library review is absorbed as governance primitives rather than named loops. No runtime orchestration, scheduled loop execution, routing, required gate, or reduced-governance behavior is approved.
+- V3 has a research-only serial mission-graph contract, template, advisory validator, deterministic fixtures, and focused tests for a parent authority ceiling, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. It is contract validation only and does not dispatch workers or persist operational state.
 - V3 has a research-only anchor registry for pointer-first orientation across approved profiles, candidate gates, evidence paths, and guardrails. It is not approval, routing authority, a threshold table, or replacement evidence.
 - V3 has a binding governance-boundaries statement (`GOVERNANCE_BOUNDARIES.md`), research-only evidence-integrity canon (`MUTABLE_HARNESS_STATE.md`, `SKILL_PROVENANCE_POLICY.md`), an advisory regulatory crosswalk marked for human review, and standing-authorization schema candidates; per-mission human Go remains the only approved authorization shape.
 - V3 has a candidate `V3-OP-003` long-running remote-interrupt profile with a decision pack at `NO PROMOTION YET`, a mission-health vocabulary, an interrupt-transport trial plan gated on separate sponsor approval, and a three-rung duration ladder. Rung 1 passed for mechanics; interrupt transport is satisfied; RUNG 2 PASSED at attempt 4 on 2026-06-11 (`HDI-RUNG2-008`, POC Mission 024, 95.25 active minutes, ~548 calls, all eight criteria); POC Mission 026 completed the approved Option A envelope at commit `404a32a` and produced mission-control design-transfer evidence. The candidate profile is not usable for any mission.
@@ -108,11 +111,12 @@ This queue is the near-term sequencing order as of 2026-07-12. It is an orientat
 
 | Rank | Decision or artifact | Why it is next | Required artifact | Approval needed | Explicit non-approval |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Two further optional-field shadow-use samples | This re-entry slice provides one bounded authoring sample, which is insufficient to assess recurring friction or FP/FN behavior | Two suitable natural mission records using only relevant optional structures, with friction and FP/FN notes | Approval comes from each underlying mission; no separate execution authority is created | No required fields, gates, promotion, historical POC repair, endurance schema, or runtime behavior |
+| 1 | One further optional-field shadow-use sample | The re-entry slice and `MR_20260712_032_serial_mission_graph_contract.json` provide two bounded natural samples; one more is needed before recurring-friction and FP/FN review | One suitable natural mission record using only relevant optional structures, with friction and FP/FN notes | Approval comes from the underlying mission; no separate execution authority is created | No required fields, gates, promotion, historical POC repair, endurance schema, or runtime behavior |
 | 2 | Live fresh-worker re-entry proof decision | Deterministic decision cases now exist, but they do not prove artifact sufficiency in a real fresh session | Separately scoped decision over `FRESH_WORKER_REENTRY_TRIAL_PLAN.md`, followed by an exact mission envelope only if approved | Explicit sponsor approval for the trial and named harness scope | No assumption that fixture `fresh_session` inputs are operational proof; no concurrent workers or runtime dispatcher |
-| 3 | Natural negative-case and endurance-continuity evidence | The corpus still lacks a natural negative case at sustained duration and quality-continuity evidence near the upper envelope | Evidence attached opportunistically to separately approved useful work | Per-candidate approval before execution | No manufactured failure, duration, calls, waypoints, scope, or routing thresholds |
-| 4 | Read-only Codex SDK/MCP orchestration discovery | Programmatic worker supervision is strategically relevant but must follow better intake/mission-control evidence and stay read-only first | Research pack recording sandbox, thread, prompt, output, trace, interrupt, and closeout behavior | Separate research approval | No workspace-write orchestration trial, credential use, unattended execution, or runtime authority |
-| 5 | Mission-health notes on checkpointed missions | Mission-health vocabulary exists, but it needs real checkpoint use before schema, thresholds, or routing | Advisory notes attached to real checkpointed mission evidence with forecast-vs-actual review | None beyond the underlying mission approval | No schema promotion, routing input, gate, or continuation threshold |
+| 3 | Deterministic serial state-kernel design | The serial graph contract can reject malformed plans but cannot yet calculate or persist an authorized transition | Authored-state and append-only-event schemas plus pure transition functions and fixtures for activate, checkpoint, verify, safe-hold, resume, and close | Separate bounded implementation approval | No worker dispatch, SDK execution, concurrency, daemon, scheduler, runtime authority, or required gate |
+| 4 | Natural negative-case and endurance-continuity evidence | The corpus still lacks a natural negative case at sustained duration and quality-continuity evidence near the upper envelope | Evidence attached opportunistically to separately approved useful work | Per-candidate approval before execution | No manufactured failure, duration, calls, waypoints, scope, or routing thresholds |
+| 5 | Read-only Codex SDK/MCP orchestration discovery | Programmatic worker supervision is strategically relevant but must follow better intake/mission-control evidence and stay read-only first | Research pack recording sandbox, thread, prompt, output, trace, interrupt, and closeout behavior | Separate research approval | No workspace-write orchestration trial, credential use, unattended execution, or runtime authority |
+| 6 | Mission-health notes on checkpointed missions | Mission-health vocabulary exists, but it needs real checkpoint use before schema, thresholds, or routing | Advisory notes attached to real checkpointed mission evidence with forecast-vs-actual review | None beyond the underlying mission approval | No schema promotion, routing input, gate, or continuation threshold |
 
 ## Loop-Governance Primitives From Loop-Library Review
 
@@ -145,6 +149,7 @@ The standalone POC may inform Factory V3 decisions only through an explicit tran
 Do not begin these lanes without a separate approval that names exact scope and evidence requirements:
 
 - Runtime loop orchestration, loop runners, background workers, or scheduled loops.
+- Worker dispatch or automatic state mutation from the serial mission-graph contract.
 - Standing-authorization execution, ambient wakeups, cron integration, or live messaging automation.
 - Required-gate integration, CI enforcement, telemetry enforcement, governance routing, or reduced-governance thresholds.
 - Workspace-write Codex SDK/MCP orchestration.
@@ -468,6 +473,36 @@ Promotion gate:
 
 Mission-health signals may become recommended advisory evidence only after they improve continuation judgment without creating fake economic precision, hidden routing authority, or confusion between evidence and human approval.
 
+## Phase 4.7 - Serial Epic Mission Graph And State Kernel
+
+Status: Initial research-only contract implementation exists. `SERIAL_MISSION_GRAPH_CONTRACT.md`, `templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json`, `scripts/factory_v3_serial_mission_graph_lint.py`, deterministic fixtures, pinned expected output, and focused tests cover parent authority ceilings, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. No state kernel, worker dispatch, concurrency, runtime authority, required gate, or profile promotion is approved.
+
+Goal:
+
+Make multi-feature missions representable and falsifiable before introducing a worker runtime.
+
+Work:
+
+1. Validate parent/child mission graphs in advisory mode. Status: initial done.
+2. Define authored mission-state and append-only event shapes without creating a second source of truth.
+3. Implement pure deterministic transition functions for activate, checkpoint, verify, safe-hold, resume, and close.
+4. Derive eligible-child and one-safe-next-action cursors from authored state; derived state grants no authority.
+5. Add fixtures for interrupted, failed-verification, stale-reentry, scope-expansion, and parent-closeout paths.
+6. Run an attended serial-epic pilot only after a separate envelope and sponsor Go.
+
+Required evidence:
+
+- deterministic valid and invalid graph fixtures, Status: initial exists,
+- focused validator tests, Status: initial exists,
+- state-transition fixture corpus,
+- source-of-truth conflict review,
+- fresh-worker re-entry evidence against authored graph/state artifacts,
+- one separately approved attended serial-epic pilot with child-level and parent-level verification.
+
+Promotion gate:
+
+The graph and state kernel may become recommended advisory tooling only after they preserve authority, evidence, safe-hold, and re-entry across a real serial multi-feature mission. Worker dispatch, workspace-write SDK orchestration, concurrency, and required enforcement require later separate decisions.
+
 ## Phase 5 - Governance Router
 
 Goal:
@@ -671,7 +706,7 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Use the optional evidence-integrity structures on two further suitable, separately approved natural mission records and measure authoring friction plus false-positive/false-negative behavior. Then decide whether to authorize the existing live fresh-worker artifact-sufficiency trial; deterministic re-entry fixtures are not a substitute. Collect endurance evidence only from useful missions that naturally exercise more of the up-to-four-hour envelope; never prolong or enlarge work to hit time, call, waypoint, test, file, or scope targets.
+Use the optional evidence-integrity structures on one further suitable, separately approved natural mission record and then review recurring authoring friction plus false-positive/false-negative behavior. Then decide whether to authorize the existing live fresh-worker artifact-sufficiency trial; deterministic re-entry fixtures are not a substitute. In parallel only through a separately approved bounded mission, design the deterministic authored-state kernel for the new serial mission graph without worker dispatch. Collect endurance evidence only from useful missions that naturally exercise more of the up-to-four-hour envelope; never prolong or enlarge work to hit time, call, waypoint, test, file, or scope targets.
 
 Status update (2026-06-09): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-013 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. Mission 012 (commit `8667e96`) produced the first real adaptive-mission-control evidence: a genuine interrupt completing the asked/answered/applied lifecycle, a fresh-session resume from authored artifacts only, scoped checkpoint-commit git authority, and filled budget fields. Mission 013 (commit `a74efbd`) added the first remote-interrupt evidence: two genuine interrupts answered from the sponsor's phone via Codex in the ChatGPT mobile app, the mission steered from Android end to end, and a second fresh-session resume that recovered a stale checkpoint hash from git log. Mission 015 (commit `c48dd02`) added the first deliberately seeded failed-verification halt evidence: baseline synthetic tests passed, an intentional local read-only verification command failed with exit code 17, and the mission halted without recovery or app edits. Mission 016 (commit `425766f`) added the first recovery-after-failed-verification evidence: a mission-owned synthetic verifier failed as intended, a separately authorized recovery corrected only the mission-owned fixture, the verifier passed, and the full 170-test suite passed after recovery. Mission 017 (commit `ffb4e92`) added the first seeded stale-reentry halt evidence: a mission-owned fixture intentionally expected stale Mission 015 head `c48dd02`, the verifier observed actual Mission 016 head `425766f`, failed with a stale mismatch, and the mission halted without reconciliation. Mission 018 (commit `feb05ea`) added the first seeded fallback/no-go evidence: a synthetic request for real Garmin account use, live ingestion, new dependency, Telegram live alerts, deployment, and V2 fallback was classified as `no_go` with execution and V2 fallback both disallowed. Mission 019 (commit `6c7fac6`) added partial private-deployment evidence: localhost smoke passed against the repo-run stdlib server and synthetic temp DB, rollback passed, and Tailscale private smoke was blocked because `tailscale-app` installation requires interactive macOS admin/sudo approval. Mission 020 (commit `7d87ed2`) completed private Tailscale deployment smoke after user-installed/authenticated Tailscale: baseline tests passed, localhost smoke passed, Tailscale Serve advertised a tailnet-only MagicDNS route proxying the localhost server, private MagicDNS smoke passed, Serve was reset, and rollback removed the listener and synthetic temp DB. A sponsor-approved final POC eval now exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260609.json`, commit `e6f2d29`): `PASS_NAMED_POC`, 20 of 22, operator-friction score `1`. Mission timing finding: checkpoint-estimated minutes proved 6-9x inflated versus git commit timestamps (Mission 012 real ~17m38s vs estimated ~115m; Mission 013 real ~34m46s vs estimated ~328m); tool-call counts were the more reliable size metric. The hard standalone criterion has held through Mission 020. The sponsor-approved final eval does not approve real-data use, live Telegram/ambient runtime, public deployment, production infrastructure, required gates, governance routing, runtime authority, production action, V2 scaffolding removal, or the candidate `V3-OP-003` remote-interrupt profile.
 
@@ -691,10 +726,11 @@ Status update (2026-07-12, Mission 026 audit): the commit-pinned claim audit rep
 
 The recommended next moves, in order:
 
-1. Use the optional evidence-integrity fields on two further suitable, separately approved natural mission records; record authoring friction and FP/FN observations.
+1. Use the optional evidence-integrity fields on one further suitable, separately approved natural mission record; `MR_20260712_032_serial_mission_graph_contract.json` is the second sample.
 2. Make a separate sponsor decision on the live fresh-worker artifact-sufficiency trial; fixtures do not prove a real fresh session.
-3. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
-4. Run a read-only Codex SDK/MCP orchestration spike only after the shadow-use and live re-entry decision, with a separate research pack.
+3. Design deterministic authored-state transitions for the serial graph under a separate bounded mission, without worker dispatch.
+4. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
+5. Run a read-only Codex SDK/MCP orchestration spike only after the shadow-use, live re-entry, and state-kernel decisions, with a separate research pack.
 
 The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 

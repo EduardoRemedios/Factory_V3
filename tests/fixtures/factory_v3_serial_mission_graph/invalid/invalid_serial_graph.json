@@ -1,0 +1,120 @@
+{
+  "record": {
+    "record_type": "factory_v3_serial_mission_graph",
+    "schema_version": "v0.1-serial-mission-graph",
+    "status": "research_only_non_enforcing",
+    "graph_id": "V3-SG-FIXTURE-INVALID-001",
+    "created_at": "2026-07-12",
+    "approval_scope": {
+      "factory_v3_default_approved": true,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "scheduled_or_unattended_execution_approved": false,
+      "governance_routing_approved": false,
+      "worker_dispatch_approved": true,
+      "concurrent_execution_approved": true,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "parent_mission": {
+    "mission_id": "EPIC-FIXTURE-INVALID-001",
+    "objective": "Exercise invalid serial graph findings.",
+    "success_criteria": ["Invalid conditions are detected."],
+    "non_goals": ["Do not create runtime authority."],
+    "sponsor_approval_source": "Fixture-only research approval.",
+    "status": "completed"
+  },
+  "authority_ceiling": {
+    "authorized_paths": ["src/epic"],
+    "forbidden_paths": ["production secrets"],
+    "allowed_commands": ["python3 -m unittest discover -s tests"],
+    "approval_gates": ["scope expansion"],
+    "external_effects_allowed": false
+  },
+  "graph_policy": {
+    "execution_mode": "parallel",
+    "max_active_children": 2,
+    "dependency_policy": "best_effort",
+    "cycle_policy": "allow",
+    "failure_policy": "continue",
+    "child_authority_must_be_subset": false,
+    "scope_expansion_requires_human": false
+  },
+  "state_policy": {
+    "authored_state_is_source_of_truth": false,
+    "eligibility_cursor_is_derived": false,
+    "session_memory_sufficient": true,
+    "authored_state_ref": ".factory-v3/missions/invalid/MISSION_STATE.json",
+    "event_log_ref": ".factory-v3/missions/invalid/EVENTS.jsonl",
+    "checkpoint_ref": ".factory-v3/missions/invalid/checkpoints/CP-001.json"
+  },
+  "children": [
+    {
+      "child_id": "feature-a",
+      "objective": "Invalid active feature A.",
+      "required": true,
+      "dependencies": ["feature-b"],
+      "status": "active",
+      "worker_actor": "worker-a",
+      "success_criteria": ["Feature A completes."],
+      "authority": {
+        "authorized_paths": ["src/epic/a"],
+        "forbidden_paths": ["src/epic/b"],
+        "allowed_commands": ["python3 -m unittest discover -s tests"],
+        "external_effects_allowed": false
+      },
+      "verification": {
+        "required_commands": ["python3 -m unittest discover -s tests"],
+        "verifier_actor": "verifier-a",
+        "result": "not_run"
+      },
+      "evidence": {
+        "status": "MISSING",
+        "evidence_refs": [],
+        "unresolved_gap": "Feature B is incomplete."
+      },
+      "continuation_gate": {
+        "gate_result": "continue",
+        "authorized_to_start": true,
+        "authority_basis": "Invalid fixture prematurely starts feature A."
+      }
+    },
+    {
+      "child_id": "feature-b",
+      "objective": "Invalid active feature B.",
+      "required": true,
+      "dependencies": ["feature-a"],
+      "status": "active",
+      "worker_actor": "worker-b",
+      "success_criteria": ["Feature B completes."],
+      "authority": {
+        "authorized_paths": ["secrets/production.env"],
+        "forbidden_paths": ["src/epic/a"],
+        "allowed_commands": ["rm -rf production"],
+        "external_effects_allowed": true
+      },
+      "verification": {
+        "required_commands": ["python3 -m unittest discover -s tests"],
+        "verifier_actor": "worker-b",
+        "result": "fail"
+      },
+      "evidence": {
+        "status": "WEAK",
+        "evidence_refs": [],
+        "unresolved_gap": ""
+      },
+      "continuation_gate": {
+        "gate_result": "continue",
+        "authorized_to_start": true,
+        "authority_basis": "Invalid fixture prematurely starts feature B."
+      }
+    }
+  ],
+  "parent_closeout": {
+    "require_all_required_children_complete": true,
+    "parent_verification_required": true,
+    "parent_verification_result": "pass",
+    "claim_to_proof_required": true
+  }
+}
