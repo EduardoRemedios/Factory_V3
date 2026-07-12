@@ -1,0 +1,20 @@
+{
+  "fixture_id": "serial-three-child-lifecycle",
+  "graph_ref": "tests/fixtures/factory_v3_serial_mission_graph/valid_serial_graph.json",
+  "repository_state_ref": "git:fixture-head",
+  "actions": [
+    "initialize",
+    "activate feature-a",
+    "checkpoint feature-a",
+    "mark feature-a verification pending",
+    "record feature-a passing verification",
+    "complete feature-a",
+    "activate feature-b",
+    "verify and complete feature-b",
+    "activate feature-c",
+    "verify and complete feature-c",
+    "record passing parent verification",
+    "close parent"
+  ],
+  "notes": "Readable scenario inventory. Unit tests pin the deterministic summary and exact transition event linkage. No worker or verification command is executed."
+}

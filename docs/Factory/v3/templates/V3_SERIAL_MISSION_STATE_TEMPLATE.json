@@ -1,0 +1,59 @@
+{
+  "children": [
+    {
+      "child_id": "feature-a",
+      "current_repository_state_ref": "git:CURRENT_HEAD",
+      "dependencies": [],
+      "required": true,
+      "start_authorized": false,
+      "status": "pending",
+      "verification": {
+        "evidence_refs": [],
+        "evidence_status": "MISSING",
+        "result": "not_run",
+        "unresolved_gap": "Child verification has not run."
+      }
+    },
+    {
+      "child_id": "feature-b",
+      "current_repository_state_ref": "git:CURRENT_HEAD",
+      "dependencies": [
+        "feature-a"
+      ],
+      "required": true,
+      "start_authorized": false,
+      "status": "pending",
+      "verification": {
+        "evidence_refs": [],
+        "evidence_status": "MISSING",
+        "result": "not_run",
+        "unresolved_gap": "Child verification has not run."
+      }
+    }
+  ],
+  "current_active_child": null,
+  "current_repository_state_ref": "git:CURRENT_HEAD",
+  "event_sequence": 1,
+  "graph_digest": "sha256:f5a469cc8e3197b19029f4e99575fee109d5c04718b48b6512b50b89ef14ce20",
+  "graph_ref": "docs/Factory/v3/templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json",
+  "last_safe_checkpoint": null,
+  "mission_id": "EPIC-001",
+  "open_decisions": [],
+  "parent_status": "planning",
+  "parent_verification": {
+    "evidence_refs": [],
+    "evidence_status": "MISSING",
+    "result": "not_run",
+    "unresolved_gap": "Parent verification has not run."
+  },
+  "record": {
+    "authored_state_is_authoritative": true,
+    "derived_cursors_grant_authority": false,
+    "record_type": "factory_v3_serial_mission_state",
+    "schema_version": "v0.1-serial-mission-state",
+    "session_memory_sufficient": false,
+    "status": "research_only_non_enforcing"
+  },
+  "revision": 0,
+  "safe_hold_reason": null
+}

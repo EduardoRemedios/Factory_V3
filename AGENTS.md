@@ -39,6 +39,7 @@ Purpose:
 - V3 mission-record lint: `python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --json`
 - V3 mission-control contract lint: `python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json`
 - V3 serial mission-graph lint: `python3 scripts/factory_v3_serial_mission_graph_lint.py --target tests/fixtures/factory_v3_serial_mission_graph --expect tests/fixtures/factory_v3_serial_mission_graph/expected/all.json --json`
+- V3 serial mission-state template status: `python3 scripts/factory_v3_serial_mission_state.py status --state docs/Factory/v3/templates/V3_SERIAL_MISSION_STATE_TEMPLATE.json --events docs/Factory/v3/templates/V3_SERIAL_MISSION_EVENTS_TEMPLATE.jsonl --graph docs/Factory/v3/templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json --mission-id EPIC-001`
 
 ## 4) Hard Guardrails
 - Use Factory V2 planning, lint, pack, and SIMPLE-CODE-GATE semantics to govern V3 repository changes when Factory-controlled planning is needed while V3 is still maturing.

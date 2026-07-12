@@ -1,0 +1,17 @@
+{
+  "eligible_children": [],
+  "event_sequence": 16,
+  "one_safe_next_action": {
+    "action": "none",
+    "child_id": null,
+    "reason": "parent mission is complete"
+  },
+  "parent_closeout_eligible": true,
+  "parent_status": "completed",
+  "revision": 15,
+  "statuses": {
+    "feature-a": "completed",
+    "feature-b": "completed",
+    "feature-c": "completed"
+  }
+}

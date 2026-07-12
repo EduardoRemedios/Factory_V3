@@ -1,0 +1,241 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-07-12",
+    "source_trial_id": "MR_20260712_033_serial_mission_state_kernel",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260712_033_serial_mission_state_kernel.json",
+    "source_closeout_reference": "User-authorized V3-MC-EPIC-002 deterministic serial mission-state kernel mission.",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "510262dd248ac9bd55d6c884d5939575a6011b3e",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Codex",
+    "model": "GPT-5",
+    "model_routing": {
+      "router_enabled": "unknown",
+      "observed_models": ["GPT-5"]
+    },
+    "objective": "Implement a deterministic stdlib-only advisory serial mission-state kernel with authored state, append-only events, pure transitions, local CLI, deterministic coverage, and canonical closeout evidence without worker execution or runtime authority.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "The user explicitly approved execution of bounded mission V3-MC-EPIC-002 in the current conversation.",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "AGENTS.md",
+      "README.md",
+      "docs/CHANGELOG.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/GOVERNANCE_BOUNDARIES.md",
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/SERIAL_MISSION_GRAPH_CONTRACT.md",
+      "docs/Factory/v3/SERIAL_MISSION_STATE_KERNEL.md",
+      "docs/Factory/v3/templates/V3_SERIAL_MISSION_STATE_TEMPLATE.json",
+      "docs/Factory/v3/templates/V3_SERIAL_MISSION_EVENTS_TEMPLATE.jsonl",
+      "docs/Factory/v3/mission_records/MR_20260712_033_serial_mission_state_kernel.json",
+      "scripts/factory_v3_serial_mission_state.py",
+      "tests/fixtures/factory_v3_serial_mission_state/README.md",
+      "tests/fixtures/factory_v3_serial_mission_state/lifecycle.json",
+      "tests/fixtures/factory_v3_serial_mission_state/expected/lifecycle_summary.json",
+      "tests/test_factory_v3_serial_mission_state.py"
+    ],
+    "forbidden_scope": [
+      "no worker dispatch, sub-agent orchestration, Codex SDK execution, or verification-command execution",
+      "no concurrent workers, worktree orchestration, background process, daemon, scheduler, or scheduled wake",
+      "no runtime authority, proof or lease enforcement, governance routing, telemetry enforcement, or external governance-kernel adapter",
+      "no dependency addition, deployment, credential, real-data, required-gate, CI, or profile-promotion work",
+      "no Factory V2 removal and no changes to regulated_factory_site"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 -m unittest discover -s tests",
+      "bash scripts/knowledge_lint.sh",
+      "./scripts/factoryctl context-index",
+      "canonical standalone Factory V3 advisory validators with pinned fixture expectations",
+      "python3 scripts/factory_v3_serial_mission_state.py status against the valid templates",
+      "python3 -m py_compile scripts/factory_v3_*.py",
+      "git diff --check"
+    ],
+    "dependency_policy": "No new dependencies allowed; Python standard library only.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands into worker execution, concurrency, runtime authority, required gates, deployment, credentials, or another repository",
+      "authored state conflicts with the graph or append-only events",
+      "invalid transitions mutate state or append a success event",
+      "deterministic fixtures or full repository verification fail at closeout"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "AGENTS.md",
+      "README.md",
+      "docs/CHANGELOG.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/GOVERNANCE_BOUNDARIES.md",
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/SERIAL_MISSION_GRAPH_CONTRACT.md",
+      "docs/Factory/v3/SERIAL_MISSION_STATE_KERNEL.md",
+      "docs/Factory/v3/templates/V3_SERIAL_MISSION_STATE_TEMPLATE.json",
+      "docs/Factory/v3/templates/V3_SERIAL_MISSION_EVENTS_TEMPLATE.jsonl",
+      "docs/Factory/v3/mission_records/MR_20260712_033_serial_mission_state_kernel.json",
+      "scripts/factory_v3_serial_mission_state.py",
+      "tests/fixtures/factory_v3_serial_mission_state/README.md",
+      "tests/fixtures/factory_v3_serial_mission_state/lifecycle.json",
+      "tests/fixtures/factory_v3_serial_mission_state/expected/lifecycle_summary.json",
+      "tests/test_factory_v3_serial_mission_state.py"
+    ],
+    "verification": {
+      "commands": [
+        "python3 -m unittest discover -s tests",
+        "bash scripts/knowledge_lint.sh",
+        "./scripts/factoryctl context-index",
+        "all canonical V3 advisory validators with pinned fixture expectations",
+        "python3 scripts/factory_v3_serial_mission_state.py status --state docs/Factory/v3/templates/V3_SERIAL_MISSION_STATE_TEMPLATE.json --events docs/Factory/v3/templates/V3_SERIAL_MISSION_EVENTS_TEMPLATE.jsonl --graph docs/Factory/v3/templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json --mission-id EPIC-001",
+        "python3 -m py_compile scripts/factory_v3_*.py",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Full repository tests, knowledge lint, context-index refresh, canonical pinned V3 advisory fixtures, valid state-template status, Python compilation, deterministic fixture replay, invalid-transition no-mutation checks, and diff whitespace checks pass. The natural-language pilot completed with its existing non-blocking findings in loop-governance documents; no new finding points to the state-kernel artifact.",
+      "observations": [
+        {
+          "source_kind": "original_run",
+          "captured_date": "2026-07-12",
+          "actor_ref": "codex_builder",
+          "session_ref": "v3_mc_epic_002_session",
+          "command_or_check_ref": "focused state-kernel tests during implementation",
+          "result": "pass",
+          "evidence_refs": ["tests/test_factory_v3_serial_mission_state.py", "tests/fixtures/factory_v3_serial_mission_state/expected/lifecycle_summary.json"],
+          "supersedes_original": false
+        },
+        {
+          "source_kind": "replay",
+          "captured_date": "2026-07-12",
+          "actor_ref": "codex_builder",
+          "session_ref": "v3_mc_epic_002_session",
+          "command_or_check_ref": "full repository verification and pinned advisory replay after documentation closeout",
+          "result": "pass",
+          "evidence_refs": ["thread-local command output; not persisted as a separate repository log"],
+          "supersedes_original": false
+        }
+      ]
+    },
+    "visual_evidence": [],
+    "advisory_checks": [
+      {
+        "name": "factory_v3_mission_record_lint.py natural records",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_serial_mission_graph_lint.py pinned fixtures",
+        "result": "pass",
+        "classification": "EXPECTED_OUTPUT_MATCH"
+      },
+      {
+        "name": "factory_v3_serial_mission_state.py valid template status",
+        "result": "pass",
+        "classification": "advisory_pass"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "The kernel is one standalone stdlib script and reuses the existing graph validator instead of adding a package or dependency.",
+        "The CLI has no subprocess, network, worker, daemon, scheduler, or verification execution path.",
+        "Persistence documents its cross-file limit, appends events before atomic state replacement, and fails clearly on divergence."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No scope or authority fallback trigger fired; implementation stayed inside the approved advisory state-kernel envelope."
+      ]
+    },
+    "verifier_provenance": {
+      "builder_actor_ref": "codex_builder",
+      "verifier_actor_ref": "codex_builder",
+      "actor_relationship": "same_actor",
+      "session_relationship": "same_session",
+      "independence_status": "deterministic_separation_only",
+      "evidence_refs": ["focused unit tests", "pinned lifecycle summary", "full repository verification", "valid template status"],
+      "unresolved_gap": "No distinct verifier actor or fresh session replayed this mission; original and replay observations came from the same actor and session."
+    },
+    "boundary_claims": [
+      {
+        "claim": "The mission change range adds no worker dispatch, command-execution path, concurrency, daemon, scheduler, runtime authority, required-gate wiring, dependency, or external effect.",
+        "proof_status": "PROVED",
+        "proof_scope": "change_range",
+        "evidence_refs": ["git diff --stat", "git diff review", "stdlib import and CLI review", "tests/test_factory_v3_serial_mission_state.py"],
+        "limit": "This proves the bounded mission change range and tested local CLI behavior, not global runtime absence outside the repository or future adapters."
+      },
+      {
+        "claim": "Invalid tested transitions do not mutate the authored source state or append a success event.",
+        "proof_status": "PROVED",
+        "proof_scope": "runtime_trace",
+        "evidence_refs": ["SerialMissionStateTests.test_cli_rejection_does_not_change_state_or_events", "focused transition rejection tests"],
+        "limit": "This covers deterministic local fixture cases and does not prove crash-free behavior on every filesystem or untested fault injection point."
+      },
+      {
+        "claim": "Deterministic fixtures prove live fresh-worker artifact sufficiency or attended serial-epic behavior.",
+        "proof_status": "MISSING",
+        "proof_scope": "artifact_only",
+        "evidence_refs": [],
+        "limit": "No fresh worker, separate session, worker adapter, attended epic, or real multi-feature implementation was executed in this mission."
+      }
+    ],
+    "friction_notes": [
+      "Keeping authored state authoritative while preserving append-only events required an explicit non-atomic cross-file failure model; the design records divergence rather than claiming impossible atomicity or silently truncating events.",
+      "The first hold-state invariant treated safe_hold as outside the serial child slot; focused tests showed the current child must remain authored during hold, and validation was corrected before closeout.",
+      "The readable lifecycle expected summary exposed a manual off-by-one revision/event count during fixture authoring; the pinned expectation was corrected from observed deterministic output."
+    ],
+    "false_positive_notes": [
+      "No mission-record validator false positive was observed for the third natural record.",
+      "The valid state/event/graph templates return advisory_pass with no unexpected consistency rejection."
+    ],
+    "false_negative_notes": [
+      "The initial in-progress hold-state validation missed that safe_hold must retain the serial current-child slot; focused lifecycle coverage detected and repaired this implementation false negative before final verification.",
+      "The lifecycle expected count was initially wrong by one; the deterministic comparison failed clearly instead of allowing the mismatch through.",
+      "No known false negative remains in the exercised mission-record validator output, but same-actor testing and the absence of fault-injection or live fresh-worker evidence limit that conclusion."
+    ]
+  },
+  "phase2_design_signals": [
+    "Three natural optional evidence-integrity records now exist; recurring friction and FP/FN conclusions require a separate comparison of all three.",
+    "Authored state, graph contract, append-only evidence, and derived cursors need distinct non-authority roles to avoid a second mission-state source of truth.",
+    "Filesystem state/event persistence must disclose and detect cross-file divergence rather than imply atomic transactions."
+  ]
+}
