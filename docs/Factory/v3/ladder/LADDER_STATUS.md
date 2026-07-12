@@ -1,9 +1,11 @@
 # V3-OP-003 Ladder Status — Pickup Aid
 
 ## Version
-v1.5
+v1.7
 
 ## Change Log
+- v1.7 (2026-07-12): Recorded the commit-pinned Mission 026 claim-to-proof audit and current-corpus FP/FN adjudication. Item 5 is satisfied; items 1 and 3 remain insufficient near the upper envelope and item 4 remains open. Next gate is a separately scoped advisory record-shape proposal; `NO PROMOTION YET` remains.
+- v1.6 (2026-07-12): Corrected the active ladder interpretation: roughly four hours is an endurance ceiling, not a run-duration or workload floor. Historical adjudications remain unchanged, while future mission PASS is separated from observed endurance coverage. Mission-control template/fixture extraction is complete; claim-to-proof and FP/FN adjudication are next.
 - v1.5 (2026-07-02): Recorded POC Mission 026 post-run evidence review (`404a32a`) and mission-control contract extraction. Result: useful design-transfer evidence, still `NO PROMOTION YET`; next work is advisory templates, claim-to-proof audit, and explicit adjudication.
 - v1.4 (2026-07-02): Recorded sponsor selection of Option A for rung-3 envelope authoring, classified POC Mission 025 (`8f25437`) as narrow transferable pattern evidence, and added the concrete non-executing `RUNG3_OPTION_A_EXECUTION_ENVELOPE_20260702.md` plus challenge review. Result: sponsor-Go review readiness `CONDITIONAL PASS`; execution remains unapproved.
 - v1.3 (2026-07-02): Added the non-executing rung-3 formation pack under `rung3/`: formation output, advisory loop-contract candidate, and challenge review. Result: formation quality `CONDITIONAL PASS`, execution readiness `MORE DISCOVERY`; next gate is sponsor scope selection and concrete execution-envelope authoring, not rung-3 execution.
@@ -23,7 +25,7 @@ v1.5
 ## Status
 Research-only and non-enforcing pointer-first pickup aid for the active long-running-mission lane. It duplicates no evidence; follow the pointers. It approves nothing — every remaining gate below requires its own envelope and explicit sponsor Go.
 
-## Where Things Stand (end of 2026-06-10)
+## Where Things Stand (updated 2026-07-12)
 The named next operational-readiness decision is the `V3-OP-003` promotion decision (sponsor decision `HDI-RUNG1-001`), taken against the pre-written criteria in `V3_OP_003_DECISION_PACK.md` once the evidence exists. Today produced:
 
 - Governance canon: `GOVERNANCE_BOUNDARIES.md` (README split), `MUTABLE_HARNESS_STATE.md`, `SKILL_PROVENANCE_POLICY.md`, `REGULATORY_CROSSWALK.md`, standing-authorization candidates (`SHADOW_SCHEMA_CANDIDATES.md` v0.2). Mission records now record model identity; `same_commit` convention active (design v0.9).
@@ -31,15 +33,17 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 - Rung 1 (`LADDER_RUNG1_20260610`, `rung1/`, MR_019): PASSED for mechanics per `HDI-TT-001`; duration burden shifted to rung 2. Sponsor decisions taken: next named decision = V3-OP-003 promotion (`HDI-RUNG1-001`); rung naming = hour headline + budget-and-waypoint measured criteria (`HDI-TT-002`).
 - Transport trial (`TRANSPORT_TRIAL_20260610`, `transport_trial/`, MR_020): PASSED its pre-written criteria. First controlled exercise of the no-response safe-hold rule worked as specified. Findings: desktop-only delivery while Remote Control inactive; focus-based notification suppression; phone round-trip untested.
 
+Current interpretation: all historical PASS/FAIL decisions below remain intact as records under their then-current pre-written criteria. Going forward, mission result is based on objective completion, authority, and verification quality. Endurance coverage is recorded separately from observed exposure. A shorter correct mission passes and stops; it must not be padded, and it does not prove the unobserved upper range of the roughly four-hour capability envelope.
+
 ## Decision-Pack Evidence Scoreboard
 
 | Pack item | Status |
 | --- | --- |
-| 1. Duration ladder (3 rungs) | Rung 1 passed (mechanics); RUNG 2 PASSED at attempt 4 (`HDI-RUNG2-008`: 95.25 active min, ~548 calls, all 8 criteria) after three honest compression failures and two design reviews; rung-3 Option A envelope executed as POC Mission 026 (`404a32a`) and transfers design patterns, but the 4-hour-class duration requirement remains open |
+| 1. Endurance evidence | Rung 1 supplies mechanics evidence; Mission 024 supplies 95.25 active minutes of sustained quality evidence under the historical rung-2 PASS; Mission 026 transfers design patterns; quality continuity near the upper roughly four-hour envelope remains insufficiently evidenced, without making shorter successful missions failures |
 | 2. Live transport trial | SATISFIED: phone-answered round-trip with sponsor away (96s deliver-to-answer, Codex mobile, POC Mission 021) plus timeout-to-safe-hold (MR_020) |
-| 3. Health signals at checkpoints | Recorded at rung 1 and all four rung-2 attempts; Mission 024 supplies the first complete series at genuine ~95-minute duration; 2h/4h evidence is rung 3's burden |
+| 3. Health signals at checkpoints | Recorded at rung 1 and all four rung-2 attempts; Mission 024 supplies the first complete series at genuine ~95-minute exposure; greater natural exposure remains open and must not be manufactured |
 | 4. Natural negative case at duration | Open; do not seed and relabel |
-| 5. FP/FN review over ladder evidence | Open; runs after rung 3 |
+| 5. FP/FN review over ladder evidence | SATISFIED FOR CURRENT CORPUS: Mission 026 claim-to-proof and FP/FN artifacts identify stale final-commit state, same-actor verification limits, mobile clipping, bounded absence claims, and corrected duration interpretation |
 
 ## Resolved Gates
 - Rung-2 transport choice: RESOLVED 2026-06-11 by sponsor decision `HDI-RUNG2-001` (`rung2/RUNG2_TRANSPORT_DECISION_HDI_RUNG2_001.md`) — option (b): rung 2 runs under the Codex harness with Codex mobile as the transport, the trial plan's secondary candidate, already proven by POC Mission 013's two phone-answered interrupts. Background: Claude Code Remote Control returned "disabled by your organization's policy" when the sponsor tried to enable it (2026-06-10) — transport availability is itself org-policy-gated runtime state (an observation in the `MUTABLE_HARNESS_STATE.md` spirit); option (a) may be renamed in a future trial if the org policy changes.
@@ -59,11 +63,9 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 - Rung-2 attempt 2: ADJUDICATED FAIL 2026-06-11 by sponsor decision `HDI-RUNG2-004` (`rung2/RUNG2_RERUN_ADJUDICATION_HDI_RUNG2_004.md`) — POC Mission 022 closed honestly at 47m40s elapsed (40m06s active) against the 90-180 min band with mechanics 8/8, including a clean live phone interrupt (734s answer latency recorded as neutral telemetry per the adopted safe-hold-trigger principle), pause/fresh-session reentry, friction counters, and the waypoint-table second trial. Two consecutive duration failures trigger the pre-written design-review routing.
 
 ## Remaining Gates (in order; each needs explicit sponsor action)
-1. Advisory mission-control template/fixture extraction from `MISSION_CONTROL_CONTRACT.md`.
-2. Passive claim-to-proof audit over POC Mission 026.
-3. Post-run challenge/adjudication, including decision-pack mapping.
-4. False-positive/false-negative review over the full ladder corpus.
-5. Assemble the pack and take the sponsor promotion decision against the pre-written `PASS` / `CONDITIONAL PASS` / `NO PROMOTION YET` criteria.
+1. Use the completed Mission 026 audit findings to decide whether backward-compatible advisory mission-record fields are warranted.
+2. Collect additional endurance-continuity and natural-negative-case evidence only through separately approved useful work that naturally exercises more of the envelope.
+3. Assemble the pack and take the sponsor promotion decision only when the claimed envelope is directly evidenced.
 
 ## Parked Named Follow-ups (not gates, not approved)
 - Standalone-canon fix: vendor the Factory_V3 canon referenced by POC envelopes (health vocabulary, ladder artifacts) into the POC repo, or inline it (rung-2 attempt 1 finding, POC DD-001).
@@ -78,6 +80,6 @@ The named next operational-readiness decision is the `V3-OP-003` promotion decis
 - Harness capability profile observation for the Claude Code notification surface (delivery gating + focus suppression, from MR_020).
 
 ## Read First Next Session (pickup note, written end of 2026-06-11)
-`ANCHOR_REGISTRY.md` (rows `V3-ANCHOR-004`, `V3-ANCHOR-011`, and `V3-ANCHOR-012`) -> this file's scoreboard and remaining gates -> `MISSION_CONTROL_CONTRACT.md` -> `DURATION_LADDER_PLAN.md` (v0.10) -> `rung3/README.md` -> `rung3/RUNG3_OPTION_A_POST_RUN_EVIDENCE_REVIEW_20260702.md` -> `rung3/RUNG3_OPTION_A_EXECUTION_ENVELOPE_20260702.md` -> `rung3/RUNG3_OPTION_A_CHALLENGE_REVIEW_20260702.md` -> `rung2/RUNG2_ATTEMPT4_ADJUDICATION_HDI_RUNG2_008.md` (the rung-2 PASS and its findings).
+`ANCHOR_REGISTRY.md` (rows `V3-ANCHOR-004`, `V3-ANCHOR-011`, and `V3-ANCHOR-012`) -> this file's scoreboard and remaining gates -> `MISSION_CONTROL_CONTRACT.md` -> `DURATION_LADDER_PLAN.md` (v0.11) -> `V3_OP_003_DECISION_PACK.md` (v1.0) -> `rung3/MISSION_026_CLAIM_TO_PROOF_AUDIT_20260712.md` -> `rung3/MISSION_026_FP_FN_ADJUDICATION_20260712.md` -> `rung3/README.md` -> `rung3/RUNG3_OPTION_A_POST_RUN_EVIDENCE_REVIEW_20260702.md` -> `rung2/RUNG2_ATTEMPT4_ADJUDICATION_HDI_RUNG2_008.md` (historical rung-2 PASS evidence).
 
 Where things stand: RUNG 2 PASSED 2026-06-11 at attempt 4 after three honest compression failures and two design reviews; the Option A envelope was approved and executed as POC Mission 026 at commit `404a32a`. Mission 026 transfers mission-control design patterns but does not authorize `V3-OP-003` promotion, runtime orchestration, required gates, routing, real data, live integrations, or V2 removal. The rung-2 evidence chain is mission records MR_010 through MR_030 in Factory_V3 plus POC Missions 021-024 (`a5c2c9a`..`1ae7542` in V3_POC_App_Creation); Mission 025 adds narrow transfer evidence at POC commit `8f25437`; Mission 026 adds design-transfer evidence at POC commit `404a32a`. Decision chain for the rung-2 arc: `HDI-RUNG2-001` (transport) -> 002 (attempt-1 FAIL) -> 003 (rerun path) -> 004 (attempt-2 FAIL + safe-hold-trigger principle) -> 005 (design review 1 adoption) -> 006 (attempt-3 FAIL + browser finding) -> 007 (design review 2: attempt 4 + hybrid) -> 008 (attempt-4 PASS, rung 3 unlocked).

@@ -1,0 +1,99 @@
+schema_version: 1
+run_id: RUN_20260712_0927_v3_recall_sync_endurance_canon
+sprint_id: SPRINT_20260712_0927_V3_RECALL_SYNC_ENDURANCE_CANON
+execution_mode: EXECUTION_ENABLED
+
+checks:
+  - id: VM-001
+    tier: V2
+    type: test
+    constraint_ids:
+      - C-001
+    description: Verify valid and invalid direct-source recall repair behavior.
+    command: python3 -m unittest tests.test_context_recall_repair
+    expected: Focused repair tests exit 0.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/context_recall_repair_tests.txt
+
+  - id: VM-002
+    tier: V3
+    type: test
+    constraint_ids:
+      - C-001
+      - M-003
+    description: Run the full repository unit-test suite.
+    command: python3 -m unittest discover -s tests
+    expected: Full test discovery exits 0.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/unittest_discovery.txt
+
+  - id: VM-003
+    tier: V3
+    type: command
+    constraint_ids:
+      - C-001
+      - H-005
+    description: Validate Factory knowledge and direct-source contract coverage.
+    command: bash scripts/knowledge_lint.sh
+    expected: Output contains knowledge_lint PASS.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/knowledge_lint.txt
+
+  - id: VM-004
+    tier: V1
+    type: static
+    constraint_ids:
+      - C-001
+    description: Compile modified Factory Python entry points.
+    command: python3 -m py_compile scripts/factory_pack_lint.py scripts/factory_stage_lint.py scripts/factory_context_index.py scripts/factoryctl
+    expected: Command exits 0 with no syntax errors.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/python_compile.txt
+
+  - id: VM-005
+    tier: V2
+    type: fixture
+    constraint_ids:
+      - M-002
+    description: Preserve deterministic mission-control contract behavior.
+    target: tests/fixtures/factory_v3_mission_control_contract
+    command: python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json
+    expected: Advisory fixture expectation exits 0.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/mission_control_fixture.txt
+
+  - id: VM-006
+    tier: V1
+    type: command
+    constraint_ids:
+      - C-002
+      - H-002
+      - H-003
+    description: Check promotion-sensitive V3 wording.
+    command: python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json
+    expected: Advisory lint exits 0 without boundary regression.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/v3_advisory_lint.txt
+
+  - id: VM-007
+    tier: V1
+    type: command
+    constraint_ids:
+      - C-002
+      - H-002
+    description: Run the natural-language promotion-boundary pilot.
+    command: python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json
+    expected: Eval exits 0 and retains advisory-only posture.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/v3_nl_pilot.txt
+
+  - id: VM-008
+    tier: V1
+    type: static
+    constraint_ids:
+      - M-001
+    description: Check patch whitespace integrity.
+    command: git diff --check
+    expected: Command exits 0 with no output.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/git_diff_check.txt

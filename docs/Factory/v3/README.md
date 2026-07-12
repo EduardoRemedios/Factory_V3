@@ -1,9 +1,11 @@
 # Factory v3
 
 ## Version
-v1.39
+v1.41
 
 ## Change Log
+- v1.41 (2026-07-12): Added the Mission 026 claim-to-proof audit and current-corpus FP/FN adjudication. Item 5 is satisfied, but `V3-OP-003` remains `NO PROMOTION YET`; next work is a separately scoped advisory record-shape decision.
+- v1.40 (2026-07-12): Corrected the long-running profile evidence model: roughly four hours is an endurance ceiling to support without drift or quality degradation, not a mission-duration floor. Shorter correct missions pass and stop; upper-envelope continuity remains a separate evidence gap. Reordered next work to claim-to-proof audit before optional record-shape hardening.
 - v1.39 (2026-07-07): Added the initial advisory mission-control contract template, standalone advisory lint, and deterministic fixture corpus for next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, and session-memory-only re-entry. These remain research-only and non-enforcing.
 - v1.38 (2026-07-02): Recorded POC Mission 026 post-run evidence review and added `MISSION_CONTROL_CONTRACT.md` as research-only mission-control canon. `V3-OP-003` remains `NO PROMOTION YET`; next work is advisory templates, claim-to-proof audit, and post-run adjudication, not runtime orchestration.
 - v1.37 (2026-07-02): Added POC Mission 025 evidence-transfer classification plus the concrete non-executing Option A rung-3 execution envelope and challenge review. The next gate is sponsor Go/no-go against that exact envelope; execution and `V3-OP-003` promotion remain unapproved.
@@ -95,7 +97,7 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide standing-authorization schema candidates (`standing_authorization_grant`, `scheduled_wake_record`) in `SHADOW_SCHEMA_CANDIDATES.md` for future scheduled or ambient missions; per-mission human Go remains the only approved authorization shape.
 - Provide `templates/V3_LOOP_CONTRACT_TEMPLATE.json`, `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`, and `scripts/factory_v3_loop_contract_lint.py` as research-only advisory loop-admission artifacts for state policy, tool policy, act-or-ask gates, control-profile response, terminal states, evidence policy, and re-entry protocol. These artifacts are not required gates and do not approve runtime authority.
 - Provide `MISSION_CONTROL_CONTRACT.md`, `templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`, `scripts/factory_v3_mission_control_contract_lint.py`, and deterministic fixtures under `tests/fixtures/factory_v3_mission_control_contract/` as research-only canon for what Factory V3 should own above tactical AI workers: loop admission, authority envelopes, next-action authorization, requirement-to-evidence status, independent verification, checkpoint policy, verification policy, evidence/proof, safe-hold/re-entry, escalation, and worker interface.
-- Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, `DURATION_LADDER_PLAN.md`, and `ladder/rung3/` as its evidence-gathering path. The candidate profile is not usable; POC Mission 026 completed the approved Option A envelope and produced mission-control design-transfer evidence, but promotion evidence remains incomplete.
+- Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, `DURATION_LADDER_PLAN.md`, and `ladder/rung3/` as its evidence-gathering path. The intended capability is stable governance and work quality for missions that naturally require up to roughly four hours; elapsed duration, calls, waypoints, and scope are never completion floors. POC Mission 026 completed the approved Option A envelope; its claim audit and FP/FN review are complete, but quality continuity near the upper endurance envelope and a natural sustained negative case remain insufficiently evidenced, so the candidate profile is not usable.
 - Continue research for any future V3 profile before promotion.
 
 ## Non-authority Rule
@@ -149,6 +151,8 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`
 - `DURATION_LADDER_PLAN.md`
 - `ladder/rung3/`
+- `ladder/rung3/MISSION_026_CLAIM_TO_PROOF_AUDIT_20260712.md`
+- `ladder/rung3/MISSION_026_FP_FN_ADJUDICATION_20260712.md`
 - `MISSION_FORMATION_DIRECTION.md`
 - `CODEX_SDK_ORCHESTRATION_DIRECTION.md`
 - `ROADMAP_TO_FULL_VISION.md`

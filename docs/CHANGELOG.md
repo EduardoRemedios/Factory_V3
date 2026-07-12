@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-12
+
+- Completed the commit-pinned Mission 026 claim-to-proof audit and current-corpus FP/FN adjudication. Exact replay at POC commit `404a32a` reproduces 322 tests and Mission 026 QA, while recording stale final-commit state, same-actor verifier limits, and one clipped final mobile artifact. Decision-pack item 5 is satisfied; `V3-OP-003` remains `NO PROMOTION YET`, and the next gate is a separately scoped advisory record-shape proposal.
+- Synchronized the Factory V2 build-support direct-source recall repair from `factory-starter-kit` commit `06646d7`: generated `WEAK` Stage A recall remains blocking unless a valid `REPAIRED_DIRECT_SOURCE_CHECK` records direct local sources, concise summaries, refreshed-index/fallback attempts, and no material unresolved refs. Added shared stage/pack validation, focused tests, and knowledge-lint coverage.
+- Corrected the `V3-OP-003` endurance model across active canon: roughly four hours is a capability ceiling to support without drift or quality degradation, not a duration, call, waypoint, or scope floor. Shorter correct missions pass and stop; they may leave the unobserved upper range insufficiently evidenced. Historical adjudication records remain unchanged, and `V3-OP-003` remains `NO PROMOTION YET`.
+- Reconciled active next-step and status pointers after the Mission 026 mission-control template/fixture work. The passive claim-to-proof audit and explicit FP/FN adjudication now precede optional mission-record shape hardening.
+
 ## 2026-06-04
 
 - Updated Adaptive Mission Control to v0.2 and synced the standalone bootstrap templates: Budget State now uses command-sourced timestamps or git-derived durations instead of model-estimated minutes, records tool-call counts and rate-limit window notes, and adds Tier 1 pre-resolved decisions, Tier 2 resolve-and-log decisions, and Tier 3 human decision interrupts. Research-only/non-enforcing; no profile approval, default-mode, required-gate, routing, runtime-authority, Telegram, validator, dependency, or V2-removal change.

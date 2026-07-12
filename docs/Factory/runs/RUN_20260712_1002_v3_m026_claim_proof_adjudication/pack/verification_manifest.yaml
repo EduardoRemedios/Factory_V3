@@ -1,0 +1,97 @@
+schema_version: 1
+run_id: RUN_20260712_1002_v3_m026_claim_proof_adjudication
+sprint_id: SPRINT_20260712_1002_V3_M026_CLAIM_PROOF_ADJUDICATION
+execution_mode: EXECUTION_ENABLED
+
+checks:
+  - id: VM-001
+    tier: V4
+    type: source_revalidation
+    constraint_ids:
+      - C-002
+      - H-001
+    description: Confirm the POC source commits are readable without mutating the source repository.
+    target: /Users/eduardodosremedios/V3_POC_App_Creation/.git
+    command: git -C /Users/eduardodosremedios/V3_POC_App_Creation cat-file -e 404a32a^{commit}
+    expected: Command exits 0 and source status is recorded before and after replay.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/poc_source_identity.txt
+
+  - id: VM-002
+    tier: V4
+    type: command
+    constraint_ids:
+      - H-001
+      - M-001
+    description: Create an isolated local clone for exact-commit replay.
+    command: git clone --no-hardlinks /Users/eduardodosremedios/V3_POC_App_Creation /tmp/factory_v3_m026_audit_20260712
+    expected: Clone succeeds without modifying the source POC.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/poc_clone.txt
+
+  - id: VM-003
+    tier: V4
+    type: command
+    constraint_ids:
+      - H-001
+    description: Detach the replay clone at Mission 026 closeout.
+    command: git checkout --detach 404a32a
+    expected: Replay clone HEAD is 404a32a.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/poc_checkout.txt
+
+  - id: VM-004
+    tier: V2
+    type: test
+    constraint_ids:
+      - H-005
+    description: Replay focused Mission 026 coherence tests.
+    command: python3 -B -m unittest tests.test_mission_026_coherence tests.test_mission_022_recommendations tests.test_mission_022_reports tests.test_mission_023_quality_reports
+    expected: Focused suite exits 0 with test count recorded.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/m026_focused_tests.txt
+
+  - id: VM-005
+    tier: V3
+    type: test
+    constraint_ids:
+      - H-005
+    description: Replay the complete POC test suite.
+    command: python3 -B -m unittest discover -s tests
+    expected: Full suite exits 0 with test count recorded.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/m026_full_tests.txt
+
+  - id: VM-006
+    tier: V2
+    type: command
+    constraint_ids:
+      - H-005
+    description: Replay Mission 026 QA and verifier.
+    command: python3 -B scripts/verify_mission_026.py
+    expected: Verifier exits 0 with PASS.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/m026_verifier.txt
+
+  - id: VM-007
+    tier: V1
+    type: command
+    constraint_ids:
+      - H-006
+    description: Parse the final Mission 026 record.
+    command: python3 -m json.tool .factory-v3/evidence/MISSION_026_RECORD.json
+    expected: JSON parses; stale commit_after remains visible for classification.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/m026_record_parse.txt
+
+  - id: VM-008
+    tier: V3
+    type: command
+    constraint_ids:
+      - C-001
+      - H-008
+    description: Validate Factory V3 knowledge and diff integrity after audit updates.
+    command: bash scripts/knowledge_lint.sh
+    expected: Knowledge lint exits 0.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/factory_knowledge_lint.txt

@@ -16,11 +16,13 @@ This folder does not approve rung-3 execution, `V3-OP-003` promotion, runtime au
 | `RUNG3_OPTION_A_EXECUTION_ENVELOPE_20260702.md` | Concrete non-executing Option A rung-3 candidate execution envelope for the POC repository. |
 | `RUNG3_OPTION_A_CHALLENGE_REVIEW_20260702.md` | Challenge pass over the concrete Option A execution envelope. |
 | `RUNG3_OPTION_A_POST_RUN_EVIDENCE_REVIEW_20260702.md` | Classifies POC Mission 026 post-run evidence and records why it informs mission-control design without promoting `V3-OP-003`. |
+| `MISSION_026_CLAIM_TO_PROOF_AUDIT_20260712.md` | Replays Mission 026 at commit `404a32a`, grades material claims, and records evidence limits and contradictions. |
+| `MISSION_026_FP_FN_ADJUDICATION_20260712.md` | Applies fixed FP/FN definitions, maps decision-pack items 1-5, and retains `NO PROMOTION YET`. |
 
 ## Current Result
 
 Formation advanced from scope selection to a concrete Option A envelope, and the sponsor later approved execution in the POC repository. POC Mission 026 completed at commit `404a32a` and produced mission-control design-transfer evidence.
 
-Current readiness: `POST_RUN_REVIEW_COMPLETE`.
+Current readiness: `CLAIM_AUDIT_AND_CURRENT_CORPUS_ADJUDICATION_COMPLETE`.
 
-Next useful work is advisory mission-control template/fixture work, passive claim-to-proof audit over Mission 026, and explicit `NO PROMOTION YET` adjudication against `V3_OP_003_DECISION_PACK.md`. `V3-OP-003` promotion, real-data use, live integration, scheduler/background behavior, deployment, required gate, runtime authority, or Factory V2 removal is not approved by these artifacts.
+The mission-control template, lint, and initial fixtures now exist. The Mission 026 claim audit reproduces the bounded implementation while identifying stale final-commit state, same-actor verification limits, and one clipped final mobile artifact. The current-corpus FP/FN review is complete; optional backward-compatible advisory record-shape work is the next decision. Roughly four hours is an endurance ceiling, not a minimum mission duration, and no future mission may be padded to create exposure. `V3-OP-003` remains `NO PROMOTION YET`; real-data use, live integration, scheduler/background behavior, deployment, required gates, runtime authority, or Factory V2 removal is not approved by these artifacts.
