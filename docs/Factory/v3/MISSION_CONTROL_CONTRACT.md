@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.4
+v0.5
 
 ## Change Log
+- v0.5 (2026-07-12): Implemented the narrow optional mission-record evidence-integrity shape for observation provenance, verifier provenance, per-artifact visual evidence, bounded boundary claims, and completed-record commit consistency. All support remains advisory, backward-compatible, and non-blocking; endurance/exposure fields remain deferred.
 - v0.4 (2026-07-12): Reordered advisory backlog work so Mission 026 claim-to-proof evidence informs optional mission-record fields; removed completed template/fixture work from the active next-step sequence.
 - v0.3 (2026-07-07): Added the initial advisory mission-control contract template, standalone advisory lint, and deterministic fixtures for next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, and session-memory-only re-entry.
 - v0.2 (2026-07-07): Added loop-library-derived governance primitives to the advisory roadmap backlog: next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, loop auditability, direct-source audit, mission formation, and claim-to-proof mapping. This is primitive absorption, not named loop adoption.
@@ -169,8 +170,8 @@ Non-transferable or insufficient:
    - Acceptance: covers mission envelope, authority envelope, loop admission, next-action gate, checkpoints, interrupts, safe-hold, re-entry, evidence, independent verification, and worker interface.
 
 2. Mission-record schema candidate:
-   - Add advisory fields for `mission_control`, `loop_admission`, `next_action_gate`, `requirement_to_evidence`, `independent_verification`, `safe_hold_events`, `worker_reentry`, `restartable_handoff`, and `claim_to_proof`.
-   - Acceptance: existing records remain valid; new fields are optional and advisory.
+   - Status: the first narrow advisory implementation exists in `MISSION_RECORD_DESIGN_V0.md`, `templates/V3_MISSION_RECORD_TEMPLATE.json`, and `scripts/factory_v3_mission_record_lint.py` for verification observations, verifier provenance, per-artifact visual evidence, bounded boundary claims, and completed-record `commit_after` consistency.
+   - Acceptance: existing records remain valid; new fields are optional and advisory; visual failure remains valid evidence rather than a malformed-record finding; endurance/exposure fields remain deferred pending natural evidence.
 
 3. Advisory fixtures:
    - Status: initial deterministic fixtures exist under `tests/fixtures/factory_v3_mission_control_contract/`.
@@ -206,10 +207,9 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. passive claim-to-proof audit over Mission 026,
-2. explicit `NO PROMOTION YET` adjudication and FP/FN review,
-3. optional mission-record shape candidates informed by the audit,
-4. optional validator support with backward-compatible fixtures,
-5. then only later consider read-only Codex SDK/MCP orchestration discovery.
+1. use the optional evidence-integrity fields on the next two or three suitable, separately approved mission records and record authoring friction and false-positive/false-negative observations,
+2. add concrete mission-state/re-entry examples that exercise current-state checks, last-safe-checkpoint recovery, and one safe next action,
+3. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work,
+4. then only later consider read-only Codex SDK/MCP orchestration discovery.
 
 Do not start runtime orchestration or scheduled execution from this document.

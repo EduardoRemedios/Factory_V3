@@ -18,6 +18,21 @@ ENVELOPE_MODES = {"not_created_pre_envelope_fallback", "thread_local", "file_art
 VERIFICATION_RESULTS = {"pass", "fail", "not_run", "not_applicable"}
 REVIEW_RESULTS = {"pass", "fail", "not_applicable"}
 KERNEL_VALUES = {"yes", "no", "unknown"}
+VERIFICATION_OBSERVATION_KINDS = {"original_run", "replay", "post_run_audit"}
+ACTOR_RELATIONSHIPS = {"different_actor", "same_actor", "unknown"}
+SESSION_RELATIONSHIPS = {"different_session", "same_session", "unknown"}
+INDEPENDENCE_STATUSES = {"independent", "deterministic_separation_only", "not_independent", "unknown"}
+HASH_VERDICTS = {"match", "mismatch", "not_checked", "not_applicable"}
+VISUAL_VERDICTS = {"pass", "fail", "limited", "not_checked", "not_applicable"}
+BOUNDARY_PROOF_STATUSES = {"PROVED", "WEAK", "MISSING", "CONTRADICTED"}
+BOUNDARY_PROOF_SCOPES = {
+    "change_range",
+    "repository_static",
+    "runtime_trace",
+    "artifact_only",
+    "self_attested",
+    "unknown",
+}
 SCHEMA_FACTORY_V3_SHADOW = "factory_v3_shadow_v0_1"
 SCHEMA_POC_STANDALONE = "poc_standalone_v0_1"
 SCHEMA_POC_STANDALONE_AMC = "poc_standalone_v0_1_amc"
@@ -218,6 +233,7 @@ def _lint_record(path: Path, data: Any, schema_id: str) -> list[dict[str, str]]:
 
     findings.extend(_check_approval_scope(path_text, record.get("approval_scope")))
     findings.extend(_check_mission(path_text, mission))
+    findings.extend(_check_commit_after(path_text, mission, decision_state))
     findings.extend(_check_authority(path_text, authority, decision_state))
     findings.extend(_check_execution(path_text, authority, execution, decision_state))
     findings.extend(_check_reviews(path_text, reviews))
@@ -629,6 +645,9 @@ def _check_execution(
             findings.append(_finding("V3-MR054", "advisory_critical", path, "completed V3 records must have passing verification"))
         if decision_state == "pre_envelope_fallback" and result == "pass" and files_changed:
             findings.append(_finding("V3-MR055", "advisory_critical", path, "pre-envelope fallback cannot report changed files with passing verification"))
+        findings.extend(_check_verification_observations(path, verification.get("observations")))
+
+    findings.extend(_check_visual_evidence(path, execution.get("visual_evidence")))
 
     halt = execution.get("halt")
     fallback = execution.get("fallback")
@@ -653,6 +672,157 @@ def _check_reviews(path: str, reviews: dict[str, Any]) -> list[dict[str, str]]:
             continue
         if review.get("result") not in REVIEW_RESULTS:
             findings.append(_finding("V3-MR061", "advisory_critical", path, f"reviews.{key}.result is invalid or missing"))
+    findings.extend(_check_verifier_provenance(path, reviews.get("verifier_provenance")))
+    findings.extend(_check_boundary_claims(path, reviews.get("boundary_claims")))
+    return findings
+
+
+def _check_commit_after(path: str, mission: dict[str, Any], decision_state: Any) -> list[dict[str, str]]:
+    value = mission.get("commit_after")
+    if decision_state != "completed_with_v3" or not isinstance(value, str):
+        return []
+    normalized = value.strip().lower()
+    if re.search(r"(^|[_\-\s])(pending|placeholder|tbd|todo)([_\-\s]|$)", normalized):
+        return [
+            _finding(
+                "V3-MR085",
+                "advisory_critical",
+                path,
+                "completed records must not leave mission.commit_after as an unfinished placeholder",
+            )
+        ]
+    return []
+
+
+def _check_verification_observations(path: str, observations: Any) -> list[dict[str, str]]:
+    if observations is None:
+        return []
+    if not isinstance(observations, list):
+        return [_finding("V3-MR081", "advisory_critical", path, "execution.verification.observations must be a list when present")]
+
+    findings: list[dict[str, str]] = []
+    for index, observation in enumerate(observations):
+        valid = isinstance(observation, dict)
+        if valid:
+            valid = (
+                observation.get("source_kind") in VERIFICATION_OBSERVATION_KINDS
+                and _nonempty_string(observation.get("captured_date"))
+                and _nonempty_string(observation.get("actor_ref"))
+                and _nonempty_string(observation.get("session_ref"))
+                and _nonempty_string(observation.get("command_or_check_ref"))
+                and observation.get("result") in VERIFICATION_RESULTS
+                and isinstance(observation.get("evidence_refs"), list)
+                and bool(observation.get("evidence_refs"))
+                and observation.get("supersedes_original") is False
+            )
+        if not valid:
+            findings.append(
+                _finding(
+                    "V3-MR081",
+                    "advisory_critical",
+                    path,
+                    f"verification observation {index} is invalid or attempts to supersede original evidence",
+                )
+            )
+    return findings
+
+
+def _check_visual_evidence(path: str, visual_evidence: Any) -> list[dict[str, str]]:
+    if visual_evidence is None:
+        return []
+    if not isinstance(visual_evidence, list):
+        return [_finding("V3-MR083", "advisory_critical", path, "execution.visual_evidence must be a list when present")]
+
+    findings: list[dict[str, str]] = []
+    for index, item in enumerate(visual_evidence):
+        valid = isinstance(item, dict)
+        if valid:
+            digest = item.get("sha256")
+            digest_valid = digest == "not_recorded" or (
+                isinstance(digest, str) and re.fullmatch(r"[0-9a-fA-F]{64}", digest) is not None
+            )
+            valid = (
+                _nonempty_string(item.get("artifact_ref"))
+                and digest_valid
+                and item.get("hash_verdict") in HASH_VERDICTS
+                and item.get("visual_verdict") in VISUAL_VERDICTS
+                and _nonempty_string(item.get("viewport"))
+                and _nonempty_string(item.get("reviewer_actor_ref"))
+                and _nonempty_string(item.get("reviewed_date"))
+                and isinstance(item.get("findings"), list)
+            )
+        if not valid:
+            findings.append(
+                _finding("V3-MR083", "advisory_critical", path, f"visual evidence item {index} is malformed")
+            )
+    return findings
+
+
+def _check_verifier_provenance(path: str, provenance: Any) -> list[dict[str, str]]:
+    if provenance is None:
+        return []
+    if not isinstance(provenance, dict):
+        return [_finding("V3-MR082", "advisory_critical", path, "reviews.verifier_provenance must be an object when present")]
+
+    actor_relationship = provenance.get("actor_relationship")
+    session_relationship = provenance.get("session_relationship")
+    independence_status = provenance.get("independence_status")
+    valid = (
+        _nonempty_string(provenance.get("builder_actor_ref"))
+        and _nonempty_string(provenance.get("verifier_actor_ref"))
+        and actor_relationship in ACTOR_RELATIONSHIPS
+        and session_relationship in SESSION_RELATIONSHIPS
+        and independence_status in INDEPENDENCE_STATUSES
+        and isinstance(provenance.get("evidence_refs"), list)
+        and isinstance(provenance.get("unresolved_gap"), str)
+    )
+    overclaims_independence = independence_status == "independent" and (
+        actor_relationship == "same_actor" or session_relationship == "same_session"
+    )
+    if not valid or overclaims_independence:
+        return [
+            _finding(
+                "V3-MR082",
+                "advisory_critical",
+                path,
+                "verifier provenance is invalid or overclaims independence",
+            )
+        ]
+    return []
+
+
+def _check_boundary_claims(path: str, claims: Any) -> list[dict[str, str]]:
+    if claims is None:
+        return []
+    if not isinstance(claims, list):
+        return [_finding("V3-MR084", "advisory_critical", path, "reviews.boundary_claims must be a list when present")]
+
+    findings: list[dict[str, str]] = []
+    for index, claim in enumerate(claims):
+        valid = isinstance(claim, dict)
+        if valid:
+            proof_status = claim.get("proof_status")
+            proof_scope = claim.get("proof_scope")
+            evidence_refs = claim.get("evidence_refs")
+            limit = claim.get("limit")
+            valid = (
+                _nonempty_string(claim.get("claim"))
+                and proof_status in BOUNDARY_PROOF_STATUSES
+                and proof_scope in BOUNDARY_PROOF_SCOPES
+                and isinstance(evidence_refs, list)
+                and isinstance(limit, str)
+            )
+            if valid and proof_status == "PROVED":
+                valid = bool(evidence_refs) and _nonempty_string(limit) and proof_scope not in {"self_attested", "unknown"}
+        if not valid:
+            findings.append(
+                _finding(
+                    "V3-MR084",
+                    "advisory_critical",
+                    path,
+                    f"boundary claim {index} is invalid or lacks bounded proof evidence",
+                )
+            )
     return findings
 
 

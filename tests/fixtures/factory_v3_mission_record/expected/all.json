@@ -2,12 +2,16 @@
   "blocking_effect": "none",
   "checked_records": [
     "tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json",
+    "tests/fixtures/factory_v3_mission_record/fixture_evidence_integrity_optional.json",
     "tests/fixtures/factory_v3_mission_record/fixture_halted_stale_reentry.json",
     "tests/fixtures/factory_v3_mission_record/fixture_halted_verification_failure.json",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/boundary_proved_without_limit.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/completed_with_placeholder_commit.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/evidence_observation_supersedes_original.json",
     "tests/fixtures/factory_v3_mission_record/invalid/fallback_used_no_reason_code.json",
     "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json",
     "tests/fixtures/factory_v3_mission_record/invalid/halted_without_halt_flag.json",
@@ -18,6 +22,7 @@
     "tests/fixtures/factory_v3_mission_record/invalid/thread_local_envelope_without_reference.json",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_approval_scope.json",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_authorized_path.json",
+    "tests/fixtures/factory_v3_mission_record/invalid/verifier_same_actor_claims_independent.json",
     "tests/fixtures/factory_v3_mission_record/trial_001_pre_envelope_no_bounded_code.json",
     "tests/fixtures/factory_v3_mission_record/trial_002_pre_envelope_placeholders.json",
     "tests/fixtures/factory_v3_mission_record/trial_003_harmony_faq_ingestion.json",
@@ -30,12 +35,16 @@
   ],
   "checked_schema_versions": {
     "tests/fixtures/factory_v3_mission_record/fixture_blocked_missing_authority.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/fixture_evidence_integrity_optional.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/fixture_halted_stale_reentry.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/fixture_halted_verification_failure.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_changed_files.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_passing_verification.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/blocked_without_fallback.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/boundary_proved_without_limit.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/completed_with_placeholder_commit.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/evidence_observation_supersedes_original.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/fallback_used_no_reason_code.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/halted_with_passing_verification.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/halted_without_halt_flag.json": "factory_v3_shadow_v0_1",
@@ -46,6 +55,7 @@
     "tests/fixtures/factory_v3_mission_record/invalid/thread_local_envelope_without_reference.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_approval_scope.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/invalid/unsafe_authorized_path.json": "factory_v3_shadow_v0_1",
+    "tests/fixtures/factory_v3_mission_record/invalid/verifier_same_actor_claims_independent.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/trial_001_pre_envelope_no_bounded_code.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/trial_002_pre_envelope_placeholders.json": "factory_v3_shadow_v0_1",
     "tests/fixtures/factory_v3_mission_record/trial_003_harmony_faq_ingestion.json": "factory_v3_shadow_v0_1",
@@ -151,6 +161,30 @@
       "id": "V3-MR080",
       "message": "blocked records must not mark halt.halted true",
       "path": "tests/fixtures/factory_v3_mission_record/invalid/blocked_with_halt_flag.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR081",
+      "message": "verification observation 0 is invalid or attempts to supersede original evidence",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/evidence_observation_supersedes_original.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR082",
+      "message": "verifier provenance is invalid or overclaims independence",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/verifier_same_actor_claims_independent.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR084",
+      "message": "boundary claim 0 is invalid or lacks bounded proof evidence",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/boundary_proved_without_limit.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-MR085",
+      "message": "completed records must not leave mission.commit_after as an unfinished placeholder",
+      "path": "tests/fixtures/factory_v3_mission_record/invalid/completed_with_placeholder_commit.json",
       "severity": "advisory_critical"
     },
     {

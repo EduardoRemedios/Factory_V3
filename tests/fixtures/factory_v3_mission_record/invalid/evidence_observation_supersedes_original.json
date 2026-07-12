@@ -1,0 +1,7 @@
+{
+  "record": {"schema_version": "v0.1-shadow", "record_type": "factory_v3_mission_record", "status": "research_only_non_enforcing", "profile_id": "V3-OP-001", "decision_state": "completed_with_v3", "approval_scope": {"factory_v3_default_approved": false, "new_v3_profile_approved": false, "required_gate_integration_approved": false, "runtime_authority_approved": false, "factory_v2_fallback_retained": true}},
+  "mission": {"repository": "Factory_V3", "commit_after": "same_commit", "coding_harness": "Codex", "objective": "Reject replay supersession.", "envelope": {"mode": "file_artifact", "reference": "fixture", "not_created_reason": ""}, "separate_governance_kernel_present": "no"},
+  "authority": {"authorized_files": ["src/example.py"], "allowed_commands": ["python3 -m unittest"], "v2_fallback_required": true, "fallback_triggers": ["verification failure"]},
+  "execution": {"files_changed": ["src/example.py"], "verification": {"commands": ["python3 -m unittest"], "result": "pass", "observations": [{"source_kind": "replay", "captured_date": "2026-07-12", "actor_ref": "auditor", "session_ref": "audit_session", "command_or_check_ref": "python3 -m unittest", "result": "pass", "evidence_refs": ["artifacts/replay.txt"], "supersedes_original": true}]}, "halt": {"halted": false, "reason_codes": []}, "fallback": {"used": false, "reason_codes": []}},
+  "reviews": {"simple_code_gate": {"result": "pass"}, "fallback_halt_review": {"result": "pass"}}
+}

@@ -1,9 +1,10 @@
 # Factory v3 Mission Record Design v0
 
 ## Version
-v0.9
+v0.10
 
 ## Change Log
+- v0.10 (2026-07-12): Added optional evidence-integrity fields for original/replay verification observations, verifier provenance, per-artifact visual evidence, and bounded boundary claims. Clarified completed-record final-commit consistency while preserving `same_commit`, `not_recorded`, existing records, and advisory-only behavior. Endurance fields remain deferred.
 - v0.9 (2026-06-10): Added the `same_commit` convention for `commit_after` so records committed with their mission's changes do not need a hash-stamping follow-up commit.
 - v0.8 (2026-06-10): Added model-identity recording guidance and an optional `model_routing` template field under the mutable-harness-state principle; new records should record model identity when the harness exposes it, retiring reliance on the Phase 3 missing-model-identity acceptability note.
 - v0.7 (2026-06-08): Added nested standalone POC safety-flag checks for optional real-data, synthetic-only, live-integration, and dependency-use claims, with malformed fixture coverage.
@@ -98,6 +99,39 @@ Phase 1 produced `pre_envelope_fallback` and `completed_with_v3` records. Phase 
 - A mission record must preserve whether V2 fallback was used or retained.
 - A mission record should record model identity when the harness exposes it; `not_recorded` remains valid only where the harness does not expose model identity, and the gap stays explicit.
 - When a record is committed in the same commit as its mission's changes, `commit_after` should be the literal `same_commit`; replay resolves the hash as the commit that introduced the record file (for example `git log --diff-filter=A -- <record path>`). Stamping a real hash in a follow-up commit remains valid for backfilled records.
+- A completed record must not leave `commit_after` as an explicit unfinished placeholder such as `pending_final_commit`, `placeholder`, `tbd`, or `todo`. `not_recorded` remains valid for historical or unavailable evidence and carries an explicit evidence limitation; it is not treated as a placeholder.
+
+## Optional Evidence-Integrity Fields
+
+These additions are optional. Their absence does not change the validity, status, or findings of an existing record.
+
+### Verification observations
+
+`execution.verification.observations` distinguishes original-run summaries from later replay or post-run audit observations. Each observation records a bounded source kind, date, coarse actor/session references, command or check reference, result, and external evidence references. `supersedes_original` must remain `false`; replay adds provenance and never overwrites the original-run claim.
+
+Allowed source kinds are `original_run`, `replay`, and `post_run_audit`. Records should reference output artifacts rather than embed raw logs, transcripts, or vendor-private cognition state.
+
+### Verifier provenance
+
+`reviews.verifier_provenance` records coarse builder/verifier references, actor and session relationships, independence status, evidence references, and any unresolved gap. Allowed independence states are `independent`, `deterministic_separation_only`, `not_independent`, and `unknown`.
+
+Different scripts do not prove actor independence. A same-actor or same-session review must not claim `independent`; deterministic same-worker checks should use `deterministic_separation_only` where supported by evidence.
+
+### Visual evidence
+
+`execution.visual_evidence` records one item per reviewed artifact. Hash identity and visual correctness are separate fields. A hash may match while `visual_verdict` is `fail` or `limited`; that is valid evidence and must not be collapsed into a general PASS.
+
+Allowed hash verdicts are `match`, `mismatch`, `not_checked`, and `not_applicable`. Allowed visual verdicts are `pass`, `fail`, `limited`, `not_checked`, and `not_applicable`.
+
+### Boundary claims
+
+`reviews.boundary_claims` binds a negative or safety-boundary claim to `PROVED`, `WEAK`, `MISSING`, or `CONTRADICTED`, a proof scope, evidence references, and an explicit limit. Allowed proof scopes are `change_range`, `repository_static`, `runtime_trace`, `artifact_only`, `self_attested`, and `unknown`.
+
+A supplied `PROVED` claim requires non-empty evidence and a non-empty limit, and cannot rely only on `self_attested` or `unknown` scope. A change-range or static-repository claim must not be restated as global runtime absence.
+
+### Deferred endurance fields
+
+Mission result remains `record.decision_state`. Observed exposure and upper-envelope endurance coverage remain in authored checkpoints, closeouts, and decision packs until natural sustained missions establish a stable profile-specific need. This base `V3-OP-001` record adds no duration, call, waypoint, test, file, or scope floor.
 
 ## Model Identity And Mutable Harness State
 
