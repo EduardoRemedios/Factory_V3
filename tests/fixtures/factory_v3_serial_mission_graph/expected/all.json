@@ -1,0 +1,182 @@
+{
+  "blocking_effect": "none",
+  "checked_graphs": [
+    "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+    "tests/fixtures/factory_v3_serial_mission_graph/valid_serial_graph.json"
+  ],
+  "findings": [
+    {
+      "id": "V3-SG015",
+      "message": "unsafe approval flag must be false: concurrent_execution_approved",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG015",
+      "message": "unsafe approval flag must be false: factory_v3_default_approved",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG015",
+      "message": "unsafe approval flag must be false: worker_dispatch_approved",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG040",
+      "message": "graph_policy.child_authority_must_be_subset must be True",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG040",
+      "message": "graph_policy.cycle_policy must be 'reject'",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG040",
+      "message": "graph_policy.dependency_policy must be 'all_dependencies_completed'",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG040",
+      "message": "graph_policy.execution_mode must be 'serial'",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG040",
+      "message": "graph_policy.failure_policy must be 'safe_hold_parent'",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG040",
+      "message": "graph_policy.max_active_children must be 1",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG040",
+      "message": "graph_policy.scope_expansion_requires_human must be True",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG050",
+      "message": "authored mission state must remain the source of truth",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG051",
+      "message": "eligibility cursor must be derived",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG052",
+      "message": "session_memory_sufficient must be false",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG072",
+      "message": "child dependency graph contains a cycle",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG073",
+      "message": "serial graph has multiple active children: feature-a, feature-b",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG074",
+      "message": "child is ready before dependencies complete: feature-b",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[feature-a]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG074",
+      "message": "child is ready before dependencies complete: feature-a",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[feature-b]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG075",
+      "message": "child start is authorized before dependencies complete",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[feature-a]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG075",
+      "message": "child start is authorized before dependencies complete",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[feature-b]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG077",
+      "message": "serial graph authorizes multiple child starts: feature-a, feature-b",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG085",
+      "message": "child path exceeds parent authority ceiling: secrets/production.env",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG086",
+      "message": "child command exceeds parent authority ceiling: rm -rf production",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG087",
+      "message": "child external_effects_allowed must be false",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG093",
+      "message": "worker_actor and verifier_actor must be different",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG094",
+      "message": "verification command exceeds child authority: python3 -m unittest discover -s tests",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG102",
+      "message": "WEAK child evidence requires unresolved_gap",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json:children[2]",
+      "severity": "advisory_critical"
+    },
+    {
+      "id": "V3-SG135",
+      "message": "parent completed before required children: feature-a, feature-b",
+      "path": "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "severity": "advisory_critical"
+    }
+  ],
+  "generated_at": "not_recorded",
+  "recommended_next_steps": [
+    "Review serial mission-graph findings manually; this report is advisory and non-blocking.",
+    "Repair dependency, authority, verification, evidence, or completion contradictions before using the graph as mission guidance.",
+    "Do not dispatch workers or wire graph checks into required gates without separate approval."
+  ],
+  "record_scope": "serial_mission_graph_advisory",
+  "report_id": "factory-v3-serial-mission-graph-lint",
+  "status": "ADVISORY_FAIL_NON_BLOCKING",
+  "target": "tests/fixtures/factory_v3_serial_mission_graph",
+  "warnings": []
+}

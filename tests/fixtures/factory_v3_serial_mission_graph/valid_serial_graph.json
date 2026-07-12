@@ -1,0 +1,150 @@
+{
+  "record": {
+    "record_type": "factory_v3_serial_mission_graph",
+    "schema_version": "v0.1-serial-mission-graph",
+    "status": "research_only_non_enforcing",
+    "graph_id": "V3-SG-FIXTURE-VALID-001",
+    "created_at": "2026-07-12",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "scheduled_or_unattended_execution_approved": false,
+      "governance_routing_approved": false,
+      "worker_dispatch_approved": false,
+      "concurrent_execution_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "parent_mission": {
+    "mission_id": "EPIC-FIXTURE-001",
+    "objective": "Validate a serial three-feature mission graph.",
+    "success_criteria": ["All required children pass bounded verification."],
+    "non_goals": ["Do not dispatch workers."],
+    "sponsor_approval_source": "Fixture-only research approval.",
+    "status": "active"
+  },
+  "authority_ceiling": {
+    "authorized_paths": ["src/epic", "tests/epic"],
+    "forbidden_paths": ["production secrets", "deployment"],
+    "allowed_commands": ["python3 -m unittest discover -s tests", "python3 scripts/verify_epic.py"],
+    "approval_gates": ["scope expansion", "dependency change", "external effect"],
+    "external_effects_allowed": false
+  },
+  "graph_policy": {
+    "execution_mode": "serial",
+    "max_active_children": 1,
+    "dependency_policy": "all_dependencies_completed",
+    "cycle_policy": "reject",
+    "failure_policy": "safe_hold_parent",
+    "child_authority_must_be_subset": true,
+    "scope_expansion_requires_human": true
+  },
+  "state_policy": {
+    "authored_state_is_source_of_truth": true,
+    "eligibility_cursor_is_derived": true,
+    "session_memory_sufficient": false,
+    "authored_state_ref": ".factory-v3/missions/EPIC-FIXTURE-001/MISSION_STATE.json",
+    "event_log_ref": ".factory-v3/missions/EPIC-FIXTURE-001/EVENTS.jsonl",
+    "checkpoint_ref": ".factory-v3/missions/EPIC-FIXTURE-001/checkpoints/CP-002.json"
+  },
+  "children": [
+    {
+      "child_id": "feature-a",
+      "objective": "Implement feature A.",
+      "required": true,
+      "dependencies": [],
+      "status": "completed",
+      "worker_actor": "implementation_worker_a",
+      "success_criteria": ["Feature A tests pass."],
+      "authority": {
+        "authorized_paths": ["src/epic/a", "tests/epic/a"],
+        "forbidden_paths": ["src/epic/b"],
+        "allowed_commands": ["python3 -m unittest discover -s tests"],
+        "external_effects_allowed": false
+      },
+      "verification": {
+        "required_commands": ["python3 -m unittest discover -s tests"],
+        "verifier_actor": "verification_worker_a",
+        "result": "pass"
+      },
+      "evidence": {
+        "status": "PROVED",
+        "evidence_refs": ["evidence/feature-a-verification.json"],
+        "unresolved_gap": ""
+      },
+      "continuation_gate": {
+        "gate_result": "close",
+        "authorized_to_start": false,
+        "authority_basis": "Feature A is complete and closed."
+      }
+    },
+    {
+      "child_id": "feature-b",
+      "objective": "Implement feature B after feature A.",
+      "required": true,
+      "dependencies": ["feature-a"],
+      "status": "eligible",
+      "worker_actor": "implementation_worker_b",
+      "success_criteria": ["Feature B tests pass."],
+      "authority": {
+        "authorized_paths": ["src/epic/b", "tests/epic/b"],
+        "forbidden_paths": ["src/epic/a"],
+        "allowed_commands": ["python3 -m unittest discover -s tests"],
+        "external_effects_allowed": false
+      },
+      "verification": {
+        "required_commands": ["python3 -m unittest discover -s tests"],
+        "verifier_actor": "verification_worker_b",
+        "result": "not_run"
+      },
+      "evidence": {
+        "status": "MISSING",
+        "evidence_refs": [],
+        "unresolved_gap": "Feature B has not started."
+      },
+      "continuation_gate": {
+        "gate_result": "continue",
+        "authorized_to_start": true,
+        "authority_basis": "Feature A is complete and the parent contract admits feature B."
+      }
+    },
+    {
+      "child_id": "feature-c",
+      "objective": "Implement feature C after feature B.",
+      "required": true,
+      "dependencies": ["feature-b"],
+      "status": "pending",
+      "worker_actor": "implementation_worker_c",
+      "success_criteria": ["Feature C tests pass."],
+      "authority": {
+        "authorized_paths": ["src/epic/c", "tests/epic/c"],
+        "forbidden_paths": ["src/epic/a", "src/epic/b"],
+        "allowed_commands": ["python3 -m unittest discover -s tests"],
+        "external_effects_allowed": false
+      },
+      "verification": {
+        "required_commands": ["python3 -m unittest discover -s tests"],
+        "verifier_actor": "verification_worker_c",
+        "result": "not_run"
+      },
+      "evidence": {
+        "status": "MISSING",
+        "evidence_refs": [],
+        "unresolved_gap": "Feature B is incomplete."
+      },
+      "continuation_gate": {
+        "gate_result": "wait",
+        "authorized_to_start": false,
+        "authority_basis": "Feature B must complete first."
+      }
+    }
+  ],
+  "parent_closeout": {
+    "require_all_required_children_complete": true,
+    "parent_verification_required": true,
+    "parent_verification_result": "not_run",
+    "claim_to_proof_required": true
+  }
+}

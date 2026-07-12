@@ -1,0 +1,231 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-07-12",
+    "source_trial_id": "MR_20260712_032_serial_mission_graph_contract",
+    "source_trial_path": "docs/Factory/v3/mission_records/MR_20260712_032_serial_mission_graph_contract.json",
+    "source_closeout_reference": "Thread-local sponsor-approved V3-MC-EPIC-001 mission implementing the advisory serial mission-graph contract and validator.",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "8fbd2399904c479f55c29540089e6c172d6ad1f7",
+    "commit_after": "not_recorded",
+    "user_or_reviewer": "Eduardo dos Remedios",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "model_routing": {
+      "router_enabled": "unknown",
+      "observed_models": []
+    },
+    "objective": "Implement a research-only serial parent/child mission-graph contract, advisory validator, deterministic fixtures, focused tests, and canonical roadmap placement without worker dispatch or runtime authority.",
+    "envelope": {
+      "mode": "thread_local",
+      "reference": "User approved the candidate V3-MC-EPIC-001 Serial Mission Graph Contract mission with 'Proceed'.",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": [
+      "AGENTS.md",
+      "README.md",
+      "docs/CHANGELOG.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/SERIAL_MISSION_GRAPH_CONTRACT.md",
+      "docs/Factory/v3/templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json",
+      "docs/Factory/v3/mission_records/MR_20260712_032_serial_mission_graph_contract.json",
+      "scripts/factory_v3_serial_mission_graph_lint.py",
+      "tests/fixtures/factory_v3_serial_mission_graph/README.md",
+      "tests/fixtures/factory_v3_serial_mission_graph/valid_serial_graph.json",
+      "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "tests/fixtures/factory_v3_serial_mission_graph/expected/all.json",
+      "tests/test_factory_v3_serial_mission_graph_lint.py"
+    ],
+    "forbidden_scope": [
+      "no worker dispatch or Codex SDK integration",
+      "no concurrent or unattended execution",
+      "no persistent operational state kernel",
+      "no required-gate or CI integration",
+      "no runtime authority or governance routing",
+      "no V3 profile promotion or V2 scaffolding removal"
+    ],
+    "allowed_commands": [
+      "read/search/status commands",
+      "python3 -m unittest discover -s tests",
+      "bash scripts/knowledge_lint.sh",
+      "./scripts/factoryctl context-index",
+      "python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --json",
+      "python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json",
+      "python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json",
+      "python3 scripts/factory_v3_telemetry_replay_lint.py --target tests/fixtures/factory_v3_telemetry_replay --expect tests/fixtures/factory_v3_telemetry_replay/expected/all.json --json",
+      "python3 scripts/factory_v3_loop_contract_lint.py --target tests/fixtures/factory_v3_loop_contract --expect tests/fixtures/factory_v3_loop_contract/expected/all.json --json",
+      "python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json",
+      "python3 scripts/factory_v3_serial_mission_graph_lint.py --target tests/fixtures/factory_v3_serial_mission_graph --expect tests/fixtures/factory_v3_serial_mission_graph/expected/all.json --json",
+      "python3 -m py_compile scripts/factory_v3_*.py",
+      "git diff --check"
+    ],
+    "dependency_policy": "No new dependencies allowed.",
+    "v2_fallback_required": true,
+    "fallback_triggers": [
+      "scope expands into worker dispatch, concurrency, runtime state mutation, or required enforcement",
+      "the graph creates a second mission-state source of truth",
+      "fixture output becomes nondeterministic",
+      "full repository verification fails"
+    ]
+  },
+  "execution": {
+    "files_changed": [
+      "AGENTS.md",
+      "README.md",
+      "docs/CHANGELOG.md",
+      "docs/PROJECT_STATE.md",
+      "docs/ROADMAP.md",
+      "docs/Factory/v3/ANCHOR_REGISTRY.md",
+      "docs/Factory/v3/MISSION_CONTROL_CONTRACT.md",
+      "docs/Factory/v3/README.md",
+      "docs/Factory/v3/ROADMAP_TO_FULL_VISION.md",
+      "docs/Factory/v3/SERIAL_MISSION_GRAPH_CONTRACT.md",
+      "docs/Factory/v3/templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json",
+      "docs/Factory/v3/mission_records/MR_20260712_032_serial_mission_graph_contract.json",
+      "scripts/factory_v3_serial_mission_graph_lint.py",
+      "tests/fixtures/factory_v3_serial_mission_graph/README.md",
+      "tests/fixtures/factory_v3_serial_mission_graph/valid_serial_graph.json",
+      "tests/fixtures/factory_v3_serial_mission_graph/invalid/invalid_serial_graph.json",
+      "tests/fixtures/factory_v3_serial_mission_graph/expected/all.json",
+      "tests/test_factory_v3_serial_mission_graph_lint.py"
+    ],
+    "verification": {
+      "commands": [
+        "python3 -m unittest discover -s tests",
+        "bash scripts/knowledge_lint.sh",
+        "all canonical Factory V3 advisory validator commands with pinned fixture expectations",
+        "python3 scripts/factory_v3_serial_mission_graph_lint.py --target docs/Factory/v3/templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json --json",
+        "python3 -m py_compile scripts/factory_v3_*.py",
+        "git diff --check"
+      ],
+      "result": "pass",
+      "summary": "Twelve repository tests pass, knowledge lint passes, canonical advisory fixture outputs remain pinned, the new template passes with zero findings, Python compilation passes, and diff whitespace checks pass.",
+      "observations": [
+        {
+          "source_kind": "original_run",
+          "captured_date": "2026-07-12",
+          "actor_ref": "codex_builder",
+          "session_ref": "current_mission_session",
+          "command_or_check_ref": "full repository verification command block",
+          "result": "pass",
+          "evidence_refs": ["thread-local command output; not persisted as a repository artifact"],
+          "supersedes_original": false
+        },
+        {
+          "source_kind": "replay",
+          "captured_date": "2026-07-12",
+          "actor_ref": "codex_builder",
+          "session_ref": "current_mission_session",
+          "command_or_check_ref": "focused serial graph tests and pinned fixture replay after invariant hardening",
+          "result": "pass",
+          "evidence_refs": ["thread-local replay output; not persisted as a repository artifact"],
+          "supersedes_original": false
+        }
+      ]
+    },
+    "visual_evidence": [],
+    "advisory_checks": [
+      {
+        "name": "factory_v3_advisory_lint.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_operational_readiness_eval.py",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      },
+      {
+        "name": "factory_v3_serial_mission_graph_lint.py template",
+        "result": "pass",
+        "classification": "ADVISORY_PASS"
+      }
+    ],
+    "halt": {
+      "halted": false,
+      "reason_codes": []
+    },
+    "fallback": {
+      "used": false,
+      "reason_codes": []
+    }
+  },
+  "reviews": {
+    "simple_code_gate": {
+      "result": "pass",
+      "notes": [
+        "The implementation is stdlib-only and follows existing standalone advisory validator patterns.",
+        "The final graph shape removes duplicate parent status and keeps eligibility cursors explicitly derived.",
+        "No dispatch, persistence service, scheduler, dependency, or required integration was added."
+      ]
+    },
+    "fallback_halt_review": {
+      "result": "pass",
+      "notes": [
+        "No fallback trigger fired; implementation remained inside research-only contract validation."
+      ]
+    },
+    "verifier_provenance": {
+      "builder_actor_ref": "codex_builder",
+      "verifier_actor_ref": "codex_builder",
+      "actor_relationship": "same_actor",
+      "session_relationship": "same_session",
+      "independence_status": "deterministic_separation_only",
+      "evidence_refs": ["pinned fixture output", "focused unit tests", "full repository verification"],
+      "unresolved_gap": "No distinct verifier actor or fresh session independently replayed the implementation."
+    },
+    "boundary_claims": [
+      {
+        "claim": "The mission did not add worker dispatch, concurrent execution, runtime authority, or required-gate wiring.",
+        "proof_status": "PROVED",
+        "proof_scope": "change_range",
+        "evidence_refs": ["git diff --name-status and implementation review"],
+        "limit": "This proves only the current mission change range, not global absence outside it."
+      },
+      {
+        "claim": "The serial mission graph is proven sufficient for a live multi-feature mission.",
+        "proof_status": "MISSING",
+        "proof_scope": "artifact_only",
+        "evidence_refs": [],
+        "limit": "Only deterministic contract and fixture evidence exists; no attended serial-epic pilot or worker dispatch occurred."
+      }
+    ],
+    "friction_notes": [
+      "The first closeout shape duplicated parent status and used an observation-shaped all-complete field for policy; source-of-truth review removed both before final verification."
+    ],
+    "false_positive_notes": [
+      "No unexpected findings were observed on the valid graph or public template."
+    ],
+    "false_negative_notes": [
+      "Final review found that multiple children could initially be start-authorized and verification commands could escape child command authority; both gaps now have checks and tests."
+    ]
+  },
+  "phase2_design_signals": [
+    "Serial epic governance needs a parent authority ceiling plus child-specific authority; a parent file set alone is too broad.",
+    "One-active-child validation is insufficient unless start authorization is also singular.",
+    "The next useful implementation is a pure deterministic authored-state transition kernel, not a worker dispatcher."
+  ]
+}

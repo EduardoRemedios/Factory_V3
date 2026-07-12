@@ -17,8 +17,9 @@ Purpose:
 9. `docs/Factory/v3/ANCHOR_REGISTRY.md`
 10. `docs/Factory/v3/USER_GUIDE.md`
 11. `docs/Factory/v3/MISSION_RECORD_DESIGN_V0.md`
-12. `docs/Factory/EXTERNAL_GOVERNANCE_KERNEL_BOUNDARY.md`
-13. Current V3 evidence under `docs/Factory/runs/` when a task references a run, decision, or profile.
+12. `docs/Factory/v3/SERIAL_MISSION_GRAPH_CONTRACT.md` when a task involves epic or multi-feature mission structure.
+13. `docs/Factory/EXTERNAL_GOVERNANCE_KERNEL_BOUNDARY.md`
+14. Current V3 evidence under `docs/Factory/runs/` when a task references a run, decision, or profile.
 
 ## 2) Canonical V2 Commands
 - Knowledge lint preflight: `bash scripts/knowledge_lint.sh`
@@ -37,6 +38,7 @@ Purpose:
 - V3 natural-language pilot eval: `python3 scripts/factory_v3_operational_readiness_eval.py --target docs/Factory/v3 --nl-pilot --json`
 - V3 mission-record lint: `python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --json`
 - V3 mission-control contract lint: `python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json`
+- V3 serial mission-graph lint: `python3 scripts/factory_v3_serial_mission_graph_lint.py --target tests/fixtures/factory_v3_serial_mission_graph --expect tests/fixtures/factory_v3_serial_mission_graph/expected/all.json --json`
 
 ## 4) Hard Guardrails
 - Use Factory V2 planning, lint, pack, and SIMPLE-CODE-GATE semantics to govern V3 repository changes when Factory-controlled planning is needed while V3 is still maturing.

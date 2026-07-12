@@ -1,9 +1,11 @@
 # Factory v3
 
 ## Version
-v1.43
+v1.45
 
 ## Change Log
+- v1.45 (2026-07-12): Added natural mission record `MR_20260712_032_serial_mission_graph_contract.json` as the second optional evidence-integrity sample. It preserves same-actor verification, uncommitted final state, implementation false-negative repairs, and missing live serial-epic proof; one further sample remains.
+- v1.44 (2026-07-12): Added the research-only serial mission-graph contract, template, advisory validator, deterministic fixtures, and focused tests for bounded parent/child mission governance. No worker dispatch, persistent runtime, concurrency, required gate, or profile promotion is approved.
 - v1.43 (2026-07-12): Added deterministic advisory mission-control re-entry decisions for clean continuation, stale repository state, changed authority, failed verification without recovery authority, and one bounded recovery verification action. These fixtures do not prove a live fresh-session handoff; `V3-OP-003` remains `NO PROMOTION YET`.
 - v1.42 (2026-07-12): Added backward-compatible optional mission-record evidence-integrity structures and advisory validation for observation provenance, verifier provenance, visual artifacts, bounded boundary claims, and completed-record commit consistency. Existing records remain valid, endurance/exposure fields remain deferred, and `V3-OP-003` remains `NO PROMOTION YET`.
 - v1.41 (2026-07-12): Added the Mission 026 claim-to-proof audit and current-corpus FP/FN adjudication. Item 5 is satisfied, but `V3-OP-003` remains `NO PROMOTION YET`; next work is a separately scoped advisory record-shape decision.
@@ -99,6 +101,7 @@ This namespace captures Factory v3 operating guidance, release evidence, starter
 - Provide standing-authorization schema candidates (`standing_authorization_grant`, `scheduled_wake_record`) in `SHADOW_SCHEMA_CANDIDATES.md` for future scheduled or ambient missions; per-mission human Go remains the only approved authorization shape.
 - Provide `templates/V3_LOOP_CONTRACT_TEMPLATE.json`, `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`, and `scripts/factory_v3_loop_contract_lint.py` as research-only advisory loop-admission artifacts for state policy, tool policy, act-or-ask gates, control-profile response, terminal states, evidence policy, and re-entry protocol. These artifacts are not required gates and do not approve runtime authority.
 - Provide `MISSION_CONTROL_CONTRACT.md`, `templates/V3_MISSION_CONTROL_CONTRACT_TEMPLATE.json`, `scripts/factory_v3_mission_control_contract_lint.py`, and deterministic fixtures under `tests/fixtures/factory_v3_mission_control_contract/` as research-only canon for what Factory V3 should own above tactical AI workers: loop admission, authority envelopes, next-action authorization, requirement-to-evidence status, independent verification, checkpoint policy, verification policy, evidence/proof, safe-hold/re-entry, escalation, and worker interface.
+- Provide `SERIAL_MISSION_GRAPH_CONTRACT.md`, `templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json`, `scripts/factory_v3_serial_mission_graph_lint.py`, and deterministic fixtures under `tests/fixtures/factory_v3_serial_mission_graph/` as research-only support for serial parent/child mission graphs. These artifacts model authority ceilings, dependencies, child verification/evidence, and parent closeout without worker dispatch or runtime authority.
 - Track the candidate `V3-OP-003` long-running remote-interrupt profile via `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md` and `V3_OP_003_DECISION_PACK.md` (currently `NO PROMOTION YET`), with `MISSION_HEALTH_VOCABULARY.md`, `INTERRUPT_TRANSPORT_TRIAL_PLAN.md`, `DURATION_LADDER_PLAN.md`, and `ladder/rung3/` as its evidence-gathering path. The intended capability is stable governance and work quality for missions that naturally require up to roughly four hours; elapsed duration, calls, waypoints, and scope are never completion floors. POC Mission 026 completed the approved Option A envelope; its claim audit and FP/FN review are complete, but quality continuity near the upper endurance envelope and a natural sustained negative case remain insufficiently evidenced, so the candidate profile is not usable.
 - Continue research for any future V3 profile before promotion.
 
@@ -145,6 +148,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `SKILL_PROVENANCE_POLICY.md`
 - `REGULATORY_CROSSWALK.md`
 - `MISSION_CONTROL_CONTRACT.md`
+- `SERIAL_MISSION_GRAPH_CONTRACT.md`
 - `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`
 - `templates/V3_LOOP_CONTRACT_TEMPLATE.json`
 - `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md`
@@ -283,6 +287,7 @@ The capture plan does not authorize live mission execution, telemetry collection
 - `scripts/factory_v3_telemetry_replay_lint.py` checks synthetic telemetry replay JSONL fixtures in advisory mode.
 - `scripts/factory_v3_loop_contract_lint.py` checks research-only loop-contract JSON files and fixtures for authority, state, tool, act-or-ask, control-profile, evidence, terminal-state, and re-entry coverage.
 - `scripts/factory_v3_mission_control_contract_lint.py` checks research-only mission-control contract JSON files and fixtures for mission envelope, authority envelope, loop admission, next-action authorization, requirement-to-evidence status, independent verification, safe-hold, re-entry, and worker-interface coverage.
+- `scripts/factory_v3_serial_mission_graph_lint.py` checks research-only serial mission graphs for parent/child authority, dependency, serial-activity, verification, evidence, and closeout consistency.
 - These tools are not wired into required Factory v2 gates and do not authorize broader V3 promotion.
 
 ## Loop Contract Research
@@ -309,6 +314,7 @@ Use the standalone advisory validator:
 
 ```bash
 python3 scripts/factory_v3_mission_control_contract_lint.py --target tests/fixtures/factory_v3_mission_control_contract --expect tests/fixtures/factory_v3_mission_control_contract/expected/all.json --json
+python3 scripts/factory_v3_serial_mission_graph_lint.py --target tests/fixtures/factory_v3_serial_mission_graph --expect tests/fixtures/factory_v3_serial_mission_graph/expected/all.json --json
 ```
 
 The validator emits `blocking_effect: none`. It is not wired into `factoryctl`, CI, merge preflight, `knowledge_lint.sh`, `stage-lint`, `pack-lint`, mission lint, or any required Factory gate.

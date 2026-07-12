@@ -213,6 +213,11 @@ Non-transferable or insufficient:
    - Define later, after advisory templates and fixtures exist, how Factory reviews its own reusable loop-governance primitives for purpose, evidence, budget, kill conditions, and retirement criteria.
    - Acceptance: records KEEP/PIVOT/RETIRE/KILL-style audit outcomes without creating routing authority or required gates.
 
+8. Serial mission graph:
+   - Status: initial research-only implementation exists in `SERIAL_MISSION_GRAPH_CONTRACT.md`, `templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json`, `scripts/factory_v3_serial_mission_graph_lint.py`, and `tests/fixtures/factory_v3_serial_mission_graph/`.
+   - Acceptance: a parent authority ceiling bounds every child; dependencies are acyclic; no more than one child is active; completed children have passing verification and proved evidence; parent completion requires all required children plus parent verification.
+   - Next gate: deterministic authored-state transition design without worker dispatch.
+
 ## Non-Goals
 - No loop runner.
 - No scheduler.
@@ -226,9 +231,10 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. use the optional evidence-integrity fields on the next two or three suitable, separately approved mission records and record authoring friction and false-positive/false-negative observations,
+1. use the optional evidence-integrity fields on one further suitable, separately approved natural mission record, then review the three-sample authoring friction and false-positive/false-negative observations; `MR_20260712_032_serial_mission_graph_contract.json` is the second sample,
 2. add concrete mission-state/re-entry examples that exercise current-state checks, last-safe-checkpoint recovery, and one safe next action,
 3. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work,
-4. then only later consider read-only Codex SDK/MCP orchestration discovery.
+4. separately design deterministic authored-state transitions for the serial mission graph without worker dispatch,
+5. then only later consider read-only Codex SDK/MCP orchestration discovery.
 
 Do not start runtime orchestration or scheduled execution from this document.
