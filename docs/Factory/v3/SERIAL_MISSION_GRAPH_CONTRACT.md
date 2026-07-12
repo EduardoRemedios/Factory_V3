@@ -1,7 +1,10 @@
 # Factory V3 Serial Mission-Graph Contract
 
 ## Version
-v0.1
+v0.2
+
+## Change Log
+- v0.2 (2026-07-12): Linked the separately approved deterministic authored-state kernel implementation. The kernel remains advisory and adds no worker dispatch, runtime authority, concurrency, or required gate.
 
 ## Status
 Research-only and non-enforcing.
@@ -72,7 +75,14 @@ The validator always reports `blocking_effect: none`. It is not wired into
 `factoryctl`, mission lint, pack lint, stage lint, knowledge lint, CI, or any
 required gate.
 
+## Deterministic State Kernel
+The separately approved research implementation now exists at
+`SERIAL_MISSION_STATE_KERNEL.md`, with a stdlib-only CLI, authored-state and
+event templates, and deterministic fixtures/tests. It calculates and persists
+admitted transitions without executing commands or dispatching workers.
+
 ## Next Evidence Gate
-Use the contract first in deterministic fixtures, then in a separately approved
-attended serial-epic pilot. Worker dispatch and a persistent state kernel remain
-separate decisions.
+The three-sample evidence-integrity review is complete at
+`KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Decide the live fresh-worker
+artifact-sufficiency trial, then run a separately approved attended serial-epic
+pilot. Worker dispatch remains a separate later decision.

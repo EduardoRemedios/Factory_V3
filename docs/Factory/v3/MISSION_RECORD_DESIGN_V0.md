@@ -1,9 +1,10 @@
 # Factory v3 Mission Record Design v0
 
 ## Version
-v0.10
+v0.11
 
 ## Change Log
+- v0.11 (2026-07-12): Recorded the three-sample evidence-integrity review decision `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Clarified that FP/FN notes should distinguish mission-record validator behavior from implementation or domain defects; no field, validator, or gate behavior changed.
 - v0.10 (2026-07-12): Added optional evidence-integrity fields for original/replay verification observations, verifier provenance, per-artifact visual evidence, and bounded boundary claims. Clarified completed-record final-commit consistency while preserving `same_commit`, `not_recorded`, existing records, and advisory-only behavior. Endurance fields remain deferred.
 - v0.9 (2026-06-10): Added the `same_commit` convention for `commit_after` so records committed with their mission's changes do not need a hash-stamping follow-up commit.
 - v0.8 (2026-06-10): Added model-identity recording guidance and an optional `model_routing` template field under the mutable-harness-state principle; new records should record model identity when the harness exposes it, retiring reliance on the Phase 3 missing-model-identity acceptability note.
@@ -105,6 +106,12 @@ Phase 1 produced `pre_envelope_fallback` and `completed_with_v3` records. Phase 
 
 These additions are optional. Their absence does not change the validity, status, or findings of an existing record.
 
+The first three natural uses are compared in
+`EVIDENCE_INTEGRITY_THREE_SAMPLE_REVIEW_20260712.md`. The review decision is
+`KEEP_OPTIONAL_NO_SCHEMA_CHANGE`: the fields improved provenance and claim
+precision, while recurring burden remained manual verbosity and evidence
+durability rather than a schema defect.
+
 ### Verification observations
 
 `execution.verification.observations` distinguishes original-run summaries from later replay or post-run audit observations. Each observation records a bounded source kind, date, coarse actor/session references, command or check reference, result, and external evidence references. `supersedes_original` must remain `false`; replay adds provenance and never overwrites the original-run claim.
@@ -132,6 +139,20 @@ A supplied `PROVED` claim requires non-empty evidence and a non-empty limit, and
 ### Deferred endurance fields
 
 Mission result remains `record.decision_state`. Observed exposure and upper-envelope endurance coverage remain in authored checkpoints, closeouts, and decision packs until natural sustained missions establish a stable profile-specific need. This base `V3-OP-001` record adds no duration, call, waypoint, test, file, or scope floor.
+
+### FP/FN note scope
+
+When authoring `reviews.false_positive_notes` or
+`reviews.false_negative_notes`, identify whether the observation concerns:
+
+- `mission_record_validator` behavior over the record shape;
+- an `implementation_or_domain_check` found by tests or review; or
+- `not_observed` in the current sample.
+
+An implementation invariant found late is useful evidence, but it is not a
+mission-record validator false negative unless the validator was expected to
+check that invariant. This guidance adds no required field and does not change
+validator behavior.
 
 ## Model Identity And Mutable Harness State
 
@@ -207,4 +228,7 @@ Malformed-record fixtures currently cover missing authorized files, missing allo
 - External governance-kernel adapters.
 
 ## Next Step
-Use the advisory validator against future shadow records. Future fixture additions should come from real evidence or an approved Phase 2 design task.
+Continue optional shadow use without schema or validator changes. Prefer
+durable evidence references when already available, preserve honest
+same-actor/session and uncommitted-state limits, and add future fixtures only
+from real evidence or a separately approved design task.

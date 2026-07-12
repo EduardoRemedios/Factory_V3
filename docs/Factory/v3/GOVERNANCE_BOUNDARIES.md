@@ -1,9 +1,10 @@
 # Factory V3 Governance Boundaries
 
 ## Version
-v0.1
+v0.2
 
 ## Change Log
+- v0.2 (2026-07-12): Recorded the research-only deterministic serial mission-state kernel boundary. Persisted advisory state and events do not create worker dispatch, runtime authority, required gates, or profile approval.
 - v0.1 (2026-06-10): Moved the Important Boundaries section out of the repository README into this dedicated document. The boundary content is unchanged in substance; this document approves nothing new.
 
 ## Status
@@ -30,6 +31,7 @@ For the separate architectural boundary between Factory and external runtime gov
 - Mission-formation skills are research-only and non-enforcing. They may help discovery, challenge, and candidate mission-contract creation, but they do not approve execution, new V3 profiles, recommended V3 intake, or non-coding autonomous work.
 - Codex SDK/MCP orchestration is research-only and non-enforcing. Codex may become a governed worker runtime in future evidence, but Factory/Harmony remains the authority layer; no unattended execution, production action, credential use, or runtime authority is approved.
 - Mission health, mission-control contract work, and continuation judgment are research-only and non-enforcing. They do not approve schema changes, validators, gates, routing authority, runtime-control power, required checkpoint fields, or default-mode behavior.
+- The deterministic serial mission-state kernel is research-only and advisory. Its authored state, append-only events, and derived decisions govern no worker and grant no runtime authority; it does not approve command execution, dispatch, concurrency, daemons, schedulers, required gates, or a V3 profile.
 - Phase 3 telemetry is not a required gate; Phase 4 eval expansion has started with advisory planning artifacts, synthetic fixtures, three separately approved happy-path docs-only real-run captures using `NO_TELEMETRY`, two approved negative-case clean non-events using `NO_TELEMETRY`, one clarification-before-edit capture using `NO_TELEMETRY`, one read-only dynamic/parallel summary-export capture using `NO_TELEMETRY`, one telemetry-backed verification-halt clean non-event using `OPTIONAL_ADVISORY_TELEMETRY_APPROVED`, and a research-only opportunity register.
 - The Phase 3 natural halted/fallback/clarification-heavy telemetry gap remains open; clarification, summary-export, and selected telemetry replay evidence gaps are narrowed, but failed-verification halt, fallback, recovery, stale reentry, and routing-threshold gaps remain open for the Factory_V3 real-run corpus. The separate standalone POC has narrowed failed-verification halt, recovery, seeded stale reentry, seeded fallback/no-go, and private deployment smoke through Missions 015-020.
 - Phase 4 does not approve governance routing, reduced governance, default-mode behavior, telemetry completeness checks, required gates, runtime authority, proof, lease enforcement, dynamic-workflow execution by default, or V2 build-support removal.

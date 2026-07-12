@@ -1,9 +1,11 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.6
+v0.8
 
 ## Change Log
+- v0.8 (2026-07-12): Recorded the three-sample evidence-integrity review decision `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. The next separate decision is the live fresh-worker artifact-sufficiency trial; this adds no field promotion, validator change, worker orchestration, or runtime authority.
+- v0.7 (2026-07-12): Recorded the approved deterministic serial mission-state kernel and third natural optional evidence-integrity record. The next decision is the separate three-sample friction/FP-FN review, then fresh-worker and attended serial-epic gates; no worker orchestration or runtime authority was added.
 - v0.6 (2026-07-12): Added optional advisory re-entry decision cases for clean continuation, stale repository state, changed authority, failed verification without recovery authority, and one bounded recovery verification action. These are deterministic semantic examples, not live fresh-session proof or runtime behavior.
 - v0.5 (2026-07-12): Implemented the narrow optional mission-record evidence-integrity shape for observation provenance, verifier provenance, per-artifact visual evidence, bounded boundary claims, and completed-record commit consistency. All support remains advisory, backward-compatible, and non-blocking; endurance/exposure fields remain deferred.
 - v0.4 (2026-07-12): Reordered advisory backlog work so Mission 026 claim-to-proof evidence informs optional mission-record fields; removed completed template/fixture work from the active next-step sequence.
@@ -216,7 +218,9 @@ Non-transferable or insufficient:
 8. Serial mission graph:
    - Status: initial research-only implementation exists in `SERIAL_MISSION_GRAPH_CONTRACT.md`, `templates/V3_SERIAL_MISSION_GRAPH_TEMPLATE.json`, `scripts/factory_v3_serial_mission_graph_lint.py`, and `tests/fixtures/factory_v3_serial_mission_graph/`.
    - Acceptance: a parent authority ceiling bounds every child; dependencies are acyclic; no more than one child is active; completed children have passing verification and proved evidence; parent completion requires all required children plus parent verification.
-   - Next gate: deterministic authored-state transition design without worker dispatch.
+   - Status: the separately approved deterministic authored-state kernel now exists in `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, templates, fixtures, and focused tests.
+   - Evidence review: `EVIDENCE_INTEGRITY_THREE_SAMPLE_REVIEW_20260712.md` records `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`.
+   - Next gate: a live fresh-worker decision and attended serial-epic pilot without worker dispatch.
 
 ## Non-Goals
 - No loop runner.
@@ -231,10 +235,9 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. use the optional evidence-integrity fields on one further suitable, separately approved natural mission record, then review the three-sample authoring friction and false-positive/false-negative observations; `MR_20260712_032_serial_mission_graph_contract.json` is the second sample,
-2. add concrete mission-state/re-entry examples that exercise current-state checks, last-safe-checkpoint recovery, and one safe next action,
+1. decide the live fresh-worker trial using authored graph/state artifacts and one safe next action; the three-sample review is complete at `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`,
+2. run one attended serial-epic pilot with bounded child verification and parent integration verification,
 3. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work,
-4. separately design deterministic authored-state transitions for the serial mission graph without worker dispatch,
-5. then only later consider read-only Codex SDK/MCP orchestration discovery.
+4. then only later consider read-only Codex SDK/MCP orchestration discovery.
 
 Do not start runtime orchestration or scheduled execution from this document.
