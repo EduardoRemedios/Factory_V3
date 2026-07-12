@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.41
+v1.42
 
 ## Change Log
+- v1.42 (2026-07-12): Added backward-compatible optional mission-record evidence-integrity structures and advisory validation for observation provenance, verifier provenance, visual artifacts, bounded boundary claims, and completed-record commit consistency. Existing records remain valid, endurance/exposure fields remain deferred, and `V3-OP-003` remains `NO PROMOTION YET`.
 - v1.41 (2026-07-12): Added the Mission 026 claim-to-proof audit and current-corpus FP/FN adjudication. Item 5 is satisfied, but `V3-OP-003` remains `NO PROMOTION YET`; next work is a separately scoped advisory record-shape decision.
 - v1.40 (2026-07-12): Corrected the long-running profile evidence model: roughly four hours is an endurance ceiling to support without drift or quality degradation, not a mission-duration floor. Shorter correct missions pass and stop; upper-envelope continuity remains a separate evidence gap. Reordered next work to claim-to-proof audit before optional record-shape hardening.
 - v1.39 (2026-07-07): Added the initial advisory mission-control contract template, standalone advisory lint, and deterministic fixture corpus for next-action authorization, requirement-to-evidence status, independent verification, restartable handoff, unsafe approval flags, and session-memory-only re-entry. These remain research-only and non-enforcing.
@@ -202,7 +203,7 @@ Use:
 - `PHASE2_5_MISSION_RECORD_ADOPTION_STATUS.md`
 - `scripts/factory_v3_mission_record_lint.py`
 
-The v0 record captures pre-envelope fallback, thread-local mission envelopes, bounded authority, command evidence, verification, halt/fallback review, SIMPLE-CODE-GATE review, and Phase 2 design signals.
+The v0 record captures pre-envelope fallback, thread-local mission envelopes, bounded authority, command evidence, verification, halt/fallback review, SIMPLE-CODE-GATE review, and Phase 2 design signals. Optional evidence-integrity structures now cover original/replay/audit observations, verifier actor/session provenance, per-artifact visual verdicts, bounded boundary claims, and completed-record commit consistency. These additions are backward-compatible and do not add endurance/exposure fields.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 

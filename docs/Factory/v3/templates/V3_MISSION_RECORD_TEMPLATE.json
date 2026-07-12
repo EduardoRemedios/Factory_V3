@@ -50,8 +50,32 @@
     "verification": {
       "commands": [],
       "result": "pass | fail | not_run | not_applicable",
-      "summary": ""
+      "summary": "",
+      "observations": [
+        {
+          "source_kind": "original_run | replay | post_run_audit",
+          "captured_date": "YYYY-MM-DD",
+          "actor_ref": "coarse non-secret actor reference",
+          "session_ref": "coarse non-secret session reference | not_recorded",
+          "command_or_check_ref": "command, check ID, or artifact reference",
+          "result": "pass | fail | not_run | not_applicable",
+          "evidence_refs": [],
+          "supersedes_original": false
+        }
+      ]
     },
+    "visual_evidence": [
+      {
+        "artifact_ref": "path or artifact ID",
+        "sha256": "64-character digest | not_recorded",
+        "hash_verdict": "match | mismatch | not_checked | not_applicable",
+        "visual_verdict": "pass | fail | limited | not_checked | not_applicable",
+        "viewport": "desktop | mobile | other | not_applicable",
+        "reviewer_actor_ref": "coarse non-secret actor reference",
+        "reviewed_date": "YYYY-MM-DD",
+        "findings": []
+      }
+    ],
     "advisory_checks": [
       {
         "name": "factory_v3_advisory_lint.py",
@@ -87,6 +111,24 @@
       "result": "pass | fail | not_applicable",
       "notes": []
     },
+    "verifier_provenance": {
+      "builder_actor_ref": "coarse non-secret actor reference",
+      "verifier_actor_ref": "coarse non-secret actor reference",
+      "actor_relationship": "different_actor | same_actor | unknown",
+      "session_relationship": "different_session | same_session | unknown",
+      "independence_status": "independent | deterministic_separation_only | not_independent | unknown",
+      "evidence_refs": [],
+      "unresolved_gap": ""
+    },
+    "boundary_claims": [
+      {
+        "claim": "bounded negative or safety-boundary claim",
+        "proof_status": "PROVED | WEAK | MISSING | CONTRADICTED",
+        "proof_scope": "change_range | repository_static | runtime_trace | artifact_only | self_attested | unknown",
+        "evidence_refs": [],
+        "limit": "what the evidence does not prove"
+      }
+    ],
     "friction_notes": [],
     "false_positive_notes": [],
     "false_negative_notes": []

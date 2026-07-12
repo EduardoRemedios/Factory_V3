@@ -1,0 +1,55 @@
+schema_version: 1
+run_id: RUN_20260712_1009_v3_advisory_record_shape_impl
+sprint_id: SPRINT_20260712_1009_V3_ADVISORY_RECORD_SHAPE_IMPL
+execution_mode: EXECUTION_ENABLED
+
+checks:
+  - id: VM-001
+    tier: V3
+    type: test
+    constraint_ids: [R-001]
+    description: Verify the full deterministic mission-record corpus.
+    command: python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record --expect tests/fixtures/factory_v3_mission_record/expected/all.json --json
+    expected: Exact expected output match with blocking_effect none.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/mission_record_all.txt
+
+  - id: VM-002
+    tier: V3
+    type: test
+    constraint_ids: [R-001]
+    description: Verify the deterministic invalid fixture subset.
+    command: python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record/invalid --expect tests/fixtures/factory_v3_mission_record/expected/invalid.json --json
+    expected: Exact expected output match.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/mission_record_invalid.txt
+
+  - id: VM-003
+    tier: V3
+    type: test
+    constraint_ids: [R-001]
+    description: Verify representative existing completed, blocked, halted, and stale records.
+    command: python3 scripts/factory_v3_mission_record_lint.py --target tests/fixtures/factory_v3_mission_record/trial_003_harmony_faq_ingestion.json --expect tests/fixtures/factory_v3_mission_record/expected/valid_trial_003.json --json
+    expected: Existing fixture output remains exact.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/mission_record_existing.txt
+
+  - id: VM-004
+    tier: V1
+    type: command
+    constraint_ids: [R-002, R-003]
+    description: Run V3 advisory posture checks.
+    command: python3 scripts/factory_v3_advisory_lint.py --target docs/Factory/v3 --json
+    expected: No new enforcement or authority finding.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/v3_advisory.txt
+
+  - id: VM-005
+    tier: V3
+    type: command
+    constraint_ids: [R-001, R-009]
+    description: Run repository knowledge lint.
+    command: bash scripts/knowledge_lint.sh
+    expected: PASS.
+    halt_on_failure: true
+    evidence_path: artifacts/verification/knowledge_lint.txt

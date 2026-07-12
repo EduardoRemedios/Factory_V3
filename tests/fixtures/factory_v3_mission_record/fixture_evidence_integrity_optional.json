@@ -1,0 +1,114 @@
+{
+  "record": {
+    "schema_version": "v0.1-shadow",
+    "record_type": "factory_v3_mission_record",
+    "status": "research_only_non_enforcing",
+    "profile_id": "V3-OP-001",
+    "decision_state": "completed_with_v3",
+    "created_date": "2026-07-12",
+    "source_trial_id": "V3_EVIDENCE_INTEGRITY_OPTIONAL_FIXTURE",
+    "source_trial_path": "tests/fixtures/factory_v3_mission_record/fixture_evidence_integrity_optional.json",
+    "source_closeout_reference": "synthetic evidence-integrity fixture",
+    "approval_scope": {
+      "factory_v3_default_approved": false,
+      "new_v3_profile_approved": false,
+      "required_gate_integration_approved": false,
+      "runtime_authority_approved": false,
+      "factory_v2_fallback_retained": true
+    }
+  },
+  "mission": {
+    "repository": "Factory_V3",
+    "branch": "main",
+    "commit_before": "not_recorded",
+    "commit_after": "same_commit",
+    "user_or_reviewer": "fixture_operator",
+    "coding_harness": "Codex",
+    "model": "not_recorded",
+    "objective": "Exercise optional evidence-integrity fields without changing mission authority.",
+    "envelope": {
+      "mode": "file_artifact",
+      "reference": "tests/fixtures/factory_v3_mission_record/fixture_evidence_integrity_optional.json",
+      "not_created_reason": ""
+    },
+    "separate_governance_kernel_present": "no"
+  },
+  "authority": {
+    "authorized_files": ["src/example.py"],
+    "forbidden_scope": ["no runtime authority"],
+    "allowed_commands": ["python3 -m unittest"],
+    "dependency_policy": "No new dependencies.",
+    "v2_fallback_required": true,
+    "fallback_triggers": ["verification failure"]
+  },
+  "execution": {
+    "files_changed": ["src/example.py"],
+    "verification": {
+      "commands": ["python3 -m unittest"],
+      "result": "pass",
+      "summary": "Original verification passed; later replay also passed.",
+      "observations": [
+        {
+          "source_kind": "original_run",
+          "captured_date": "2026-07-12",
+          "actor_ref": "builder_actor",
+          "session_ref": "build_session",
+          "command_or_check_ref": "python3 -m unittest",
+          "result": "pass",
+          "evidence_refs": ["artifacts/original_tests.txt"],
+          "supersedes_original": false
+        },
+        {
+          "source_kind": "replay",
+          "captured_date": "2026-07-12",
+          "actor_ref": "builder_actor",
+          "session_ref": "audit_session",
+          "command_or_check_ref": "python3 -m unittest",
+          "result": "pass",
+          "evidence_refs": ["artifacts/replay_tests.txt"],
+          "supersedes_original": false
+        }
+      ]
+    },
+    "visual_evidence": [
+      {
+        "artifact_ref": "artifacts/mobile.png",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "hash_verdict": "match",
+        "visual_verdict": "fail",
+        "viewport": "mobile",
+        "reviewer_actor_ref": "builder_actor",
+        "reviewed_date": "2026-07-12",
+        "findings": ["Right-edge control clipping remains visible."]
+      }
+    ],
+    "halt": {"halted": false, "reason_codes": []},
+    "fallback": {"used": false, "reason_codes": []}
+  },
+  "reviews": {
+    "simple_code_gate": {"result": "pass", "notes": []},
+    "fallback_halt_review": {"result": "pass", "notes": []},
+    "verifier_provenance": {
+      "builder_actor_ref": "builder_actor",
+      "verifier_actor_ref": "builder_actor",
+      "actor_relationship": "same_actor",
+      "session_relationship": "different_session",
+      "independence_status": "deterministic_separation_only",
+      "evidence_refs": ["artifacts/replay_tests.txt"],
+      "unresolved_gap": "No distinct verifier actor was used."
+    },
+    "boundary_claims": [
+      {
+        "claim": "The mission did not add runtime authority.",
+        "proof_status": "PROVED",
+        "proof_scope": "change_range",
+        "evidence_refs": ["git diff --name-status baseline..closeout"],
+        "limit": "Does not prove global runtime absence outside the mission change range."
+      }
+    ],
+    "friction_notes": [],
+    "false_positive_notes": [],
+    "false_negative_notes": []
+  },
+  "phase2_design_signals": ["Optional evidence-integrity fields improve replay precision."]
+}
