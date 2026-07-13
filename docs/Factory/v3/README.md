@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.49
+v1.50
 
 ## Change Log
+- v1.50 (2026-07-13): Recorded live Trial 002 at `FAIL_CLOSED_SAFE_HOLD` after broad initial orientation reportedly exposed the co-located key and Trial 001 content before a brief. The next gate is non-executing Trial 003 formation using an external commitment-and-reveal channel; execution remains unapproved.
 - v1.49 (2026-07-13): Recorded live fresh-worker `V3-FW-TRIAL-001` at `FAIL_CLOSED_SAFE_HOLD` after 19 of 23 scored fields matched. The authored kernel prevented C02 implementation; a repaired Trial 002 is the next separate, unapproved gate.
 - v1.48 (2026-07-12): Completed the three-sample optional evidence-integrity review with decision `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. No recurring mission-record validator FP or demonstrated FN justifies field or validator changes; the next separate gate is the live fresh-worker trial decision.
 - v1.47 (2026-07-12): Added the approved research-only deterministic serial mission-state kernel, authored-state/event templates, CLI, fixtures, focused tests, and third natural evidence-integrity record. The next gate is the separate three-sample friction/FP-FN review; no worker dispatch, runtime authority, required gate, or profile promotion was added.
@@ -224,8 +225,14 @@ FP or demonstrated FN that justifies a schema or validator change.
 
 `LIVE_FRESH_WORKER_TRIAL_001_REVIEW_20260713.md` records the subsequent live
 trial at `FAIL_CLOSED_SAFE_HOLD`. The fresh task matched 19 of 23 scored fields,
-and the authored kernel prevented C02 implementation. A repaired Trial 002 is
-a new, separately approved mission; Trial 001 is not resumed.
+and the authored kernel prevented C02 implementation. Trial 002 was later
+separately approved; Trial 001 was not resumed.
+
+`LIVE_FRESH_WORKER_TRIAL_002_REVIEW_20260713.md` records Trial 002 at the same
+fail-closed state before reconstruction began. Its co-located key was reportedly
+exposed during broad repository orientation, so the next gate is non-executing
+Trial 003 formation around an external commitment-and-reveal channel. No
+external placement or Trial 003 execution is approved.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 

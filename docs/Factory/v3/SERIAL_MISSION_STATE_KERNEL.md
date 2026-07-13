@@ -1,7 +1,7 @@
 # Factory V3 Deterministic Serial Mission-State Kernel
 
 ## Version
-v0.2
+v0.3
 
 ## Status
 Research-only, advisory, and non-enforcing.
@@ -9,6 +9,10 @@ Research-only, advisory, and non-enforcing.
 Version v0.2 records the 2026-07-13 live Trial 001 fail-closed observation and
 the v0.1 limitation that administrative terminal halt is not a kernel
 transition. It changes no state schema, CLI, or authority behavior.
+
+Version v0.3 records Trial 002's second fail-closed observation: the fresh task
+reported pre-brief exposure of the co-located key, and the kernel admitted safe
+hold before product work. It changes no state schema, CLI, or authority behavior.
 
 This kernel calculates and persists state decisions for an authored serial
 mission graph. It does not dispatch workers, execute implementation or
@@ -140,11 +144,15 @@ behavior, worker-adapter safety, runtime authority, or operational profile
 readiness. Kernel v0.1 also has no terminal halt transition, so the separately
 recorded human closeout does not rewrite the authored safe-hold state.
 
+Trial 002 further showed that correct safe-hold mechanics do not make a
+co-located answer-key channel operationally suitable. File-read custody and
+human-controlled reveal remain outside the kernel's authority and proof scope.
+
 The next decisions remain separate and ordered. The three-sample
 evidence-integrity review is complete at `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`:
 
-1. separately approve and run a repaired Trial 002 using a new mission and
-   explicit ordinary-artifact fields;
+1. form and challenge a non-executing Trial 003 candidate using an external
+   commitment-and-reveal channel, then make a separate execution decision;
 2. only after sufficient fresh-worker evidence, run a separately approved
    attended serial-epic pilot;
 3. only later consider read-only Codex SDK/MCP discovery.

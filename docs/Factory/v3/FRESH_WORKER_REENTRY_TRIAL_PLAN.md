@@ -1,17 +1,18 @@
 # Factory V3 Fresh-Worker Reentry Trial Plan
 
 ## Version
-v0.3
+v0.4
 
 ## Change Log
+- v0.4 (2026-07-13): Recorded Trial 002's pre-brief protocol contamination and rejected a co-located answer-key payload for the next candidate. Trial 003 formation must separate a committed SHA-256 commitment from a human-controlled external reveal; execution requires separate approval.
 - v0.3 (2026-07-13): Recorded Trial 001's fail-closed 19/23 result and the minimum protocol repairs required before a separately approved Trial 002. Trial 001 remains at authored safe hold and is not resumed.
 - v0.2 (2026-07-12): Distinguished deterministic mission-control re-entry decision fixtures from this unexecuted live artifact-sufficiency trial. Fixture `fresh_session` inputs are not operational proof.
 - v0.1 (2026-06-11): Initial trial plan from the backlog research spike: make artifact sufficiency falsifiable via a sealed answer key and a cross-harness fresh worker.
 
 ## Status
-Research-only and non-enforcing plan. Trial 001 was separately approved, executed, and closed `FAIL_CLOSED_SAFE_HOLD`; this document does not approve Trial 002.
+Research-only and non-enforcing plan. Trials 001 and 002 were separately approved, executed, and closed `FAIL_CLOSED_SAFE_HOLD`; this document does not approve Trial 003 execution or any external answer-key placement.
 
-The deterministic re-entry cases under `tests/fixtures/factory_v3_mission_control_contract/` validate decision semantics only. Live Trial 001 added operational evidence but did not prove safe continuation: its fresh task matched 19 of 23 scored fields, and the authored state kernel correctly entered safe hold before product implementation. See `LIVE_FRESH_WORKER_TRIAL_001_REVIEW_20260713.md`.
+The deterministic re-entry cases under `tests/fixtures/factory_v3_mission_control_contract/` validate decision semantics only. Live Trial 001 matched 19 of 23 scored fields and failed closed. Trial 002 then failed closed before a brief existed because the fresh task reported pre-brief exposure of the co-located key and Trial 001 content. See both live-trial reviews.
 
 The trial runs only after the duration-ladder rung 2 completes, under its own mission envelope and explicit sponsor Go naming the mission, both harnesses, and the date window. This document does not approve unattended operation, scheduled wakes, concurrent multi-worker execution, credential use, live transport use, required gates, governance routing, or runtime-control power.
 
@@ -46,6 +47,25 @@ A later envelope must use a new mission rather than resume Trial 001 and must in
 
 These repairs reduce ambiguity. They do not prove isolation, create authority, authorize a worker, or weaken the rule that session memory is never state.
 
+## Trial 002 Observation
+
+`V3-FW-TRIAL-002` implemented the six listed reconstruction repairs, but stored its sealed key and prior-trial evidence inside the same initial repository workspace. The fresh task reported encountering both during broad initial orientation and entered safe hold at revision 7/event 8 before a brief, comparison, validator, or test existed. Git proves the narrow state/event change and absent product artifacts; exact reads remain actor-reported because the harness supplied no access log.
+
+The result invalidates co-located procedural sealing for the next candidate. It does not test whether Trial 002's checkpoint or value-free template was sufficient.
+
+## Minimum Trial 003 Channel Repairs
+
+A later candidate must:
+
+1. commit only a versioned SHA-256 commitment, canonical byte length, and verification rule in the initial workspace;
+2. keep the exact key payload outside the fresh task's initial workspace, Git objects, prompt, attachments, summaries, and indexed repository context;
+3. require a committed brief before a separately controlled human reveal;
+4. verify the revealed bytes against the pre-handoff commitment with Python standard-library hashing before comparison;
+5. safe-hold on early reveal, mismatch, missing metadata, stale state, forbidden input, or ambiguous next action; and
+6. describe any pass as accidental-discovery resistance under human-controlled reveal, not access-control or malicious-worker isolation proof.
+
+The payload location, custodian, reveal instruction, and authorized writer are Tier 3 execution choices that a later exact envelope must name. This plan does not create or approve that external channel.
+
 ## Trial Protocol
 1. Pause leg: a mission (synthetic or a designated waypoint mission) pauses at a planned checkpoint. As part of that ordinary checkpoint, the pausing worker authors the answer key (see below) and commits per the mission's git authority.
 2. Handoff: the fresh worker starts in a new session with the standing reentry instruction only: resume mission X per its reentry rule.
@@ -55,7 +75,7 @@ These repairs reduce ambiguity. They do not prove isolation, create authority, a
 6. Closeout: mission record naming both workers' harness and model identities per `MUTABLE_HARNESS_STATE.md`.
 
 ## Answer Key
-Authored at pause time inside the normal checkpoint discipline, containing: current waypoint, next planned action, open interrupts and pending decisions, active authorized scope, and budget state. Sealing is procedural, not cryptographic: the key lives in a named file the reentry instruction directs the fresh worker not to open until its brief is committed, and the brief-before-key ordering is verified from git history. This designed limitation is acceptable for a research trial and is recorded as such.
+Authored at pause time inside the normal checkpoint discipline, containing: current waypoint, next planned action, open interrupts and pending decisions, active authorized scope, and budget state. Trials 001 and 002 showed that a named co-located file plus a read prohibition is not an adequate next-step design. A later candidate must commit a cryptographic commitment while withholding the payload from the initial workspace until after the brief commit. This is still research evidence and not a claim of malicious-worker isolation.
 
 ## Allowed Inputs (Fresh Worker)
 - The mission envelope, mission-state file, checkpoint series, and interrupt records.

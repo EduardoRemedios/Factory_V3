@@ -2,6 +2,7 @@
 
 ## 2026-07-13
 
+- Closed live fresh-worker `V3-FW-TRIAL-002` as `FAIL_CLOSED_SAFE_HOLD` after the fresh task reported pre-brief exposure of the co-located answer key and Trial 001 content during broad repository orientation. No brief, comparison, validator, or test was created. Recorded co-location as a protocol-design gap and moved the next gate to non-executing Trial 003 formation using an external SHA-256 commitment-and-reveal channel; no external placement or execution is approved.
 - Closed live fresh-worker `V3-FW-TRIAL-001` as `FAIL_CLOSED_SAFE_HOLD` after a fresh task matched 19 of 23 scored fields. Recorded the normal-artifact and brief-shape omissions, same-harness/isolation limits, unchanged authored safe-hold state, and a repaired Trial 002 requiring separate approval as the next possible gate. No product implementation, worker dispatch, required gate, runtime authority, or profile promotion was added.
 
 ## 2026-07-12
