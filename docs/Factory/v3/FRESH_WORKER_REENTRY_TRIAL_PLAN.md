@@ -1,16 +1,17 @@
 # Factory V3 Fresh-Worker Reentry Trial Plan
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-07-13): Recorded Trial 001's fail-closed 19/23 result and the minimum protocol repairs required before a separately approved Trial 002. Trial 001 remains at authored safe hold and is not resumed.
 - v0.2 (2026-07-12): Distinguished deterministic mission-control re-entry decision fixtures from this unexecuted live artifact-sufficiency trial. Fixture `fresh_session` inputs are not operational proof.
 - v0.1 (2026-06-11): Initial trial plan from the backlog research spike: make artifact sufficiency falsifiable via a sealed answer key and a cross-harness fresh worker.
 
 ## Status
-Research-only and non-enforcing plan. Executing this trial is not approved by this document.
+Research-only and non-enforcing plan. Trial 001 was separately approved, executed, and closed `FAIL_CLOSED_SAFE_HOLD`; this document does not approve Trial 002.
 
-The deterministic re-entry cases under `tests/fixtures/factory_v3_mission_control_contract/` validate decision semantics only. They do not prove that a real worker lacked prior-session memory, reconstructed the mission from authored artifacts, or completed a safe continuation. This trial remains necessary for those operational claims.
+The deterministic re-entry cases under `tests/fixtures/factory_v3_mission_control_contract/` validate decision semantics only. Live Trial 001 added operational evidence but did not prove safe continuation: its fresh task matched 19 of 23 scored fields, and the authored state kernel correctly entered safe hold before product implementation. See `LIVE_FRESH_WORKER_TRIAL_001_REVIEW_20260713.md`.
 
 The trial runs only after the duration-ladder rung 2 completes, under its own mission envelope and explicit sponsor Go naming the mission, both harnesses, and the date window. This document does not approve unattended operation, scheduled wakes, concurrent multi-worker execution, credential use, live transport use, required gates, governance routing, or runtime-control power.
 
@@ -27,6 +28,23 @@ Normal reentry (per `ADAPTIVE_MISSION_CONTROL.md` and the stale-reentry discipli
 3. The handoff must travel entirely through the normal authored artifact set — if the pausing worker needs to write a special handoff letter beyond its ordinary envelope, mission state, and checkpoints, the checkpoint discipline has failed, and that failure is the finding.
 
 The profile's serial-one-worker constraint is preserved: this is a sequential handoff, never concurrent execution.
+
+## Trial 001 Observation
+
+`V3-FW-TRIAL-001` used a same-harness, new-task handoff in the `same_second` repository. The brief-before-comparison ordering is commit-visible. The brief omitted explicit `open_interrupts`, two repository provenance paths, and an explicit `mandatory_first_action` field, although the action was performed. The resulting 19/23 score triggered safe hold, and child C02 did not start. Git cannot prove when the sealed key was read or that no private context was available; those remain procedural and actor-reported limits.
+
+## Minimum Trial 002 Repairs
+
+A later envelope must use a new mission rather than resume Trial 001 and must include:
+
+1. explicit empty `open_interrupts` and pending-decision collections in ordinary checkpoint artifacts;
+2. a value-free re-entry brief template naming every required output path;
+3. separate continuation-critical and provenance/completeness scoring, with an overall verdict that preserves every finding;
+4. an explicit mandatory-first-action output field and observed-action check;
+5. a new non-forked task, the same forbidden-input rules, and commit-visible brief-before-key ordering; and
+6. pre-authorized continuation only when every continuation-critical check passes; otherwise safe hold before product work.
+
+These repairs reduce ambiguity. They do not prove isolation, create authority, authorize a worker, or weaken the rule that session memory is never state.
 
 ## Trial Protocol
 1. Pause leg: a mission (synthetic or a designated waypoint mission) pauses at a planned checkpoint. As part of that ordinary checkpoint, the pausing worker authors the answer key (see below) and commits per the mission's git authority.

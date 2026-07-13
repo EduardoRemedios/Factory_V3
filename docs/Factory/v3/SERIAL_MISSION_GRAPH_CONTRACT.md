@@ -1,9 +1,10 @@
 # Factory V3 Serial Mission-Graph Contract
 
 ## Version
-v0.2
+v0.3
 
 ## Change Log
+- v0.3 (2026-07-13): Recorded that live Trial 001 failed closed at 19/23 before child C02 started. A repaired Trial 002 is the next separate evidence gate; the graph contract gains no dispatch or runtime authority.
 - v0.2 (2026-07-12): Linked the separately approved deterministic authored-state kernel implementation. The kernel remains advisory and adds no worker dispatch, runtime authority, concurrency, or required gate.
 
 ## Status
@@ -83,6 +84,7 @@ admitted transitions without executing commands or dispatching workers.
 
 ## Next Evidence Gate
 The three-sample evidence-integrity review is complete at
-`KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Decide the live fresh-worker
-artifact-sufficiency trial, then run a separately approved attended serial-epic
-pilot. Worker dispatch remains a separate later decision.
+`KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Live Trial 001 then failed closed at 19/23
+before C02 started. The next separate evidence gate is a repaired Trial 002;
+an attended serial-epic pilot follows only after sufficient fresh-worker
+evidence. Worker dispatch remains a separate later decision.
