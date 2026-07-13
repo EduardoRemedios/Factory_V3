@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.9
+v0.10
 
 ## Change Log
+- v0.10 (2026-07-13): Recorded Trial 002's pre-brief co-location failure. The next gate is non-executing Trial 003 formation around an external commitment-and-reveal channel; no external write, execution, orchestration, or authority is approved.
 - v0.9 (2026-07-13): Recorded Trial 001's 19/23 fail-closed result. The kernel preserved safe hold and prevented product work; the next separate gate is a repaired Trial 002 with explicit ordinary-artifact fields and split critical/completeness scoring.
 - v0.8 (2026-07-12): Recorded the three-sample evidence-integrity review decision `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. The next separate decision is the live fresh-worker artifact-sufficiency trial; this adds no field promotion, validator change, worker orchestration, or runtime authority.
 - v0.7 (2026-07-12): Recorded the approved deterministic serial mission-state kernel and third natural optional evidence-integrity record. The next decision is the separate three-sample friction/FP-FN review, then fresh-worker and attended serial-epic gates; no worker orchestration or runtime authority was added.
@@ -222,7 +223,8 @@ Non-transferable or insufficient:
    - Status: the separately approved deterministic authored-state kernel now exists in `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, templates, fixtures, and focused tests.
    - Evidence review: `EVIDENCE_INTEGRITY_THREE_SAMPLE_REVIEW_20260712.md` records `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`.
    - Live observation: `V3-FW-TRIAL-001` matched 19 of 23 fields and failed closed before product work; see `LIVE_FRESH_WORKER_TRIAL_001_REVIEW_20260713.md`.
-   - Next gate: a separately approved repaired Trial 002, then an attended serial-epic pilot only on sufficient evidence, without worker dispatch.
+   - Trial 002 observation: broad initial orientation reportedly exposed the co-located key and prior-trial content before a brief; the kernel failed closed and no product work began.
+   - Next gate: non-executing Trial 003 formation and challenge around an external commitment-and-reveal channel, then a separate execution decision; an attended serial-epic pilot remains later and evidence-contingent.
 
 ## Non-Goals
 - No loop runner.
@@ -237,9 +239,10 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. separately approve and run a repaired Trial 002 using a new mission, explicit ordinary-artifact fields, and one safe next action; Trial 001 is closed at fail-closed safe hold,
-2. only after sufficient fresh-worker evidence, run one attended serial-epic pilot with bounded child verification and parent integration verification,
-3. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work,
-4. then only later consider read-only Codex SDK/MCP orchestration discovery.
+1. form and challenge a non-executing Trial 003 candidate that commits a digest while withholding the key payload from the initial workspace; Trials 001 and 002 remain closed at fail-closed safe hold,
+2. make a separate human decision on exact external custody, reveal, and Trial 003 execution authority,
+3. only after sufficient fresh-worker evidence, run one attended serial-epic pilot with bounded child verification and parent integration verification,
+4. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work,
+5. then only later consider read-only Codex SDK/MCP orchestration discovery.
 
 Do not start runtime orchestration or scheduled execution from this document.
