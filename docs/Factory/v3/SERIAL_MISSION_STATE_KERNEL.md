@@ -1,10 +1,14 @@
 # Factory V3 Deterministic Serial Mission-State Kernel
 
 ## Version
-v0.1
+v0.2
 
 ## Status
 Research-only, advisory, and non-enforcing.
+
+Version v0.2 records the 2026-07-13 live Trial 001 fail-closed observation and
+the v0.1 limitation that administrative terminal halt is not a kernel
+transition. It changes no state schema, CLI, or authority behavior.
 
 This kernel calculates and persists state decisions for an authored serial
 mission graph. It does not dispatch workers, execute implementation or
@@ -129,14 +133,18 @@ python3 scripts/factory_v3_serial_mission_state.py status \
 
 ## Evidence Limits And Next Gates
 Deterministic fixtures prove local transition semantics and persistence checks
-for the covered inputs. They do not prove artifact sufficiency for a real fresh
-worker, attended serial-epic behavior, worker-adapter safety, runtime authority,
-or operational profile readiness.
+for the covered inputs. Live Trial 001 additionally showed the kernel preserving
+safe hold after a 19/23 re-entry comparison and preventing C02 from starting.
+It did not prove artifact-sufficient continuation, attended serial-epic
+behavior, worker-adapter safety, runtime authority, or operational profile
+readiness. Kernel v0.1 also has no terminal halt transition, so the separately
+recorded human closeout does not rewrite the authored safe-hold state.
 
 The next decisions remain separate and ordered. The three-sample
 evidence-integrity review is complete at `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`:
 
-1. decide whether to run the live fresh-worker artifact-sufficiency trial using
-   graph and state artifacts;
-2. run a separately approved attended serial-epic pilot;
+1. separately approve and run a repaired Trial 002 using a new mission and
+   explicit ordinary-artifact fields;
+2. only after sufficient fresh-worker evidence, run a separately approved
+   attended serial-epic pilot;
 3. only later consider read-only Codex SDK/MCP discovery.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-13
+
+- Closed live fresh-worker `V3-FW-TRIAL-001` as `FAIL_CLOSED_SAFE_HOLD` after a fresh task matched 19 of 23 scored fields. Recorded the normal-artifact and brief-shape omissions, same-harness/isolation limits, unchanged authored safe-hold state, and a repaired Trial 002 requiring separate approval as the next possible gate. No product implementation, worker dispatch, required gate, runtime authority, or profile promotion was added.
+
 ## 2026-07-12
 
 - Completed the three-sample optional evidence-integrity review across the re-entry implementation record, `MR_20260712_032`, and `MR_20260712_033`. Decision: `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Recurring friction is manual inventory verbosity, same-actor/session verification, uncommitted final state, and partly non-durable evidence references. All three valid records pass with zero findings; no mission-record validator FP or demonstrated FN recurs, while implementation defects recorded as “false negatives” are now explicitly distinguished from record-validator behavior. The next separate gate is the live fresh-worker trial decision; this review authorizes no trial, field promotion, validator change, required gate, or runtime behavior.
