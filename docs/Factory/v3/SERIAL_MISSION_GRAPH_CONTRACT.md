@@ -1,9 +1,10 @@
 # Factory V3 Serial Mission-Graph Contract
 
 ## Version
-v0.4
+v0.5
 
 ## Change Log
+- v0.5 (2026-07-14): Recorded Trial 003's successful three-child serial traversal after a 23/23 external re-entry comparison and its separate R1 product repair. The next gate is non-executing attended serial-epic pilot formation/challenge; no worker adapter or execution authority is added.
 - v0.4 (2026-07-13): Recorded Trial 002's fail-closed pre-brief exposure of its co-located key and prior-trial content. The next evidence gate is non-executing Trial 003 commitment-and-reveal formation; no worker adapter or execution authority is added.
 - v0.3 (2026-07-13): Recorded that live Trial 001 failed closed at 19/23 before child C02 started. A repaired Trial 002 is the next separate evidence gate; the graph contract gains no dispatch or runtime authority.
 - v0.2 (2026-07-12): Linked the separately approved deterministic authored-state kernel implementation. The kernel remains advisory and adds no worker dispatch, runtime authority, concurrency, or required gate.
@@ -87,6 +88,8 @@ admitted transitions without executing commands or dispatching workers.
 The three-sample evidence-integrity review is complete at
 `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Live Trial 001 failed closed at 19/23, and
 Trial 002 failed closed before a brief after reported exposure of its co-located
-key. The next separate evidence gate is non-executing Trial 003 formation around
-an external commitment-and-reveal channel, followed by a separate execution
-decision. Worker dispatch and an attended serial-epic pilot remain later.
+key. Trial 003 then passed 23/23 under external commitment-and-reveal and
+traversed its three-child graph to parent closeout; a separately authorized R1
+repaired a product ordering defect found after closeout. The next separate gate
+is non-executing attended serial-epic pilot formation/challenge, followed by a
+separate execution decision. Worker dispatch remains outside this contract.

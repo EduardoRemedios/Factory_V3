@@ -1,7 +1,7 @@
 # Factory V3 Deterministic Serial Mission-State Kernel
 
 ## Version
-v0.3
+v0.4
 
 ## Status
 Research-only, advisory, and non-enforcing.
@@ -13,6 +13,11 @@ transition. It changes no state schema, CLI, or authority behavior.
 Version v0.3 records Trial 002's second fail-closed observation: the fresh task
 reported pre-brief exposure of the co-located key, and the kernel admitted safe
 hold before product work. It changes no state schema, CLI, or authority behavior.
+
+Version v0.4 records Trial 003's successful external commitment-and-reveal
+continuation through three serial children and parent closeout, plus its separate
+R1 product repair after later review found a test false negative. It changes no
+state schema, CLI, or authority behavior.
 
 This kernel calculates and persists state decisions for an authored serial
 mission graph. It does not dispatch workers, execute implementation or
@@ -148,11 +153,16 @@ Trial 002 further showed that correct safe-hold mechanics do not make a
 co-located answer-key channel operationally suitable. File-read custody and
 human-controlled reveal remain outside the kernel's authority and proof scope.
 
+Trial 003 supplied one bounded successful continuation: a fresh task passed all
+23 scored re-entry fields under external commitment-and-reveal, then completed
+the three-child state graph at revision 15/event 16. A later product-contract
+defect was repaired under separate R1 authority without rewriting that authored
+state/event history. This supports the kernel's local transition role; it does
+not prove an attended multi-feature epic or worker-adapter safety.
+
 The next decisions remain separate and ordered. The three-sample
 evidence-integrity review is complete at `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`:
 
-1. form and challenge a non-executing Trial 003 candidate using an external
-   commitment-and-reveal channel, then make a separate execution decision;
-2. only after sufficient fresh-worker evidence, run a separately approved
-   attended serial-epic pilot;
+1. form and challenge a non-executing attended serial-epic pilot candidate;
+2. make a separate decision on its exact execution envelope;
 3. only later consider read-only Codex SDK/MCP discovery.
