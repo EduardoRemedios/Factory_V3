@@ -24,6 +24,7 @@ wire a required gate, or add runtime authority.
 - Original parent closeout: `b8794062bb9f380a2b723deb1b47ca8ad0d4ba04`
 - R1 implementation: `9d18906bd6fb4443e61e684954f6300306c13298`
 - R1 evidence closeout: `7e9c0fa7a600e5486585e6204eb0a42b3b514013`
+- R1 closeout reference finalization: `0f4df91955490a2a8bf9df389deedcfa3d3ad4d2`
 - Canonical Same Second repository: unchanged by Trial 003 and R1
 - Remote/push: none in the standalone worker repository
 
