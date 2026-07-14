@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-14
+
+- Recorded live fresh-worker `V3-FW-TRIAL-003` as a bounded commitment-and-reveal re-entry pass: the external payload matched its 4,985-byte SHA-256 commitment before parsing, the committed brief scored 23/23, and the three-child serial state closed at revision 15/event 16. Independent Factory closeout found one exact-path sorting defect missed by the original four tests and pinned invalid output. Separately authorized `V3-FW-TRIAL-003-R1` corrected only the sorting key, added one regression test, and reordered the existing invalid expected errors; five tests and pinned exits 0/2 now pass. No dependency, push, product integration, worker dispatch, required gate, runtime authority, or profile promotion was added. The next gate is non-executing attended serial-epic pilot formation/challenge, followed by a separate execution decision; read-only Codex SDK/MCP discovery remains later.
+
 ## 2026-07-13
 
 - Closed live fresh-worker `V3-FW-TRIAL-002` as `FAIL_CLOSED_SAFE_HOLD` after the fresh task reported pre-brief exposure of the co-located answer key and Trial 001 content during broad repository orientation. No brief, comparison, validator, or test was created. Recorded co-location as a protocol-design gap and moved the next gate to non-executing Trial 003 formation using an external SHA-256 commitment-and-reveal channel; no external placement or execution is approved.

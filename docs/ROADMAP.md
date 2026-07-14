@@ -1,6 +1,6 @@
 # ROADMAP.md - Factory V3 Roadmap
 
-> Last updated: 2026-07-12
+> Last updated: 2026-07-14
 
 ## Current State
 
@@ -14,9 +14,9 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 
 This queue is sequencing guidance only. It does not approve execution, promotion, required gates, runtime authority, real-data use, scheduled work, or V2 removal.
 
-1. Form and challenge a non-executing `V3-FW-TRIAL-003` candidate using an external answer-key commitment-and-reveal channel. Trials 001 and 002 are closed at authored safe hold and must not be resumed; Trial 003 execution and external placement require another explicit Go.
-2. After sufficient fresh-worker evidence from a separately approved live trial, run one separately approved attended serial-epic pilot with bounded feature children, child verification gates, parent integration verification, and at least one session boundary.
-3. Start Codex SDK/MCP orchestration only as a later read-only discovery spike after the state-kernel, fresh-worker, and manual serial-epic evidence.
+1. Form and challenge one non-executing attended serial-epic pilot candidate using the existing graph/state artifacts, bounded feature children, child verification gates, parent integration verification, and at least one session boundary. Trial 003 supplied bounded fresh-worker evidence; pilot execution still requires a separate exact Go.
+2. Make a separate sponsor decision on the challenged attended-pilot envelope. Do not infer worker dispatch, concurrency, deployment, credentials, unattended execution, or profile promotion.
+3. Start Codex SDK/MCP orchestration only as a later read-only discovery spike after the manual attended serial-epic evidence.
 4. Capture natural fallback, recovery, stale-reentry, failed-verification, mission-health, and endurance-continuity signals opportunistically; do not manufacture failures, duration, calls, waypoints, or scope.
 
 Endurance rule: the candidate long-running profile is intended to preserve objective, authority, checkpoint, re-entry, verification, evidence, and output quality for missions that naturally require up to roughly four hours. Mission completion is not duration based. A correct two- or three-hour finish passes the mission and must stop; it may leave only the unobserved upper endurance range insufficiently evidenced.
@@ -43,8 +43,8 @@ Endurance rule: the candidate long-running profile is intended to preserve objec
 - Use `docs/Factory/v3/ADAPTIVE_MISSION_CONTROL.md` and the standalone checkpoint, mission-state, human-interrupt, and plan-delta templates as research-only guidance for larger V3 missions. The next evidence target is to prove that V3 can continue from explicit artifacts and use Tier 1/2 decisions before asking for Tier 3 human interrupts, without using artificial time or size classes as mission-sizing authority.
 - Initial non-executing mission-formation skills now exist for V3 discovery and challenge work, with dry-run trial evidence. The next evidence target is live use in real V3/Harmony conversations before the skills can become recommended V3 intake aids.
 - Mission Health and Continuation Judgment is now tracked as a research-only Phase 4.6 roadmap lane with a defined advisory vocabulary at `docs/Factory/v3/MISSION_HEALTH_VOCABULARY.md` (six citation-grounded signals recorded at checkpoints). It does not approve schema changes, validators, gates, routing authority, runtime-control power, required checkpoint fields, or default-mode behavior.
-- Loop Governance has three reviewed natural optional evidence-integrity samples. The review decision is `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Live Trials 001 and 002 both failed closed; Trial 002 identified co-located answer-key custody as a protocol-design gap. The next gate is Trial 003 formation and challenge, not field promotion or orchestration.
-- Serial epic governance now has a research-only mission-graph contract plus a deterministic authored-state kernel, append-only events, CLI, templates, fixtures, and focused tests. Both live trials showed useful fail-closed behavior but not artifact-sufficient continuation. The next engineering evidence gate is a separately approved external commitment-and-reveal trial after candidate review, then an attended serial-epic pilot; worker dispatch, concurrency, unattended execution, and profile promotion remain unapproved.
+- Loop Governance has three reviewed natural optional evidence-integrity samples. The review decision is `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Trials 001 and 002 failed closed; Trial 003 passed 23/23 under external commitment-and-reveal. Its original product verification missed an exact-path defect, which R1 repaired separately; this is an implementation-test false negative, not a demonstrated mission-record-validator false negative.
+- Serial epic governance now has a research-only mission-graph contract, deterministic authored-state kernel, append-only events, CLI, templates, fixtures, focused tests, and one bounded successful fresh-task handoff. The next engineering evidence gate is a non-executing attended serial-epic pilot formation/challenge followed by a separate execution decision; worker dispatch, concurrency, unattended execution, and profile promotion remain unapproved.
 - Use `docs/Factory/v3/ANCHOR_REGISTRY.md` as a pointer-first cold-start map for future model onboarding and decision-pack preparation. Keep it research-only and update it only when it reduces audit cost without becoming a second source of truth.
 - Capture Codex SDK/MCP orchestration as a follow-on research spike: test whether Factory/Harmony can programmatically supervise Codex as a worker runtime while preserving mission records, sandbox discipline, human approval, verification evidence, and halt behavior. Start read-only; do not treat the spike as approval for unattended execution or runtime authority.
 - Keep the Codex Security scan follow-up narrow: advisory validator hardening is acceptable, but it does not create required gates, routing authority, default-mode promotion, or reduced-governance thresholds.

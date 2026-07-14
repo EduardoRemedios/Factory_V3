@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.50
+v1.51
 
 ## Change Log
+- v1.51 (2026-07-14): Recorded Trial 003's 23/23 external commitment-and-reveal pass and its separate R1 exact-path sorting recovery after independent closeout found a defect missed by four tests. The standalone output remains unpushed and unintegrated; the next gate is non-executing attended serial-epic pilot formation/challenge.
 - v1.50 (2026-07-13): Recorded live Trial 002 at `FAIL_CLOSED_SAFE_HOLD` after broad initial orientation reportedly exposed the co-located key and Trial 001 content before a brief. The next gate is non-executing Trial 003 formation using an external commitment-and-reveal channel; execution remains unapproved.
 - v1.49 (2026-07-13): Recorded live fresh-worker `V3-FW-TRIAL-001` at `FAIL_CLOSED_SAFE_HOLD` after 19 of 23 scored fields matched. The authored kernel prevented C02 implementation; a repaired Trial 002 is the next separate, unapproved gate.
 - v1.48 (2026-07-12): Completed the three-sample optional evidence-integrity review with decision `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. No recurring mission-record validator FP or demonstrated FN justifies field or validator changes; the next separate gate is the live fresh-worker trial decision.
@@ -157,6 +158,7 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `SERIAL_MISSION_GRAPH_CONTRACT.md`
 - `SERIAL_MISSION_STATE_KERNEL.md`
 - `EVIDENCE_INTEGRITY_THREE_SAMPLE_REVIEW_20260712.md`
+- `LIVE_FRESH_WORKER_TRIAL_003_REVIEW_20260714.md`
 - `LOOP_TERMINAL_STATES_AND_SAFE_HOLD.md`
 - `templates/V3_LOOP_CONTRACT_TEMPLATE.json`
 - `CANDIDATE_PROFILE_V3_OP_003_LONG_RUNNING_REMOTE_INTERRUPT.md`
@@ -230,9 +232,15 @@ separately approved; Trial 001 was not resumed.
 
 `LIVE_FRESH_WORKER_TRIAL_002_REVIEW_20260713.md` records Trial 002 at the same
 fail-closed state before reconstruction began. Its co-located key was reportedly
-exposed during broad repository orientation, so the next gate is non-executing
-Trial 003 formation around an external commitment-and-reveal channel. No
-external placement or Trial 003 execution is approved.
+exposed during broad repository orientation.
+
+`LIVE_FRESH_WORKER_TRIAL_003_REVIEW_20260714.md` records the separately approved
+external commitment-and-reveal trial. The fresh task committed its brief before
+reveal and matched 23/23 fields. Independent closeout later found an exact-path
+sorting defect missed by the original four tests; bounded R1 repaired the code,
+added one regression test, and reordered only the existing pinned errors. The
+standalone output remains unpushed and unintegrated. The next gate is
+non-executing attended serial-epic pilot formation/challenge, not pilot execution.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 
