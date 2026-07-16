@@ -1,9 +1,10 @@
 # Codex SDK And MCP Orchestration Direction
 
 ## Version
-v0.8
+v0.9
 
 ## Change Log
+- v0.9 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under its exact per-mission eligibility, evidence, human review/Send, and fallback contract. Adoption alone creates no live-use or task authority. The next evidence target is one natural eligible use; full automation remains separately governed and unapproved.
 - v0.8 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. It requires existing exact mission authority, per-mission explicit use, non-sensitive prompts, authored-state control, deterministic evidence, human review/Send, and manual fallback. No live use, default use, automatic task control, task status, SDK/MCP, adapter, or runtime authority is approved.
 - v0.7 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. The installed desktop accepted the intended project/prompt and returned the exact acknowledgment with no visible tool/permission activity; the empty workspace remained unchanged. This is bounded attended evidence, not byte-level transport, task-status, hidden-activity, adapter, or automation proof. The next separate gate is optional attended-aid adoption; full automation remains a later lane.
 - v0.6 (2026-07-16): Added challenged attended candidate `V3-CODEX-DL-TRIAL-001` as the next separate decision after helper implementation. It authorizes nothing by formation and keeps SDK/MCP, dependencies, credentials, automatic task control, retries, and runtime authority outside scope.
@@ -142,11 +143,13 @@ at `PASS_WITH_LIMITATIONS` without retry; retained evidence under
 intended project and visible prompt plus the exact response, while task identity,
 status, byte-level transport, full-path UI proof, and hidden activity remain
 unproved. `CODEX_DEEPLINK_ATTENDED_ADOPTION_FORMATION_20260716.md` and its
-challenge now define `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor
-decision. The candidate permits no live use by itself and keeps exact mission
-authority, human Send, and manual fallback controlling. App-server, SDK, exec,
-and MCP remain later lanes requiring their own runtime, dependency, credential,
-process, probe, and authority decisions.
+challenge defined `V3-CODEX-DL-ADOPT-001`, which is now sponsor-approved as an
+optional attended aid. The decision at
+`deeplink_assist/V3-CODEX-DL-ADOPT-001/DECISION.md` keeps exact mission
+authority, per-mission naming, human Send, deterministic evidence, and manual
+fallback controlling. Adoption alone permits no live use. App-server, SDK,
+exec, and MCP remain later lanes requiring their own runtime, dependency,
+credential, process, probe, and authority decisions.
 
 ## Boundary
 This document does not change the current approved optional operational profile:

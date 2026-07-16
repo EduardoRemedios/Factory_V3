@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.70
+v1.71
 
 ## Change Log
+- v1.71 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under the exact challenged contract. Each use still requires existing exact mission authority, explicit per-mission naming, short non-sensitive authored prompts, deterministic preparation evidence, human review/Send, and manual fallback. Adoption recording created no live link/task, helper change, default use, standing authorization, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion. The next evidence target is one natural eligible use inside a separately approved useful mission.
 - v1.70 (2026-07-16): Formed and challenged non-executing optional attended-aid candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The repaired contract requires already-approved exact worker-task authority, per-mission explicit naming, short non-sensitive prompt artifacts, authored-state control, deterministic preparation evidence, human review/Send, and manual fallback. It approves no live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion.
 - v1.69 (2026-07-16): Completed attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence shows the intended project name, complete visible synthetic prompt, exact acknowledgment, no visible tool/permission cards, and an unchanged empty workspace; missing pre-Send, full-path, task-ID/status, byte-level transport, and hidden-activity proof remain explicit. The next separate gate is an optional attended-aid adoption decision. Automatic task control, CLI repair, app-server/SDK/MCP, dependencies, credentials, adapter implementation, runtime authority, required gates, and profile promotion remain unapproved.
 - v1.68 (2026-07-16): Formed and challenged attended synthetic `V3-CODEX-DL-TRIAL-001` at `CONDITIONAL PASS` for a separate execution decision. The candidate pins one exact empty workspace, one 245-byte prompt/hash/nonce, one helper run/click/Send/task, sponsor observation/screenshots, no-tool/no-write behavior, before/after checks, retained evidence, and no retry. No workspace, prompt artifact, link, task, worker, dependency, credential, runtime authority, required gate, or profile promotion was created or approved.
@@ -124,7 +125,7 @@ This queue is the near-term sequencing order as of 2026-07-16. It is an orientat
 
 | Rank | Decision or artifact | Why it is next | Required artifact | Approval needed | Explicit non-approval |
 | --- | --- | --- | --- | --- | --- |
-| 1 | `V3-CODEX-DL-ADOPT-001` adoption decision | The candidate is formed/challenged at `PASS` with exact optional eligibility, evidence, human checkpoint, authority, and fallback rules | Sponsor adopt/reject/defer decision on the exact candidate | Separate sponsor decision | No live use, default use, standing authorization, automatic Send, task status, worker dispatch, or transport-proof claim |
+| 1 | First natural optional-aid use | `V3-CODEX-DL-ADOPT-001` is approved, but only one synthetic trial exists | An exact useful mission envelope that names the aid plus bounded preparation/human/fallback evidence | Separate mission approval | Adoption alone grants no helper run, task, Send, worker, retry, or product authority |
 | 2 | Full-automation research decision | App-server/SDK/exec/MCP document stronger primitives but require a working runtime, process, dependency, credential, or live task effect | New formation/challenge naming exactly one surface and its evidence/probe boundary | Later sponsor decision | No CLI repair, install, server start, native-task probe, or automatic fallback by implication |
 | 3 | Natural negative-case, mission-health, and endurance evidence | The corpus still lacks a natural sustained negative case and upper-envelope continuity evidence | Evidence attached opportunistically to separately approved useful work | Per-candidate approval before execution | No manufactured failure, duration, calls, waypoints, scope, thresholds, or routing |
 
@@ -716,15 +717,14 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Make a separate sponsor adopt/reject/defer decision on challenged candidate
-`V3-CODEX-DL-ADOPT-001` in
-`CODEX_DEEPLINK_ATTENDED_ADOPTION_FORMATION_20260716.md` and its challenge.
-Adoption would permit only optional per-mission explicit use after exact worker
-authority already exists, with short non-sensitive prompts, authored-state
-control, deterministic evidence, human review/Send, and manual fallback. Do not
-infer live use, default use, standing authorization, automatic task creation,
-task status, worker dispatch, CLI repair, app-server/SDK/MCP, dependencies,
-credentials, or runtime authority.
+Use sponsor-approved `V3-CODEX-DL-ADOPT-001` only in the next separately
+approved useful mission whose exact envelope explicitly names the aid and
+satisfies its short non-sensitive prompt, authored-state, deterministic
+evidence, human review/Send, and manual fallback rules. Collect bounded natural
+friction and anomaly evidence. Do not infer live use from adoption alone,
+default use, standing authorization, automatic task creation, task status,
+worker dispatch, CLI repair, app-server/SDK/MCP, dependencies, credentials, or
+runtime authority.
 Collect endurance evidence only from useful missions that naturally exercise
 more of the up-to-four-hour envelope; never prolong or enlarge work to hit time,
 call, waypoint, test, file, or scope targets.
@@ -773,14 +773,14 @@ intended project name, complete visible synthetic prompt, exact acknowledgment,
 and no visible tool/permission cards; the disposable workspace remained empty.
 No pre-Send screenshot, full absolute path, task identity/status, byte-level
 transport trace, or proof of hidden-tool absence exists.
-Non-executing `V3-CODEX-DL-ADOPT-001` is now formed and challenged at `PASS`.
-Its repaired contract prevents optional adoption from becoming default use,
-standing task authority, a transport-proof claim, or an implicit worker
-adapter. No live use is approved.
+Sponsor-approved `V3-CODEX-DL-ADOPT-001` now recognizes the helper as an
+optional attended aid. Its exact contract prevents adoption from becoming
+default use, standing task authority, a transport-proof claim, or an implicit
+worker adapter. No live use was performed during adoption recording.
 
 The recommended next moves, in order:
 
-1. Make a separate sponsor adoption decision on exact challenged `V3-CODEX-DL-ADOPT-001`.
+1. Collect one natural eligible use inside a separately approved useful mission that explicitly names `V3-CODEX-DL-ADOPT-001`.
 2. Keep any native-task probe, CLI repair, app-server/SDK/MCP, dependency, credential, automatic Send, task-status adapter, or full-automation research in a separate later mission.
 3. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
 

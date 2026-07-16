@@ -1,9 +1,10 @@
 # Factory V3 Serial Mission-Graph Contract
 
 ## Version
-v0.12
+v0.13
 
 ## Change Log
+- v0.13 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid that remains subordinate to exact graph/mission authority and cannot activate a child or start a worker by itself. The next evidence target is one natural eligible use inside a separately approved useful mission; no worker adapter or runtime authority is added.
 - v0.12 (2026-07-16): Added challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS`. Its contract requires graph/mission authority before any attended handoff and adds no child activation, worker dispatch, automatic task control, or runtime authority. The next gate is a separate sponsor adoption decision.
 - v0.11 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. It supplies bounded evidence for a human-reviewed deep-link handoff but adds no graph authority, worker adapter, automatic task control, dispatch, or runtime authority. The next separate gate is optional attended-aid adoption.
 - v0.10 (2026-07-16): Added challenged attended `V3-CODEX-DL-TRIAL-001` as the next separate decision. Formation adds no workspace, link, task, worker adapter, or execution authority.
@@ -110,8 +111,9 @@ Separately approved `V3-CODEX-DL-TRIAL-001` then completed once at
 `PASS_WITH_LIMITATIONS` without retry. It supports a bounded human-reviewed
 handoff observation only; it does not prove byte-level transport, task status,
 hidden-tool absence, automatic task creation, or worker dispatch. The next
-separate gate is represented by challenged candidate
-`V3-CODEX-DL-ADOPT-001` at `PASS`. Its proposed optional aid remains subordinate
-to exact authored graph/mission authority and cannot activate a child or start a
-worker by itself. The next gate is a separate sponsor adoption decision. Worker
-adapters and runtime authority remain outside this contract.
+separate gate was challenged candidate `V3-CODEX-DL-ADOPT-001`, which is now
+sponsor-approved as an optional attended aid. It remains subordinate to exact
+authored graph/mission authority and cannot activate a child or start a worker
+by itself. The next evidence target is one natural eligible use inside a
+separately approved useful mission. Worker adapters and runtime authority remain
+outside this contract.

@@ -2,16 +2,26 @@
 
 ## Version
 
-v0.1
+v0.2
+
+## Change Log
+
+- v0.2 (2026-07-16): Recorded sponsor-approved
+  `V3-CODEX-DL-ADOPT-001` as an optional attended aid under its exact challenged
+  per-mission eligibility, evidence, human review/Send, and fallback rules. This
+  is not default use or task authority and changes no helper code or limits.
+- v0.1 (2026-07-16): Added the deterministic stdlib helper contract and proof
+  limits.
 
 ## Status
 
 Research-only, advisory, and non-enforcing.
 
-Implemented by approved mission `V3-CODEX-DL-001`. This helper generates text
-only. It does not open a link, create or message a Codex task, run a worker,
-copy to the clipboard, inspect credentials, use the Codex CLI/SDK/MCP, perform
-network access, or grant execution authority.
+Implemented by approved mission `V3-CODEX-DL-001` and adopted as an optional
+attended aid by `V3-CODEX-DL-ADOPT-001`. This helper generates text only. It
+does not open a link, create or message a Codex task, run a worker, copy to the
+clipboard, inspect credentials, use the Codex CLI/SDK/MCP, perform network
+access, or grant execution authority.
 
 ## Purpose
 
@@ -24,8 +34,24 @@ into JSON containing a reviewable `codex://new` deep link and the SHA-256 of the
 exact prompt input.
 
 The human must still inspect the resolved workspace and digest, open the link,
-review the composer, and press Send. Opening or testing a link requires a
-separately approved live trial.
+review the composer, and press Send. Each use requires a separately approved
+mission envelope that already authorizes the exact worker task and workspace
+and explicitly names this aid.
+
+## Adopted Optional-Use Rule
+
+The helper is eligible only when:
+
+- the approved mission names the exact worker task, workspace, and aid;
+- the prompt is short, non-sensitive, durable, and points to authored state;
+- the deterministic preparation fields are retained;
+- the human reviews the workspace/project and complete visible prompt before
+  Send;
+- manual task creation/copy-paste or authored safe hold is available.
+
+Adoption approval does not itself authorize a helper run, task, Send, worker,
+retry, or product effect. See
+`deeplink_assist/V3-CODEX-DL-ADOPT-001/DECISION.md`.
 
 ## Command
 

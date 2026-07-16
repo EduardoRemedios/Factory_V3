@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.18
+v0.19
 
 ## Change Log
+- v0.19 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid subordinate to exact authored mission authority, explicit per-mission naming, deterministic evidence, human review/Send, and manual fallback. Adoption alone adds no transition, live-use, worker, automatic task-control, adapter, or runtime authority.
 - v0.18 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. The candidate makes authored mission authority, per-mission explicit naming, human review/Send, deterministic evidence, and manual fallback mandatory; it adds no live-use authority, default task creation, automatic Send, adapter, or runtime authority.
 - v0.17 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence supports the bounded human-reviewed deep-link handoff and unchanged empty workspace, while task identity/status, byte-level transport, full-path UI proof, and hidden-activity proof remain absent. The next gate is an optional attended-aid adoption decision; no automatic task control, adapter, or runtime authority is added.
 - v0.16 (2026-07-16): Added challenged attended `V3-CODEX-DL-TRIAL-001` with one-action ceilings, exact synthetic inputs, sponsor observation, no-tool/no-write boundary, before/after evidence, and no retry. The next gate is separate sponsor Go/no-go; no live action or runtime authority is approved.
@@ -237,8 +238,8 @@ Non-transferable or insufficient:
    - Discovery result: approved no-probe `V3-CODEX-DISC-001` completed at `DEEPLINK_ASSIST_ONLY`; evidence lives under `task_surface_discovery/V3-CODEX-DISC-001/`.
    - Implementation result: `V3-CODEX-DL-001` added one deterministic stdlib helper, eight focused tests, portable fixtures, and closeout evidence without opening a link or creating a task.
    - Trial result: `V3-CODEX-DL-TRIAL-001` completed once at `PASS_WITH_LIMITATIONS` without retry; retained evidence supports the visible attended handoff and unchanged empty workspace, not transport integrity, task status, or hidden-activity claims.
-   - Adoption candidate: `V3-CODEX-DL-ADOPT-001` is formed/challenged at `PASS`; its contract requires already-approved exact worker-task authority, explicit per-mission eligibility, authored-state control, deterministic evidence, human review/Send, and manual fallback.
-   - Next gate: separate sponsor adopt/reject/defer decision on that exact contract.
+   - Adoption result: sponsor-approved `V3-CODEX-DL-ADOPT-001` recognizes the helper as an optional attended aid only after exact worker-task authority exists and the mission explicitly names the mechanism.
+   - Next gate: one natural eligible use inside a separately approved useful mission.
 
 ## Non-Goals
 - No loop runner.
@@ -253,8 +254,8 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. make a separate sponsor adopt/reject/defer decision on exact `V3-CODEX-DL-ADOPT-001`,
-2. if adopted, preserve its eligible non-sensitive inputs, human review/Send, retained evidence, and manual fallback rules,
+1. use approved `V3-CODEX-DL-ADOPT-001` only in a separately approved useful mission that explicitly satisfies and names its contract,
+2. collect bounded natural friction, fallback, and anomaly evidence,
 3. preserve the explicit absence of transport-integrity and task-status proof,
 4. keep automatic task control and worker adapters in a later separately formed lane,
 5. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work.

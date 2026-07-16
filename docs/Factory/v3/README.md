@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.58
+v1.59
 
 ## Change Log
+- v1.59 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under the exact challenged per-mission contract. Adoption requires existing worker-task authority, explicit mission naming, short non-sensitive authored prompts, deterministic preparation evidence, human review/Send, and manual fallback. It authorizes no live use by itself and adds no default mode, standing task authority, helper change, automatic Send, task status, SDK/MCP, adapter, gate, runtime authority, or profile promotion.
 - v1.58 (2026-07-16): Formed and challenged non-executing `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The candidate permits only optional per-mission explicit use for short non-sensitive prompts after exact worker-task authority already exists, with authored state controlling, deterministic preparation evidence, human review/Send, and manual fallback. No live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion is approved.
 - v1.57 (2026-07-16): Completed attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence shows the intended project name, complete visible synthetic prompt, exact acknowledgment, one visible exchange, no visible tool/permission cards, and an unchanged empty workspace. Missing pre-Send capture, full-path UI proof, task identity/status, byte-level transport proof, and hidden-activity proof remain explicit. The next separate gate is whether to adopt the helper as an optional attended handoff aid; automatic task control remains a later separately governed lane.
 - v1.56 (2026-07-16): Formed and challenged attended synthetic candidate `V3-CODEX-DL-TRIAL-001` at `CONDITIONAL PASS` for a separate sponsor decision. It pins one empty disposable workspace, a 245-byte prompt/hash/nonce, one helper run/click/Send/task, no-tool/no-write response behavior, sponsor observations/screenshots, before/after checks, and no retry. No live trial action is approved.
@@ -285,9 +286,11 @@ remained empty. It does not prove full-path identity, byte-level transport,
 hidden-tool absence, task APIs, or automatic orchestration. The next separate
 gate is represented by
 `CODEX_DEEPLINK_ATTENDED_ADOPTION_FORMATION_20260716.md` and its challenge.
-Candidate `V3-CODEX-DL-ADOPT-001` is at `PASS` for a separate sponsor decision.
-It proposes optional per-mission use only after exact worker authority exists;
-formation creates no live-use or automation authority.
+Sponsor-approved `V3-CODEX-DL-ADOPT-001` now recognizes the helper as an
+optional attended aid under the exact challenged per-mission contract; see
+`deeplink_assist/V3-CODEX-DL-ADOPT-001/DECISION.md`. Adoption alone creates no
+live-use or automation authority. The next evidence target is one natural
+eligible use inside a separately approved useful mission.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 

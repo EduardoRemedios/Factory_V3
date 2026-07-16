@@ -1,7 +1,7 @@
 # Factory V3 Deterministic Serial Mission-State Kernel
 
 ## Version
-v0.11
+v0.12
 
 ## Status
 Research-only, advisory, and non-enforcing.
@@ -49,6 +49,11 @@ Version v0.11 records formed/challenged non-executing
 candidate keeps authored state controlling and grants no transition, worker,
 task, or runtime authority. It changes no state schema, CLI, or authority
 behavior.
+
+Version v0.12 records sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional
+attended aid subordinate to exact authored mission authority. Adoption grants
+no transition, live-use, task, worker, or runtime authority and changes no state
+schema, CLI, or authority behavior.
 
 This kernel calculates and persists state decisions for an authored serial
 mission graph. It does not dispatch workers, execute implementation or
@@ -198,9 +203,9 @@ The next decisions remain separate and ordered. The three-sample
 evidence-integrity review is complete at `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`, and
 the attended deep-link trial completed at `PASS_WITH_LIMITATIONS`:
 
-1. make a separate sponsor adoption decision on challenged
-   `V3-CODEX-DL-ADOPT-001`, whose optional aid retains human review/Send,
-   pinned evidence, authored-state authority, and manual fallback;
+1. use approved `V3-CODEX-DL-ADOPT-001` only in a separately approved useful
+   mission that explicitly names its human review/Send, pinned evidence,
+   authored-state authority, and manual fallback rules;
 2. keep automatic task control, worker runs, CLI repair, dependencies,
    credentials, and app-server/SDK/MCP lanes separately governed;
 3. require later formation and approval before any install/repair,
