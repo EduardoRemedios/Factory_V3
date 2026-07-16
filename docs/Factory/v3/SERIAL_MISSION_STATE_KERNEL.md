@@ -1,7 +1,7 @@
 # Factory V3 Deterministic Serial Mission-State Kernel
 
 ## Version
-v0.4
+v0.11
 
 ## Status
 Research-only, advisory, and non-enforcing.
@@ -18,6 +18,37 @@ Version v0.4 records Trial 003's successful external commitment-and-reveal
 continuation through three serial children and parent closeout, plus its separate
 R1 product repair after later review found a test false negative. It changes no
 state schema, CLI, or authority behavior.
+
+Version v0.5 records Same Second `V3-SS-EPIC-001` as one bounded attended
+three-child product pilot at revision 18/event 19 and links the next challenged
+read-only task-surface discovery candidate. It changes no state schema, CLI, or
+authority behavior.
+
+Version v0.6 records completed no-probe `V3-CODEX-DISC-001` at
+`DEEPLINK_ASSIST_ONLY`. It changes no state schema, CLI, or authority behavior.
+
+Version v0.7 records formed/challenged non-executing `V3-CODEX-DL-001` at
+`PASS` for a separate code-only decision. It changes no state schema, CLI, or
+authority behavior.
+
+Version v0.8 records implemented code-only `V3-CODEX-DL-001` and the next
+separate attended live-link trial formation gate. It changes no state schema,
+CLI, or authority behavior.
+
+Version v0.9 records challenged attended candidate
+`V3-CODEX-DL-TRIAL-001` and its separate sponsor execution gate. It changes no
+state schema, CLI, or authority behavior.
+
+Version v0.10 records attended `V3-CODEX-DL-TRIAL-001` at
+`PASS_WITH_LIMITATIONS` without retry and names optional attended-aid adoption
+as the next separate gate. It changes no state schema, CLI, or authority
+behavior.
+
+Version v0.11 records formed/challenged non-executing
+`V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The
+candidate keeps authored state controlling and grants no transition, worker,
+task, or runtime authority. It changes no state schema, CLI, or authority
+behavior.
 
 This kernel calculates and persists state decisions for an authored serial
 mission graph. It does not dispatch workers, execute implementation or
@@ -157,12 +188,20 @@ Trial 003 supplied one bounded successful continuation: a fresh task passed all
 23 scored re-entry fields under external commitment-and-reveal, then completed
 the three-child state graph at revision 15/event 16. A later product-contract
 defect was repaired under separate R1 authority without rewriting that authored
-state/event history. This supports the kernel's local transition role; it does
-not prove an attended multi-feature epic or worker-adapter safety.
+state/event history. Same Second `V3-SS-EPIC-001` then supplied one bounded
+attended multi-feature epic: a fresh non-forked task replayed C01 before C02,
+three required children completed with PROVED evidence, and separate parent
+verification closed at revision 18/event 19. This does not prove worker-adapter
+safety, unattended operation, or runtime authority.
 
 The next decisions remain separate and ordered. The three-sample
-evidence-integrity review is complete at `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`:
+evidence-integrity review is complete at `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`, and
+the attended deep-link trial completed at `PASS_WITH_LIMITATIONS`:
 
-1. form and challenge a non-executing attended serial-epic pilot candidate;
-2. make a separate decision on its exact execution envelope;
-3. only later consider read-only Codex SDK/MCP discovery.
+1. make a separate sponsor adoption decision on challenged
+   `V3-CODEX-DL-ADOPT-001`, whose optional aid retains human review/Send,
+   pinned evidence, authored-state authority, and manual fallback;
+2. keep automatic task control, worker runs, CLI repair, dependencies,
+   credentials, and app-server/SDK/MCP lanes separately governed;
+3. require later formation and approval before any install/repair,
+   workspace-write orchestration, worker adapter, or runtime authority.

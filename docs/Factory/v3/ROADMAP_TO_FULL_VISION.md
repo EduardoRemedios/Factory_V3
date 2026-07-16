@@ -1,9 +1,16 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.63
+v1.70
 
 ## Change Log
+- v1.70 (2026-07-16): Formed and challenged non-executing optional attended-aid candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The repaired contract requires already-approved exact worker-task authority, per-mission explicit naming, short non-sensitive prompt artifacts, authored-state control, deterministic preparation evidence, human review/Send, and manual fallback. It approves no live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion.
+- v1.69 (2026-07-16): Completed attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence shows the intended project name, complete visible synthetic prompt, exact acknowledgment, no visible tool/permission cards, and an unchanged empty workspace; missing pre-Send, full-path, task-ID/status, byte-level transport, and hidden-activity proof remain explicit. The next separate gate is an optional attended-aid adoption decision. Automatic task control, CLI repair, app-server/SDK/MCP, dependencies, credentials, adapter implementation, runtime authority, required gates, and profile promotion remain unapproved.
+- v1.68 (2026-07-16): Formed and challenged attended synthetic `V3-CODEX-DL-TRIAL-001` at `CONDITIONAL PASS` for a separate execution decision. The candidate pins one exact empty workspace, one 245-byte prompt/hash/nonce, one helper run/click/Send/task, sponsor observation/screenshots, no-tool/no-write behavior, before/after checks, retained evidence, and no retry. No workspace, prompt artifact, link, task, worker, dependency, credential, runtime authority, required gate, or profile promotion was created or approved.
+- v1.67 (2026-07-16): Implemented approved code-only `V3-CODEX-DL-001` with a stdlib deterministic deep-link helper, eight focused tests, portable fixtures, documentation, and closeout evidence. It retains human Send and explicitly lacks transport proof. The next separate gate is non-executing attended synthetic live-link trial formation/challenge; no link, task, worker, dependency, credential, process, runtime authority, required gate, or profile promotion was added.
+- v1.66 (2026-07-16): Formed and challenged non-executing candidate `V3-CODEX-DL-001` at `PASS` for a separate stdlib code-only decision. The candidate retains human Send and forbids link opening/task creation while pinning file-only prompt input, strict workspace resolution, exact encoding, an 8,192-byte local ceiling, deterministic JSON, and input-only digest semantics. No implementation, task, worker, dependency, credential, process, runtime authority, required gate, or profile promotion is approved.
+- v1.65 (2026-07-16): Completed approved read-only `V3-CODEX-DISC-001` without a live task probe and recorded `DEEPLINK_ASSIST_ONLY`. Native task controls were absent in the current task, the local Codex CLI runtime is missing, and documented desktop deep links prefill workspace/prompt but require human Send and expose no task status. The next separate gate is non-executing deep-link helper formation/challenge; no task creation, repair, dependency, credential, server, worker, adapter, runtime authority, required gate, or profile promotion was added.
+- v1.64 (2026-07-16): Recorded attended Same Second mission `V3-SS-EPIC-001` as the first bounded passed serial-epic pilot and added challenged non-executing candidate `V3-CODEX-DISC-001` for read-only task-surface discovery. The next gate is a separate sponsor decision on that exact candidate; no live probe, SDK/MCP execution, dependency, credential, worker adapter, workspace write, runtime authority, required gate, or profile promotion is approved.
 - v1.63 (2026-07-14): Recorded Trial 003's 23/23 external commitment-and-reveal pass, successful serial closeout, and separate R1 recovery after independent review found an exact-path defect missed by four tests. The next gate is non-executing attended serial-epic pilot formation/challenge; read-only SDK/MCP discovery remains later.
 - v1.62 (2026-07-13): Closed live Trial 002 at `FAIL_CLOSED_SAFE_HOLD` after reported pre-brief exposure of the co-located key and Trial 001 content. The next gate is non-executing Trial 003 formation/challenge around an external commitment-and-reveal channel; execution and external placement remain unapproved.
 - v1.61 (2026-07-13): Closed live fresh-worker Trial 001 at `FAIL_CLOSED_SAFE_HOLD` after 19/23 fields matched and no product implementation began. The next separate gate is a repaired Trial 002; attended serial-epic and read-only SDK/MCP work remain later and unapproved.
@@ -113,14 +120,13 @@ Factory v3 has achieved an operational bridgehead, not the full platform.
 
 ## Current Decision Queue
 
-This queue is the near-term sequencing order as of 2026-07-14. It is an orientation aid, not approval to execute any mission.
+This queue is the near-term sequencing order as of 2026-07-16. It is an orientation aid, not approval to execute any mission.
 
 | Rank | Decision or artifact | Why it is next | Required artifact | Approval needed | Explicit non-approval |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Attended serial-epic pilot formation and challenge | Trial 003 supplied bounded fresh-worker continuation evidence; graph/state mechanics still need a useful attended multi-feature mission | Non-executing candidate envelope with parent ceiling, bounded children, child verification, parent integration verification, one session boundary, proof limits, and halt rules | Formation/challenge may prepare a candidate only; execution needs a new exact Go | No worker dispatch, artificial duration, deployment, credentials, concurrent workers, unattended execution, or profile promotion |
-| 2 | Separate attended-pilot execution decision | The candidate must be reviewed before any product mission starts | Challenged exact envelope naming repository, child scopes, commands, verification, checkpoints, git authority, and closeout | Explicit sponsor Go for that exact pilot | No inference that Trial 003 authorizes a broader epic or runtime adapter |
-| 3 | Read-only Codex SDK/MCP orchestration discovery | Programmatic worker supervision is strategically relevant but should follow manual graph/state/re-entry/pilot evidence | Research pack recording sandbox, task, prompt, output, trace, interrupt, and closeout behavior | Separate research approval | No workspace-write orchestration trial, credential use, unattended execution, or runtime authority |
-| 4 | Natural negative-case, mission-health, and endurance evidence | The corpus still lacks a natural sustained negative case and upper-envelope continuity evidence | Evidence attached opportunistically to separately approved useful work | Per-candidate approval before execution | No manufactured failure, duration, calls, waypoints, scope, thresholds, or routing |
+| 1 | `V3-CODEX-DL-ADOPT-001` adoption decision | The candidate is formed/challenged at `PASS` with exact optional eligibility, evidence, human checkpoint, authority, and fallback rules | Sponsor adopt/reject/defer decision on the exact candidate | Separate sponsor decision | No live use, default use, standing authorization, automatic Send, task status, worker dispatch, or transport-proof claim |
+| 2 | Full-automation research decision | App-server/SDK/exec/MCP document stronger primitives but require a working runtime, process, dependency, credential, or live task effect | New formation/challenge naming exactly one surface and its evidence/probe boundary | Later sponsor decision | No CLI repair, install, server start, native-task probe, or automatic fallback by implication |
+| 3 | Natural negative-case, mission-health, and endurance evidence | The corpus still lacks a natural sustained negative case and upper-envelope continuity evidence | Evidence attached opportunistically to separately approved useful work | Per-candidate approval before execution | No manufactured failure, duration, calls, waypoints, scope, thresholds, or routing |
 
 ## Loop-Governance Primitives From Loop-Library Review
 
@@ -479,7 +485,7 @@ Mission-health signals may become recommended advisory evidence only after they 
 
 ## Phase 4.7 - Serial Epic Mission Graph And State Kernel
 
-Status: Research-only graph and deterministic state implementation exists. `SERIAL_MISSION_GRAPH_CONTRACT.md` and its advisory validator cover parent authority ceilings, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, authored-state/event templates, deterministic fixtures, and focused tests add pure transitions, optimistic revisions, divergence detection, and non-authorizing derived decisions. No worker adapter, dispatch, command execution, concurrency, runtime authority, required gate, or profile promotion is approved.
+Status: Research-only graph and deterministic state implementation exists. `SERIAL_MISSION_GRAPH_CONTRACT.md` and its advisory validator cover parent authority ceilings, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, authored-state/event templates, deterministic fixtures, and focused tests add pure transitions, optimistic revisions, divergence detection, and non-authorizing derived decisions. Same Second `V3-SS-EPIC-001` now supplies one bounded passed attended three-child pilot with a fresh non-forked task boundary and separate parent verification. No worker adapter, dispatch, command execution, concurrency, runtime authority, required gate, or profile promotion is approved.
 
 Goal:
 
@@ -492,7 +498,7 @@ Work:
 3. Implement pure deterministic transition functions for activate, checkpoint, verify, safe-hold, resume, and close. Status: initial done.
 4. Derive eligible-child and one-safe-next-action cursors from authored state; derived state grants no authority. Status: initial done.
 5. Add fixtures for interrupted, failed-verification, stale-reentry, scope-expansion, and parent-closeout paths. Status: initial deterministic coverage exists; live evidence remains pending.
-6. Run an attended serial-epic pilot only after a separate envelope and sponsor Go.
+6. Treat completed `V3-CODEX-DL-TRIAL-001` as bounded attended evidence only; decide separately whether the helper becomes an optional handoff aid, and do not infer automatic task control or adapter authority.
 
 Required evidence:
 
@@ -501,7 +507,7 @@ Required evidence:
 - state-transition fixture corpus, Status: initial deterministic lifecycle and negative coverage exists,
 - source-of-truth conflict review, Status: authored state is authoritative, graph identity is digest-pinned, events are append-only evidence, and derived cursors grant no authority,
 - fresh-worker re-entry evidence against authored graph/state artifacts,
-- one separately approved attended serial-epic pilot with child-level and parent-level verification.
+- one separately approved attended serial-epic pilot with child-level and parent-level verification, Status: Same Second `V3-SS-EPIC-001` passed within its bounded synthetic-only proof scope.
 
 Promotion gate:
 
@@ -710,7 +716,18 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Form and challenge a non-executing attended serial-epic pilot candidate using the existing graph/state artifacts and Trial 003 evidence. The candidate must name an exact useful parent mission, bounded feature children, a session boundary, child verification, parent integration verification, git authority, and halt rules. This formation step must not start product work. Pilot execution requires a separate exact Go. Collect endurance evidence only from useful missions that naturally exercise more of the up-to-four-hour envelope; never prolong or enlarge work to hit time, call, waypoint, test, file, or scope targets.
+Make a separate sponsor adopt/reject/defer decision on challenged candidate
+`V3-CODEX-DL-ADOPT-001` in
+`CODEX_DEEPLINK_ATTENDED_ADOPTION_FORMATION_20260716.md` and its challenge.
+Adoption would permit only optional per-mission explicit use after exact worker
+authority already exists, with short non-sensitive prompts, authored-state
+control, deterministic evidence, human review/Send, and manual fallback. Do not
+infer live use, default use, standing authorization, automatic task creation,
+task status, worker dispatch, CLI repair, app-server/SDK/MCP, dependencies,
+credentials, or runtime authority.
+Collect endurance evidence only from useful missions that naturally exercise
+more of the up-to-four-hour envelope; never prolong or enlarge work to hit time,
+call, waypoint, test, file, or scope targets.
 
 Status update (2026-06-09): the sponsor approved the POC path, and the V3-only POC project (`V3_POC_App_Creation`, seeded from `docs/Factory/v3/standalone_bootstrap/`) executed Missions 002-013 standalone with Codex and zero Factory V2 use. A sponsor-approved interim eval exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260604.json`, commit `ea8e00c`): `PASS_WITH_LIMITATIONS`, 17 of 22. Mission 012 (commit `8667e96`) produced the first real adaptive-mission-control evidence: a genuine interrupt completing the asked/answered/applied lifecycle, a fresh-session resume from authored artifacts only, scoped checkpoint-commit git authority, and filled budget fields. Mission 013 (commit `a74efbd`) added the first remote-interrupt evidence: two genuine interrupts answered from the sponsor's phone via Codex in the ChatGPT mobile app, the mission steered from Android end to end, and a second fresh-session resume that recovered a stale checkpoint hash from git log. Mission 015 (commit `c48dd02`) added the first deliberately seeded failed-verification halt evidence: baseline synthetic tests passed, an intentional local read-only verification command failed with exit code 17, and the mission halted without recovery or app edits. Mission 016 (commit `425766f`) added the first recovery-after-failed-verification evidence: a mission-owned synthetic verifier failed as intended, a separately authorized recovery corrected only the mission-owned fixture, the verifier passed, and the full 170-test suite passed after recovery. Mission 017 (commit `ffb4e92`) added the first seeded stale-reentry halt evidence: a mission-owned fixture intentionally expected stale Mission 015 head `c48dd02`, the verifier observed actual Mission 016 head `425766f`, failed with a stale mismatch, and the mission halted without reconciliation. Mission 018 (commit `feb05ea`) added the first seeded fallback/no-go evidence: a synthetic request for real Garmin account use, live ingestion, new dependency, Telegram live alerts, deployment, and V2 fallback was classified as `no_go` with execution and V2 fallback both disallowed. Mission 019 (commit `6c7fac6`) added partial private-deployment evidence: localhost smoke passed against the repo-run stdlib server and synthetic temp DB, rollback passed, and Tailscale private smoke was blocked because `tailscale-app` installation requires interactive macOS admin/sudo approval. Mission 020 (commit `7d87ed2`) completed private Tailscale deployment smoke after user-installed/authenticated Tailscale: baseline tests passed, localhost smoke passed, Tailscale Serve advertised a tailnet-only MagicDNS route proxying the localhost server, private MagicDNS smoke passed, Serve was reset, and rollback removed the listener and synthetic temp DB. A sponsor-approved final POC eval now exists in the POC repository (`.factory-v3/evals/V3_POC_EVAL_RECORD_20260609.json`, commit `e6f2d29`): `PASS_NAMED_POC`, 20 of 22, operator-friction score `1`. Mission timing finding: checkpoint-estimated minutes proved 6-9x inflated versus git commit timestamps (Mission 012 real ~17m38s vs estimated ~115m; Mission 013 real ~34m46s vs estimated ~328m); tool-call counts were the more reliable size metric. The hard standalone criterion has held through Mission 020. The sponsor-approved final eval does not approve real-data use, live Telegram/ambient runtime, public deployment, production infrastructure, required gates, governance routing, runtime authority, production action, V2 scaffolding removal, or the candidate `V3-OP-003` remote-interrupt profile.
 
@@ -736,12 +753,36 @@ added one regression test, and reordered only the same expected errors; five
 tests pass. The standalone output was not pushed or integrated. See
 `LIVE_FRESH_WORKER_TRIAL_003_REVIEW_20260714.md`.
 
+Status update (2026-07-16, attended pilot and discovery closeout): Same Second
+`V3-SS-EPIC-001` passed its approved three-child synthetic-only mission across a
+fresh non-forked task boundary. Parent state closed at revision 18/event 19;
+independent Factory replay reproduced 18 Python tests, 6 Node tests, graph/state
+passes, evidence hashes, scope chronology, and stopped-server state. The product
+branch remains unpushed and unmerged. Separately approved no-probe
+`V3-CODEX-DISC-001` completed at `DEEPLINK_ASSIST_ONLY`; its source inventory,
+capability matrix, and decision record no native task controls in this task, a
+missing local CLI runtime, and deep-link prefill that still requires human Send.
+No task, repair, install, worker execution, or adapter was approved or run.
+Approved code-only `V3-CODEX-DL-001` is now implemented with one stdlib helper,
+eight focused tests, portable fixtures, documentation, and closeout evidence.
+It generates deterministic JSON only; human Send remains mandatory and
+live-link behavior remains unproved.
+Attended `V3-CODEX-DL-TRIAL-001` then completed once at
+`PASS_WITH_LIMITATIONS` without retry. The retained screenshot shows the
+intended project name, complete visible synthetic prompt, exact acknowledgment,
+and no visible tool/permission cards; the disposable workspace remained empty.
+No pre-Send screenshot, full absolute path, task identity/status, byte-level
+transport trace, or proof of hidden-tool absence exists.
+Non-executing `V3-CODEX-DL-ADOPT-001` is now formed and challenged at `PASS`.
+Its repaired contract prevents optional adoption from becoming default use,
+standing task authority, a transport-proof claim, or an implicit worker
+adapter. No live use is approved.
+
 The recommended next moves, in order:
 
-1. Form and challenge one non-executing attended serial-epic pilot candidate using the graph/state artifacts and Trial 003 evidence.
-2. Make a separate sponsor decision on the exact attended-pilot execution envelope.
-3. Run a read-only Codex SDK/MCP orchestration spike only after manual attended serial-epic evidence, with a separate research pack.
-4. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
+1. Make a separate sponsor adoption decision on exact challenged `V3-CODEX-DL-ADOPT-001`.
+2. Keep any native-task probe, CLI repair, app-server/SDK/MCP, dependency, credential, automatic Send, task-status adapter, or full-automation research in a separate later mission.
+3. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
 
 The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 

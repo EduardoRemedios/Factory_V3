@@ -1,9 +1,16 @@
 # Factory v3
 
 ## Version
-v1.51
+v1.58
 
 ## Change Log
+- v1.58 (2026-07-16): Formed and challenged non-executing `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The candidate permits only optional per-mission explicit use for short non-sensitive prompts after exact worker-task authority already exists, with authored state controlling, deterministic preparation evidence, human review/Send, and manual fallback. No live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion is approved.
+- v1.57 (2026-07-16): Completed attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence shows the intended project name, complete visible synthetic prompt, exact acknowledgment, one visible exchange, no visible tool/permission cards, and an unchanged empty workspace. Missing pre-Send capture, full-path UI proof, task identity/status, byte-level transport proof, and hidden-activity proof remain explicit. The next separate gate is whether to adopt the helper as an optional attended handoff aid; automatic task control remains a later separately governed lane.
+- v1.56 (2026-07-16): Formed and challenged attended synthetic candidate `V3-CODEX-DL-TRIAL-001` at `CONDITIONAL PASS` for a separate sponsor decision. It pins one empty disposable workspace, a 245-byte prompt/hash/nonce, one helper run/click/Send/task, no-tool/no-write response behavior, sponsor observations/screenshots, before/after checks, and no retry. No live trial action is approved.
+- v1.55 (2026-07-16): Implemented approved code-only `V3-CODEX-DL-001` with one stdlib deterministic deep-link helper, eight focused tests, portable fixtures, documentation, and bounded closeout evidence. Human Send remains mandatory; no link, task, worker, clipboard, process, network, dependency, credential, runtime-control power, or profile promotion was added.
+- v1.54 (2026-07-16): Formed and challenged non-executing `V3-CODEX-DL-001` at `PASS` for a separate code-only decision. The stdlib candidate pins file-only non-sensitive prompt input, strict workspace resolution, exact percent encoding, an 8,192-byte local ceiling, input-only digest semantics, deterministic JSON, and no-open/no-task/no-process boundaries. No implementation or execution is approved.
+- v1.53 (2026-07-16): Completed approved no-probe `V3-CODEX-DISC-001` at `DEEPLINK_ASSIST_ONLY`. Exact evidence records current-task native controls absent, local Codex CLI runtime missing, and documented deep links as workspace/prompt prefill that still requires human Send. No task, repair, dependency, credential, server, SDK/MCP execution, worker, adapter, runtime-control power, or profile promotion was added.
+- v1.52 (2026-07-16): Recorded Same Second `V3-SS-EPIC-001` as `PASS_BOUNDED_ATTENDED_PILOT` after three serial children, fresh-task C01 replay, revision 18/event 19 parent closeout, and independent deterministic replay. Added and challenged non-executing `V3-CODEX-DISC-001` for read-only task-surface discovery; no task probe, SDK/MCP execution, dependency, credential, workspace write, adapter, runtime authority, or profile promotion is approved.
 - v1.51 (2026-07-14): Recorded Trial 003's 23/23 external commitment-and-reveal pass and its separate R1 exact-path sorting recovery after independent closeout found a defect missed by four tests. The standalone output remains unpushed and unintegrated; the next gate is non-executing attended serial-epic pilot formation/challenge.
 - v1.50 (2026-07-13): Recorded live Trial 002 at `FAIL_CLOSED_SAFE_HOLD` after broad initial orientation reportedly exposed the co-located key and Trial 001 content before a brief. The next gate is non-executing Trial 003 formation using an external commitment-and-reveal channel; execution remains unapproved.
 - v1.49 (2026-07-13): Recorded live fresh-worker `V3-FW-TRIAL-001` at `FAIL_CLOSED_SAFE_HOLD` after 19 of 23 scored fields matched. The authored kernel prevented C02 implementation; a repaired Trial 002 is the next separate, unapproved gate.
@@ -239,8 +246,48 @@ external commitment-and-reveal trial. The fresh task committed its brief before
 reveal and matched 23/23 fields. Independent closeout later found an exact-path
 sorting defect missed by the original four tests; bounded R1 repaired the code,
 added one regression test, and reordered only the existing pinned errors. The
-standalone output remains unpushed and unintegrated. The next gate is
-non-executing attended serial-epic pilot formation/challenge, not pilot execution.
+standalone output remains unpushed and unintegrated.
+
+`ATTENDED_SERIAL_EPIC_PILOT_001_REVIEW_20260716.md` records Same Second
+`V3-SS-EPIC-001` at `PASS_BOUNDED_ATTENDED_PILOT`: three serial children,
+fresh-task replay, PROVED child/parent evidence, and revision 18/event 19
+closeout passed under the approved synthetic-only boundary. Independent replay
+reproduced 18 Python tests, 6 Node tests, graph/state checks, hashes, and scope
+chronology. The product branch remains unpushed and unmerged.
+
+`CODEX_TASK_SURFACE_DISCOVERY_FORMATION_20260716.md` and
+`CODEX_TASK_SURFACE_DISCOVERY_CHALLENGE_20260716.md` formed and challenged
+candidate `V3-CODEX-DISC-001`. The separately approved no-probe execution now
+lives under `task_surface_discovery/V3-CODEX-DISC-001/` and closes at
+`DEEPLINK_ASSIST_ONLY`. No native task controls were exposed in the current task,
+the local CLI runtime is missing, and documented desktop deep links prefill but
+do not send. The next gate is a separate decision on non-executing deep-link
+helper formation; no live probe, SDK/MCP execution, installation/repair,
+adapter, or workspace write is approved.
+
+That formation/challenge led to separately approved code-only implementation:
+`CODEX_DEEPLINK_ASSIST_FORMATION_20260716.md` and
+`CODEX_DEEPLINK_ASSIST_CHALLENGE_20260716.md` define candidate
+`V3-CODEX-DL-001`; `CODEX_DEEPLINK_ASSIST.md`,
+`scripts/factory_v3_codex_deeplink.py`, focused tests/fixtures, and
+`deeplink_assist/V3-CODEX-DL-001/CLOSEOUT.md` now record its bounded
+implementation. No link was opened and no task, worker, clipboard, process,
+dependency, credential, or product change occurred.
+
+`CODEX_DEEPLINK_ATTENDED_TRIAL_FORMATION_20260716.md` and its challenge defined
+`V3-CODEX-DL-TRIAL-001`, which then completed once at
+`PASS_WITH_LIMITATIONS` without retry. Evidence under
+`deeplink_assist/V3-CODEX-DL-TRIAL-001/` retains the pinned prompt and
+preparation JSON, sponsor observations, screenshot, and closeout. The screenshot
+shows the intended project name, complete visible submitted prompt, exact
+acknowledgment, and no visible tool/permission cards; the disposable workspace
+remained empty. It does not prove full-path identity, byte-level transport,
+hidden-tool absence, task APIs, or automatic orchestration. The next separate
+gate is represented by
+`CODEX_DEEPLINK_ATTENDED_ADOPTION_FORMATION_20260716.md` and its challenge.
+Candidate `V3-CODEX-DL-ADOPT-001` is at `PASS` for a separate sponsor decision.
+It proposes optional per-mission use only after exact worker authority exists;
+formation creates no live-use or automation authority.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 

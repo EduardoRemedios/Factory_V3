@@ -1,0 +1,173 @@
+{
+  "capabilities": [
+    {
+      "authentication": "existing desktop session implied but not inspected",
+      "automatic_prompt_send": "unknown",
+      "create_new_task_or_thread": "unavailable in this task",
+      "current_availability": "not_exposed",
+      "dependency": "none if natively exposed",
+      "documented_status": "not established by the public pages reviewed as a callable in-task tool",
+      "evidence_basis": [
+        "current exposed tool-name inventory"
+      ],
+      "exact_prompt_transfer": "unknown",
+      "external_effect_if_used": "would create or message a Codex task",
+      "interrupt": "unknown",
+      "meets_full_objective": "no",
+      "non_forked_semantics": "unknown",
+      "recommendation": "fail_closed_for_current_task",
+      "sandbox_control": "unknown",
+      "status_and_output": "unknown",
+      "surface_id": "native_desktop_task_tools",
+      "task_or_thread_id": "unknown",
+      "workspace_binding": "unknown"
+    },
+    {
+      "authentication": "uses the existing desktop app context; not inspected",
+      "automatic_prompt_send": "no; the user must send from the composer",
+      "create_new_task_or_thread": "documented new local task",
+      "current_availability": "documented_not_probed",
+      "dependency": "none",
+      "documented_status": "canonical desktop deep link",
+      "evidence_basis": [
+        "https://learn.chatgpt.com/docs/reference/commands.md"
+      ],
+      "exact_prompt_transfer": "URL-encoded prompt is decoded into composer text; byte preservation was not tested",
+      "external_effect_if_used": "opening the link opens a task composer; sending still requires the user",
+      "interrupt": "not provided by the link",
+      "meets_full_objective": "no",
+      "non_forked_semantics": "documented as a new task, but not live verified",
+      "recommendation": "deeplink_assist_only",
+      "sandbox_control": "not provided by documented query parameters",
+      "status_and_output": "not returned by the link",
+      "surface_id": "desktop_deep_link",
+      "task_or_thread_id": "not returned by the link",
+      "workspace_binding": "documented absolute path query parameter"
+    },
+    {
+      "authentication": "supported by product surface but not inspected",
+      "automatic_prompt_send": "yes through turn/start after initialization",
+      "create_new_task_or_thread": "documented thread/start",
+      "current_availability": "local_cli_runtime_missing",
+      "dependency": "working Codex CLI runtime plus a client process",
+      "documented_status": "documented programmatic interface; WebSocket transport includes experimental elements",
+      "evidence_basis": [
+        "https://learn.chatgpt.com/docs/app-server.md",
+        "codex app-server --help exited 1 with ENOENT"
+      ],
+      "exact_prompt_transfer": "JSON-RPC carries text input; transport-integrity behavior was not probed",
+      "external_effect_if_used": "starts a server process and can start worker turns",
+      "interrupt": "documented turn/interrupt",
+      "meets_full_objective": "potentially, but unavailable and outside this mission",
+      "non_forked_semantics": "thread/start is distinct from thread/fork",
+      "recommendation": "separate_future_mission_only",
+      "sandbox_control": "documented turn override",
+      "status_and_output": "documented streamed events and turn/completed",
+      "surface_id": "codex_app_server",
+      "task_or_thread_id": "documented thread ID",
+      "workspace_binding": "documented cwd override"
+    },
+    {
+      "authentication": "not inspected; runtime uses Codex authentication",
+      "automatic_prompt_send": "yes through SDK run methods",
+      "create_new_task_or_thread": "documented startThread or thread_start",
+      "current_availability": "not_installed_or_imported_under_mission",
+      "dependency": "npm @openai/codex-sdk or pip openai-codex",
+      "documented_status": "TypeScript SDK documented; Python SDK beta",
+      "evidence_basis": [
+        "https://learn.chatgpt.com/docs/codex-sdk.md"
+      ],
+      "exact_prompt_transfer": "API accepts prompt strings; transport-integrity behavior was not probed",
+      "external_effect_if_used": "starts or controls Codex worker execution",
+      "interrupt": "not established in the bounded documentation section reviewed",
+      "meets_full_objective": "potentially, but dependency-bearing and outside this mission",
+      "non_forked_semantics": "new thread and resume are distinct; no live proof",
+      "recommendation": "separate_future_mission_only",
+      "sandbox_control": "documented presets including read_only",
+      "status_and_output": "documented final response; broader events depend on client surface",
+      "surface_id": "codex_sdk",
+      "task_or_thread_id": "documented resume by thread ID",
+      "workspace_binding": "not live verified"
+    },
+    {
+      "authentication": "reuses local CLI authentication or separately scoped automation credentials",
+      "automatic_prompt_send": "yes",
+      "create_new_task_or_thread": "documented new exec session",
+      "current_availability": "local_cli_runtime_missing",
+      "dependency": "working Codex CLI runtime",
+      "documented_status": "documented non-interactive interface",
+      "evidence_basis": [
+        "https://learn.chatgpt.com/docs/non-interactive-mode.md",
+        "codex exec --help exited 1 with ENOENT"
+      ],
+      "exact_prompt_transfer": "argument or stdin accepted; transport-integrity behavior was not probed",
+      "external_effect_if_used": "starts a Codex worker session",
+      "interrupt": "process cancellation exists operationally but was not inspected",
+      "meets_full_objective": "potentially for a separate headless lane, not current desktop task transport",
+      "non_forked_semantics": "new exec and resume are distinct",
+      "recommendation": "separate_future_mission_only",
+      "sandbox_control": "documented read-only default and explicit presets",
+      "status_and_output": "documented JSONL thread, turn, item, and error events",
+      "surface_id": "codex_exec",
+      "task_or_thread_id": "documented thread.started event",
+      "workspace_binding": "process working directory"
+    },
+    {
+      "authentication": "requires local Codex and may require API credentials for broader Agents SDK use",
+      "automatic_prompt_send": "yes through codex tool call",
+      "create_new_task_or_thread": "documented codex tool",
+      "current_availability": "not_started_and_local_cli_runtime_missing",
+      "dependency": "Codex CLI server plus an MCP client; documented broader example adds Agents SDK packages",
+      "documented_status": "documented server interface",
+      "evidence_basis": [
+        "https://learn.chatgpt.com/docs/mcp-server.md",
+        "codex mcp-server --help exited 1 with ENOENT"
+      ],
+      "exact_prompt_transfer": "tool accepts a prompt string; transport-integrity behavior was not probed",
+      "external_effect_if_used": "starts a long-running server and worker sessions",
+      "interrupt": "not established for the two documented MCP tools",
+      "meets_full_objective": "broader than required and forbidden in this mission",
+      "non_forked_semantics": "codex starts and codex-reply resumes; no live proof",
+      "recommendation": "reject_for_current_lane",
+      "sandbox_control": "documented tool property",
+      "status_and_output": "documented structured content and returned thread ID",
+      "surface_id": "codex_mcp_agents_sdk",
+      "task_or_thread_id": "documented structuredContent.threadId",
+      "workspace_binding": "documented cwd property"
+    },
+    {
+      "authentication": "desktop or web workspace context",
+      "automatic_prompt_send": "scheduled",
+      "create_new_task_or_thread": "new task for each scheduled run",
+      "current_availability": "excluded_without_inspection",
+      "dependency": "product scheduling capability and machine/workspace availability",
+      "documented_status": "documented unattended surface",
+      "evidence_basis": [
+        "https://learn.chatgpt.com/docs/automations.md"
+      ],
+      "exact_prompt_transfer": "not evaluated",
+      "external_effect_if_used": "creates unattended background execution",
+      "interrupt": "different continuity model",
+      "meets_full_objective": "no",
+      "non_forked_semantics": "not relevant to approved attended handoff",
+      "recommendation": "forbidden",
+      "sandbox_control": "documented but not evaluated",
+      "status_and_output": "documented run history but not evaluated",
+      "surface_id": "scheduled_tasks",
+      "task_or_thread_id": "not evaluated",
+      "workspace_binding": "documented project behavior but not evaluated"
+    }
+  ],
+  "decision": "DEEPLINK_ASSIST_ONLY",
+  "execution_mode": "read_only_discovery_with_factory_evidence_writes",
+  "mission_id": "V3-CODEX-DISC-001",
+  "observed_at_utc": "2026-07-16T06:39:54Z",
+  "probe_performed": false,
+  "repository": {
+    "branch": "main",
+    "commit_before": "5a271bc264eed4ddaa0b1aea0c3d813d5fe19d73",
+    "same_second_commit": "20554125a422f0fc0afeadf18948b4c8e649a732",
+    "same_second_modified": false
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,5 @@
+Mission V3-CODEX-DL-TRIAL-001.
+This is a synthetic no-tool, no-write deep-link observation.
+Do not use tools, run commands, read files, or modify anything.
+Reply with exactly this single line and nothing else:
+V3-CODEX-DL-TRIAL-001 ACK 7F3C2A9E

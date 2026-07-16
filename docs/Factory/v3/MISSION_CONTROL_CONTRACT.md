@@ -1,9 +1,16 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.11
+v0.18
 
 ## Change Log
+- v0.18 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. The candidate makes authored mission authority, per-mission explicit naming, human review/Send, deterministic evidence, and manual fallback mandatory; it adds no live-use authority, default task creation, automatic Send, adapter, or runtime authority.
+- v0.17 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence supports the bounded human-reviewed deep-link handoff and unchanged empty workspace, while task identity/status, byte-level transport, full-path UI proof, and hidden-activity proof remain absent. The next gate is an optional attended-aid adoption decision; no automatic task control, adapter, or runtime authority is added.
+- v0.16 (2026-07-16): Added challenged attended `V3-CODEX-DL-TRIAL-001` with one-action ceilings, exact synthetic inputs, sponsor observation, no-tool/no-write boundary, before/after evidence, and no retry. The next gate is separate sponsor Go/no-go; no live action or runtime authority is approved.
+- v0.15 (2026-07-16): Recorded implemented code-only `V3-CODEX-DL-001` with deterministic stdlib output and explicit human-Send/no-transport-proof fields. The next gate is separate attended synthetic live-link trial formation; no link, task, worker adapter, process, dependency, or runtime authority is approved.
+- v0.14 (2026-07-16): Added formed/challenged non-executing `V3-CODEX-DL-001` at `PASS` for a separate stdlib code-only decision. Human Send remains mandatory; link opening, task creation, worker execution, dependencies, processes, and runtime authority remain unapproved.
+- v0.13 (2026-07-16): Recorded no-probe `V3-CODEX-DISC-001` at `DEEPLINK_ASSIST_ONLY`. Current-task native controls were absent, local CLI launch failed because its packaged binary is missing, and documented deep links prefill but require human Send. The next gate is separate deep-link helper formation/challenge; no task, repair, dependency, server, worker adapter, or runtime authority is approved.
+- v0.12 (2026-07-16): Recorded bounded attended Same Second pilot `V3-SS-EPIC-001` at revision 18/event 19 and linked challenged non-executing `V3-CODEX-DISC-001`. The next gate is a separate read-only task-surface discovery decision; no task probe, adapter, SDK/MCP execution, dependency, workspace write, or runtime authority is approved.
 - v0.11 (2026-07-14): Recorded Trial 003's 23/23 external commitment-and-reveal pass plus separate R1 recovery of a domain-test false negative. The next gate is non-executing attended serial-epic pilot formation/challenge; no worker dispatch or execution authority is added.
 - v0.10 (2026-07-13): Recorded Trial 002's pre-brief co-location failure. The next gate is non-executing Trial 003 formation around an external commitment-and-reveal channel; no external write, execution, orchestration, or authority is approved.
 - v0.9 (2026-07-13): Recorded Trial 001's 19/23 fail-closed result. The kernel preserved safe hold and prevented product work; the next separate gate is a repaired Trial 002 with explicit ordinary-artifact fields and split critical/completeness scoring.
@@ -226,7 +233,12 @@ Non-transferable or insufficient:
    - Live observation: `V3-FW-TRIAL-001` matched 19 of 23 fields and failed closed before product work; see `LIVE_FRESH_WORKER_TRIAL_001_REVIEW_20260713.md`.
    - Trial 002 observation: broad initial orientation reportedly exposed the co-located key and prior-trial content before a brief; the kernel failed closed and no product work began.
    - Trial 003 observation: external commitment-and-reveal passed 23/23 and the serial state closed; independent closeout found a product-test false negative, and separately authorized R1 repaired it without changing the protocol evidence or integrating product work.
-   - Next gate: non-executing attended serial-epic pilot formation and challenge using the graph/state artifacts, then a separate execution decision.
+   - Evidence: Same Second `V3-SS-EPIC-001` passed one bounded attended three-child serial mission with fresh-task replay and separate parent verification.
+   - Discovery result: approved no-probe `V3-CODEX-DISC-001` completed at `DEEPLINK_ASSIST_ONLY`; evidence lives under `task_surface_discovery/V3-CODEX-DISC-001/`.
+   - Implementation result: `V3-CODEX-DL-001` added one deterministic stdlib helper, eight focused tests, portable fixtures, and closeout evidence without opening a link or creating a task.
+   - Trial result: `V3-CODEX-DL-TRIAL-001` completed once at `PASS_WITH_LIMITATIONS` without retry; retained evidence supports the visible attended handoff and unchanged empty workspace, not transport integrity, task status, or hidden-activity claims.
+   - Adoption candidate: `V3-CODEX-DL-ADOPT-001` is formed/challenged at `PASS`; its contract requires already-approved exact worker-task authority, explicit per-mission eligibility, authored-state control, deterministic evidence, human review/Send, and manual fallback.
+   - Next gate: separate sponsor adopt/reject/defer decision on that exact contract.
 
 ## Non-Goals
 - No loop runner.
@@ -241,9 +253,10 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. form and challenge one non-executing attended serial-epic pilot candidate with bounded child verification, parent integration verification, and at least one session boundary,
-2. make a separate human decision on the exact pilot envelope and execution authority,
-3. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work,
-4. then only later consider read-only Codex SDK/MCP orchestration discovery.
+1. make a separate sponsor adopt/reject/defer decision on exact `V3-CODEX-DL-ADOPT-001`,
+2. if adopted, preserve its eligible non-sensitive inputs, human review/Send, retained evidence, and manual fallback rules,
+3. preserve the explicit absence of transport-integrity and task-status proof,
+4. keep automatic task control and worker adapters in a later separately formed lane,
+5. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work.
 
 Do not start runtime orchestration or scheduled execution from this document.

@@ -1,0 +1,11 @@
+{
+  "human_send_required": true,
+  "prompt_bytes": 111,
+  "prompt_sha256": "81a0a3f371245fb2656deb11853d91430ddf3be41d05db76f20e6f053402c37a",
+  "schema_version": "v0.1-codex-deeplink-assist",
+  "status": "ok",
+  "transport_proof": false,
+  "url": "codex://new?path=%2Fsynthetic%2FFactory%20V3%2FSame%20Second&prompt=Resume%20C02%20only%20after%20C01%20replay%20passes.%0AUse%20synthetic%20caf%C3%A9%20data%20%26%20preserve%20%3Fquery%3D%23fragment%20and%20100%25%20review.%0A",
+  "url_bytes": 227,
+  "workspace": "/synthetic/Factory V3/Same Second"
+}

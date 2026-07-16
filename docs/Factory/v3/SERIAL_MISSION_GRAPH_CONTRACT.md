@@ -1,9 +1,16 @@
 # Factory V3 Serial Mission-Graph Contract
 
 ## Version
-v0.5
+v0.12
 
 ## Change Log
+- v0.12 (2026-07-16): Added challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS`. Its contract requires graph/mission authority before any attended handoff and adds no child activation, worker dispatch, automatic task control, or runtime authority. The next gate is a separate sponsor adoption decision.
+- v0.11 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. It supplies bounded evidence for a human-reviewed deep-link handoff but adds no graph authority, worker adapter, automatic task control, dispatch, or runtime authority. The next separate gate is optional attended-aid adoption.
+- v0.10 (2026-07-16): Added challenged attended `V3-CODEX-DL-TRIAL-001` as the next separate decision. Formation adds no workspace, link, task, worker adapter, or execution authority.
+- v0.9 (2026-07-16): Recorded implemented code-only `V3-CODEX-DL-001`; the next gate is non-executing attended synthetic live-link trial formation. No link, task, worker adapter, or execution authority is added.
+- v0.8 (2026-07-16): Added challenged non-executing `V3-CODEX-DL-001` as the next separate code-only decision. It retains human Send and adds no task, worker adapter, or execution authority.
+- v0.7 (2026-07-16): Recorded completed no-probe `V3-CODEX-DISC-001` at `DEEPLINK_ASSIST_ONLY`. The next gate is separate non-executing deep-link helper formation; no task, worker adapter, or execution authority is added.
+- v0.6 (2026-07-16): Recorded Same Second `V3-SS-EPIC-001` as the first bounded passed attended three-child product pilot. The next gate is the separate challenged `V3-CODEX-DISC-001` read-only task-surface decision; no worker adapter or execution authority is added.
 - v0.5 (2026-07-14): Recorded Trial 003's successful three-child serial traversal after a 23/23 external re-entry comparison and its separate R1 product repair. The next gate is non-executing attended serial-epic pilot formation/challenge; no worker adapter or execution authority is added.
 - v0.4 (2026-07-13): Recorded Trial 002's fail-closed pre-brief exposure of its co-located key and prior-trial content. The next evidence gate is non-executing Trial 003 commitment-and-reveal formation; no worker adapter or execution authority is added.
 - v0.3 (2026-07-13): Recorded that live Trial 001 failed closed at 19/23 before child C02 started. A repaired Trial 002 is the next separate evidence gate; the graph contract gains no dispatch or runtime authority.
@@ -90,6 +97,21 @@ The three-sample evidence-integrity review is complete at
 Trial 002 failed closed before a brief after reported exposure of its co-located
 key. Trial 003 then passed 23/23 under external commitment-and-reveal and
 traversed its three-child graph to parent closeout; a separately authorized R1
-repaired a product ordering defect found after closeout. The next separate gate
-is non-executing attended serial-epic pilot formation/challenge, followed by a
-separate execution decision. Worker dispatch remains outside this contract.
+repaired a product ordering defect found after closeout. The next separate
+evidence gate was then satisfied by attended Same Second `V3-SS-EPIC-001`, whose
+three children and separate parent verification closed at revision 18/event 19. The
+approved no-probe `V3-CODEX-DISC-001` then returned
+`DEEPLINK_ASSIST_ONLY`: documented deep links can prefill workspace/prompt but
+still require human Send. The next gate is separate non-executing helper
+formation. Separately approved `V3-CODEX-DL-001` then implemented a
+deterministic text-only helper with human Send retained and no transport proof.
+The next gate was non-executing attended synthetic live-link trial formation.
+Separately approved `V3-CODEX-DL-TRIAL-001` then completed once at
+`PASS_WITH_LIMITATIONS` without retry. It supports a bounded human-reviewed
+handoff observation only; it does not prove byte-level transport, task status,
+hidden-tool absence, automatic task creation, or worker dispatch. The next
+separate gate is represented by challenged candidate
+`V3-CODEX-DL-ADOPT-001` at `PASS`. Its proposed optional aid remains subordinate
+to exact authored graph/mission authority and cannot activate a child or start a
+worker by itself. The next gate is a separate sponsor adoption decision. Worker
+adapters and runtime authority remain outside this contract.

@@ -1,0 +1,18 @@
+[
+  {
+    "code": "prompt_empty",
+    "description": "Empty prompt bytes are rejected."
+  },
+  {
+    "code": "prompt_invalid_utf8",
+    "description": "Invalid UTF-8 is rejected."
+  },
+  {
+    "code": "prompt_contains_nul",
+    "description": "A decoded NUL character is rejected."
+  },
+  {
+    "code": "prompt_too_large",
+    "description": "Input above the fixed 8192-byte v0.1 ceiling is rejected."
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "human_send_required": true,
+  "prompt_bytes": 245,
+  "prompt_sha256": "913c411439695f29ce0ad95ab0310486025b7ef4743beca87687e4baf9bb0784",
+  "schema_version": "v0.1-codex-deeplink-assist",
+  "status": "ok",
+  "transport_proof": false,
+  "url": "codex://new?path=%2FUsers%2Feduardodosremedios%2Fcodex_deeplink_trial_001_workspace&prompt=Mission%20V3-CODEX-DL-TRIAL-001.%0AThis%20is%20a%20synthetic%20no-tool%2C%20no-write%20deep-link%20observation.%0ADo%20not%20use%20tools%2C%20run%20commands%2C%20read%20files%2C%20or%20modify%20anything.%0AReply%20with%20exactly%20this%20single%20line%20and%20nothing%20else%3A%0AV3-CODEX-DL-TRIAL-001%20ACK%207F3C2A9E%0A",
+  "url_bytes": 412,
+  "workspace": "/Users/eduardodosremedios/codex_deeplink_trial_001_workspace"
+}

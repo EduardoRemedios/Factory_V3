@@ -1,9 +1,16 @@
 # Codex SDK And MCP Orchestration Direction
 
 ## Version
-v0.1
+v0.8
 
 ## Change Log
+- v0.8 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. It requires existing exact mission authority, per-mission explicit use, non-sensitive prompts, authored-state control, deterministic evidence, human review/Send, and manual fallback. No live use, default use, automatic task control, task status, SDK/MCP, adapter, or runtime authority is approved.
+- v0.7 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. The installed desktop accepted the intended project/prompt and returned the exact acknowledgment with no visible tool/permission activity; the empty workspace remained unchanged. This is bounded attended evidence, not byte-level transport, task-status, hidden-activity, adapter, or automation proof. The next separate gate is optional attended-aid adoption; full automation remains a later lane.
+- v0.6 (2026-07-16): Added challenged attended candidate `V3-CODEX-DL-TRIAL-001` as the next separate decision after helper implementation. It authorizes nothing by formation and keeps SDK/MCP, dependencies, credentials, automatic task control, retries, and runtime authority outside scope.
+- v0.5 (2026-07-16): Recorded implemented code-only `V3-CODEX-DL-001` with deterministic stdlib encoding and explicit human-Send/no-transport-proof semantics. The next gate is separate attended synthetic live-link trial formation; no live task, SDK/MCP execution, dependency, credential, adapter, workspace write, or runtime authority is approved.
+- v0.4 (2026-07-16): Added challenged non-executing `V3-CODEX-DL-001` as the next separate code-only decision after `DEEPLINK_ASSIST_ONLY`. The helper candidate retains human Send and does not approve link opening, task creation, SDK/MCP execution, dependency, credential, process, adapter, workspace write, or runtime authority.
+- v0.3 (2026-07-16): Recorded approved no-probe `V3-CODEX-DISC-001` at `DEEPLINK_ASSIST_ONLY`. Native task controls were absent in the current task, the local CLI runtime is missing, and documented deep links can prefill workspace/prompt but cannot send or return status. The next gate is separate non-executing deep-link helper formation; no SDK/MCP execution, dependency, credential, task, adapter, or runtime authority is approved.
+- v0.2 (2026-07-16): Recorded completion of the manual attended serial-epic prerequisite and linked the challenged non-executing `V3-CODEX-DISC-001` task-surface candidate. This does not approve a live task probe, SDK/MCP execution, dependency, credential, adapter, workspace write, or runtime authority.
 - v0.1 (2026-06-05): Initial strategic note on using Codex SDK, Codex MCP, and Agents SDK as possible orchestration surfaces for Factory V3 and Harmony.
 
 ## Status
@@ -108,6 +115,38 @@ Before SDK/MCP orchestration becomes recommended V3 tooling, collect:
 - comparison with manual Codex app execution,
 - false confidence or runaway orchestration risks,
 - whether the workflow improves mission replayability.
+
+## Current Evidence Gate
+
+Same Second `V3-SS-EPIC-001` now supplies the required manual attended
+serial-epic evidence: three bounded children completed across a fresh
+non-forked task boundary, with child and parent verification and authored
+revision 18/event 19 closeout. See
+`ATTENDED_SERIAL_EPIC_PILOT_001_REVIEW_20260716.md`.
+
+`CODEX_TASK_SURFACE_DISCOVERY_FORMATION_20260716.md` and its challenge defined
+approved no-probe mission `V3-CODEX-DISC-001`. Its exact evidence now lives at
+`task_surface_discovery/V3-CODEX-DISC-001/` and records
+`DEEPLINK_ASSIST_ONLY`: native desktop task controls were not exposed in this
+task, the local CLI runtime is missing, and deep links can carry an absolute
+workspace and prefilled prompt but still require human Send and expose no task
+ID or status.
+
+`V3-CODEX-DL-001` now implements one deterministic stdlib link builder with
+human Send retained and `transport_proof: false`; see
+`CODEX_DEEPLINK_ASSIST.md` and
+`deeplink_assist/V3-CODEX-DL-001/CLOSEOUT.md`. It has no link-opening or
+task-creation path. Separately approved `V3-CODEX-DL-TRIAL-001` completed once
+at `PASS_WITH_LIMITATIONS` without retry; retained evidence under
+`deeplink_assist/V3-CODEX-DL-TRIAL-001/` shows desktop acceptance of the
+intended project and visible prompt plus the exact response, while task identity,
+status, byte-level transport, full-path UI proof, and hidden activity remain
+unproved. `CODEX_DEEPLINK_ATTENDED_ADOPTION_FORMATION_20260716.md` and its
+challenge now define `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor
+decision. The candidate permits no live use by itself and keeps exact mission
+authority, human Send, and manual fallback controlling. App-server, SDK, exec,
+and MCP remain later lanes requiring their own runtime, dependency, credential,
+process, probe, and authority decisions.
 
 ## Boundary
 This document does not change the current approved optional operational profile:
