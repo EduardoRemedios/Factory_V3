@@ -1,9 +1,10 @@
 # Codex SDK And MCP Orchestration Direction
 
 ## Version
-v0.9
+v0.10
 
 ## Change Log
+- v0.10 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` as the first natural eligible use of the optional attended deep-link aid. The useful four-child mission retained an authored 243-byte prompt, deterministic preparation evidence, human review/Send, fresh-task replay, and manual safe-hold/recovery. The observation does not prove transport integrity, task identity/status, automatic Send, adapter behavior, or runtime authority. The next gate is a separate non-executing Phase 0 decision-closure candidate; full automation remains unapproved.
 - v0.9 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under its exact per-mission eligibility, evidence, human review/Send, and fallback contract. Adoption alone creates no live-use or task authority. The next evidence target is one natural eligible use; full automation remains separately governed and unapproved.
 - v0.8 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. It requires existing exact mission authority, per-mission explicit use, non-sensitive prompts, authored-state control, deterministic evidence, human review/Send, and manual fallback. No live use, default use, automatic task control, task status, SDK/MCP, adapter, or runtime authority is approved.
 - v0.7 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. The installed desktop accepted the intended project/prompt and returned the exact acknowledgment with no visible tool/permission activity; the empty workspace remained unchanged. This is bounded attended evidence, not byte-level transport, task-status, hidden-activity, adapter, or automation proof. The next separate gate is optional attended-aid adoption; full automation remains a later lane.

@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.59
+v1.60
 
 ## Change Log
+- v1.60 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` at `PASS_BOUNDED_SYNTHETIC_MVP_READINESS_EPIC`: four serial children closed at revision 36/event 37 with pass/PROVED evidence, bounded append-only recoveries, 40 Python tests, 11 JavaScript tests, and rendering-only local Chrome evidence. The mission supplied the first natural eligible use of the optional deep-link aid, retaining human Send and absent transport/task-status proof. Added challenged non-executing `V3-SS-PHASE0-GATE-001` at `CONDITIONAL PASS` for a separate file-only decision-closure decision; no trial, participant activity, real data/media, external-service selection/connection, native work, push, merge, runtime authority, or promotion is approved.
 - v1.59 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under the exact challenged per-mission contract. Adoption requires existing worker-task authority, explicit mission naming, short non-sensitive authored prompts, deterministic preparation evidence, human review/Send, and manual fallback. It authorizes no live use by itself and adds no default mode, standing task authority, helper change, automatic Send, task status, SDK/MCP, adapter, gate, runtime authority, or profile promotion.
 - v1.58 (2026-07-16): Formed and challenged non-executing `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The candidate permits only optional per-mission explicit use for short non-sensitive prompts after exact worker-task authority already exists, with authored state controlling, deterministic preparation evidence, human review/Send, and manual fallback. No live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion is approved.
 - v1.57 (2026-07-16): Completed attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence shows the intended project name, complete visible synthetic prompt, exact acknowledgment, one visible exchange, no visible tool/permission cards, and an unchanged empty workspace. Missing pre-Send capture, full-path UI proof, task identity/status, byte-level transport proof, and hidden-activity proof remain explicit. The next separate gate is whether to adopt the helper as an optional attended handoff aid; automatic task control remains a later separately governed lane.
@@ -254,7 +255,8 @@ standalone output remains unpushed and unintegrated.
 fresh-task replay, PROVED child/parent evidence, and revision 18/event 19
 closeout passed under the approved synthetic-only boundary. Independent replay
 reproduced 18 Python tests, 6 Node tests, graph/state checks, hashes, and scope
-chronology. The product branch remains unpushed and unmerged.
+chronology. Its product commit is now an ancestor of the locally integrated
+MVP-readiness baseline; nothing was pushed.
 
 `CODEX_TASK_SURFACE_DISCOVERY_FORMATION_20260716.md` and
 `CODEX_TASK_SURFACE_DISCOVERY_CHALLENGE_20260716.md` formed and challenged
@@ -289,8 +291,15 @@ gate is represented by
 Sponsor-approved `V3-CODEX-DL-ADOPT-001` now recognizes the helper as an
 optional attended aid under the exact challenged per-mission contract; see
 `deeplink_assist/V3-CODEX-DL-ADOPT-001/DECISION.md`. Adoption alone creates no
-live-use or automation authority. The next evidence target is one natural
-eligible use inside a separately approved useful mission.
+live-use or automation authority.
+
+`ATTENDED_MVP_READINESS_EPIC_001_REVIEW_20260718.md` records that first natural
+eligible use inside completed Same Second `V3-SS-MVP-READINESS-001`. The useful
+four-child mission closed at revision 36/event 37 with pass/PROVED evidence and
+bounded append-only recovery. Its local synthetic package and local Chrome
+rendering do not prove attended live browser interaction or authorize a real
+trial. Same Second now contains formed/challenged non-executing candidate
+`V3-SS-PHASE0-GATE-001` for a separate file-only decision-closure decision.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 

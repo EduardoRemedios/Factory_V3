@@ -1,7 +1,7 @@
 # Factory V3 Deterministic Serial Mission-State Kernel
 
 ## Version
-v0.12
+v0.13
 
 ## Status
 Research-only, advisory, and non-enforcing.
@@ -54,6 +54,13 @@ Version v0.12 records sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional
 attended aid subordinate to exact authored mission authority. Adoption grants
 no transition, live-use, task, worker, or runtime authority and changes no state
 schema, CLI, or authority behavior.
+
+Version v0.13 records Same Second `V3-SS-MVP-READINESS-001` as a bounded
+four-child synthetic-readiness pass at revision 36/event 37. The kernel
+preserved guessed-reference and browser-capability safe holds, bounded
+append-only recovery, fresh-task replay, and honest parent closeout. It also
+records the first natural eligible optional deep-link-aid use. This changes no
+state schema, CLI, transition, or authority behavior.
 
 This kernel calculates and persists state decisions for an authored serial
 mission graph. It does not dispatch workers, execute implementation or

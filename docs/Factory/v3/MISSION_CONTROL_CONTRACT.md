@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.19
+v0.20
 
 ## Change Log
+- v0.20 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` as a bounded passed four-child synthetic readiness epic at revision 36/event 37 and the first natural eligible use of the optional deep-link aid. Guessed-reference and browser-capability safe holds plus bounded append-only recoveries remain explicit. The next gate is a separate decision on challenged non-executing `V3-SS-PHASE0-GATE-001`; no real trial, participant activity, service selection/connection, adapter, runtime authority, or promotion is added.
 - v0.19 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid subordinate to exact authored mission authority, explicit per-mission naming, deterministic evidence, human review/Send, and manual fallback. Adoption alone adds no transition, live-use, worker, automatic task-control, adapter, or runtime authority.
 - v0.18 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. The candidate makes authored mission authority, per-mission explicit naming, human review/Send, deterministic evidence, and manual fallback mandatory; it adds no live-use authority, default task creation, automatic Send, adapter, or runtime authority.
 - v0.17 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence supports the bounded human-reviewed deep-link handoff and unchanged empty workspace, while task identity/status, byte-level transport, full-path UI proof, and hidden-activity proof remain absent. The next gate is an optional attended-aid adoption decision; no automatic task control, adapter, or runtime authority is added.
@@ -235,11 +236,13 @@ Non-transferable or insufficient:
    - Trial 002 observation: broad initial orientation reportedly exposed the co-located key and prior-trial content before a brief; the kernel failed closed and no product work began.
    - Trial 003 observation: external commitment-and-reveal passed 23/23 and the serial state closed; independent closeout found a product-test false negative, and separately authorized R1 repaired it without changing the protocol evidence or integrating product work.
    - Evidence: Same Second `V3-SS-EPIC-001` passed one bounded attended three-child serial mission with fresh-task replay and separate parent verification.
+   - Readiness evidence: Same Second `V3-SS-MVP-READINESS-001` passed one useful four-child synthetic-only serial mission at revision 36/event 37, including fresh-task replay, two safe holds, bounded append-only recovery, and parent verification.
    - Discovery result: approved no-probe `V3-CODEX-DISC-001` completed at `DEEPLINK_ASSIST_ONLY`; evidence lives under `task_surface_discovery/V3-CODEX-DISC-001/`.
    - Implementation result: `V3-CODEX-DL-001` added one deterministic stdlib helper, eight focused tests, portable fixtures, and closeout evidence without opening a link or creating a task.
    - Trial result: `V3-CODEX-DL-TRIAL-001` completed once at `PASS_WITH_LIMITATIONS` without retry; retained evidence supports the visible attended handoff and unchanged empty workspace, not transport integrity, task status, or hidden-activity claims.
    - Adoption result: sponsor-approved `V3-CODEX-DL-ADOPT-001` recognizes the helper as an optional attended aid only after exact worker-task authority exists and the mission explicitly names the mechanism.
-   - Next gate: one natural eligible use inside a separately approved useful mission.
+   - Natural-use result: `V3-SS-MVP-READINESS-001` used the optional aid once under an exact approved handoff; human Send and absent transport/task-status proof remain explicit.
+   - Next gate: a separate sponsor decision on challenged non-executing `V3-SS-PHASE0-GATE-001`, which is a file-only decision-closure candidate and not a real trial.
 
 ## Non-Goals
 - No loop runner.
@@ -254,10 +257,9 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. use approved `V3-CODEX-DL-ADOPT-001` only in a separately approved useful mission that explicitly satisfies and names its contract,
-2. collect bounded natural friction, fallback, and anomaly evidence,
-3. preserve the explicit absence of transport-integrity and task-status proof,
-4. keep automatic task control and worker adapters in a later separately formed lane,
-5. collect natural negative-case and upper-envelope continuity evidence only through useful separately approved work.
+1. decide separately whether to execute challenged non-executing Same Second `V3-SS-PHASE0-GATE-001` as a file-only, Factory-controlled decision-closure gate,
+2. preserve the completed natural-use evidence and explicit absence of transport-integrity and task-status proof,
+3. keep any real trial, participant activity, service selection/connection, automatic task control, and worker adapter behind later separate decisions,
+4. collect bounded natural friction, fallback, anomaly, negative-case, and upper-envelope evidence only through useful separately approved work.
 
 Do not start runtime orchestration or scheduled execution from this document.

@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.71
+v1.72
 
 ## Change Log
+- v1.72 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` as a bounded passed four-child synthetic readiness epic at revision 36/event 37 and the first natural eligible use of the optional deep-link aid. The completed commit is integrated locally on Same Second `main`; human Send, append-only recovery, same-harness, rendering-only, and no-transport/task-status limits remain explicit. The next gate is a separate decision on challenged non-executing `V3-SS-PHASE0-GATE-001`, a file-only decision-closure candidate. No real trial, participant activity, external-service selection/connection, native implementation, runtime authority, required gate, or promotion is approved.
 - v1.71 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under the exact challenged contract. Each use still requires existing exact mission authority, explicit per-mission naming, short non-sensitive authored prompts, deterministic preparation evidence, human review/Send, and manual fallback. Adoption recording created no live link/task, helper change, default use, standing authorization, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion. The next evidence target is one natural eligible use inside a separately approved useful mission.
 - v1.70 (2026-07-16): Formed and challenged non-executing optional attended-aid candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The repaired contract requires already-approved exact worker-task authority, per-mission explicit naming, short non-sensitive prompt artifacts, authored-state control, deterministic preparation evidence, human review/Send, and manual fallback. It approves no live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion.
 - v1.69 (2026-07-16): Completed attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. Retained evidence shows the intended project name, complete visible synthetic prompt, exact acknowledgment, no visible tool/permission cards, and an unchanged empty workspace; missing pre-Send, full-path, task-ID/status, byte-level transport, and hidden-activity proof remain explicit. The next separate gate is an optional attended-aid adoption decision. Automatic task control, CLI repair, app-server/SDK/MCP, dependencies, credentials, adapter implementation, runtime authority, required gates, and profile promotion remain unapproved.
@@ -486,7 +487,7 @@ Mission-health signals may become recommended advisory evidence only after they 
 
 ## Phase 4.7 - Serial Epic Mission Graph And State Kernel
 
-Status: Research-only graph and deterministic state implementation exists. `SERIAL_MISSION_GRAPH_CONTRACT.md` and its advisory validator cover parent authority ceilings, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, authored-state/event templates, deterministic fixtures, and focused tests add pure transitions, optimistic revisions, divergence detection, and non-authorizing derived decisions. Same Second `V3-SS-EPIC-001` now supplies one bounded passed attended three-child pilot with a fresh non-forked task boundary and separate parent verification. No worker adapter, dispatch, command execution, concurrency, runtime authority, required gate, or profile promotion is approved.
+Status: Research-only graph and deterministic state implementation exists. `SERIAL_MISSION_GRAPH_CONTRACT.md` and its advisory validator cover parent authority ceilings, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, authored-state/event templates, deterministic fixtures, and focused tests add pure transitions, optimistic revisions, divergence detection, and non-authorizing derived decisions. Same Second `V3-SS-EPIC-001` supplies one bounded passed attended three-child pilot; `V3-SS-MVP-READINESS-001` adds a useful four-child synthetic-readiness epic with fresh-task replay, safe holds, bounded append-only recovery, and separate parent verification. No worker adapter, dispatch, command execution, concurrency, runtime authority, required gate, or profile promotion is approved.
 
 Goal:
 
@@ -758,7 +759,8 @@ Status update (2026-07-16, attended pilot and discovery closeout): Same Second
 fresh non-forked task boundary. Parent state closed at revision 18/event 19;
 independent Factory replay reproduced 18 Python tests, 6 Node tests, graph/state
 passes, evidence hashes, scope chronology, and stopped-server state. The product
-branch remains unpushed and unmerged. Separately approved no-probe
+commit is now an ancestor of the locally integrated MVP-readiness baseline;
+nothing was pushed. Separately approved no-probe
 `V3-CODEX-DISC-001` completed at `DEEPLINK_ASSIST_ONLY`; its source inventory,
 capability matrix, and decision record no native task controls in this task, a
 missing local CLI runtime, and deep-link prefill that still requires human Send.
@@ -778,11 +780,21 @@ optional attended aid. Its exact contract prevents adoption from becoming
 default use, standing task authority, a transport-proof claim, or an implicit
 worker adapter. No live use was performed during adoption recording.
 
+Status update (2026-07-18, MVP-readiness closeout): Same Second
+`V3-SS-MVP-READINESS-001` supplied the first natural eligible use of
+`V3-CODEX-DL-ADOPT-001` and completed four serial children at revision 36/event
+37. The helper retained human Send and authored-state replay; no transport or
+task-status proof was created. The mission preserved two guessed-reference safe
+holds and bounded append-only recoveries, and its C04 evidence proves local
+Chrome rendering rather than attended live browser interaction. The completed
+commit is integrated locally on Same Second `main` and remains unpushed.
+
 The recommended next moves, in order:
 
-1. Collect one natural eligible use inside a separately approved useful mission that explicitly names `V3-CODEX-DL-ADOPT-001`.
-2. Keep any native-task probe, CLI repair, app-server/SDK/MCP, dependency, credential, automatic Send, task-status adapter, or full-automation research in a separate later mission.
-3. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
+1. Decide separately whether to execute challenged non-executing Same Second candidate `V3-SS-PHASE0-GATE-001` as a file-only, Factory-controlled decision-closure gate; it is not a real trial.
+2. Keep participant activity, real data/media, consent, moderation, deletion, service selection/connection, a no-media rehearsal, and any real trial behind later explicit human and qualified-review decisions.
+3. Keep any native-task probe, CLI repair, app-server/SDK/MCP, dependency, credential, automatic Send, task-status adapter, or full-automation research in a separate later mission.
+4. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
 
 The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 

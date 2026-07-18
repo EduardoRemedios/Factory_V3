@@ -1,9 +1,10 @@
 # Factory V3 Serial Mission-Graph Contract
 
 ## Version
-v0.13
+v0.14
 
 ## Change Log
+- v0.14 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` as a bounded passed four-child synthetic-readiness mission at revision 36/event 37, with fresh-task replay, safe holds, bounded append-only recoveries, and parent verification. The mission also supplied the first natural eligible deep-link-aid use. The next gate is a separately governed non-executing Phase 0 decision-closure candidate; no worker adapter, trial, dispatch, concurrency, runtime authority, or promotion is added.
 - v0.13 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid that remains subordinate to exact graph/mission authority and cannot activate a child or start a worker by itself. The next evidence target is one natural eligible use inside a separately approved useful mission; no worker adapter or runtime authority is added.
 - v0.12 (2026-07-16): Added challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS`. Its contract requires graph/mission authority before any attended handoff and adds no child activation, worker dispatch, automatic task control, or runtime authority. The next gate is a separate sponsor adoption decision.
 - v0.11 (2026-07-16): Recorded attended `V3-CODEX-DL-TRIAL-001` at `PASS_WITH_LIMITATIONS` without retry. It supplies bounded evidence for a human-reviewed deep-link handoff but adds no graph authority, worker adapter, automatic task control, dispatch, or runtime authority. The next separate gate is optional attended-aid adoption.
@@ -114,6 +115,6 @@ hidden-tool absence, automatic task creation, or worker dispatch. The next
 separate gate was challenged candidate `V3-CODEX-DL-ADOPT-001`, which is now
 sponsor-approved as an optional attended aid. It remains subordinate to exact
 authored graph/mission authority and cannot activate a child or start a worker
-by itself. The next evidence target is one natural eligible use inside a
-separately approved useful mission. Worker adapters and runtime authority remain
-outside this contract.
+by itself. Same Second `V3-SS-MVP-READINESS-001` later supplied one natural
+eligible use under that exact attended contract. Worker adapters and runtime
+authority remain outside this contract.
