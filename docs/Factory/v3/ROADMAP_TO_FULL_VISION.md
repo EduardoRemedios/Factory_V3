@@ -1,9 +1,10 @@
 # Factory v3 Roadmap To Full Vision
 
 ## Version
-v1.72
+v1.73
 
 ## Change Log
+- v1.73 (2026-07-20): Recorded Same Second `V3-SS-PHASE0-GATE-001` as a passed bounded decision-closure mission at revision 25/event 26 while preserving `BLOCKED_MISSING_DECISIONS`, 16 OPEN decisions, and no trial authority. Formed/challenged non-executing `V3-CODEX-SDK-RO-001` at `MORE DISCOVERY` for one later attended read-only synthetic thread start/resume observation. The next gate is a file-only runtime/package/authentication prerequisite pack and repaired challenge, not installation or a live probe.
 - v1.72 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` as a bounded passed four-child synthetic readiness epic at revision 36/event 37 and the first natural eligible use of the optional deep-link aid. The completed commit is integrated locally on Same Second `main`; human Send, append-only recovery, same-harness, rendering-only, and no-transport/task-status limits remain explicit. The next gate is a separate decision on challenged non-executing `V3-SS-PHASE0-GATE-001`, a file-only decision-closure candidate. No real trial, participant activity, external-service selection/connection, native implementation, runtime authority, required gate, or promotion is approved.
 - v1.71 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under the exact challenged contract. Each use still requires existing exact mission authority, explicit per-mission naming, short non-sensitive authored prompts, deterministic preparation evidence, human review/Send, and manual fallback. Adoption recording created no live link/task, helper change, default use, standing authorization, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion. The next evidence target is one natural eligible use inside a separately approved useful mission.
 - v1.70 (2026-07-16): Formed and challenged non-executing optional attended-aid candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The repaired contract requires already-approved exact worker-task authority, per-mission explicit naming, short non-sensitive prompt artifacts, authored-state control, deterministic preparation evidence, human review/Send, and manual fallback. It approves no live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion.
@@ -122,12 +123,12 @@ Factory v3 has achieved an operational bridgehead, not the full platform.
 
 ## Current Decision Queue
 
-This queue is the near-term sequencing order as of 2026-07-16. It is an orientation aid, not approval to execute any mission.
+This queue is the near-term sequencing order as of 2026-07-20. It is an orientation aid, not approval to execute any mission.
 
 | Rank | Decision or artifact | Why it is next | Required artifact | Approval needed | Explicit non-approval |
 | --- | --- | --- | --- | --- | --- |
-| 1 | First natural optional-aid use | `V3-CODEX-DL-ADOPT-001` is approved, but only one synthetic trial exists | An exact useful mission envelope that names the aid plus bounded preparation/human/fallback evidence | Separate mission approval | Adoption alone grants no helper run, task, Send, worker, retry, or product authority |
-| 2 | Full-automation research decision | App-server/SDK/exec/MCP document stronger primitives but require a working runtime, process, dependency, credential, or live task effect | New formation/challenge naming exactly one surface and its evidence/probe boundary | Later sponsor decision | No CLI repair, install, server start, native-task probe, or automatic fallback by implication |
+| 1 | Same Second Phase 0 decision closure | The bounded gate mission passed, but all 16 real-world decisions remain OPEN | Qualified human dispositions and durable evidence under separately approved authority | Separate decision authority per domain | No trial candidate, participant activity, provider action, real data/media, or native work |
+| 2 | `V3-CODEX-SDK-RO-001` prerequisite pack | The two-turn trial is formed, but no compatible runtime, pinned SDK integrity, or approved auth path is proved | File-only exact runtime/package/auth/path/prompt/event/retention decision pack plus repaired challenge | Separate prerequisite and later execution approvals | No install, authentication, process, thread, external call, worker, retry, adapter, or runtime authority |
 | 3 | Natural negative-case, mission-health, and endurance evidence | The corpus still lacks a natural sustained negative case and upper-envelope continuity evidence | Evidence attached opportunistically to separately approved useful work | Per-candidate approval before execution | No manufactured failure, duration, calls, waypoints, scope, thresholds, or routing |
 
 ## Loop-Governance Primitives From Loop-Library Review
@@ -487,7 +488,7 @@ Mission-health signals may become recommended advisory evidence only after they 
 
 ## Phase 4.7 - Serial Epic Mission Graph And State Kernel
 
-Status: Research-only graph and deterministic state implementation exists. `SERIAL_MISSION_GRAPH_CONTRACT.md` and its advisory validator cover parent authority ceilings, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, authored-state/event templates, deterministic fixtures, and focused tests add pure transitions, optimistic revisions, divergence detection, and non-authorizing derived decisions. Same Second `V3-SS-EPIC-001` supplies one bounded passed attended three-child pilot; `V3-SS-MVP-READINESS-001` adds a useful four-child synthetic-readiness epic with fresh-task replay, safe holds, bounded append-only recovery, and separate parent verification. No worker adapter, dispatch, command execution, concurrency, runtime authority, required gate, or profile promotion is approved.
+Status: Research-only graph and deterministic state implementation exists. `SERIAL_MISSION_GRAPH_CONTRACT.md` and its advisory validator cover parent authority ceilings, bounded child features, acyclic dependencies, one-active-or-start-authorized-child discipline, child verification/evidence, and parent closeout. `SERIAL_MISSION_STATE_KERNEL.md`, `scripts/factory_v3_serial_mission_state.py`, authored-state/event templates, deterministic fixtures, and focused tests add pure transitions, optimistic revisions, divergence detection, and non-authorizing derived decisions. Same Second `V3-SS-EPIC-001` supplies one bounded passed attended three-child pilot; `V3-SS-MVP-READINESS-001` adds a useful four-child synthetic-readiness epic; `V3-SS-PHASE0-GATE-001` adds a passed four-child decision-closure mission whose product gate honestly remains `BLOCKED_MISSING_DECISIONS`. No worker adapter, dispatch, command execution, concurrency, runtime authority, required gate, or profile promotion is approved.
 
 Goal:
 
@@ -718,14 +719,12 @@ Before making this repository V3-only, also confirm:
 - [ ] human release approval explicitly authorizes V2 scaffolding removal from this repository.
 
 ## Recommended Next Move
-Use sponsor-approved `V3-CODEX-DL-ADOPT-001` only in the next separately
-approved useful mission whose exact envelope explicitly names the aid and
-satisfies its short non-sensitive prompt, authored-state, deterministic
-evidence, human review/Send, and manual fallback rules. Collect bounded natural
-friction and anomaly evidence. Do not infer live use from adoption alone,
-default use, standing authorization, automatic task creation, task status,
-worker dispatch, CLI repair, app-server/SDK/MCP, dependencies, credentials, or
-runtime authority.
+Keep Same Second at `BLOCKED_MISSING_DECISIONS` until qualified human
+dispositions and durable evidence close all 16 blocking decisions under
+separate authority. In the independent worker-transport lane, prepare the
+file-only prerequisite pack for `V3-CODEX-SDK-RO-001`, then re-challenge it.
+Do not install a runtime/SDK, authenticate, start a process/thread, make a
+service call, or implement an adapter from this roadmap.
 Collect endurance evidence only from useful missions that naturally exercise
 more of the up-to-four-hour envelope; never prolong or enlarge work to hit time,
 call, waypoint, test, file, or scope targets.
@@ -787,14 +786,27 @@ Status update (2026-07-18, MVP-readiness closeout): Same Second
 task-status proof was created. The mission preserved two guessed-reference safe
 holds and bounded append-only recoveries, and its C04 evidence proves local
 Chrome rendering rather than attended live browser interaction. The completed
-commit is integrated locally on Same Second `main` and remains unpushed.
+commit is integrated on Same Second `main`.
+
+Status update (2026-07-20, decision closure and SDK candidate): Same Second
+`V3-SS-PHASE0-GATE-001` completed its four-child file-only mission at revision
+25/event 26 with pass/PROVED evidence. The mission passes as bounded decision
+closure, while the product result remains `BLOCKED_MISSING_DECISIONS` because
+all 16 blocking decisions are OPEN. Same Second `main` and `origin/main` now
+contain completed commit `67bea50b0debaf9dbff12c90721a97d1b8a17226`.
+Separately, `V3-CODEX-SDK-RO-001` is formed and challenged at
+`MORE DISCOVERY`. Node/npm are absent, `/usr/bin/python3` is 3.9.6, no healthy
+compatible alternative is pinned, and SDK integrity/authentication remain
+unapproved. No installation, process, thread, external call, worker, adapter,
+or product action occurred.
 
 The recommended next moves, in order:
 
-1. Decide separately whether to execute challenged non-executing Same Second candidate `V3-SS-PHASE0-GATE-001` as a file-only, Factory-controlled decision-closure gate; it is not a real trial.
-2. Keep participant activity, real data/media, consent, moderation, deletion, service selection/connection, a no-media rehearsal, and any real trial behind later explicit human and qualified-review decisions.
-3. Keep any native-task probe, CLI repair, app-server/SDK/MCP, dependency, credential, automatic Send, task-status adapter, or full-automation research in a separate later mission.
-4. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
+1. Close Same Second's 16 blocking decisions only through separately approved qualified-human work; do not form or run a trial yet.
+2. Produce the non-executing `V3-CODEX-SDK-RO-001` prerequisite pack naming one exact compatible runtime, SDK package/version/source/integrity, isolated paths, auth disposition, prompt/fixture hashes, event fields, and retention policy.
+3. Re-challenge the repaired SDK candidate before any exact sponsor execution decision; the later trial remains one attended synthetic read-only start/resume with no retry or adapter.
+4. Keep participant activity, real data/media, consent, moderation, deletion, service selection/connection, native work, and any real trial behind later explicit human and qualified-review decisions.
+5. Collect natural negative-case and upper-envelope continuity evidence only through separately approved useful work.
 
 The candidate proof scope remains the internal/private personal health and fitness tracker. Synthetic data may accelerate design and build, but Garmin-backed evidence must be labeled separately, and the POC workspace must not import V2 stage, pack, lint, fallback, or recovery machinery.
 

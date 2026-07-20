@@ -1,9 +1,10 @@
 # Codex SDK And MCP Orchestration Direction
 
 ## Version
-v0.10
+v0.11
 
 ## Change Log
+- v0.11 (2026-07-20): Recorded Same Second `V3-SS-PHASE0-GATE-001` as passed bounded decision closure with product result `BLOCKED_MISSING_DECISIONS`. Added non-executing SDK-only candidate `V3-CODEX-SDK-RO-001`, challenged at `MORE DISCOVERY` for one later attended synthetic read-only thread start/resume. No compatible runtime, pinned SDK integrity, or approved authentication is yet proved; the next gate is a file-only prerequisite pack and repaired challenge, not installation or execution.
 - v0.10 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` as the first natural eligible use of the optional attended deep-link aid. The useful four-child mission retained an authored 243-byte prompt, deterministic preparation evidence, human review/Send, fresh-task replay, and manual safe-hold/recovery. The observation does not prove transport integrity, task identity/status, automatic Send, adapter behavior, or runtime authority. The next gate is a separate non-executing Phase 0 decision-closure candidate; full automation remains unapproved.
 - v0.9 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under its exact per-mission eligibility, evidence, human review/Send, and fallback contract. Adoption alone creates no live-use or task authority. The next evidence target is one natural eligible use; full automation remains separately governed and unapproved.
 - v0.8 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. It requires existing exact mission authority, per-mission explicit use, non-sensitive prompts, authored-state control, deterministic evidence, human review/Send, and manual fallback. No live use, default use, automatic task control, task status, SDK/MCP, adapter, or runtime authority is approved.
@@ -151,6 +152,22 @@ authority, per-mission naming, human Send, deterministic evidence, and manual
 fallback controlling. Adoption alone permits no live use. App-server, SDK,
 exec, and MCP remain later lanes requiring their own runtime, dependency,
 credential, process, probe, and authority decisions.
+
+Same Second `V3-SS-PHASE0-GATE-001` subsequently completed as
+`PASS_BOUNDED_DECISION_CLOSURE` while the activation result remained
+`BLOCKED_MISSING_DECISIONS`. That product decision does not grant worker
+transport authority.
+
+`CODEX_SDK_READ_ONLY_TRIAL_FORMATION_20260720.md` and its challenge now define
+non-executing SDK-only candidate `V3-CODEX-SDK-RO-001`. The trial shape is one
+attended synthetic read-only thread start and one same-thread resume, with an
+isolated controller, fixture-only target, event/snapshot evidence, human
+checkpoints, and no retry or adapter behavior. Challenge verdict is
+`MORE DISCOVERY`: this harness lacks Node/npm, `/usr/bin/python3` is below the
+documented Python SDK minimum, no healthy compatible alternative is pinned, and
+SDK package integrity plus authentication remain unapproved. The next gate is a
+file-only prerequisite pack and repaired challenge. No runtime, SDK, process,
+thread, external call, or worker action has occurred.
 
 ## Boundary
 This document does not change the current approved optional operational profile:

@@ -1,6 +1,6 @@
 # ROADMAP.md - Factory V3 Roadmap
 
-> Last updated: 2026-07-18
+> Last updated: 2026-07-20
 
 ## Current State
 
@@ -14,10 +14,11 @@ The intended future state is V3 as a separate product with no V2 dependency in t
 
 This queue is sequencing guidance only. It does not approve execution, promotion, required gates, runtime authority, real-data use, scheduled work, or V2 removal.
 
-1. Use sponsor-approved `V3-CODEX-DL-ADOPT-001` only in the next separately approved useful mission whose exact envelope explicitly names the helper and satisfies its non-sensitive input, deterministic evidence, human review/Send, and manual fallback rules. Collect bounded natural-use friction and anomaly evidence.
-2. Keep the aid optional and non-default; do not infer standing task authority, transport proof, or required-gate status from adoption.
-3. Keep full automation separate. Any native-task control, CLI repair, app-server/SDK/MCP process, dependency, credential, task-status adapter, automatic Send, or workspace-write worker orchestration requires a new formation/challenge and exact sponsor Go.
-4. Capture natural fallback, recovery, stale-reentry, failed-verification, mission-health, and endurance-continuity signals opportunistically; do not manufacture failures, duration, calls, waypoints, or scope.
+1. Keep Same Second at `BLOCKED_MISSING_DECISIONS` until all 16 blocking Phase 0 decisions receive qualified human dispositions and durable evidence under separately approved authority. Do not form or run a real trial from the passed decision-closure mission.
+2. Prepare the non-executing prerequisite decision pack for `V3-CODEX-SDK-RO-001`: one exact compatible runtime, SDK package/version/source/integrity, isolated controller/target paths, authentication disposition, final prompt/fixture hashes, event expectations, and retention policy. Do not install, authenticate, start a process, or create a thread during that preparation.
+3. Re-challenge the repaired SDK candidate before any sponsor execution decision. Keep the trial to one attended synthetic read-only thread start and one same-thread resume, with no retry, adapter, automatic state transition, or runtime authority.
+4. Keep the deep-link aid optional and non-default; collect further natural-use friction only inside separately approved useful missions.
+5. Capture natural fallback, recovery, stale-reentry, failed-verification, mission-health, and endurance-continuity signals opportunistically; do not manufacture failures, duration, calls, waypoints, or scope.
 
 Endurance rule: the candidate long-running profile is intended to preserve objective, authority, checkpoint, re-entry, verification, evidence, and output quality for missions that naturally require up to roughly four hours. Mission completion is not duration based. A correct two- or three-hour finish passes the mission and must stop; it may leave only the unobserved upper endurance range insufficiently evidenced.
 
@@ -44,9 +45,9 @@ Endurance rule: the candidate long-running profile is intended to preserve objec
 - Initial non-executing mission-formation skills now exist for V3 discovery and challenge work, with dry-run trial evidence. The next evidence target is live use in real V3/Harmony conversations before the skills can become recommended V3 intake aids.
 - Mission Health and Continuation Judgment is now tracked as a research-only Phase 4.6 roadmap lane with a defined advisory vocabulary at `docs/Factory/v3/MISSION_HEALTH_VOCABULARY.md` (six citation-grounded signals recorded at checkpoints). It does not approve schema changes, validators, gates, routing authority, runtime-control power, required checkpoint fields, or default-mode behavior.
 - Loop Governance has three reviewed natural optional evidence-integrity samples. The review decision is `KEEP_OPTIONAL_NO_SCHEMA_CHANGE`. Trials 001 and 002 failed closed; Trial 003 passed 23/23 under external commitment-and-reveal. Its original product verification missed an exact-path defect, which R1 repaired separately; this is an implementation-test false negative, not a demonstrated mission-record-validator false negative.
-- Serial epic governance now has a research-only mission graph, deterministic authored-state kernel, live fresh-task evidence, a bounded three-child pilot, a bounded four-child synthetic MVP-readiness epic, task-surface discovery, deterministic deep-link assist, an attended link trial at `PASS_WITH_LIMITATIONS`, sponsor-approved optional aid `V3-CODEX-DL-ADOPT-001`, and its first natural eligible use. The next gate is a separate sponsor decision on Same Second's challenged, non-executing `V3-SS-PHASE0-GATE-001` file-only decision-closure candidate. A real trial, participant activity, external tools/services, native implementation, worker dispatch, automatic task control, adapter implementation, concurrency, unattended execution, and profile promotion remain unapproved.
+- Serial epic governance now has a research-only mission graph, deterministic authored-state kernel, live fresh-task evidence, bounded three- and four-child Same Second missions, deterministic deep-link assist, an attended link trial, optional-aid adoption/natural use, and a passed four-child Phase 0 decision-closure mission whose activation result is correctly `BLOCKED_MISSING_DECISIONS`. All 16 product decisions remain open; no real trial candidate or authority exists.
 - Use `docs/Factory/v3/ANCHOR_REGISTRY.md` as a pointer-first cold-start map for future model onboarding and decision-pack preparation. Keep it research-only and update it only when it reduces audit cost without becoming a second source of truth.
-- Capture Codex SDK/MCP orchestration as a follow-on research spike: test whether Factory/Harmony can programmatically supervise Codex as a worker runtime while preserving mission records, sandbox discipline, human approval, verification evidence, and halt behavior. Start read-only; do not treat the spike as approval for unattended execution or runtime authority.
+- `V3-CODEX-SDK-RO-001` is the formed/challenged SDK follow-on at `MORE DISCOVERY`. Its next gate is a non-executing prerequisite decision pack and repaired challenge, not installation or a live probe. Any later trial remains one attended read-only synthetic thread start/resume observation and cannot implement an adapter or grant runtime authority.
 - Keep the Codex Security scan follow-up narrow: advisory validator hardening is acceptable, but it does not create required gates, routing authority, default-mode promotion, or reduced-governance thresholds.
 - Continue Phase 2 structured mission-record use in shadow/advisory mode; valid completed, pre-envelope fallback, halted, stale-reentry, and blocked examples now exist.
 - Preserve current V2 fallback language and non-deprecation guarantees until explicit V3 confidence evidence approves the repository transition.

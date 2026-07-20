@@ -1,9 +1,10 @@
 # Factory v3
 
 ## Version
-v1.60
+v1.61
 
 ## Change Log
+- v1.61 (2026-07-20): Recorded Same Second `V3-SS-PHASE0-GATE-001` as `PASS_BOUNDED_DECISION_CLOSURE` at revision 25/event 26 while preserving the distinct product result `BLOCKED_MISSING_DECISIONS`, 16 OPEN decisions, and no trial authority. Same Second `main` and `origin/main` contain the completed evidence. Added non-executing `V3-CODEX-SDK-RO-001`, challenged at `MORE DISCOVERY` for one later attended synthetic read-only thread start/resume observation. Missing compatible runtime, pinned SDK integrity, and approved authentication keep execution not ready; no install, process, thread, worker, adapter, external call, runtime authority, or promotion occurred.
 - v1.60 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` at `PASS_BOUNDED_SYNTHETIC_MVP_READINESS_EPIC`: four serial children closed at revision 36/event 37 with pass/PROVED evidence, bounded append-only recoveries, 40 Python tests, 11 JavaScript tests, and rendering-only local Chrome evidence. The mission supplied the first natural eligible use of the optional deep-link aid, retaining human Send and absent transport/task-status proof. Added challenged non-executing `V3-SS-PHASE0-GATE-001` at `CONDITIONAL PASS` for a separate file-only decision-closure decision; no trial, participant activity, real data/media, external-service selection/connection, native work, push, merge, runtime authority, or promotion is approved.
 - v1.59 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid under the exact challenged per-mission contract. Adoption requires existing worker-task authority, explicit mission naming, short non-sensitive authored prompts, deterministic preparation evidence, human review/Send, and manual fallback. It authorizes no live use by itself and adds no default mode, standing task authority, helper change, automatic Send, task status, SDK/MCP, adapter, gate, runtime authority, or profile promotion.
 - v1.58 (2026-07-16): Formed and challenged non-executing `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor adoption decision. The candidate permits only optional per-mission explicit use for short non-sensitive prompts after exact worker-task authority already exists, with authored state controlling, deterministic preparation evidence, human review/Send, and manual fallback. No live use, default use, standing authorization, helper change, automatic Send, task status, SDK/MCP, adapter, required gate, runtime authority, or profile promotion is approved.
@@ -180,6 +181,9 @@ Any V3 profile beyond `V3-OP-001`, any default-mode promotion, or any required-g
 - `ladder/rung3/MISSION_026_FP_FN_ADJUDICATION_20260712.md`
 - `MISSION_FORMATION_DIRECTION.md`
 - `CODEX_SDK_ORCHESTRATION_DIRECTION.md`
+- `PHASE0_DECISION_CLOSURE_GATE_001_REVIEW_20260720.md`
+- `CODEX_SDK_READ_ONLY_TRIAL_FORMATION_20260720.md`
+- `CODEX_SDK_READ_ONLY_TRIAL_CHALLENGE_20260720.md`
 - `ROADMAP_TO_FULL_VISION.md`
 - `ROADMAP_PREMORTEM.md`
 - `skill_trials/mission_formation/`
@@ -298,8 +302,21 @@ eligible use inside completed Same Second `V3-SS-MVP-READINESS-001`. The useful
 four-child mission closed at revision 36/event 37 with pass/PROVED evidence and
 bounded append-only recovery. Its local synthetic package and local Chrome
 rendering do not prove attended live browser interaction or authorize a real
-trial. Same Second now contains formed/challenged non-executing candidate
-`V3-SS-PHASE0-GATE-001` for a separate file-only decision-closure decision.
+trial.
+
+`PHASE0_DECISION_CLOSURE_GATE_001_REVIEW_20260720.md` records completed Same
+Second `V3-SS-PHASE0-GATE-001` as `PASS_BOUNDED_DECISION_CLOSURE` at revision
+25/event 26. The separate product result remains
+`BLOCKED_MISSING_DECISIONS`: all 16 blocking decisions are OPEN, and no trial
+candidate or authority exists. Same Second `main` and `origin/main` contain the
+completed mission.
+
+`CODEX_SDK_READ_ONLY_TRIAL_FORMATION_20260720.md` and its challenge define
+non-executing `V3-CODEX-SDK-RO-001` for one later attended synthetic read-only
+thread start/resume observation. Challenge verdict is `MORE DISCOVERY` because
+no compatible working controller runtime, pinned SDK integrity, or approved
+authentication path is established. The next gate is a file-only prerequisite
+pack and repaired challenge, not installation or live execution.
 
 The validator is standalone and advisory. It emits `blocking_effect: none`, supports deterministic `--expect` fixture checks, and is not wired into required Factory gates.
 

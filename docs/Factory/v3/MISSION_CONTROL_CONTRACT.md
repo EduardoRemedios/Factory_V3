@@ -1,9 +1,10 @@
 # Factory V3 Mission-Control Contract
 
 ## Version
-v0.20
+v0.21
 
 ## Change Log
+- v0.21 (2026-07-20): Recorded Same Second `V3-SS-PHASE0-GATE-001` as passed bounded decision closure at revision 25/event 26 while preserving `BLOCKED_MISSING_DECISIONS`, 16 OPEN decisions, and no trial authority. Added non-executing `V3-CODEX-SDK-RO-001` at `MORE DISCOVERY`; its proposed start/resume transport remains subordinate to authored state and cannot install, dispatch, derive authority, verify, or close a mission.
 - v0.20 (2026-07-18): Recorded Same Second `V3-SS-MVP-READINESS-001` as a bounded passed four-child synthetic readiness epic at revision 36/event 37 and the first natural eligible use of the optional deep-link aid. Guessed-reference and browser-capability safe holds plus bounded append-only recoveries remain explicit. The next gate is a separate decision on challenged non-executing `V3-SS-PHASE0-GATE-001`; no real trial, participant activity, service selection/connection, adapter, runtime authority, or promotion is added.
 - v0.19 (2026-07-16): Recorded sponsor-approved `V3-CODEX-DL-ADOPT-001` as an optional attended aid subordinate to exact authored mission authority, explicit per-mission naming, deterministic evidence, human review/Send, and manual fallback. Adoption alone adds no transition, live-use, worker, automatic task-control, adapter, or runtime authority.
 - v0.18 (2026-07-16): Added formed/challenged non-executing optional adoption candidate `V3-CODEX-DL-ADOPT-001` at `PASS` for a separate sponsor decision. The candidate makes authored mission authority, per-mission explicit naming, human review/Send, deterministic evidence, and manual fallback mandatory; it adds no live-use authority, default task creation, automatic Send, adapter, or runtime authority.
@@ -242,7 +243,8 @@ Non-transferable or insufficient:
    - Trial result: `V3-CODEX-DL-TRIAL-001` completed once at `PASS_WITH_LIMITATIONS` without retry; retained evidence supports the visible attended handoff and unchanged empty workspace, not transport integrity, task status, or hidden-activity claims.
    - Adoption result: sponsor-approved `V3-CODEX-DL-ADOPT-001` recognizes the helper as an optional attended aid only after exact worker-task authority exists and the mission explicitly names the mechanism.
    - Natural-use result: `V3-SS-MVP-READINESS-001` used the optional aid once under an exact approved handoff; human Send and absent transport/task-status proof remain explicit.
-   - Next gate: a separate sponsor decision on challenged non-executing `V3-SS-PHASE0-GATE-001`, which is a file-only decision-closure candidate and not a real trial.
+   - Decision-closure result: `V3-SS-PHASE0-GATE-001` passed its file-only four-child mission at revision 25/event 26 while the product result remained `BLOCKED_MISSING_DECISIONS`; all 16 decisions are OPEN and no trial authority exists.
+   - SDK candidate: `V3-CODEX-SDK-RO-001` is formed/challenged at `MORE DISCOVERY` for one attended synthetic read-only start/resume observation. Its next gate is a file-only runtime/package/auth prerequisite pack and repaired challenge.
 
 ## Non-Goals
 - No loop runner.
@@ -257,9 +259,10 @@ Non-transferable or insufficient:
 ## Next Recommended Step
 Continue the design backlog in evidence-first advisory order:
 
-1. decide separately whether to execute challenged non-executing Same Second `V3-SS-PHASE0-GATE-001` as a file-only, Factory-controlled decision-closure gate,
-2. preserve the completed natural-use evidence and explicit absence of transport-integrity and task-status proof,
-3. keep any real trial, participant activity, service selection/connection, automatic task control, and worker adapter behind later separate decisions,
-4. collect bounded natural friction, fallback, anomaly, negative-case, and upper-envelope evidence only through useful separately approved work.
+1. preserve the Phase 0 mission-pass/product-block distinction and require qualified human closure of all 16 decisions before any trial candidate,
+2. prepare the non-executing runtime/package/auth prerequisite pack for `V3-CODEX-SDK-RO-001` and re-challenge before any live action,
+3. keep SDK thread state and output subordinate to authored Factory state; they may never activate, verify, resume, complete, or close a mission,
+4. keep any real trial, participant activity, service selection/connection, automatic task control, and worker adapter behind later separate decisions,
+5. collect bounded natural friction, fallback, anomaly, negative-case, and upper-envelope evidence only through useful separately approved work.
 
 Do not start runtime orchestration or scheduled execution from this document.
